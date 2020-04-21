@@ -1,0 +1,13 @@
+void swap_min(int *m[], unsigned rows, unsigned cols)
+{
+    int min=0, mind=m[0][0];
+    for(int i=0; i<rows; i++)
+        for(int j=0; j<cols; j++)
+            if(mind>m[i][j]){
+                mind=m[i][j];
+                min=i;
+            }
+    int  *temp=m[0];
+    m[0]=m[min];
+    m[min] = temp;
+}
