@@ -1,0 +1,11 @@
+int ** transpose(const int * const * m, unsigned rows, unsigned cols)
+{
+   int** mas = new int*[cols]; 
+for (int i=0; i<cols; ++i){
+    mas[i] = new int [rows];
+     for(int j=0;j<rows;j++)
+           mas[i][j]=m[j][i];
+}
+   return mas;
+}
+
