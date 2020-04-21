@@ -1,0 +1,9 @@
+/*НОД*/
+unsigned gcd(unsigned a, unsigned b)
+{
+    if(a>b)
+        return gcd( a-b,  b);
+    else if(a<b)
+        return gcd( a,  b-a);
+    else return a;
+}
