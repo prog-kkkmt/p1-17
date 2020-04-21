@@ -1,0 +1,12 @@
+void strcat(char *str, const char *from)
+{
+   while(*str!='\0'){
+       str++;
+   }
+     while(*from!='\0'){
+       *str = *from;
+       str++;
+       from++;
+   }
+    *str='\0';
+}
