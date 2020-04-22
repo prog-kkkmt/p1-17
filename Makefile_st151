@@ -1,0 +1,2 @@
+all: st151
+	g++ st151.cpp -o st151
