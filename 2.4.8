@@ -1,28 +1,10 @@
-int strstr(const char *str, const char *from)
+int strstr(const char *text, const char *pattern)
 {
-    int str_len=0, from_len=0, flag = 0;
-   while(*str!='\0'){
-       str++;
-       str_len++;
-   }
-    while(*from!='\0'){
-        from++;
-       from_len++;
-   }
-   str -= str_len;
-   from -= from_len;
-    for(int i=0; i<str_len-from_len+1; i++)
-    {
-        flag = -1;
-        for(int j=0; j<from_len; j++){
-				
-            if(str[i+j]==from[j])
-                flag++;
-            else break;
-        }
-        if(flag==from_len-1)
-            return i;
-
-    }
-    return -1;
+    if (!*pattern)
+		return 0;
+	for (int i = 0; *(text + i); i++)
+		for (int j = 0; *(text + i + j) == *(pattern + j) || (!*(pattern + j)); j++)
+			if (!*(pattern + j))
+				return i;
+	return -1;
 }
