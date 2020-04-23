@@ -1,4 +1,4 @@
-# IfNDef FOO_HPP
+# ifndef FOO_HPP
 # define  FOO_HPP
 void  foo ();
 # endif
