@@ -3,15 +3,19 @@ using namespace std;
 
 int main()
 {
-    char c;
-    while((c = getchar()) != EOF)
-    {
-        if(c == ' ')
+    char c = '\0';
+    int space = 0;
+    while (cin.get(c)) {
+        if (c == ' ' && space == 0)
+        {
+            space = 1;
+            cout << c;
+        }
+        if (c != ' ')
         {
             cout << c;
-            while((c = getchar()) == ' ');
+            space = 0;
         }
-           cout << c;
     }
-    return 0;
+	return 0;
 }
