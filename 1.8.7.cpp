@@ -13,7 +13,7 @@ int logarithm(int x)
 int main()
 {
     int x;
-    int t;
+    int T;
     cin >> T;
     for (int i = 0; i < T; i++)
     {
