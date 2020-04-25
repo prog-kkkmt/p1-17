@@ -1,6 +1,12 @@
+// определите только функцию power, где
+//    x - число, которое нужно возвести в степень
+//    p - степень, в которую нужно возвести x
+//
+
 int power(int x, unsigned p) {
-    int chislo = 1;
-    for(int i = 0; i < p; i++)
-        chislo *= x;
-    return chislo;
+    int answer = 1;
+    /* считаем answer */
+    for (int i = 0; i < p; ++i)
+        answer *= x;
+    return answer;
 }
