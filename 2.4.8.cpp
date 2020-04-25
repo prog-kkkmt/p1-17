@@ -1,3 +1,5 @@
+// Напишите функцию поиска первого вхождения шаблона в текст
+
 int strstr(const char *text, const char *pattern)
 {
     int index = 0;

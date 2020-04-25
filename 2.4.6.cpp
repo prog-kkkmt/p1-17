@@ -1,3 +1,5 @@
+// Напишите функцию, которая вычисляет длину C-style строки.
+
 unsigned strlen(const char *str)
 {
   unsigned i = 0;
