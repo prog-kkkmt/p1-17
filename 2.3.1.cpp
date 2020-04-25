@@ -3,7 +3,7 @@ void reverse(int a[], unsigned size){
     for(int i = 0; i < size - 1; i++){
         a[i] = a[i+1];
     }
-    a[size-1] = temp;
+    a[size-1] = temp;//последнему элементу массива присваивается первый элемент ,a[0]
 }
 void rotate(int a[], unsigned size, int shift){
     shift %= size; // cдвиг
