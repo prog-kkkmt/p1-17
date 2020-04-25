@@ -1,0 +1,2 @@
+all: st183
+	g++ st183.cpp -o st183
