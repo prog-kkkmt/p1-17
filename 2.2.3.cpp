@@ -1,18 +1,25 @@
 #include <iostream>
+
 using namespace std;
-void foo()
-{
-    int chislo;
-    cin >> chislo;
-    if (chislo != 0)
-    {          
-        foo();
-        cout << chislo << " ";
-    }
+int foo();
+int main()
+{    
+ foo();
+ return 0;
 }
 
-int main()
-{
-    foo();
-    return 0;
+int foo(){
+    int n = 0;
+    cin >> n;
+    if (n == 0) 
+    {
+        return 0;
+    }
+    else 
+    {
+        foo();
+        cout << n << " ";
+        return 0;
+    }   
+    
 }
