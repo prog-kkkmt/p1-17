@@ -13,10 +13,10 @@ void print_mas(int*, int);
 	setlocale(0, "");
 
 	int mas[N];
-	int *first_element = mas; // указатель изначально указывает на первый элемент массива.
+	int *first_element = mas; // СѓРєР°Р·Р°С‚РµР»СЊ РёР·РЅР°С‡Р°Р»СЊРЅРѕ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°.
 	counter(first_element, N);
-	cout << "Сумма = " << sum(first_element, N) << endl;
-	cout << "Макс эл-нт = " << search_max(first_element, N) << endl;
+	cout << "РЎСѓРјРјР° = " << sum(first_element, N) << endl;
+	cout << "РњР°РєСЃ СЌР»-РЅС‚ = " << search_max(first_element, N) << endl;
 	cout << endl;
 	print_mas(first_element, N);
 	cout << endl;
@@ -25,7 +25,7 @@ void print_mas(int*, int);
 
 
 void counter(int *start, int count) {
-	cout << "массив:\n";
+	cout << РњР°СЃСЃРёРІ:\n";
 	for (int i = 0; i < count; i++) {
 		int temporary_element;
 		cin >> temporary_element;
@@ -49,7 +49,7 @@ int search_max(int *start, int count){
 }
 
 void print_mas(int *start, int count) {
-	cout << "Вывод массива: ";
+	cout << "Р’С‹РІРѕРґ РјР°СЃСЃРёРІР°: ";
 	for (int i = 0; i < N; i++){
 		cout << start[i];
 		if (i == N - 1)
