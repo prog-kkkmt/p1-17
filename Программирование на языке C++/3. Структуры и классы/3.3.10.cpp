@@ -3,7 +3,7 @@
 
 struct String {
 
-    /* Ğåàëèçóéòå ıòîò êîíñòğóêòîğ */
+    /* ÃÃ¥Ã Ã«Ã¨Ã§Ã³Ã©Ã²Ã¥ Ã½Ã²Ã®Ã² ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã° */
 	String(const char *str = "") : size(strlen(str)), str(new char[strlen(str) + 1]) {
         strcpy(this->str, str);
     }
