@@ -7,7 +7,7 @@ struct String {
 	~String();
 
 
-    /* Реализуйте этот метод. */
+    /* ГђГҐГ Г«ГЁГ§ГіГ©ГІГҐ ГЅГІГ®ГІ Г¬ГҐГІГ®Г¤. */
 	void append(String &other) {
         size += other.size;
         char *temp = new char[size + 1];
