@@ -1,3 +1,5 @@
+// В этой задаче вам требуется реализовать конструктор
+
 #include <cstddef> // size_t
 #include <cstring> // strlen, strcpy
 
