@@ -7,7 +7,7 @@ struct String {
 	~String();
 
 
-    /* Реализуйте конструктор копирования */
+    /* ГђГҐГ Г«ГЁГ§ГіГ©ГІГҐ ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЄГ®ГЇГЁГ°Г®ГўГ Г­ГЁГї */
 	String(const String &other) : size(other.size), str(new  char[size + 1]) {
         strcpy(str, other.str);
     }
