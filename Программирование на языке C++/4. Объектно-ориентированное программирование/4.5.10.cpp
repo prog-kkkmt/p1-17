@@ -49,7 +49,7 @@ private:
 
 #include <iostream>
 
-/* Этот класс вам нужно реализовать */
+/* ГќГІГ®ГІ ГЄГ«Г Г±Г± ГўГ Г¬ Г­ГіГ¦Г­Г® Г°ГҐГ Г«ГЁГ§Г®ГўГ ГІГј */
 struct PrintVisitor : Visitor {
     void visitNumber(Number const * number)
     {
