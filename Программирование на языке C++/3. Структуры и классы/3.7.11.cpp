@@ -8,7 +8,7 @@ struct String {
 	String(const String &other);
 	~String();
 
-    /* Реализуйте оператор присваивания */
+    /* ГђГҐГ Г«ГЁГ§ГіГ©ГІГҐ Г®ГЇГҐГ°Г ГІГ®Г° ГЇГ°ГЁГ±ГўГ ГЁГўГ Г­ГЁГї */
 	String &operator=(const String &other) {
         if (this != &other)
             String(other).swap(*this);
