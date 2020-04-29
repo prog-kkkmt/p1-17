@@ -1,23 +1,14 @@
+/*Вам требуется реализовать функцию конкатенации (склейки) двух C-style строк. */
+/*Карандашев П1-17*/
 void strcat(char *str, const char *from)
-
 {
-
    while(*str!='\0'){
-
        str++;
-
    }
-
      while(*from!='\0'){
-
        *str = *from;
-
        str++;
-
        from++;
-
    }
-
     *str='\0';
-
 }
