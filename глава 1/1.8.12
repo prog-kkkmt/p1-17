@@ -1,53 +1,23 @@
 /*чтение без лишнего пробела*/
-
-
-
+/*Карандашев П1-17*/
 #include <iostream>
-
-
-
 #define YES 1
-
 #define NO 2
-
-
-
 using namespace std;
-
-
-
 int main()
-
-
-
 {
-
     int flag=NO;
-
     char c = '\0';
-
     while (cin.get(c)) {
-
         if(isalpha(c) || isdigit(c)){
-
             flag = NO;
-
             cout<<c;
-
         }
-
         if(c==' ' && flag == NO){
-
             flag = YES;
-
             cout<<c;
-
         }    
-
     }
-
-
-
 	return 0;
-
 }
+/*
