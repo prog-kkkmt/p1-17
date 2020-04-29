@@ -1,6 +1,4 @@
-:e ++enc=cp1251
-:set fileencoding=utf-8
-:set fileformat=unix
+
 
 /**Напишите программу, которая суммирует целые числа.
 
