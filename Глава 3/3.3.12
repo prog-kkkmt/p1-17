@@ -1,7 +1,8 @@
 #include <cstddef> // size_t
 
 #include <cstring> // strlen, strcpy
-
+/*Ваша задача реализовать метод append.*/
+/*П1-17*/
 
 
 struct String {
