@@ -1,5 +1,6 @@
 /*чтение без лишнего пробела*/
 /*Карандашев П1-17*/
+/*https://stepik.org/lesson/13377/step/12?auth=registration&unit=3571*/
 #include <iostream>
 #define YES 1
 #define NO 2
