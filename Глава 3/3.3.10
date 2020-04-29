@@ -3,6 +3,7 @@
 #include <cstring> // strlen, strcpy
 /* В этой задаче вам требуется реализовать конструктор, который принимает на вход C-style строку, вычисляет ее размер (без учета завершающего 0 символа) и сохраняет его в поле size*/
 /*Карандашев П1-17*/
+/*https://stepik.org/lesson/546/step/10?auth=registration&unit=869*/
 
 
 struct String {
