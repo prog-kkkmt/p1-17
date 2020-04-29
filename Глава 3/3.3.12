@@ -3,6 +3,7 @@
 #include <cstring> // strlen, strcpy
 /*Ваша задача реализовать метод append.*/
 /*П1-17*/
+/*https://stepik.org/lesson/546/step/12?auth=registration&unit=869*/
 
 
 struct String {
