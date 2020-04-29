@@ -1,3 +1,4 @@
 #!/bin/bash
 #script to compile
-g++ $1 -o $2
+g++ $1 -std=c++0x -pthread -o $2
+
