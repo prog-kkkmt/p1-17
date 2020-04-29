@@ -1,30 +1,18 @@
 #include <string> // std::string
-
-
-
 struct Character
-
 {
-
     std::string const & name() const;
     unsigned health() const;
-
 };
 
 struct LongRange:Character
-
 {
-
     std::string const & name() const;
     unsigned health() const;
     unsigned range() const;
-
 };
 
-
-
 struct SwordsMan:Character
-
 {
     std::string const & name() const;
     unsigned health() const;
@@ -33,14 +21,12 @@ struct SwordsMan:Character
 };
 
 struct Wizard:LongRange
-
 {
 
     std::string const & name() const;
     unsigned health() const;
     unsigned range() const;
     unsigned mana() const;
-
 };
 
 struct Archer:LongRange
@@ -49,5 +35,9 @@ struct Archer:LongRange
     unsigned health() const;
     unsigned range() const;
     unsigned accuracy() const;
-
 };
+
+
+/*Свяжите следующие классы в иерархию наследования: Character (Персонаж), LongRange (Персонаж дальнего действия), Wizard (Маг), SwordsMan (Мечник), Archer (Лучник)*/
+
+/*выполнил карандашев Н.К. П1-17*/
