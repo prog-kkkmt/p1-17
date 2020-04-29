@@ -1,6 +1,7 @@
 
 /*Перевернуть последовательность без масивов и строк*/
 /*Карандашев П1-17*/
+/*https://stepik.org/lesson/538/step/10?auth=registration&unit=861*/
 #include <iostream>
 
 
