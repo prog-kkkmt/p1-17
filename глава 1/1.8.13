@@ -1,6 +1,7 @@
 
 /*рограммf для вычисления целочисленного логарифма по основанию 2.*/
 /*Карандашев П1-17*/
+/*https://stepik.org/lesson/13377/step/13?auth=registration&unit=3571*/
 #include <iostream>
 using namespace std;
 int FOL(int k){
