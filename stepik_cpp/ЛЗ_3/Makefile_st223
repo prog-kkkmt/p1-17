@@ -1,0 +1,2 @@
+all: st223
+        g++ st223.cpp -o st223
