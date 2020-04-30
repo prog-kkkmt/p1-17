@@ -8,7 +8,7 @@
 ///Требования к решению: при выполнении задания вам не нужно вводить или выводить что-либо. 
 ///При выполнении задания не нужно определять функцию main. Для аллокации памяти не используйте функции из cstdlib (malloc, calloc и realloc).
 ///Источник: Stepic Программирование на языке C++ https://stepik.org/7 от Computer Science Center(CS центр) 
-///Глава 3, раздел 3, шаг 9. https://stepik.org/lesson/546/step/10
+///Глава 3, раздел 3, шаг 10. https://stepik.org/lesson/546/step/10
 ///Выполнил: Юшаков Н. Р. 23.04.2020. 
 #include <cstddef> // size_t
 #include <cstring> // strlen, strcpy
