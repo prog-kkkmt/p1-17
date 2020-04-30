@@ -7,7 +7,7 @@
 ///Вводить или выводить что-либо не нужно. Реализовывать функцию main не нужно.
 ///Источник: Stepic Программирование на языке C++ https://stepik.org/7 от Computer Science Center(CS центр) 
 ///Глава 2, раздел 4, шаг 8. https://stepik.org/lesson/540/step/8
-///Выполнил: Юшаков Н. Р. 22.04.2020.
+///Выполнил: Юшаков Н. Р. 23.04.2020.
 int strstr(const char *text, const char *pattern)
 {
     if (*pattern == '\0')
