@@ -20,6 +20,11 @@
 //
 // foo_says(get_foo("Hello!"));
 
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//https://stepik.org/lesson/552/step/9
+//26.04.2020
 struct Foo_ : Foo {
 public:
     Foo_(const char *msg) : Foo(msg) { }
