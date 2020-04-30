@@ -1,5 +1,9 @@
 // Напишите функцию поиска первого вхождения шаблона в текст
-
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//2.4.8 https://stepik.org/lesson/540/step/8
+//25.04.2020
 int strstr(const char *text, const char *pattern)
 {
     int index = 0;
