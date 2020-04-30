@@ -1,5 +1,9 @@
 // Завершите класс String, добавив к нему оператор присваивания.
-
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//https://stepik.org/lesson/550/step/11
+//26.04.2020
 #include <algorithm> // std::swap
 #include <cstddef>   // size_t
 #include <cstring>   // strlen, strcpy
