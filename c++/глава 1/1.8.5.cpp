@@ -20,3 +20,6 @@ int main()
     }  
     return 0;
 }
+/*решение уравнений*/
+/*Величко П1-17*/
+/*https://stepik.org/lesson/13377/step/11?unit=3571*/
