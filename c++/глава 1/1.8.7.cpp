@@ -1,3 +1,6 @@
+/*Напишите программу для вычисления целочисленного логарифма по основанию 2.*/
+/*Величко П1-17*/
+/*https://stepik.org/lesson/13377/step/13?unit=3571*/
 #include <iostream>
 
 using namespace std;
