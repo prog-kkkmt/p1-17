@@ -7,7 +7,7 @@
 ///Определять функцию main не нужно.
 ///Источник: Stepic Программирование на языке C++ https://stepik.org/7 от Computer Science Center(CS центр) 
 ///Глава 2, раздел 6, шаг 10. https://stepik.org/lesson/542/step/10
-///Выполнил: Юшаков Н. Р. 22.04.2020.
+///Выполнил: Юшаков Н. Р. 23.04.2020.
 #include <iostream>
 
 char *resize(const char *str, unsigned size, unsigned new_size)
