@@ -60,12 +60,12 @@ void swap(int &x, int &y)
 	x = y; 
 	y = temp; 
 }
-int min(int x, int y)
+int max(int x, int y)
 {
 	if(x > y)
-		return y;
-	else 
 		return x;
+	else 
+		return y;
 }
 
 8) Упражнение 7.10. Следующая функция хоть и вполне допустима, но менее полезна,
