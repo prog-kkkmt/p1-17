@@ -7,7 +7,7 @@
 //Выполнил: Пищулин Игорь
 //Источник: Stepik Computer Science Center (CS центр)
 //Программирование на языке C++
-//1.8.4 https://stepik.org/lesson/13377/step/4
+//1.5.12 https://stepik.org/lesson/534/step/12
 //25.04.2020
 #ifndef FOO_HPP
 #define FOO_HPP
