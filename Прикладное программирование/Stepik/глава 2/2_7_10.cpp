@@ -10,24 +10,31 @@
 Источник : stepik, программирование на языке с++ Михаил Кринкин, 2.7.10, https://stepik.org/lesson/543/step/10?unit=866
 */
 
+#include <iostream>
+using namespace std;
+
 void swap_min(int *m[], unsigned rows, unsigned cols)
-{ 
-     unsigned i,j;
-     int min = m[0][0],minR = 0;
-     for ( i = 0; i != rows; ++i)
-         for ( j = 0; j != cols; ++j) 
-              if( m[i][j] < min)
+{
+       int min = m[0][0];
+       int minR = 0;
+       for (int i = 0; i != rows; ++i)
+           for (int  j = 0; j != cols; ++j) 
+             if( m[i][j]< min)
             {
                 min = m[i][j];
                 minR = i;
             }
+ 
+        int * buf =  new int [cols];   
+      
+        for ( int j = 0; j != cols; ++j)  
+         {
+             buf[j] = m[0][j];
+          } 
 
-    int buf;
-    for ( j = 0; j != cols; ++j)  
-       {
-             buf = m[0][j];
-             m[0][j] = m[minR][j];
-             m[minR][j] = buf;
-         
-       }   
+        copy(m[minR], m[minR] + cols, m[0]);
+        copy(buf, buf+ cols, m[minR]);       
+             
+        delete[] buf; 
+      
 }
