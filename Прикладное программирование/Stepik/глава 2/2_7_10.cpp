@@ -36,5 +36,5 @@ void swap_min(int *m[], unsigned rows, unsigned cols)
         copy(buf, buf+ cols, m[minR]);       
              
         delete[] buf; 
-      
+        buf = 0;
 }
