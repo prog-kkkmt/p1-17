@@ -1,5 +1,9 @@
-// вяжите следующие классы в иерархию наследования
-
+//Свяжите следующие классы в иерархию наследования
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//https://stepik.org/lesson/552/step/7
+//26.04.2020
 #include <string> // std::string
 
 struct Character

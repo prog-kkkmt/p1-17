@@ -1,5 +1,9 @@
 // Напишите программу для вычисления целочисленного логарифма по основанию 2.
-
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//1.8.13 https://stepik.org/lesson/13377/step/13
+//25.04.2020
 #include <iostream>
 using namespace std;
 

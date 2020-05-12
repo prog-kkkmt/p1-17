@@ -3,7 +3,11 @@
 // размер (new_size). Функция должна выделить память размера new_size, скопировать в нее данные из 
 // переданной области памяти, освободить старую область памяти и вернуть выделенную 
 // область памяти нового размера со скопированными данными. 
-
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//https://stepik.org/lesson/542/step/9
+//25.04.2020
 char *resize(const char *str, unsigned size, unsigned new_size)
 {
 	char *new_str = new char[new_size];

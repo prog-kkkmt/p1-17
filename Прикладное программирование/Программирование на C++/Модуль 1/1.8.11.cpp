@@ -1,5 +1,9 @@
 // Напишите программу для решения квадратных уравнений
-
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//1.8.11 https://stepik.org/lesson/13377/step/11
+//25.04.2020
 #include <iostream>
 #include <cmath>
 using namespace std;

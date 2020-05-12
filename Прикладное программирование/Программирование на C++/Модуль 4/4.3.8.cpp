@@ -1,6 +1,10 @@
 // В этом задании вам предлагается разработать иерархию классов Expression для представления арифметических 
 // выражений.
-
+//Выполнил: Пищулин Игорь
+//Источник: Stepik Computer Science Center (CS центр)
+//Программирование на языке C++
+//https://stepik.org/lesson/554/step/8
+//26.04.2020
 struct Expression
 {
     virtual double evaluate() const = 0;
