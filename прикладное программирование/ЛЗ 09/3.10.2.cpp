@@ -14,7 +14,7 @@ int main()
  ifstream in("input.txt");
  ofstream out("output.txt");
 
- if(!in.is_open()) 
+ if(!in.is_open() && !out.is_open()) 
  	cout << "Файл не открыт";
 
  getline(in, line1);
