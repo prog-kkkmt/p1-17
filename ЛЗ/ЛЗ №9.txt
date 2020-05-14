@@ -46,8 +46,8 @@ int line;
 getline(cin, s);
 line = s.size ();
 for (int i = 0; i < line; i++)
-	if (s[i] != '.' &&s[i] != ',' &&s[i] != '!' &&s[i] != ';' && s[i] != ':' && s[i] != '?' )
-		cout <<s[i];
+	if (s[i] != '.' && s[i] != ',' && s[i] != '!' && s[i] != ';' && s[i] != ':' && s[i] != '?' )
+		cout << s[i];
 return 0;
 }
 
