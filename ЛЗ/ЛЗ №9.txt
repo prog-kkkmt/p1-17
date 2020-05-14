@@ -23,6 +23,7 @@ int main() {
 а если нет, какая из них больше. Измените программу так, чтобы она указывала, имеют ли строки 
 одинаковую длину, и если нет, то какая из них длинней.
 
+
 #include <string>
 #include <iostream>
 using namespace std;
@@ -31,6 +32,21 @@ string s1,s2,s;
 getline(cin, s1);
 getline(cin, s2);
 s = (s1 == s2) ? ("равны") : (s1 > s2) ? (s1) : (s2);
+cout << s;
+return 0;
+}
+
+#include <string>
+#include <iostream>
+using namespace std;
+int main () {
+string s1,s2,s;
+getline(cin, s1);
+getline(cin, s2);
+int c1 ,c2;
+c1 = s1.size();
+c2 = s2.size();
+s = (c1 == c2) ? ("равны") : (c1 > c2) ? (s1) : (s2);
 cout << s;
 return 0;
 }
@@ -55,7 +71,7 @@ return 0;
 string s;
 cout << s[0] << endl;
 
-Выводит первый символ строки s ,допустима.
+Выводит первый символ строки s, допустима.
 
 9) Упражнение 3.10. Напишите программу поиска в строке знаков пунктуации. 
 Программа должна позволить ввести символьную строку, содержащую знаки пунктуации, 
