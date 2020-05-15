@@ -2,6 +2,7 @@
 #include <fstream>
 #include <conio.h>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -136,4 +137,40 @@ void edit(vector <Currency>& cur) {
     }
 
     out.close();
+}
+
+bool sortByName(Currency v1, Currency v2) {
+    return v1.name < v2.name;
+}
+
+bool sortByCourse(Currency v1, Currency v2) {
+    return v1.course < v2.course;
+}
+
+void sortBy(vector <Currency> cur) {
+    system("cls");
+    int choise;
+
+    cout << "1. by name" << endl;
+    cout << "2. by course" << endl;
+
+    choise = getch() - 48;
+
+    switch (choise) {
+        case 1: sort(cur.begin(), cur.end(), sortByName); break;
+        case 2: sort(cur.begin(), cur.end(), sortByCourse); break;
+        default: break;
+    }
+
+    print(cur);
+}
+
+void about() {
+    system("cls");
+    cout << "DATABASE OF CURRENCY AND ITS EXCHANGE RATE IN RUBLES" << endl;
+    cout << endl << "DEVELOPER: OVOSKOP. All right reserved." << endl;
+    cout << "16.05.2020" << endl;
+
+    cout << endl << "Any keys. Quit" << endl;
+    getch();    
 }
