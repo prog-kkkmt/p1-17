@@ -12,9 +12,8 @@ void print(vector <Currency> cur);
 void add(vector <Currency>& cur);
 
 int main() {
-    setlocale(0,"");
     SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	SetConsoleOutputCP(1251);
 
     vector <Currency> cur;
 

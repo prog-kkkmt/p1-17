@@ -13,8 +13,12 @@ struct Currency {
 
 void print(vector <Currency> cur) {
     system("cls");
-    for (int i = 0; i < cur.size(); i++) {
-        cout << cur.at(i).ID << '\t' << cur.at(i).name << "\t\t" << cur.at(i).course << endl;
+    if (cur.size() > 0) {
+        for (int i = 0; i < cur.size(); i++) {
+            cout << cur.at(i).ID << '\t' << cur.at(i).name << "\t\t" << cur.at(i).course << endl;
+        }
+    } else {
+        cout << "База данных пуста.";
     }
 
     cout << endl << "Любая клавиша. Выход" << endl;
@@ -26,7 +30,10 @@ void add(vector <Currency>& cur) {
 
     Currency buff;
 
-    buff.ID = cur.back().ID + 1;
+    if (cur.size() > 0)
+        buff.ID = cur.back().ID + 1;
+    else
+        buff.ID = 1;
 
     cout << "Введите название валюты: ";
     cin >> buff.name;
