@@ -2,7 +2,6 @@
 #include <fstream>
 #include <conio.h>
 #include <vector>
-#include <windows.h>
 
 #include "currency.hpp"
 
@@ -12,16 +11,13 @@ void print(vector <Currency> cur);
 void add(vector <Currency>& cur);
 
 int main() {
-    SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-
     vector <Currency> cur;
 
     Currency buff;
 
     bool mainLoop = true;
 
-    ifstream in("currency.txt"); // окрываем файл для чтения
+    ifstream in("currency.txt");
 
     if (in.is_open())
     {
@@ -31,18 +27,18 @@ int main() {
         }
     }
 
-    in.close();     // закрываем файл
+    in.close();
 
     int choise;
 
     while (mainLoop) {
         system("cls");
-        cout << "МЕНЮ ( БАЗА ДАННЫХ ВАЛЮТЫ И ЕЕ КУРСА В РУБЛЯХ )" << endl;
-        cout << "1. Печать строк базы данных" << endl;
-        cout << "2. Добавление строки в базу" << endl;
-        cout << "3. Удаление строки в базе" << endl;
-        cout << "4. Редактирование строки в базе" << endl;
-        cout << endl << "Любая клавиша. Выход" << endl;
+        cout << "MENU ( DATABASE OF CURRENCY AND ITS EXCHANGE RATE IN RUBLES )" << endl;
+        cout << "1. Print of DB" << endl;
+        cout << "2. Add of row to DB" << endl;
+        cout << "3. Remove of row from DB" << endl;
+        cout << "4. Edit of row in DB" << endl;
+        cout << endl << "Any keys. Quit" << endl;
 
 
         choise = getch() - 48;

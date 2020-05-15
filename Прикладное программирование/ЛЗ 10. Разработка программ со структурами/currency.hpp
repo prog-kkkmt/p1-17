@@ -18,10 +18,10 @@ void print(vector <Currency> cur) {
             cout << cur.at(i).ID << '\t' << cur.at(i).name << "\t\t" << cur.at(i).course << endl;
         }
     } else {
-        cout << "База данных пуста.";
+        cout << "DB is empty.";
     }
 
-    cout << endl << "Любая клавиша. Выход" << endl;
+    cout << endl << "Any keys. Quit" << endl;
     getch();
 }
 
@@ -35,15 +35,15 @@ void add(vector <Currency>& cur) {
     else
         buff.ID = 1;
 
-    cout << "Введите название валюты: ";
+    cout << "Enter of currency name: ";
     cin >> buff.name;
 
-    cout << "Введите курс к рублю: ";
+    cout << "Enter the course to the ruble: ";
     cin >> buff.course;
 
     cur.push_back(buff);
 
-    ofstream out("currency.txt"); // окрываем файл для записи
+    ofstream out("currency.txt");
 
     if (out.is_open())
     {
@@ -51,20 +51,20 @@ void add(vector <Currency>& cur) {
             out << cur.at(i).ID << '\t' << cur.at(i).name << "\t\t" << cur.at(i).course << endl;
         }
 
-        cout << endl << "Добавлено.\nЛюбая клавиша. Выход" << endl;
+        cout << endl << "Added.\nAny keys. Quit" << endl;
         getch();
     } else {
-        cout << endl << "Ошибка.\nЛюбая клавиша. Выход" << endl;
+        cout << endl << "Error.\nAny keys. Quit" << endl;
         getch();
     }
 
-    out.close();     // закрываем файл
+    out.close();
 }
 
 void deleteRow(vector <Currency>& cur) {
     system("cls");
     int id;
-    cout << "Введите ID удаляемого элемента: ";
+    cout << "Enter the ID of the item to delete: ";
     cin >> id;
 
     for (int i = 0; i < cur.size(); i++) {
@@ -74,7 +74,7 @@ void deleteRow(vector <Currency>& cur) {
         }
     }
 
-    ofstream out("currency.txt"); // окрываем файл для записи
+    ofstream out("currency.txt");
 
     if (out.is_open())
     {
@@ -82,14 +82,14 @@ void deleteRow(vector <Currency>& cur) {
             out << cur.at(i).ID << '\t' << cur.at(i).name << "\t\t" << cur.at(i).course << endl;
         }
 
-        cout << endl << "Удалено.\nЛюбая клавиша. Выход" << endl;
+        cout << endl << "Delete.\nAny keys. Quit" << endl;
         getch();
     } else {
-        cout << endl << "Ошибка.\nЛюбая клавиша. Выход" << endl;
+        cout << endl << "Error.\nAny keys. Quit" << endl;
         getch();
     }
 
-    out.close();     // закрываем файл
+    out.close();
 }
 
 void edit(vector <Currency>& cur) {
@@ -98,24 +98,24 @@ void edit(vector <Currency>& cur) {
     bool edit = false;
     string newName;
     double newCourse;
-    cout << "Введите ID редактируемого элемента: ";
+    cout << "Enter the ID of the item to edit: ";
     cin >> id;
 
     for (int i = 0; i < cur.size(); i++) {
         if (cur.at(i).ID == id) {
-            cout << endl << "Название валюты (" << cur.at(i).name << ". Без изменений - 0): ";
+            cout << endl << "Currency name (" << cur.at(i).name << ". Unchanged - 0): ";
             cin >> newName;
             cur.at(i).name = (newName != "0") ? newName : cur.at(i).name;
             if (newName != "0") edit = true;
 
-            cout << endl << "Курс валюты (" << cur.at(i).course << ". Без изменений - 0): ";
+            cout << endl << "Currency course(" << cur.at(i).course << ". Unchanged - 0): ";
             cin >> newCourse;
             cur.at(i).course = (newCourse != 0) ? newCourse : cur.at(i).course;
             if (newCourse != 0) edit = true;
         }
     }
 
-    ofstream out("currency.txt"); // окрываем файл для записи
+    ofstream out("currency.txt");
 
     if (out.is_open())
     {
@@ -124,16 +124,16 @@ void edit(vector <Currency>& cur) {
                 out << cur.at(i).ID << '\t' << cur.at(i).name << "\t\t" << cur.at(i).course << endl;
             }
 
-            cout << endl << "Изменено.\nЛюбая клавиша. Выход" << endl;
+            cout << endl << "Edited.\nAny keys. Quit" << endl;
             getch();
         } else {
-            cout << endl << "Изменений нет.\nЛюбая клавиша. Выход" << endl;
+            cout << endl << "No changes.\nAny keys. Quit" << endl;
             getch();
         }
     } else {
-        cout << endl << "Ошибка.\nЛюбая клавиша. Выход" << endl;
+        cout << endl << "Error.\nAny keys. Quit" << endl;
         getch();
     }
 
-    out.close();     // закрываем файл
+    out.close();
 }
