@@ -1,8 +1,7 @@
-/*17. Справочник филателиста.
-В базе данных содержатся сведения о личной коллекции марок.
-Таблица базы данных:  Марки (Код марки, Код страны, Код жанра,
-год выпуска, цена, номер альбома).
-Выполнила: Саполетова Анастасия
+/*17. Philatelist's guide.
+The database contains information about your personal stamp collection
+Database table: Brands (brand Code, country Code, genre Code, year of release, price, album number)
+Finished: Sapoletova Anastasia
 15.05.2020
 */
 #include <iostream>
