@@ -20,7 +20,7 @@ int main()
  getline(in, line1);
  for(int i = 0; i < line1.size(); i++)
  {
- 	if (line1[i] == '.' || line1[i] == ',' || line1[i] == ';' || line1[i] == ':')
+ 	if (line1[i] == '.' || line1[i] == ',' || line1[i] == ';' || line1[i] == ':' || line1[i] == '?' || line1[i] == '!')
  	{
  		line1.erase(i, 1);
  		i--;
