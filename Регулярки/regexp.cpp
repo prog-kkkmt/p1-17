@@ -7,17 +7,19 @@ using namespace std;
 int main()
 {
     string str;
+    string reg;
 
-    cout << ""
+    cout << "\nEnter string: ";
     cin >> str;
+    cout << "\nEnter regexp: ";
+    cin >> reg;
 
-    regex re1(".*(a|xayy)"); // ECMA
-    regex re2(".*(a|xayy)", std::regex::extended); // POSIX
+    regex re(reg);
  
-    std::cout << "Searching for .*(a|xayy) in zzxayyzz:\n";
-    std::smatch m;
-    std::regex_search(str, m, re1);
-    std::cout << " ECMA (depth first search) match: " << m[0] << '\n';
+    cout << "\nSearching for " << reg << " in " << str << ":";
+	smatch m;
+    regex_search(str, m, re);
+    cout << "\n1) " << m[0] << '\n';
 
     return 0;
 
