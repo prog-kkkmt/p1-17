@@ -1,0 +1,3 @@
+all: prep_2
+	g++ prep_2.cpp -o prep_2
+
