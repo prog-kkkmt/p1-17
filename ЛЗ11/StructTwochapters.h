@@ -7,20 +7,20 @@
 
 using namespace std;
 
-struct CodeSystem{///структура для кода события
+struct CodeSystem{///Г±ГІГ°ГіГЄГІГіГ°Г  Г¤Г«Гї ГЄГ®Г¤Г  Г±Г®ГЎГ»ГІГЁГї
     string name;
     string Code;
 };
 
-void Append(CodeSystem * &mas, size_t *n){///добавление кода
+void Append(CodeSystem * &mas, size_t *n){///Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЄГ®Г¤Г 
 	setlocale(0,"");
 	*n += 1;
 	CodeSystem* temp = new CodeSystem[*n];
 	for(int i=0; i<*n-1; i++)
 		temp[i] = mas[i];
-		cout<<"введите название вида события: ";
+		cout<<"ГўГўГҐГ¤ГЁГІГҐ Г­Г Г§ГўГ Г­ГЁГҐ ГўГЁГ¤Г  Г±Г®ГЎГ»ГІГЁГї: ";
 		cin>>temp[*n-1].name;
-		cout<<"введите код такого названия: ";
+		cout<<"ГўГўГҐГ¤ГЁГІГҐ ГЄГ®Г¤ ГІГ ГЄГ®ГЈГ® Г­Г Г§ГўГ Г­ГЁГї: ";
 		cin>>temp[*n-1].Code;
 	delete []mas;
 	mas=new CodeSystem[*n];
@@ -28,7 +28,7 @@ void Append(CodeSystem * &mas, size_t *n){///добавление кода
 		mas[i] = temp[i];
 }
 
-void destroy(CodeSystem * &mas, size_t *n, int number){///удаление одного кода
+void destroy(CodeSystem * &mas, size_t *n, int number){///ГіГ¤Г Г«ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЄГ®Г¤Г 
 	setlocale(0,"");
 	int k=0;
 	*n-=1;
@@ -44,71 +44,75 @@ void destroy(CodeSystem * &mas, size_t *n, int number){///удаление одного кода
 
 }
 
-void settings(CodeSystem &mas){///изменение
+void settings(CodeSystem &mas){///ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ
 	int k = 0;
 	do{
-		cout<<"\nвведите номер желаемого изменения\n";
-		cout<<"1 - изменить название вида события"<<endl<<"2 - изменить код этого названия"<<endl;
+		cout<<"\nГўГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° Г¦ГҐГ«Г ГҐГ¬Г®ГЈГ® ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї\n";
+		cout<<"1 - ГЁГ§Г¬ГҐГ­ГЁГІГј Г­Г Г§ГўГ Г­ГЁГҐ ГўГЁГ¤Г  Г±Г®ГЎГ»ГІГЁГї"<<endl<<"2 - ГЁГ§Г¬ГҐГ­ГЁГІГј ГЄГ®Г¤ ГЅГІГ®ГЈГ® Г­Г Г§ГўГ Г­ГЁГї"<<endl;
 		cin>>k;
 	}while(!(k==1 || k==2));
 	switch(k){
-		case 1:cout<<"Введите новое название: "; cin>>mas.name; break;
-		case 2:cout<<"Введите новый час и минуту: "; cin>>mas.Code; break;
+		case 1:cout<<"Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГ®ГҐ Г­Г Г§ГўГ Г­ГЁГҐ: "; cin>>mas.name; break;
+		case 2:cout<<"Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГ»Г© Г·Г Г± ГЁ Г¬ГЁГ­ГіГІГі: "; cin>>mas.Code; break;
 
 		}
 }
 
-void PrintAll(event * &mas, size_t *n, CodeSystem * &_mas, size_t *m){///*вывести все коды
+void PrintAll(event * &mas, size_t *n, CodeSystem * &_mas, size_t *m){///*ГўГ»ГўГҐГ±ГІГЁ ГўГ±ГҐ ГЄГ®Г¤Г»
 cout<<"==============================================================================================================\n";
     for(int i=0; i<*n; i++){
 		cout<<"=================================================================\n";
-        cout<<"Имя события: ";
+        cout<<"Г€Г¬Гї Г±Г®ГЎГ»ГІГЁГї: ";
 		cout<<mas[i].name;
-		cout<<endl<<"Код вида события: ";
+		cout<<endl<<"ГЉГ®Г¤ ГўГЁГ¤Г  Г±Г®ГЎГ»ГІГЁГї: ";
 		cout<<mas[i].ImportanceSobutionsVersions;
-		cout<<endl<<"Код события: ";
+		cout<<endl<<"ГЉГ®Г¤ Г±Г®ГЎГ»ГІГЁГї: ";
 		cout<<mas[i].ImportanceSobutions;
-		cout<<endl<<"Начало: ";
+		cout<<endl<<"ГЌГ Г·Г Г«Г®: ";
 		cout<<mas[i].StartTime.hours<<':';
 		cout<<mas[i].StartTime.minuts;
-		cout<<endl<<"Продолжительность мероприятия: ";
+		cout<<endl<<"ГЏГ°Г®Г¤Г®Г«Г¦ГЁГІГҐГ«ГјГ­Г®Г±ГІГј Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї: ";
 		cout<<mas[i].EndTime.hours<<':';
 		cout<<mas[i].EndTime.minuts;
 		if(mas[i].been)
-			cout<<"\nВы посетили данное занятие\n";
+			cout<<"\nГ‚Г» ГЇГ®Г±ГҐГІГЁГ«ГЁ Г¤Г Г­Г­Г®ГҐ Г§Г Г­ГїГІГЁГҐ\n";
 		else
-			cout<<"\nНе было посещения\n";
+			cout<<"\nГЌГҐ ГЎГ»Г«Г® ГЇГ®Г±ГҐГ№ГҐГ­ГЁГї\n";
     }
     cout<<"==============================================================================================================\n";
-    cout<<"Коды событий\n";
+    cout<<"ГЉГ®Г¤Г» Г±Г®ГЎГ»ГІГЁГ©\n";
 		for(int i=0; i<*m; i++)
 			cout<<_mas[i].name<<" - "<<_mas[i].Code<<endl;
 }
 
-void PrintAllFaile(event * &mas, size_t *n, CodeSystem * &_mas, size_t *m){///вывести всю информацию в файл
+void PrintAllFaile(event * &mas, size_t *n, CodeSystem * &_mas, size_t *m){///ГўГ»ГўГҐГ±ГІГЁ ГўГ±Гѕ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ Гў ГґГ Г©Г«
 	fstream f("printAll.txt");
+	 if(!f.is_open()){
+        	cout<<"Р¤Р°Р№Р» РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚РєСЂС‹С‚"<<endl;
+        	return;
+    	}
 	f<<"==============================================================================================================\n";
     for(int i=0; i<*n; i++){
 		f<<"=================================================================\n";
-        f<<"Имя события: ";
+        f<<"Г€Г¬Гї Г±Г®ГЎГ»ГІГЁГї: ";
 		f<<mas[i].name;
-		f<<endl<<"Код вида события: ";
+		f<<endl<<"ГЉГ®Г¤ ГўГЁГ¤Г  Г±Г®ГЎГ»ГІГЁГї: ";
 		f<<mas[i].ImportanceSobutionsVersions;
-		f<<endl<<"Код события: ";
+		f<<endl<<"ГЉГ®Г¤ Г±Г®ГЎГ»ГІГЁГї: ";
 		f<<mas[i].ImportanceSobutions;
-		f<<endl<<"Начало: ";
+		f<<endl<<"ГЌГ Г·Г Г«Г®: ";
 		f<<mas[i].StartTime.hours<<':';
 		f<<mas[i].StartTime.minuts;
-		f<<endl<<"Продолжительность мероприятия: ";
+		f<<endl<<"ГЏГ°Г®Г¤Г®Г«Г¦ГЁГІГҐГ«ГјГ­Г®Г±ГІГј Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї: ";
 		f<<mas[i].EndTime.hours<<':';
 		f<<mas[i].EndTime.minuts;
 		if(mas[i].been)
-			f<<"\nВы посетили данное занятие\n";
+			f<<"\nГ‚Г» ГЇГ®Г±ГҐГІГЁГ«ГЁ Г¤Г Г­Г­Г®ГҐ Г§Г Г­ГїГІГЁГҐ\n";
 		else
-			f<<"\nНе было посещения\n";
+			f<<"\nГЌГҐ ГЎГ»Г«Г® ГЇГ®Г±ГҐГ№ГҐГ­ГЁГї\n";
     }
     f<<"==============================================================================================================\n";
-    f<<"Коды событий\n";
+    f<<"ГЉГ®Г¤Г» Г±Г®ГЎГ»ГІГЁГ©\n";
 		for(int i=0; i<*m; i++)
 			f<<_mas[i].name<<" - "<<_mas[i].Code<<endl;
 }
