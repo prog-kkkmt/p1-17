@@ -113,4 +113,5 @@ int main()
          cout << "0 - Âûõîä" << endl;
          cin >> menu;
     }
+   return 0;
 }
