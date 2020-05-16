@@ -21,4 +21,3 @@ void Remove(vector <Costing> &cost); //Функция удаления
 void Sort(vector <Costing> &cost); //Функция сортировки по номеру изделия
 void AboutProg(ofstream &f); //Добавление в фалй информации о программе
 #endif //COSTING_HPP_
-
