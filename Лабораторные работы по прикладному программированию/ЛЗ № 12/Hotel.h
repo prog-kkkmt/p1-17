@@ -62,5 +62,6 @@ void Add(int k);
 void Delete(int k);
 void Edit(int k);
 void Save(int k);
+void About();
 
 #endif // HOTEL_H_INCLUDED
