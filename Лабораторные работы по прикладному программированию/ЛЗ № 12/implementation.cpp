@@ -51,7 +51,7 @@ Check_in::~Check_in() {
     finish_len = 0;
 }
 
-///Функция считывающая информацию из файлов при старте программы.
+///Г”ГіГ­ГЄГ¶ГЁГї Г±Г·ГЁГІГ»ГўГ ГѕГ№Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГѕ ГЁГ§ ГґГ Г©Г«Г®Гў ГЇГ°ГЁ Г±ГІГ Г°ГІГҐ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г».
 void Start() {
     ifstream f("Person.txt");
     Person person;
@@ -112,43 +112,46 @@ void Start() {
     }
 }
 
-///Функция меню контролирует всю работу программы.
+///Г”ГіГ­ГЄГ¶ГЁГї Г¬ГҐГ­Гѕ ГЄГ®Г­ГІГ°Г®Г«ГЁГ°ГіГҐГІ ГўГ±Гѕ Г°Г ГЎГ®ГІГі ГЇГ°Г®ГЈГ°Г Г¬Г¬Г».
 void Menu() {
     bool menu = true;
     int operation;
     while (menu) {
-        cout << "Введите" << endl;
-        cout << "1: Добавление информации в таблицу" << endl;
-        cout << "2: Удаление информации из таблицы" << endl;
-        cout << "3: Редактирование таблицы" << endl;
-        cout << "4: Вывод таблицы" << endl;
-        cout << "5: Выход" << endl;
+        cout << "Р’РІРµРґРёС‚Рµ" << endl;
+        cout << "1: Р”РѕР±Р°РІР»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РІ С‚Р°Р±Р»РёС†Сѓ" << endl;
+        cout << "2: РЈРґР°Р»РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РёР· С‚Р°Р±Р»РёС†С‹" << endl;
+        cout << "3: Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹" << endl;
+        cout << "4: Р’С‹РІРѕРґ С‚Р°Р±Р»РёС†С‹" << endl;
+        cout << "5: Рћ РїСЂРѕРіСЂР°РјРјРµ" << endl;
+        cout << "6: Р’С‹С…РѕРґ" << endl;
         cin >> operation;
         switch (operation) {
             case 1: system("cls"); Add(Table_menu()); break;
             case 2: system("cls"); Delete(Table_menu()); break;
             case 3: system("cls"); Edit(Table_menu()); break;
             case 4: system("cls"); Out(Table_menu()); break;
-            case 5: menu = false; break;
-            default: system("cls"); cout << "Вы ввели не правильное число." << endl; break;
+            case 5: system("cls"); About(); break;
+            case 6: menu = false; break;
+            default: system("cls"); cout << "Р’С‹ РІРІРµР»Рё РЅРµ РїСЂР°РІРёР»СЊРЅРѕРµ С‡РёСЃР»Рѕ." << endl; break;
         }
     }
 }
 
-///Униврсальная функция для выбора меня над которой нужно провести действие.
+
+///Г“Г­ГЁГўГ°Г±Г Г«ГјГ­Г Гї ГґГіГ­ГЄГ¶ГЁГї Г¤Г«Гї ГўГ»ГЎГ®Г°Г  Г¬ГҐГ­Гї Г­Г Г¤ ГЄГ®ГІГ®Г°Г®Г© Г­ГіГ¦Г­Г® ГЇГ°Г®ГўГҐГ±ГІГЁ Г¤ГҐГ©Г±ГІГўГЁГҐ.
 int Table_menu() {
     int operation;
-    cout << "Введите номер таблицы над которой нужно провести действие: " << endl;
-    cout << "1: Категории" << endl;
-    cout << "2: Номера" << endl;
-    cout << "3: Граждане" << endl;
-    cout << "4: Размещение" << endl;
-    cout << "5: Выход в главное меню" << endl;
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГІГ ГЎГ«ГЁГ¶Г» Г­Г Г¤ ГЄГ®ГІГ®Г°Г®Г© Г­ГіГ¦Г­Г® ГЇГ°Г®ГўГҐГ±ГІГЁ Г¤ГҐГ©Г±ГІГўГЁГҐ: " << endl;
+    cout << "1: ГЉГ ГІГҐГЈГ®Г°ГЁГЁ" << endl;
+    cout << "2: ГЌГ®Г¬ГҐГ°Г " << endl;
+    cout << "3: ГѓГ°Г Г¦Г¤Г Г­ГҐ" << endl;
+    cout << "4: ГђГ Г§Г¬ГҐГ№ГҐГ­ГЁГҐ" << endl;
+    cout << "5: Г‚Г»ГµГ®Г¤ Гў ГЈГ«Г ГўГ­Г®ГҐ Г¬ГҐГ­Гѕ" << endl;
     cin >> operation;
     return operation;
 }
 
-///Функция вывода содержимого таблицы в зависимости от выбора.
+///Г”ГіГ­ГЄГ¶ГЁГї ГўГ»ГўГ®Г¤Г  Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГЈГ® ГІГ ГЎГ«ГЁГ¶Г» Гў Г§Г ГўГЁГ±ГЁГ¬Г®Г±ГІГЁ Г®ГІ ГўГ»ГЎГ®Г°Г .
 void Out(int k) {
     system("cls");
     switch(k) {
@@ -177,18 +180,18 @@ void Out(int k) {
             cout << endl; break;
         }
         case 5: system("cls"); break;
-        default: system("cls"); cout << "Вы ввели не правильное число." << endl; Out(Table_menu()); break;
+        default: system("cls"); cout << "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г®." << endl; Out(Table_menu()); break;
     }
 }
 
-///Функция добавления содержимого в выбранную таблицу.
+///Г”ГіГ­ГЄГ¶ГЁГї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГЈГ® Гў ГўГ»ГЎГ°Г Г­Г­ГіГѕ ГІГ ГЎГ«ГЁГ¶Гі.
 void Add(int k) {
     char temp[MAX_LEN];
     switch(k) {
         case 1: {
             Category category;
             category.categoryID = categories[categories.size() - 1].categoryID + 1;
-            cout << "Введите название категории: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г Г§ГўГ Г­ГЁГҐ ГЄГ ГІГҐГЈГ®Г°ГЁГЁ: ";
             cin >> temp;
             category.category_len = strlen(temp) + 2;
             category.category_name = new char[category.category_len];
@@ -197,35 +200,35 @@ void Add(int k) {
             categories.push_back(category);
             Save(k);
             system("cls");
-            cout << "Категория успешно добавлена" << endl;
+            cout << "ГЉГ ГІГҐГЈГ®Г°ГЁГї ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г " << endl;
             break;
         }
         case 2: {
             Room room;
             room.roomID = rooms[rooms.size() - 1].roomID + 1;
-            cout << "Введите ID категории: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЄГ ГІГҐГЈГ®Г°ГЁГЁ: ";
             cin >> room.categoryID;
-            cout << "Введите номер номера: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° Г­Г®Г¬ГҐГ°Г : ";
             cin >> room.number;
-            cout << "Введите количество спальных мест: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГЇГ Г«ГјГ­Г»Гµ Г¬ГҐГ±ГІ: ";
             cin >> room.beds;
             rooms.push_back(room);
             Save(k);
             system("cls");
-            cout << "Номер успешно добавлен" << endl;
+            cout << "ГЌГ®Г¬ГҐГ° ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­" << endl;
             break;
         }
         case 3: {
             Person person;
             person.personID = persons[persons.size() - 1].personID + 1;
             getchar();
-            cout << "Введите ФИО: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г”Г€ГЋ: ";
             cin.getline(temp, MAX_LEN - 1);
             person.FIO_len = strlen(temp) + 2;
             person.FIO = new char[person.FIO_len];
             strcat(person.FIO, " ");
             strcat(person.FIO, temp);
-            cout << "Введите паспорт: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЇГ Г±ГЇГ®Г°ГІ: ";
             cin.getline(temp, MAX_LEN - 1);
             person.passport_len = strlen(temp) + 1;
             person.passport = new char[person.passport_len];
@@ -233,22 +236,22 @@ void Add(int k) {
             persons.push_back(person);
             Save(k);
             system("cls");
-            cout << "Гражданин успешно добавлен" << endl;
+            cout << "ГѓГ°Г Г¦Г¤Г Г­ГЁГ­ ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­" << endl;
             break;
         }
         case 4: {
             Check_in check_in;
             check_in.check_inID = check_ins[check_ins.size() - 1].check_inID + 1;
-            cout << "Введите ID гражданина: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЈГ°Г Г¦Г¤Г Г­ГЁГ­Г : ";
             cin >> check_in.personID;
-            cout << "Введите ID номера: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID Г­Г®Г¬ГҐГ°Г : ";
             cin >> check_in.roomID;
-            cout << "Введите дату въезда в формате ДД.ММ.ГГГГ: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г ГІГі ГўГєГҐГ§Г¤Г  Гў ГґГ®Г°Г¬Г ГІГҐ Г„Г„.ГЊГЊ.ГѓГѓГѓГѓ: ";
             cin >> temp;
             check_in.start_len = strlen(temp) + 1;
             check_in.start = new char[check_in.start_len];
             strcat(check_in.start, temp);
-            cout << "Введите дату выезда в формате ДД.ММ.ГГГГ: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г ГІГі ГўГ»ГҐГ§Г¤Г  Гў ГґГ®Г°Г¬Г ГІГҐ Г„Г„.ГЊГЊ.ГѓГѓГѓГѓ: ";
             cin >> temp;
             check_in.finish_len = strlen(temp) + 1;
             check_in.finish = new char[check_in.finish_len];
@@ -256,15 +259,15 @@ void Add(int k) {
             check_ins.push_back(check_in);
             Save(k);
             system("cls");
-            cout << "Заселение успешно добавлено" << endl;
+            cout << "Г‡Г Г±ГҐГ«ГҐГ­ГЁГҐ ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г®" << endl;
             break;
         }
         case 5: system("cls"); break;
-        default: system("cls"); cout << "Вы ввели не правильное число." << endl; Add(Table_menu()); break;
+        default: system("cls"); cout << "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г®." << endl; Add(Table_menu()); break;
     }
 }
 
-///Функция сохранения измененных таблиц.
+///Г”ГіГ­ГЄГ¶ГЁГї Г±Г®ГµГ°Г Г­ГҐГ­ГЁГї ГЁГ§Г¬ГҐГ­ГҐГ­Г­Г»Гµ ГІГ ГЎГ«ГЁГ¶.
 void Save(int k) {
     switch(k) {
         case 1: {
@@ -302,13 +305,13 @@ void Save(int k) {
     }
 }
 
-///функция удаления выбранной позиции из выбранное таблицы по ID.
+///ГґГіГ­ГЄГ¶ГЁГї ГіГ¤Г Г«ГҐГ­ГЁГї ГўГ»ГЎГ°Г Г­Г­Г®Г© ГЇГ®Г§ГЁГ¶ГЁГЁ ГЁГ§ ГўГ»ГЎГ°Г Г­Г­Г®ГҐ ГІГ ГЎГ«ГЁГ¶Г» ГЇГ® ID.
 void Delete(int k) {
     switch(k) {
         case 1: {
             Out(k);
             int operation;
-            cout << "Введите ID категории которую хотите удалить: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЄГ ГІГҐГЈГ®Г°ГЁГЁ ГЄГ®ГІГ®Г°ГіГѕ ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != categories.size() - 1; ++i)
                 if (categories[i].categoryID == operation)
@@ -317,13 +320,13 @@ void Delete(int k) {
                 categories.pop_back();
             Save(k);
             system("cls");
-            cout << "Категория успешно удалена" << endl;
+            cout << "ГЉГ ГІГҐГЈГ®Г°ГЁГї ГіГ±ГЇГҐГёГ­Г® ГіГ¤Г Г«ГҐГ­Г " << endl;
             break;
         }
         case 2: {
             Out(k);
             int operation;
-            cout << "Введите ID номера которого хотите удалить: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID Г­Г®Г¬ГҐГ°Г  ГЄГ®ГІГ®Г°Г®ГЈГ® ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != rooms.size() - 1; ++i)
                 if (rooms[i].roomID == operation)
@@ -332,13 +335,13 @@ void Delete(int k) {
                 rooms.pop_back();
             Save(k);
             system("cls");
-            cout << "Номер успешно удален" << endl;
+            cout << "ГЌГ®Г¬ГҐГ° ГіГ±ГЇГҐГёГ­Г® ГіГ¤Г Г«ГҐГ­" << endl;
             break;
         }
         case 3: {
             Out(k);
             int operation;
-            cout << "Введите ID гражданина которого хотите удалить: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЈГ°Г Г¦Г¤Г Г­ГЁГ­Г  ГЄГ®ГІГ®Г°Г®ГЈГ® ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != persons.size() - 1; ++i)
                 if (persons[i].personID == operation)
@@ -347,13 +350,13 @@ void Delete(int k) {
                 persons.pop_back();
             Save(k);
             system("cls");
-            cout << "Гражданин успешно удален" << endl;
+            cout << "ГѓГ°Г Г¦Г¤Г Г­ГЁГ­ ГіГ±ГЇГҐГёГ­Г® ГіГ¤Г Г«ГҐГ­" << endl;
             break;
         }
         case 4: {
             Out(k);
             int operation;
-            cout << "Введите ID заселения которое хотите удалить: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID Г§Г Г±ГҐГ«ГҐГ­ГЁГї ГЄГ®ГІГ®Г°Г®ГҐ ГµГ®ГІГЁГІГҐ ГіГ¤Г Г«ГЁГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != check_ins.size() - 1; ++i)
                 if (check_ins[i].check_inID == operation)
@@ -362,26 +365,26 @@ void Delete(int k) {
                 check_ins.pop_back();
             Save(k);
             system("cls");
-            cout << "Заселение успешно удалено" << endl;
+            cout << "Г‡Г Г±ГҐГ«ГҐГ­ГЁГҐ ГіГ±ГЇГҐГёГ­Г® ГіГ¤Г Г«ГҐГ­Г®" << endl;
             break;
         }
         case 5: system("cls"); break;
-        default: system("cls"); cout << "Вы ввели не правильное число." << endl; Delete(Table_menu()); break;
+        default: system("cls"); cout << "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г®." << endl; Delete(Table_menu()); break;
     }
 }
 
-///Функция редактирования выбранной позиции из выбранной таблицы по ID.
+///Г”ГіГ­ГЄГ¶ГЁГї Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­ГЁГї ГўГ»ГЎГ°Г Г­Г­Г®Г© ГЇГ®Г§ГЁГ¶ГЁГЁ ГЁГ§ ГўГ»ГЎГ°Г Г­Г­Г®Г© ГІГ ГЎГ«ГЁГ¶Г» ГЇГ® ID.
 void Edit(int k) {
     char temp[MAX_LEN];
     switch(k) {
         case 1: {
             Out(k);
             int operation;
-            cout << "Введите ID категории которую хотите редактировать: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЄГ ГІГҐГЈГ®Г°ГЁГЁ ГЄГ®ГІГ®Г°ГіГѕ ГµГ®ГІГЁГІГҐ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != categories.size(); ++i)
                 if (categories[i].categoryID == operation) {
-                    cout << "Введите название категории: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г Г§ГўГ Г­ГЁГҐ ГЄГ ГІГҐГЈГ®Г°ГЁГЁ: ";
                     cin >> temp;
                     categories[i].category_len = strlen(temp) + 2;
                     delete [] categories[i].category_name;
@@ -391,44 +394,44 @@ void Edit(int k) {
                 }
             Save(k);
             system("cls");
-            cout << "Информация о категории успешно редактирована" << endl;
+            cout << "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГЄГ ГІГҐГЈГ®Г°ГЁГЁ ГіГ±ГЇГҐГёГ­Г® Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­Г " << endl;
             break;
         }
         case 2: {
             Out(k);
             int operation;
-            cout << "Введите ID номера которого хотите редактировать: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID Г­Г®Г¬ГҐГ°Г  ГЄГ®ГІГ®Г°Г®ГЈГ® ГµГ®ГІГЁГІГҐ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != rooms.size(); ++i)
                 if (rooms[i].roomID == operation) {
-                    cout << "Введите ID категории: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЄГ ГІГҐГЈГ®Г°ГЁГЁ: ";
                     cin >> rooms[i].categoryID;
-                    cout << "Введите номер номера: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° Г­Г®Г¬ГҐГ°Г : ";
                     cin >> rooms[i].number;
-                    cout << "Введите количество спальных мест: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГЇГ Г«ГјГ­Г»Гµ Г¬ГҐГ±ГІ: ";
                     cin >> rooms[i].beds;
                 }
             Save(k);
             system("cls");
-            cout << "Информация о номере успешно редактирована" << endl;
+            cout << "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г­Г®Г¬ГҐГ°ГҐ ГіГ±ГЇГҐГёГ­Г® Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­Г " << endl;
             break;
         }
         case 3: {
             Out(k);
             int operation;
-            cout << "Введите ID гражданина которого хотите редактировать: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЈГ°Г Г¦Г¤Г Г­ГЁГ­Г  ГЄГ®ГІГ®Г°Г®ГЈГ® ГµГ®ГІГЁГІГҐ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != persons.size(); ++i)
                 if (persons[i].personID == operation) {
                     getchar();
-                    cout << "Введите ФИО: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г”Г€ГЋ: ";
                     cin.getline(temp, MAX_LEN - 1);
                     persons[i].FIO_len = strlen(temp) + 2;
                     delete [] persons[i].FIO;
                     persons[i].FIO = new char[persons[i].FIO_len];
                     strcat(persons[i].FIO, " ");
                     strcat(persons[i].FIO, temp);
-                    cout << "Введите паспорт: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЇГ Г±ГЇГ®Г°ГІ: ";
                     cin.getline(temp, MAX_LEN - 1);
                     persons[i].passport_len = strlen(temp) + 1;
                     delete [] persons[i].passport;
@@ -437,27 +440,27 @@ void Edit(int k) {
                 }
             Save(k);
             system("cls");
-            cout << "Информация о гражданине успешно редактирована" << endl;
+            cout << "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГЈГ°Г Г¦Г¤Г Г­ГЁГ­ГҐ ГіГ±ГЇГҐГёГ­Г® Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­Г " << endl;
             break;
         }
         case 4: {
             Out(k);
             int operation;
-            cout << "Введите ID заселения которорого хотите редактировать: ";
+            cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID Г§Г Г±ГҐГ«ГҐГ­ГЁГї ГЄГ®ГІГ®Г°Г®Г°Г®ГЈГ® ГµГ®ГІГЁГІГҐ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј: ";
             cin >> operation;
             for (size_t i = 0; i != check_ins.size(); ++i)
                 if (check_ins[i].check_inID == operation) {
-                    cout << "Введите ID гражданина: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID ГЈГ°Г Г¦Г¤Г Г­ГЁГ­Г : ";
                     cin >> check_ins[i].personID;
-                    cout << "Введите ID номера: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ID Г­Г®Г¬ГҐГ°Г : ";
                     cin >> check_ins[i].roomID;
-                    cout << "Введите дату въезда в формате ДД.ММ.ГГГГ: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г ГІГі ГўГєГҐГ§Г¤Г  Гў ГґГ®Г°Г¬Г ГІГҐ Г„Г„.ГЊГЊ.ГѓГѓГѓГѓ: ";
                     cin >> temp;
                     check_ins[i].start_len = strlen(temp) + 1;
                     delete [] check_ins[i].start;
                     check_ins[i].start = new char[check_ins[i].start_len];
                     strcat(check_ins[i].start, temp);
-                    cout << "Введите дату выезда в формате ДД.ММ.ГГГГ: ";
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г ГІГі ГўГ»ГҐГ§Г¤Г  Гў ГґГ®Г°Г¬Г ГІГҐ Г„Г„.ГЊГЊ.ГѓГѓГѓГѓ: ";
                     cin >> temp;
                     check_ins[i].finish_len = strlen(temp) + 1;
                     delete [] check_ins[i].finish;
@@ -466,11 +469,16 @@ void Edit(int k) {
                 }
             Save(k);
             system("cls");
-            cout << "Информация о заселении успешно редактирована" << endl;
+            cout << "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г§Г Г±ГҐГ«ГҐГ­ГЁГЁ ГіГ±ГЇГҐГёГ­Г® Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ Г­Г " << endl;
             break;
         }
         case 5: system("cls"); break;
-        default: system("cls"); cout << "Вы ввели не правильное число." << endl; Edit(Table_menu()); break;
+        default: system("cls"); cout << "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г®." << endl; Edit(Table_menu()); break;
     }
 }
 
+void About() {
+    cout << "РџСЂРѕРіСЂР°РјРјР° РїРѕР·РІРѕР»СЏРµС‚ РїСЂРѕРёР·РІРѕРґРёС‚СЊ РґРµР№СЃС‚РІРёСЏ РЅР°Рґ 4 С‚Р°Р±Р»РёС†Р°РјРё: " << endl;
+    cout << "1: РљР°С‚РµРіРѕСЂРёРё РЅРѕРјРµСЂРѕРІ\n" << "2: РќРѕРјРµСЂР°\n" << "3: Р“СЂР°Р¶РґР°РЅРµ\n" << "4: РЎРїРёСЃРѕРє Р·Р°СЃРµР»РµРЅРёСЏ\n" << endl;
+    cout << "Made by Yushakov N. R.\n" <<endl;
+}
