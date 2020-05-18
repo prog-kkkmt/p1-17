@@ -20,20 +20,22 @@ void Menu() {
     bool menu = true;
     int operation;
     while (menu) {
-        cout << "Ââåäèòå" << endl;
-        cout << "1: Äîáàâëåíèå èíôîðìàöèè â òàáëèöó" << endl;
-        cout << "2: Óäàëåíèå èíôîðìàöèè èç òàáëèöû" << endl;
-        cout << "3: Ðåäàêòèðîâàíèå òàáëèöû" << endl;
-        cout << "4: Âûâîä òàáëèöû" << endl;
-        cout << "5: Âûõîä" << endl;
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ" << endl;
+        cout << "1: Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð² Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ" << endl;
+        cout << "2: Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¸Ð· Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹" << endl;
+        cout << "3: Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹" << endl;
+        cout << "4: Ð’Ñ‹Ð²Ð¾Ð´ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹" << endl;
+        cout << "5: Ðž Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ" << endl;
+        cout << "6: Ð’Ñ‹Ñ…Ð¾Ð´" << endl;
         cin >> operation;
         switch (operation) {
             case 1: system("cls"); Add(); break;
             case 2: system("cls"); Delete(); break;
             case 3: system("cls"); Edit(); break;
             case 4: system("cls"); Out(); break;
-            case 5: menu = false; break;
-            default: system("cls"); cout << "Âû ââåëè íå ïðàâèëüíîå ÷èñëî." << endl; break;
+            case 5: system("cls"); About(); break;
+            case 6: menu = false; break;
+            default: system("cls"); cout << "Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ Ð½Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾." << endl; break;
         }
     }
 }
@@ -48,9 +50,9 @@ void Add() {
     Person person;
     person.personID = persons[persons.size() - 1].personID + 1;
     getchar();
-    cout << "Ââåäèòå ÔÈÎ: ";
+    cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã”ÃˆÃŽ: ";
     getline(cin, person.FIO);
-    cout << "Ââåäèòå ïàñïîðò: ";
+    cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã Ã±Ã¯Ã®Ã°Ã²: ";
     getline(cin, person.passport);
     person.FIO.insert(0, " ");
     persons.push_back(person);
@@ -68,7 +70,7 @@ void Save() {
 void Delete() {
     Out();
     int operation;
-    cout << "Ââåäèòå ID ãðàæäàíèíà êîòîðîãî õîòèòå óäàëèòü: ";
+    cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ID Ã£Ã°Ã Ã¦Ã¤Ã Ã­Ã¨Ã­Ã  ÃªÃ®Ã²Ã®Ã°Ã®Ã£Ã® ÃµÃ®Ã²Ã¨Ã²Ã¥ Ã³Ã¤Ã Ã«Ã¨Ã²Ã¼: ";
     cin >> operation;
     for (size_t i = 0; i != persons.size() - 1; ++i)
         if (persons[i].personID == operation)
@@ -81,16 +83,21 @@ void Delete() {
 void Edit() {
     Out();
     int operation;
-    cout << "Ââåäèòå ID ãðàæäàíèíà êîòîðîãî õîòèòå ðåäàêòèðîâàòü: ";
+    cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ID Ã£Ã°Ã Ã¦Ã¤Ã Ã­Ã¨Ã­Ã  ÃªÃ®Ã²Ã®Ã°Ã®Ã£Ã® ÃµÃ®Ã²Ã¨Ã²Ã¥ Ã°Ã¥Ã¤Ã ÃªÃ²Ã¨Ã°Ã®Ã¢Ã Ã²Ã¼: ";
     cin >> operation;
     for (size_t i = 0; i != persons.size(); ++i)
         if (persons[i].personID == operation) {
             getchar();
-            cout << "Ââåäèòå ÔÈÎ: ";
+            cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã”ÃˆÃŽ: ";
             getline(cin, persons[i].FIO);
-            cout << "Ââåäèòå ïàñïîðò: ";
+            cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¯Ã Ã±Ã¯Ã®Ã°Ã²: ";
             getline(cin, persons[i].passport);
             persons[i].FIO.insert(0, " ");
         }
     Save();
+}
+
+void About() {
+    cout << "ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ð¾Ð¹: Ð“Ñ€Ð°Ð¶Ð´Ð°Ð½Ðµ" << endl;
+    cout << "Made by Yushakov N. R.\n" <<endl;
 }
