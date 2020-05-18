@@ -24,5 +24,6 @@ void Add();
 void Delete();
 void Edit();
 void Save();
+void About();
 
 #endif // HOTEL_H_INCLUDED
