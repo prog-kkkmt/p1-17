@@ -1,10 +1,10 @@
 #include "data.h"
-vector<Category> Òategories;
+vector<Category> —Åategories;
 vector<Room> rooms;
 vector<Person> persons;
 vector<LockedRoom> lockedRooms;
 
-//—˜ËÚ˚‚‡ÌËÂ ËÁ Ù‡ÈÎÓ‚ 
+//–°—á–∏—Ç—ã–≤–∞–Ω–∏–µ –∏–∑ —Ñ–∞–π–ª–æ–≤ 
 void Initialization() {
 
 	ifstream f1("Category.txt");
@@ -14,7 +14,7 @@ void Initialization() {
 		while (!f1.eof()) {
 			f1 >> category.categoryiD;
 			getline(f1, category.category_name);
-			Òategories.push_back(category);
+			—Åategories.push_back(category);
 		}
 
 		f1.close();
@@ -57,84 +57,74 @@ void Initialization() {
 	}
 }
 
-void Save() {/*
+//–∑–∞–ø–∏—Å—å –≤ —Ñ–∞–π–ª—ã
+void Save() {
 
-ifstream f1("Category.txt");
-	Category category;
-
+	ofstream f1("Category.txt");
+	
 	if (f1.is_open()) {
-		while (!f1.eof()) {
-			f1 >> category.categoryiD;
-			getline(f1, category.category_name);
-			Òategories.push_back(category);
-		}			for (int i = 0; i != persons.size();i++)
-		f3<<person.personiD<<" "<<person.Fio<< ':'<<person.passport<<endl;
-
+		for (int i = 0; i != —Åategories.size(); i++) {
+			f1 << —Åategories[i].categoryiD << " " << —Åategories[i].category_name;
+			if (i != —Åategories.size() - 1)
+				f1 << endl;
+		}
 		f1.close();
 	}
 
-	ifstream f2("Room.txt");
-	Room room;
-	if (f2.is_open()) {
-		while (!f2.eof()) {
-			f2 >> room.roomiD >> room.categoryiD >> room.num >> room.beds;
-			rooms.push_back(room);
-		}			for (int i = 0; i != persons.size();i++)
-		f3<<person.personiD<<" "<<person.Fio<< ':'<<person.passport<<endl;
+	ofstream f2("Room.txt");
 
+	if (f2.is_open()) {
+		for (int i = 0; i != rooms.size(); i++) {
+			f2 << rooms[i].roomiD << " " << rooms[i].categoryiD << " " << rooms[i].num << " " << rooms[i].beds;
+			if (i != rooms.size() - 1)
+				f2 << endl;
+		}
 		f2.close();
 	}
 
-	ifstream f3("Person.txt");
-	Person person;
-	if (f3.is_open()) {
-		while (!f3.eof()) {
-			f3 >> person.personiD;
-			getline(f3, person.Fio, ':');
-			getline(f3, person.passport);
-			persons.push_back(person);
-			for (int i = 0; i != persons.size();i++)
-		f3<<person.personiD<<" "<<person.Fio<< ':'<<person.passport<<endl;
+	ofstream f3("Person.txt");
 
-		}		vector<Category> Òategories;
-vector<Room> rooms;
-vector<Person> persons;
-vector<LockedRoom> lockedRooms;
+	if (f3.is_open()) {
+		
+		for (int i = 0; i != persons.size(); i++) {
+			f3 << persons[i].personiD << " " << persons[i].Fio << ':' << persons[i].passport;
+			if (i != persons.size() - 1)
+				f3 << endl;
+		}
 		
 		f3.close();
 	}
 	
-	ifstream f4("LockedRoom.txt");
-	LockedRoom lockedRoom;
-	if (f4.is_open()) {
-		while (!f4.eof()) {
-			f4 >> lockedRoom.lockedRoomiD >> lockedRoom.personiD >> lockedRoom.roomiD >> lockedRoom.star >> lockedRoom.finis;
-			lockedRooms.push_back(lockedRoom);
-		}			for (int i = 0; i != persons.size();i++)
-		f3<<person.personiD<<" "<<person.Fio<< ':'<<person.passport<<endl;
+	ofstream f4("LockedRoom.txt");
 
+	if (f4.is_open()) {
+		for (int i = 0; i != lockedRooms.size(); i++) {
+			f4 << lockedRooms[i].lockedRoomiD << " " << lockedRooms[i].personiD << " " << lockedRooms[i].roomiD << " " << lockedRooms[i].star << " " << lockedRooms[i].finis;
+			if (i != lockedRooms.size() - 1)
+				f4 << endl;
+		}
 		f4.close();
-	}*/
+	}
 }
 
 void printDefaultMenu() {
 	system("cls");
 	cout << " ________________________________________ " << endl;
-	cout << "|        √ÓÒÚÂ‚‡ˇ ÍÌË„‡ ÓÚÂÎˇ            |" << endl;
+	cout << "|        –ì–æ—Å—Ç–µ–≤–∞—è –∫–Ω–∏–≥–∞ –æ—Ç–µ–ª—è            |" << endl;
 	cout << "|________________________________________|" << endl;
 	cout << "|                                        |" << endl;
-	cout << "|   1: ¬˚‚Ó‰ Ú‡·ÎËˆ˚                     |" << endl;
-	cout << "|   2: —ÓÚËÓ‚Í‡ Ú‡·ÎËˆ˚                |" << endl;
-	cout << "|   3: –Â‰‡ÍÚËÓ‚‡ÌËÂ Ú‡·ÎËˆ˚            |" << endl;
+	cout << "|   1: –í—ã–≤–æ–¥ —Ç–∞–±–ª–∏—Ü—ã                     |" << endl;
+	cout << "|   2: –°–æ—Ä—Ç–∏—Ä–æ–≤–∫–∞ —Ç–∞–±–ª–∏—Ü—ã                |" << endl;
+	cout << "|   3: –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞–Ω–∏–µ —Ç–∞–±–ª–∏—Ü—ã            |" << endl;
 	cout << "|________________________________________|" << endl;
 	cout << "|                                        |" << endl;
-	cout << "|   0: Œ ÔÓ„‡ÏÏÂ                       |" << endl;
-	cout << "| Esc: ¬˚ıÓ‰                             |" << endl;
+	cout << "|   0: –û –ø—Ä–æ–≥—Ä–∞–º–º–µ                       |" << endl;
+	cout << "| Esc: –í—ã—Ö–æ–¥                             |" << endl;
 	cout << "|________________________________________|" << endl;
 
 }
 
-//ÃÂÌ˛ ÔÓ„‡ÏÏ˚
+//–ú–µ–Ω—é –ø—Ä–æ–≥—Ä–∞–º–º—ã
 void Menu() {
 	Initialization();
 	int key;
@@ -146,19 +136,19 @@ void Menu() {
 		printDefaultMenu();
 		switch ((key = _getch()))
 		{
-		case '1'://1: ¬˚‚Ó‰ Ú‡·ÎËˆ˚ +
+		case '1'://1: –í—ã–≤–æ–¥ —Ç–∞–±–ª–∏—Ü—ã +
 			StructMenu(&exit);
 			break;
-		case '2'://2: —ÓÚËÓ‚Í‡ Ú‡·ÎËˆ˚ ?
+		case '2'://2: –°–æ—Ä—Ç–∏—Ä–æ–≤–∫–∞ —Ç–∞–±–ª–∏—Ü—ã ?
 			;
 			break;
-		case '3'://3: –Â‰‡ÍÚËÓ‚‡ÌËÂ Ú‡·ÎËˆ˚
+		case '3'://3: –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞–Ω–∏–µ —Ç–∞–±–ª–∏—Ü—ã
 			Edit();
 			break;
-		case '0'://Œ ÔÓ„‡ÏÏÂ+
+		case '0'://–û –ø—Ä–æ–≥—Ä–∞–º–º–µ+
 			About(&exit);
 			break;
-		case 27://‚˚ıÓ‰+
+		case 27://–≤—ã—Ö–æ–¥+
 			exit = false;
 			break;
 		default:
@@ -168,37 +158,37 @@ void Menu() {
 	}
 }
 
-// –Â‰‡ÍÚËÓ‚‡ÌËÂ Ú‡·ÎËˆ˚
+// –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞–Ω–∏–µ —Ç–∞–±–ª–∏—Ü—ã
 void Edit() {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        –Â‰‡ÍÚËÓ‚‡Ú¸ Á‡ÔËÒË             |" << endl;
+		cout << "|        –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞—Ç—å –∑–∞–ø–∏—Å–∏            |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   1: —ÔËÒÓÍ ÌÓÏÂÓ‚                    |" << endl;
-		cout << "|   2: «‡ÌˇÚ˚Â ÌÓÏÂ‡                    |" << endl;
-		cout << "|   3:  ‡ÚÂ„ÓËË ÌÓÏÂÓ‚                 |" << endl;
-		cout << "|   4: »ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı          |" << endl;
+		cout << "|   1: –°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤                    |" << endl;
+		cout << "|   2: –ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞                    |" << endl;
+		cout << "|   3: –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤                 |" << endl;
+		cout << "|   4: –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö          |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Õ‡Á‡‰                             |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                             |" << endl;
 		cout << "|                                        |" << endl;
 		cout << "|________________________________________|" << endl;
 
 		switch ((key = _getch()))
 		{
-		case '1'://1: —ÔËÒÓÍ ÌÓÏÂÓ‚ 
+		case '1'://1: –°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤ 
 			editRoom();
 			break;
-		case '2'://2: «‡ÌˇÚ˚Â ÌÓÏÂ‡ 
+		case '2'://2: –ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞ 
 			editLockedRoom();
 			break;
-		case '3'://3:  ‡ÚÂ„ÓËË ÌÓÏÂÓ‚
+		case '3'://3: –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤
 			editCategory();
 			break;
-		case '4'://4: »ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı
+		case '4'://4: –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö
 			editPerson();
 			break;
 		}
@@ -206,38 +196,38 @@ void Edit() {
 
 }
 
-//œÓÒÏÓÚ Á‡ÔËÒÂÈ
+//–ü—Ä–æ—Å–º–æ—Ç—Ä –∑–∞–ø–∏—Å–µ–π
 void StructMenu(bool *exit) {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        œÓÒÏÓÚÂÚ¸ Á‡ÔËÒË              |" << endl;
+		cout << "|        –ü—Ä–æ—Å–º–æ—Ç—Ä–µ—Ç—å –∑–∞–ø–∏—Å–∏              |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   1: —ÔËÒÓÍ ÌÓÏÂÓ‚                    |" << endl;
-		cout << "|   2: «‡ÌˇÚ˚Â ÌÓÏÂ‡                    |" << endl;
-		cout << "|   3:  ‡ÚÂ„ÓËË ÌÓÏÂÓ‚                 |" << endl;
-		cout << "|   4: »ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı          |" << endl;
+		cout << "|   1: –°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤                    |" << endl;
+		cout << "|   2: –ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞                    |" << endl;
+		cout << "|   3: –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤                 |" << endl;
+		cout << "|   4: –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö          |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Õ‡Á‡‰                             |" << endl;
-		cout << "| Esc: ¬˚ıÓ‰                             |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                             |" << endl;
+		cout << "| Esc: –í—ã—Ö–æ–¥                             |" << endl;
 		cout << "|________________________________________|" << endl;
 
 		switch ((key = _getch()))
 		{
-		case '1'://1: —ÔËÒÓÍ ÌÓÏÂÓ‚ 
+		case '1'://1: –°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤ 
 			printRoom();
 			break;
-		case '2'://2: «‡ÌˇÚ˚Â ÌÓÏÂ‡ 
+		case '2'://2: –ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞ 
 			printLockedRoom();
 			;
 			break;
-		case '3'://3:  ‡ÚÂ„ÓËË ÌÓÏÂÓ‚
+		case '3'://3: –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤
 			printCategory();
 			break;
-		case '4'://4: »ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı
+		case '4'://4: –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö
 			printPerson();
 			break;
 		case 27:
@@ -249,24 +239,24 @@ void StructMenu(bool *exit) {
 
 	}
 
-//Œ ÔÓ„‡ÏÏÂ
+//–û –ø—Ä–æ–≥—Ä–∞–º–º–µ
 void About(bool *exit) {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        Œ ÔÓ„‡ÏÏÂ                     |" << endl;
+		cout << "|        –û –ø—Ä–æ–≥—Ä–∞–º–º–µ                     |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|      ÓÌÒÓÎ¸ÌÓÂ ÔËÎÓÊÂÌËÂ              |" << endl;
-		cout << "|     Û˜ÂÚ‡  ÔÓÒÂÚËÚÂÎÂÈ „ÓÒÚËÌËˆ˚       |" << endl;
+		cout << "|     –ö–æ–Ω—Å–æ–ª—å–Ω–æ–µ –ø—Ä–∏–ª–æ–∂–µ–Ω–∏–µ              |" << endl;
+		cout << "|     —É—á–µ—Ç–∞  –ø–æ—Å–µ—Ç–∏—Ç–µ–ª–µ–π –≥–æ—Å—Ç–∏–Ω–∏—Ü—ã       |" << endl;
 		cout << "|                                        |" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|     ¬ÂÒËˇ 0.7.6Ò                      |" << endl;
-		cout << "|     ¿‚ÚÓ             «‚ÓÌ‡∏‚ ƒ.¿.    |" << endl;
+		cout << "|     –í–µ—Ä—Å–∏—è 0.8.6—Å                      |" << endl;
+		cout << "|     –ê–≤—Ç–æ—Ä             –ó–≤–æ–Ω–∞—Ä—ë–≤ –î.–ê.    |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Õ‡Á‡‰                             |" << endl;
-		cout << "| Esc: ¬˚ıÓ‰                             |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                             |" << endl;
+		cout << "| Esc: –í—ã—Ö–æ–¥                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		if ((key = _getch()) == 27) {
 			*exit = false;
@@ -276,16 +266,16 @@ void About(bool *exit) {
 	
 }
 
-//—ÔËÒÓÍ ÌÓÏÂÓ‚ 
+//–°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤ 
 void printRoom() {
 	int key = 1;
 	while (key != '0') {
-		system("cls");//ÕÓÏÂ‡ ( Ó‰	ÌÓÏÂ‡,  Ó‰ Í‡ÚÂ„ÓËË, ÌÓÏÂ, ÏÂÒÚ);
+		system("cls");//–ù–æ–º–µ—Ä–∞ (–ö–æ–¥	–Ω–æ–º–µ—Ä–∞, –ö–æ–¥ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏, –Ω–æ–º–µ—Ä, –º–µ—Å—Ç);
 		cout << " ________________________________________ " << endl;
-		cout << "|        —ÔËÒÓÍ ÌÓÏÂÓ‚                  |" << endl;
+		cout << "|        –°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤                  |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|   Ó‰   |    Ó‰     |  ÕÓÏÂ   | ¬ÒÂ„Ó  |" << endl;
-		cout << "| ÌÓÏÂ‡ | Í‡ÚÂ„ÓËË |          |  ÏÂÒÚ  |" << endl;
+		cout << "|  –ö–æ–¥   |   –ö–æ–¥     |  –ù–æ–º–µ—Ä   | –í—Å–µ–≥–æ  |" << endl;
+		cout << "| –Ω–æ–º–µ—Ä–∞ | –∫–∞—Ç–µ–≥–æ—Ä–∏–∏ |          |  –º–µ—Å—Ç  |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
 		for (int i = 0; i != rooms.size(); i++)
@@ -293,22 +283,22 @@ void printRoom() {
 		cout << "|        |           |          |        |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Õ‡Á‡‰                             |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		key = _getch();
 	}
 }
 
-//«‡ÌˇÚ˚Â ÌÓÏÂ‡
+//–ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞
 void printLockedRoom(){
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ______________________________________________________________________ " << endl;
-		cout << "|                            «‡ÌˇÚ˚Â ÌÓÏÂ‡                            |" << endl;
+		cout << "|                            –ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞                            |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
-		cout << "|     Ó‰     |     Ó‰     |   Ó‰   |     ƒ‡Ú‡       |       —ÓÍ       |" << endl;
-		cout << "| ‡ÁÏÂ˘ÂÌËˇ | „‡Ê‰‡ÌËÌ‡ | ÌÓÏÂ‡ |    ‚˙ÂÁ‰‡      |    ÔÓÊË‚‡ÌËˇ    |" << endl;
+		cout << "|    –ö–æ–¥     |    –ö–æ–¥     |  –ö–æ–¥   |     –î–∞—Ç–∞       |       –°—Ä–æ–∫       |" << endl;
+		cout << "| —Ä–∞–∑–º–µ—â–µ–Ω–∏—è | –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞ | –Ω–æ–º–µ—Ä–∞ |    –≤—ä–µ–∑–¥–∞      |    –ø—Ä–æ–∂–∏–≤–∞–Ω–∏—è    |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
 		for (int i = 0; i != lockedRooms.size(); i++)
@@ -316,52 +306,52 @@ void printLockedRoom(){
 		cout << "|            |            |        |                |                  |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
-		cout << "|   0: Õ‡Á‡‰                                                           |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                                                           |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		key = _getch();
 	}
 }
-// ‡ÚÂ„ÓËË ÌÓÏÂÓ‚
+//–ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤
 void printCategory(){
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ___________________________" << endl;
-		cout << "|      ‡ÚÂ„ÓËË ÌÓÏÂÓ‚     |" << endl;
+		cout << "|     –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤     |" << endl;
 		cout << "|___________________________|" << endl;
-		cout << "|    Ó‰     |    Õ‡Á‚‡ÌËÂ   |" << endl;
-		cout << "| Í‡ÚÂ„ÓËË |   Í‡ÚÂ„ÓËË   |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		for (int i = 0; i != Òategories.size(); i++)		     
-			printf("| %4d      | %12s  |\n", Òategories[i].categoryiD, Òategories[i].category_name.c_str());
-		cout << "|                           |" << endl;
+		cout << "|   –ö–æ–¥     |    –ù–∞–∑–≤–∞–Ω–∏–µ   |" << endl;
+		cout << "| –∫–∞—Ç–µ–≥–æ—Ä–∏–∏ |   –∫–∞—Ç–µ–≥–æ—Ä–∏–∏   |" << endl;
 		cout << "|___________________________|" << endl;
 		cout << "|                           |" << endl;
-		cout << "|   0: Õ‡Á‡‰                |" << endl;
+		for (int i = 0; i != —Åategories.size(); i++)		     
+			printf("| %4d      | %12s  |\n", —Åategories[i].categoryiD, —Åategories[i].category_name.c_str());
+		cout << "|                           |" << endl;
+		cout << "|___________________________|" << endl;
+		cout << "|                           |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                |" << endl;
 		cout << "|___________________________|" << endl;
 		key = _getch();
 	}
 }
 
-//»ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı
+//–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö
 void printPerson() {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " _______________________________________________________________ " << endl;
-		cout << "|                    »ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı                   |" << endl;
+		cout << "|                    –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö                   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
-		cout << "|     Ó‰     |              ‘.».Œ.              |   œ‡ÒÔÓÚ     |" << endl;
-		cout << "| „‡Ê‰‡ÌËÌ‡ |            „‡Ê‰‡ÌËÌ‡            |  „‡Ê‰‡ÌËÌ‡   |" << endl;
+		cout << "|    –ö–æ–¥     |              –§.–ò.–û.              |   –ü–∞—Å–ø–æ—Ä—Ç     |" << endl;
+		cout << "| –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞ |            –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞            |  –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
 		for (int i = 0; i != persons.size(); i++)
-			printf("| %4d       | %30s   | %12s |\n", persons[i].personiD,persons[i].Fio.c_str(),persons[i].passport.c_str());
+			printf("| %4d       | %30s   | %13s |\n", persons[i].personiD,persons[i].Fio.c_str(),persons[i].passport.c_str());
 		cout << "|                                                               |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
-		cout << "|   0: Õ‡Á‡‰                                                    |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                                                    |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		key = _getch();
 	}
@@ -370,12 +360,12 @@ void printPerson() {
 void editRoom() {//+
 	int key = 1;
 	while (key != '0') {
-		system("cls");//ÕÓÏÂ‡ ( Ó‰	ÌÓÏÂ‡,  Ó‰ Í‡ÚÂ„ÓËË, ÌÓÏÂ, ÏÂÒÚ);
+		system("cls");//–ù–æ–º–µ—Ä–∞ (–ö–æ–¥	–Ω–æ–º–µ—Ä–∞, –ö–æ–¥ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏, –Ω–æ–º–µ—Ä, –º–µ—Å—Ç);
 		cout << " ________________________________________ " << endl;
-		cout << "|        —ÔËÒÓÍ ÌÓÏÂÓ‚                  |" << endl;
+		cout << "|        –°–ø–∏—Å–æ–∫ –Ω–æ–º–µ—Ä–æ–≤                  |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|   Ó‰   |    Ó‰     |  ÕÓÏÂ   | ¬ÒÂ„Ó  |" << endl;
-		cout << "| ÌÓÏÂ‡ | Í‡ÚÂ„ÓËË |          |  ÏÂÒÚ  |" << endl;
+		cout << "|  –ö–æ–¥   |   –ö–æ–¥     |  –ù–æ–º–µ—Ä   | –í—Å–µ–≥–æ  |" << endl;
+		cout << "| –Ω–æ–º–µ—Ä–∞ | –∫–∞—Ç–µ–≥–æ—Ä–∏–∏ |          |  –º–µ—Å—Ç  |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
 		for (int i = 0; i != rooms.size(); i++)
@@ -383,70 +373,71 @@ void editRoom() {//+
 		cout << "|        |           |          |        |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   a: ƒÓ·‡‚ËÚ¸         e: –Â‰‡ÍÚËÓ‚‡Ú¸ |" << endl;
-		cout << "|   d: ”‰‡ÎËÚ¸                           |" << endl;
-		cout << "|   0: Õ‡Á‡‰                             |" << endl;
+		cout << "|   a: –î–æ–±–∞–≤–∏—Ç—å         e: –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞—Ç—å |" << endl;
+		cout << "|   d: –£–¥–∞–ª–∏—Ç—å                           |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		key = _getch();
 		if (key == 'a') {
-			cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚Û˛ Á‡ÔËÒ¸   :             |" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—É—é –∑–∞–ø–∏—Å—å   :             |" << endl;
 			cout << "|________________________________________|" << endl;
 			Room room;
-			cin >> room.roomiD >> room.categoryiD >> room.num >> room.beds;
+			cin >> room.roomiD >> room.categoryiD >> room.num >> room.beds;//
 			rooms.push_back(room);
 		}
 		if (key == 'e') {
-			cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ÌÓÏÂ‡:                  |" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –Ω–æ–º–µ—Ä–∞:                  |" << endl;
 			cout << "|________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
-			cin >> searchiD;
+			searchiD = getInt();
 			for (int i = 0; i != rooms.size(); i++) {
 				if (rooms[i].roomiD == searchiD) {
 					cout << "|________________________________________|" << endl;
 					printf("| %4d   | %4d      | %5d    |  %2d    |\n", rooms[i].roomiD, rooms[i].categoryiD, rooms[i].num, rooms[i].beds);
 					/*
 					cout << "|________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ÌÓÏÂ‡:              |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –Ω–æ–º–µ—Ä–∞:              |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newRoomiD;
-					cin >> newRoomiD;
+					newRoomiD = getInt();
 					rooms[i].roomiD = newRoomiD;
 					*/
 					cout << "|________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ  ÍÓ‰ Í‡ÚÂ„ÓËË:              |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ  –∫–æ–¥ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏:              |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newcategoryiD;
-					cin >> newcategoryiD;
+					newcategoryiD = getInt();
 					rooms[i].categoryiD = newcategoryiD;
 					cout << "|________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ  ÌÓÏÂ:                      |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ  –Ω–æ–º–µ—Ä:                      |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newnum;
-					cin >> newnum;
+					newnum = getInt();
 					rooms[i].num = newnum;
 					cout << "|________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÍÓÎË˜ÂÒÚ‚Ó ÏÂÒÚ:             |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ –º–µ—Å—Ç:             |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newbeds;
-					cin >> newbeds;
+					newbeds = getInt();
 					rooms[i].beds = newbeds;
 				}
 			}
 		}
 		if (key == 'd') {
-			cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ÌÓÏÂ‡ Û‰‡ÎˇÂÏÓÈ Á‡ÔËÒË: |" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –Ω–æ–º–µ—Ä–∞ —É–¥–∞–ª—è–µ–º–æ–π –∑–∞–ø–∏—Å–∏: |" << endl;
 			cout << "|________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
-			cin >> searchiD;
+			searchiD = getInt();
 			for (int i = 0; i != rooms.size(); i++) {
 				if (rooms[i].roomiD == searchiD) {
 					rooms.erase(rooms.begin() + i);
+					break;
 				}
 			}
 		}
@@ -454,19 +445,16 @@ void editRoom() {//+
 	Save();
 }
 
-
-
-
-//«‡ÌˇÚ˚Â ÌÓÏÂ‡
+//–ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞
 void editLockedRoom() {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ______________________________________________________________________ " << endl;
-		cout << "|                            «‡ÌˇÚ˚Â ÌÓÏÂ‡                            |" << endl;
+		cout << "|                            –ó–∞–Ω—è—Ç—ã–µ –Ω–æ–º–µ—Ä–∞                            |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
-		cout << "|     Ó‰     |     Ó‰     |   Ó‰   |     ƒ‡Ú‡       |       —ÓÍ       |" << endl;
-		cout << "| ‡ÁÏÂ˘ÂÌËˇ | „‡Ê‰‡ÌËÌ‡ | ÌÓÏÂ‡ |    ‚˙ÂÁ‰‡      |    ÔÓÊË‚‡ÌËˇ    |" << endl;
+		cout << "|    –ö–æ–¥     |    –ö–æ–¥     |  –ö–æ–¥   |     –î–∞—Ç–∞       |       –°—Ä–æ–∫       |" << endl;
+		cout << "| —Ä–∞–∑–º–µ—â–µ–Ω–∏—è | –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞ | –Ω–æ–º–µ—Ä–∞ |    –≤—ä–µ–∑–¥–∞      |    –ø—Ä–æ–∂–∏–≤–∞–Ω–∏—è    |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
 		for (int i = 0; i != lockedRooms.size(); i++)
@@ -474,23 +462,23 @@ void editLockedRoom() {
 		cout << "|            |            |        |                |                  |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
-		cout << "|   d: ”‰‡ÎËÚ¸           e: –Â‰‡ÍÚËÓ‚‡Ú¸   	        a: ƒÓ·‡‚ËÚ¸     |" << endl;
-		cout << "|   0: Õ‡Á‡‰                                                           |" << endl;
+		cout << "|   d: –£–¥–∞–ª–∏—Ç—å           e: –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞—Ç—å               a: –î–æ–±–∞–≤–∏—Ç—å    |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                                                           |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		key = _getch();
 		if (key == 'e') {
-			cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ :                                           |" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ —Ä–∞–∑–º–µ—â–µ–Ω–∏—è :                                           |" << endl;
 			cout << "|______________________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
-			cin >> searchiD;
+			searchiD = getInt();
 			for (int i = 0; i != lockedRooms.size(); i++) {
 				if (lockedRooms[i].lockedRoomiD == searchiD) {
 					cout << " ______________________________________________________________________ " << endl;
 					printf("|  %5d     | %5d      | %4d   |  %10s    |    %10s    |\n", lockedRooms[i].lockedRoomiD, lockedRooms[i].personiD, lockedRooms[i].roomiD, lockedRooms[i].star.c_str(), lockedRooms[i].finis.c_str());
 					/*
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚˚È ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ:                                      |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –∫–æ–¥ —Ä–∞–∑–º–µ—â–µ–Ω–∏—è:                                      |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					int newlockedRoomiD;
@@ -498,27 +486,28 @@ void editLockedRoom() {
 					lockedRooms[i].lockedRoomiD = newlockedRoomiD;
 					*/
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚˚È ÍÓ‰ „‡Ê‰‡ÌËÌ‡:                                      |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –∫–æ–¥ –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞:                                      |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					int newpersoniD;
 					cin >> newpersoniD;
+
 					lockedRooms[i].personiD = newpersoniD;
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚˚È ÍÓ‰ ÌÓÏÂ‡:                                          |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –∫–æ–¥ –Ω–æ–º–µ—Ä–∞:                                          |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					int newroomiD;
 					cin >> newroomiD;
 					lockedRooms[i].roomiD = newroomiD;
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚Û˛ ‰‡ÚÛ ‚˙ÂÁ‰‡:                                         |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—É—é –¥–∞—Ç—É –≤—ä–µ–∑–¥–∞:                                         |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					string  newstart;
 					cin >> newstart;
 					lockedRooms[i].star = newstart;
-					cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚˚È ÒÓÍ ÔÓÊË‚‡ÌËˇ:                                     |" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π —Å—Ä–æ–∫ –ø—Ä–æ–∂–∏–≤–∞–Ω–∏—è:                                     |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					string newfinish;
@@ -529,21 +518,22 @@ void editLockedRoom() {
 			
 		}
 		if (key == 'a') {
-			cout << "|   ¬‚Â‰ËÚÂ ÌÓ‚Û˛ Á‡ÔËÒ¸   :                                           |" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—É—é –∑–∞–ø–∏—Å—å   :                                           |" << endl;
 			cout << "|______________________________________________________________________|" << endl;
 			Room room;
-			cin >> room.roomiD >> room.categoryiD >> room.num >> room.beds;
+			cin >> room.roomiD >> room.categoryiD >> room.num >> room.beds;// ? —Ç–æ–∂–µ –ø—Ä–æ–≤–µ—Ä–∫—É –Ω–∞ —á–∏—Å–ª–∞?
 			rooms.push_back(room);
 		}
 		if (key == 'd') {
-			cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ Û‰‡ÎˇÂÏÓÈ Á‡ÔËÒË :                          |" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ —Ä–∞–∑–º–µ—â–µ–Ω–∏—è —É–¥–∞–ª—è–µ–º–æ–π –∑–∞–ø–∏—Å–∏ :                          |" << endl;
 			cout << "|______________________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
-			cin >> searchiD;
+			searchiD = getInt();
 			for (int i = 0; i != lockedRooms.size(); i++) {
 				if (lockedRooms[i].lockedRoomiD == searchiD) {
 					lockedRooms.erase(lockedRooms.begin() + i);
+					break;
 				}
 			}
 		}
@@ -551,147 +541,178 @@ void editLockedRoom() {
 	Save();
 }
 
-// ‡ÚÂ„ÓËË ÌÓÏÂÓ‚
+//–ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤
 void editCategory() {
-	/*int key = 1;
-	while (key != '0') {
+	int key = 1;
+	 while (key != '0') {
 		system("cls");
 		cout << " ___________________________" << endl;
-		cout << "|      ‡ÚÂ„ÓËË ÌÓÏÂÓ‚     |" << endl;
+		cout << "|     –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ –Ω–æ–º–µ—Ä–æ–≤     |" << endl;
 		cout << "|___________________________|" << endl;
-		cout << "|    Ó‰     |    Õ‡Á‚‡ÌËÂ   |" << endl;
-		cout << "| Í‡ÚÂ„ÓËË |   Í‡ÚÂ„ÓËË   |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		for (int i = 0; i != Òategories.size(); i++)
-			printf("| %4d      | %12s  |\n", Òategories[i].categoryiD, Òategories[i].category_name.c_str());
-		cout << "|                           |" << endl;
+		cout << "|   –ö–æ–¥     |    –ù–∞–∑–≤–∞–Ω–∏–µ   |" << endl;
+		cout << "| –∫–∞—Ç–µ–≥–æ—Ä–∏–∏ |   –∫–∞—Ç–µ–≥–æ—Ä–∏–∏   |" << endl;
 		cout << "|___________________________|" << endl;
 		cout << "|                           |" << endl;
-		cout << "|   e: –Â‰‡ÍÚËÓ‚‡Ú¸        |" << endl;
-		cout << "|   a: ƒÓ·‡‚ËÚ¸             |" << endl;
-		cout << "|   d: ”‰‡ÎËÚ¸              |" << endl;
-		cout << "|   0: Õ‡Á‡‰                |" << endl;
+		for (int i = 0; i != —Åategories.size(); i++)
+			printf("| %4d      | %12s  |\n", —Åategories[i].categoryiD, —Åategories[i].category_name.c_str());
+		cout << "|                           |" << endl;
+		cout << "|___________________________|" << endl;
+		cout << "|                           |" << endl;
+		cout << "|   e: –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞—Ç—å        |" << endl;
+		cout << "|   a: –î–æ–±–∞–≤–∏—Ç—å             |" << endl;
+		cout << "|   d: –£–¥–∞–ª–∏—Ç—å              |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                |" << endl;
 		cout << "|___________________________|" << endl;
 		key = _getch();
-		if (key == 'e'){
-			cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ :                                           |" << endl;
-			cout << "|______________________________________________________________________|" << endl;
-			int searchiD;
-			cout << ": ";
-			cin >> searchiD;
-			for (int i = 0; i != lockedRooms.size(); i++) {
-				if (lockedRooms[i].lockedRoomiD == searchiD) {
-					if (key == 'e') {
-						cout << " ______________________________________________________________________ " << endl;
-						printf("|  %5d     | %5d      | %4d   |  %10s    |    %10s    |\n", lockedRooms[i].lockedRoomiD, lockedRooms[i].personiD, lockedRooms[i].roomiD, lockedRooms[i].star.c_str(), lockedRooms[i].finis.c_str());
-						cout << "|______________________________________________________________________|" << endl;
-						cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ:                                            |" << endl;
-						cout << "|______________________________________________________________________|" << endl;
-						cout << ": ";
-						int newlockedRoomiD;
-						cin >> newlockedRoomiD;
-						lockedRooms[i].lockedRoomiD = newlockedRoomiD;
-						cout << "|______________________________________________________________________|" << endl;
-						cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ „‡Ê‰‡ÌËÌ‡:                                            |" << endl;
-						cout << "|______________________________________________________________________|" << endl;
-						cout << ": ";
-						int newpersoniD;
-						cin >> newpersoniD;
-						lockedRooms[i].personiD = newpersoniD;
-
-					}
-				}
-			}
-			if (key == 'd') {
-			cout << "|  ¬‚Â‰ËÚÂ ÍÓ‰ Í‡ÚÂ„ÓËË    |" << endl;
-			cout << "|    Û‰‡ÎˇÂÏÓÈ Á‡ÔËÒË :     |" << endl;
+		if (key == 'e') {
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏  :|" << endl;
 			cout << "|___________________________|" << endl;
 			int searchiD;
 			cout << ": ";
-			cin >> searchiD;
-			for (int i = 0; i != categories.size(); i++) {
-				if (categories[i].categoryiD == searchiD) {
-					categories.erase(categories.begin() + i);
+			searchiD = getInt();
+			for (int i = 0; i != —Åategories.size(); i++) {
+				if (—Åategories[i].categoryiD == searchiD) {
+					printf("| %4d      | %12s  |\n", —Åategories[i].categoryiD, —Åategories[i].category_name.c_str());
+
+					cout << "|___________________________|" << endl;
+					cout << "|      –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤–æ–µ        |" << endl;
+					cout << "|    –Ω–∞–∑–≤–∞–Ω–∏–µ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏:    |" << endl;
+					cout << "|___________________________|" << endl;
+					cout << ": ";
+					string newcategory_name;
+					cin >> newcategory_name;
+					—Åategories[i].category_name = newcategory_name;
+				}
+			}
+
+		}
+		if (key == 'a') {
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—É—é –∑–∞–ø–∏—Å—å:   |" << endl;
+			cout << "|___________________________|" << endl;
+			Category category;
+			cin >> category.categoryiD >> category.category_name;
+			—Åategories.push_back(category);
+		}
+		if (key == 'd') {
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏   |" << endl;
+			cout << "|     —É–¥–∞–ª—è–µ–º–æ–π –∑–∞–ø–∏—Å–∏:     |" << endl;
+			cout << "|___________________________|" << endl;
+			int searchiD;
+			cout << ": ";
+			searchiD = getInt();
+			for (int i = 0; i != —Åategories.size(); i++) {
+				if (—Åategories[i].categoryiD == searchiD) {
+					—Åategories.erase(—Åategories.begin() + i);
+					break;
 				}
 			}
 		}
-		}
-	}*/
+	}
 	Save();
 }
 
-//»ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı
+//–ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö
 void editPerson() {
-	/*int key = 1;
+	int key = 1;
+
 	while (key != '0') {
 		system("cls");
 		cout << " _______________________________________________________________ " << endl;
-		cout << "|                    »ÌÙÓÏ‡ˆËˇ Ó ÔÓÒÚÓˇÎ¸ˆ‡ı                   |" << endl;
+		cout << "|                    –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å—Ç–æ—è–ª—å—Ü–∞—Ö                   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
-		cout << "|     Ó‰     |              ‘.».Œ.              |   œ‡ÒÔÓÚ     |" << endl;
-		cout << "| „‡Ê‰‡ÌËÌ‡ |            „‡Ê‰‡ÌËÌ‡            |  „‡Ê‰‡ÌËÌ‡   |" << endl;
+		cout << "|    –ö–æ–¥     |              –§.–ò.–û.              |   –ü–∞—Å–ø–æ—Ä—Ç     |" << endl;
+		cout << "| –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞ |            –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞            |  –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
 		for (int i = 0; i != persons.size(); i++)
-			printf("| %4d       | %30s   | %12s |\n", persons[i].personiD, persons[i].Fio.c_str(), persons[i].passport.c_str());
+			printf("| %4d       | %30s   | %13s |\n", persons[i].personiD, persons[i].Fio.c_str(), persons[i].passport.c_str());
 		cout << "|                                                               |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
-		cout << "|   0: Õ‡Á‡‰      e: –Â‰‡ÍÚËÓ‚‡Ú¸   	        a: ƒÓ·‡‚ËÚ¸      |" << endl;
+		cout << "|   d: –£–¥–∞–ª–∏—Ç—å          e: –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞—Ç—å          a: –î–æ–±–∞–≤–∏—Ç—å   |" << endl;
+		cout << "|   0: –ù–∞–∑–∞–¥                                                    |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		key = _getch();
 		if (key == 'e') {
-			cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ :                                           |" << endl;
-			cout << "|______________________________________________________________________|" << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞ :                                    |" << endl;
+			cout << "|_______________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
-			cin >> searchiD;
-			for (int i = 0; i != lockedRooms.size(); i++) {
-				if (lockedRooms[i].lockedRoomiD == searchiD) {
-					cout << " ______________________________________________________________________ " << endl;
-					printf("|  %5d     | %5d      | %4d   |  %10s    |    %10s    |\n", lockedRooms[i].lockedRoomiD, lockedRooms[i].personiD, lockedRooms[i].roomiD, lockedRooms[i].star.c_str(), lockedRooms[i].finis.c_str());
-					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ‡ÁÏÂ˘ÂÌËˇ:                                            |" << endl;
-					cout << "|______________________________________________________________________|" << endl;
+			searchiD = getInt();
+			for (int i = 0; i != persons.size(); i++) {
+				if (persons[i].personiD == searchiD) {
+					cout << " _______________________________________________________________ " << endl;
+					printf("| %4d       | %30s   | %12s |\n", persons[i].personiD, persons[i].Fio.c_str(), persons[i].passport.c_str());
+					cout << "|_______________________________________________________________|" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤–æ–µ –§.–ò.–û –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞:                             |" << endl;
+					cout << "|_______________________________________________________________|" << endl;
 					cout << ": ";
-					int newlockedRoomiD;
-					cin >> newlockedRoomiD;
-					lockedRooms[i].lockedRoomiD = newlockedRoomiD;
-					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ „‡Ê‰‡ÌËÌ‡:                                            |" << endl;
-					cout << "|______________________________________________________________________|" << endl;
+					string newfio;
+					cin.clear();
+					cin.ignore(10000, '\n');
+					getline(cin, newfio);
+					persons[i].Fio = newfio;
+					cout << "|_______________________________________________________________|" << endl;
+					cout << "|   –í–≤–µ–¥–∏—Ç–µ –ø–∞—Å–ø–æ—Ä—Ç –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞:                                 |" << endl;
+					cout << "|_______________________________________________________________|" << endl;
 					cout << ": ";
-					int newpersoniD;
-					cin >> newpersoniD;
-					lockedRooms[i].personiD = newpersoniD;
-					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ÍÓ‰ ÌÓÏÂ‡:                                                |" << endl;
-					cout << "|______________________________________________________________________|" << endl;
-					cout << ": ";
-					int newroomiD;
-					cin >> newroomiD;
-					lockedRooms[i].roomiD = newroomiD;
-					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   ¬‚Â‰ËÚÂ ‰‡ÚÛ ‚˙ÂÁ‰‡:                                               |" << endl;
-					cout << "|______________________________________________________________________|" << endl;
-					cout << ": ";
-					string  newstart;
-					cin >> newstart;
-					lockedRooms[i].star = newstart;
-					cout << "|   ¬‚Â‰ËÚÂ ÒÓÍ ÔÓÊË‚‡ÌËˇ:                                           |" << endl;
-					cout << "|______________________________________________________________________|" << endl;
-					cout << ": ";
-					string newfinish;
-					cin >> newfinish;
-					lockedRooms[i].finis = newfinish;
-					cout << " ______________________________________________________________________ " << endl;
-					cout << "|   –Â‰‡ÍÚËÓ‚‡ÌËÂ Á‡‚Â¯ÂÌÓ:                                            |" << endl;
-					cout << "|______________________________________________________________________|" << endl;
-					printf("|  %5d     | %5d      | %4d   |  %10s    |    %10s    |\n", lockedRooms[i].lockedRoomiD, lockedRooms[i].personiD, lockedRooms[i].roomiD, lockedRooms[i].star.c_str(), lockedRooms[i].finis.c_str());
-					cout << "|______________________________________________________________________|" << endl;
+					string newpassport;					
+					getline(cin, newpassport);
+					persons[i].passport = newpassport.insert(0, " ");
 				}
 			}
-	}*/
+		}
+		if (key == 'a') {
+			Person person;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞ :                                    |" << endl;
+			cout << "|_______________________________________________________________|" << endl;
+			cout << ": ";
+			person.personiD = getInt();
+			cout << " _______________________________________________________________ " << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤–æ–µ –§.–ò.–û –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞:                             |" << endl;
+			cout << "|_______________________________________________________________|" << endl;
+			cout << ": ";
+			cin.clear();
+			cin.ignore(10000, '\n');
+			getline(cin, person.Fio);
+			cout << " _______________________________________________________________ " << endl;
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –ø–∞—Å–ø–æ—Ä—Ç –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞:                                 |" << endl;
+			cout << "|_______________________________________________________________|" << endl;
+			cout << ": ";
+			string passport;
+			getline(cin, passport);
+			person.passport = passport.insert(0, " ");//fgets(nazv_sh, sizeof(nazv_sh), stdin); nazv_sh[strlen[nazv_sh] - 1] = 0;
+			persons.push_back(person);
+		}
+		if (key == 'd') {
+			cout << "|   –í–≤–µ–¥–∏—Ç–µ –∫–æ–¥ –≥—Ä–∞–∂–¥–∞–Ω–∏–Ω–∞                                      |" << endl;
+			cout << "|     —É–¥–∞–ª—è–µ–º–æ–π –∑–∞–ø–∏—Å–∏:                                         |" << endl;
+			cout << "|_______________________________________________________________|" << endl;
+			int searchiD;
+			cout << ": ";
+			searchiD = getInt();
+			for (int i = 0; i != persons.size(); i++) {
+				if (persons[i].personiD == searchiD) {
+					persons.erase(persons.begin() + i);
+					break;
+				}
+			}
+		}
+	}
 	Save();
+}
+//–∑–∞—â–∏—Ç–∞ –æ—Ç –¥—É—Ä–∞–∫–∞
+int getInt() {//–ø—Ä–æ–≤–µ—Ä–∫–∞ –Ω–∞ –∫–æ—Ä—Ä–µ–∫—Ç–Ω—ã–π –≤–≤–æ–¥ —á–∏—Å–µ–ª
+	int value;
+	while (true) {
+		cin >> value;
+		if (cin.fail()) // –µ—Å–ª–∏ –ø—Ä–µ–¥—ã–¥—É—â–µ–µ –∏–∑–≤–ª–µ—á–µ–Ω–∏–µ –±—ã–ª–æ –Ω–µ—É–¥–∞—á–Ω—ã–º,
+		{
+			cin.clear(); // —Ç–æ –≤–æ–∑–≤—Ä–∞—â–∞–µ–º cin –≤ '–æ–±—ã—á–Ω—ã–π' —Ä–µ–∂–∏–º —Ä–∞–±–æ—Ç—ã
+			cout << "–í–≤–µ–¥–∏—Ç–µ —Ü–µ–ª–æ—á–∏—Å–ª–µ–Ω–Ω–æ–µ —á–∏—Å–ª–æ –ø–æ–≤—Ç–æ—Ä–Ω–æ : ";
+			cin.ignore(32767, '\n'); // –∏ —É–¥–∞–ª—è–µ–º –∑–Ω–∞—á–µ–Ω–∏—è –ø—Ä–µ–¥—ã–¥—É—â–µ–≥–æ –≤–≤–æ–¥–∞ –∏–∑ –≤—Ö–æ–¥–Ω–æ–≥–æ –±—É—Ñ–µ—Ä–∞
+		}
+		else
+			return value;
+	}
 }
