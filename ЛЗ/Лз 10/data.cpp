@@ -1,20 +1,21 @@
 #include "data.h"
-vector<Category> сategories;
+vector<Category> ñategories;
 vector<Room> rooms;
 vector<Person> persons;
 vector<LockedRoom> lockedRooms;
 
-//Считывание из файлов 
+//Ñ÷èòûâàíèå èç ôàéëîâ 
 void Initialization() {
+	string poof;
 
 	ifstream f1("Category.txt");
 	Category category;
-
 	if (f1.is_open()) {
 		while (!f1.eof()) {
 			f1 >> category.categoryiD;
+			getline(f1, poof, ' ');
 			getline(f1, category.category_name);
-			сategories.push_back(category);
+			ñategories.push_back(category);
 		}
 
 		f1.close();
@@ -36,6 +37,7 @@ void Initialization() {
 	if (f3.is_open()) {
 		while (!f3.eof()) {
 			f3 >> person.personiD;
+			getline(f3, poof, ' ');
 			getline(f3, person.Fio, ':');
 			getline(f3, person.passport);
 			persons.push_back(person);
@@ -49,7 +51,10 @@ void Initialization() {
 	LockedRoom lockedRoom;
 	if (f4.is_open()) {
 		while (!f4.eof()) {
-			f4 >> lockedRoom.lockedRoomiD >> lockedRoom.personiD >> lockedRoom.roomiD >> lockedRoom.star >> lockedRoom.finis;
+			f4 >> lockedRoom.lockedRoomiD >> lockedRoom.personiD >> lockedRoom.roomiD;
+			getline(f4, poof, ' '); 
+			getline(f4, lockedRoom.star,' ' );
+			getline(f4, lockedRoom.finis);
 			lockedRooms.push_back(lockedRoom);
 		}
 
@@ -57,15 +62,15 @@ void Initialization() {
 	}
 }
 
-//запись в файлы
+//çàïèñü â ôàéëû
 void Save() {
 
 	ofstream f1("Category.txt");
 	
 	if (f1.is_open()) {
-		for (int i = 0; i != сategories.size(); i++) {
-			f1 << сategories[i].categoryiD << " " << сategories[i].category_name;
-			if (i != сategories.size() - 1)
+		for (int i = 0; i != ñategories.size(); i++) {
+			f1 << ñategories[i].categoryiD << " " << ñategories[i].category_name;
+			if (i != ñategories.size() - 1)
 				f1 << endl;
 		}
 		f1.close();
@@ -110,21 +115,21 @@ void Save() {
 void printDefaultMenu() {
 	system("cls");
 	cout << " ________________________________________ " << endl;
-	cout << "|        Гостевая книга отеля            |" << endl;
+	cout << "|        Ãîñòåâàÿ êíèãà îòåëÿ            |" << endl;
 	cout << "|________________________________________|" << endl;
 	cout << "|                                        |" << endl;
-	cout << "|   1: Вывод таблицы                     |" << endl;
-	cout << "|   2: Сортировка таблицы                |" << endl;
-	cout << "|   3: Редактирование таблицы            |" << endl;
+	cout << "|   1: Âûâîä òàáëèöû                     |" << endl;
+	cout << "|   2: Ñîðòèðîâêà òàáëèöû                |" << endl;
+	cout << "|   3: Ðåäàêòèðîâàíèå òàáëèöû            |" << endl;
 	cout << "|________________________________________|" << endl;
 	cout << "|                                        |" << endl;
-	cout << "|   0: О программе                       |" << endl;
-	cout << "| Esc: Выход                             |" << endl;
+	cout << "|   0: Î ïðîãðàììå                       |" << endl;
+	cout << "| Esc: Âûõîä                             |" << endl;
 	cout << "|________________________________________|" << endl;
 
 }
 
-//Меню программы
+//Ìåíþ ïðîãðàììû
 void Menu() {
 	Initialization();
 	int key;
@@ -136,19 +141,19 @@ void Menu() {
 		printDefaultMenu();
 		switch ((key = _getch()))
 		{
-		case '1'://1: Вывод таблицы +
-			StructMenu();
+		case '1'://1: Âûâîä òàáëèöû 
+			StructMenu(&exit);
 			break;
-		case '2'://2: Сортировка таблицы 
-			SortMenu();
+		case '2'://2: Ñîðòèðîâêà òàáëèöû 
+			SortMenu(&exit);
 			break;
-		case '3'://3: Редактирование таблицы
-			EditMenu();
+		case '3'://3: Ðåäàêòèðîâàíèå òàáëèöû
+			EditMenu(&exit);
 			break;
-		case '0'://О программе+
+		case '0'://Î ïðîãðàììå
 			About(&exit);
 			break;
-		case 27://выход+
+		case 27://âûõîä
 			exit = false;
 			break;
 		default:
@@ -159,136 +164,149 @@ void Menu() {
 	Save();
 }
 
-//Просмотр записей
+//Ïðîñìîòð çàïèñåé
 void StructMenu(bool *exit) {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        Просмотреть записи              |" << endl;
+		cout << "|        Ïðîñìîòðåòü çàïèñè              |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   1: Список номеров                    |" << endl;
-		cout << "|   2: Занятые номера                    |" << endl;
-		cout << "|   3: Категории номеров                 |" << endl;
-		cout << "|   4: Информация о постояльцах          |" << endl;
+		cout << "|   1: Ñïèñîê íîìåðîâ                    |" << endl;
+		cout << "|   2: Çàíÿòûå íîìåðà                    |" << endl;
+		cout << "|   3: Êàòåãîðèè íîìåðîâ                 |" << endl;
+		cout << "|   4: Èíôîðìàöèÿ î ïîñòîÿëüöàõ          |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Назад                             |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
+		cout << "| Esc: Âûõîä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 
 		switch ((key = _getch()))
 		{
-		case '1'://1: Список номеров 
+		case '1'://1: Ñïèñîê íîìåðîâ 
 			printRoom();
 			break;
-		case '2'://2: Занятые номера 
+		case '2'://2: Çàíÿòûå íîìåðà 
 			printLockedRoom();
 			;
 			break;
-		case '3'://3: Категории номеров
+		case '3'://3: Êàòåãîðèè íîìåðîâ
 			printCategory();
 			break;
-		case '4'://4: Информация о постояльцах
+		case '4'://4: Èíôîðìàöèÿ î ïîñòîÿëüöàõ
 			printPerson();
 			break;
+		case 27:
+			*exit = false;
+			key = '0';
+			break;
 		}
+		}
+
 	}
-	//Save();
-}
 
 void SortMenu(bool *exit) {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        Сортировать записи              |" << endl;
+		cout << "|        Ñîðòèðîâàòü çàïèñè              |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   1: Список номеров                    |" << endl;
-		cout << "|   2: Занятые номера                    |" << endl;
-		cout << "|   3: Категории номеров                 |" << endl;
-		cout << "|   4: Информация о постояльцах          |" << endl;
+		cout << "|   1: Ñïèñîê íîìåðîâ                    |" << endl;
+		cout << "|   2: Çàíÿòûå íîìåðà                    |" << endl;
+		cout << "|   3: Êàòåãîðèè íîìåðîâ                 |" << endl;
+		cout << "|   4: Èíôîðìàöèÿ î ïîñòîÿëüöàõ          |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Назад                             |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
+		cout << "| Esc: Âûõîä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 
 		switch ((key = _getch()))
 		{
-		case '1'://1: Список номеров 
+		case '1'://1: Ñïèñîê íîìåðîâ 
 			sortRoom();
 			break;
-		case '2'://2: Занятые номера 
+		case '2'://2: Çàíÿòûå íîìåðà 
 			sortLockedRoom();
 			break;
-		case '3'://3: Категории номеров
+		case '3'://3: Êàòåãîðèè íîìåðîâ
 			sortCategory();
 			break;
-		case '4'://4: Информация о постояльцах
+		case '4'://4: Èíôîðìàöèÿ î ïîñòîÿëüöàõ
 			sortPerson();
+			break;
+		case 27:
+			*exit = false;
+			key = '0';
 			break;
 		}
 	}
-	//Save();
 }
-// Редактирование таблицы
-void EditMenu() {
+
+// Ðåäàêòèðîâàíèå òàáëèöû
+void EditMenu(bool *exit) {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        Редактировать записи            |" << endl;
+		cout << "|        Ðåäàêòèðîâàòü çàïèñè            |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   1: Список номеров                    |" << endl;
-		cout << "|   2: Занятые номера                    |" << endl;
-		cout << "|   3: Категории номеров                 |" << endl;
-		cout << "|   4: Информация о постояльцах          |" << endl;
+		cout << "|   1: Ñïèñîê íîìåðîâ                    |" << endl;
+		cout << "|   2: Çàíÿòûå íîìåðà                    |" << endl;
+		cout << "|   3: Êàòåãîðèè íîìåðîâ                 |" << endl;
+		cout << "|   4: Èíôîðìàöèÿ î ïîñòîÿëüöàõ          |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Назад                             |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
+		cout << "| Esc: Âûõîä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 
 		switch ((key = _getch()))
 		{
-		case '1'://1: Список номеров 
+		case '1'://1: Ñïèñîê íîìåðîâ 
 			editRoom();
 			break;
-		case '2'://2: Занятые номера 
+		case '2'://2: Çàíÿòûå íîìåðà 
 			editLockedRoom();
 			break;
-		case '3'://3: Категории номеров
+		case '3'://3: Êàòåãîðèè íîìåðîâ
 			editCategory();
 			break;
-		case '4'://4: Информация о постояльцах
+		case '4'://4: Èíôîðìàöèÿ î ïîñòîÿëüöàõ
 			editPerson();
+			break;
+		case 27:
+			*exit = false;
+			key = '0';
 			break;
 		}
 	}
-	//Save();
 
 }
 
-
-//О программе
+//Î ïðîãðàììå
 void About(bool *exit) {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ________________________________________ " << endl;
-		cout << "|        О программе                     |" << endl;
+		cout << "|        Î ïðîãðàììå                     |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|     Консольное приложение              |" << endl;
-		cout << "|     учета  посетителей гостиницы       |" << endl;
+		cout << "|     Êîíñîëüíîå ïðèëîæåíèå              |" << endl;
+		cout << "|     ó÷åòà  ïîñåòèòåëåé ãîñòèíèöû       |" << endl;
 		cout << "|                                        |" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|     Версия 0.8.7с                      |" << endl;
-		cout << "|     Автор             Звонарёв Д.А.    |" << endl;
+		cout << "|     Âåðñèÿ 1.0.1ñ                      |" << endl;
+		cout << "|     Àâòîð             Çâîíàð¸â Ä.À.    |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Назад                             |" << endl;
-		cout << "| Esc: Выход                             |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
+		cout << "| Esc: Âûõîä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		if ((key = _getch()) == 27) {
 			*exit = false;
@@ -298,16 +316,16 @@ void About(bool *exit) {
 	
 }
 
-//Список номеров 
+//Ñïèñîê íîìåðîâ 
 void printRoom() {
 	int key = 1;
 	while (key != '0') {
-		system("cls");//Номера (Код	номера, Код категории, номер, мест);
+		system("cls");//Íîìåðà (Êîä	íîìåðà, Êîä êàòåãîðèè, íîìåð, ìåñò);
 		cout << " ________________________________________ " << endl;
-		cout << "|        Список номеров                  |" << endl;
+		cout << "|        Ñïèñîê íîìåðîâ                  |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|  Код   |   Код     |  Номер   | Всего  |" << endl;
-		cout << "| номера | категории |          |  мест  |" << endl;
+		cout << "|  Êîä   |   Êîä     |  Íîìåð   | Âñåãî  |" << endl;
+		cout << "| íîìåðà | êàòåãîðèè |          |  ìåñò  |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
 		for (int i = 0; i != rooms.size(); i++)
@@ -315,22 +333,22 @@ void printRoom() {
 		cout << "|        |           |          |        |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   0: Назад                             |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		key = _getch();
 	}
 }
 
-//Занятые номера
+//Çàíÿòûå íîìåðà
 void printLockedRoom(){
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ______________________________________________________________________ " << endl;
-		cout << "|                            Занятые номера                            |" << endl;
+		cout << "|                            Çàíÿòûå íîìåðà                            |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
-		cout << "|    Код     |    Код     |  Код   |     Дата       |       Срок       |" << endl;
-		cout << "| размещения | гражданина | номера |    въезда      |    проживания    |" << endl;
+		cout << "|    Êîä     |    Êîä     |  Êîä   |     Äàòà       |       Ñðîê       |" << endl;
+		cout << "| ðàçìåùåíèÿ | ãðàæäàíèíà | íîìåðà |    âúåçäà      |    ïðîæèâàíèÿ    |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
 		for (int i = 0; i != lockedRooms.size(); i++)
@@ -338,44 +356,45 @@ void printLockedRoom(){
 		cout << "|            |            |        |                |                  |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
-		cout << "|   0: Назад                                                           |" << endl;
+		cout << "|   0: Íàçàä                                                           |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		key = _getch();
 	}
 }
-//Категории номеров
+
+//Êàòåãîðèè íîìåðîâ
 void printCategory(){
 	int key = 1;
 	while (key != '0') {
 		system("cls");
-		cout << " ___________________________" << endl;
-		cout << "|     Категории номеров     |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|   Код     |    Название   |" << endl;
-		cout << "| категории |   категории   |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		for (int i = 0; i != сategories.size(); i++)		     
-			printf("| %4d      | %12s  |\n", сategories[i].categoryiD, сategories[i].category_name.c_str());
-		cout << "|                           |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		cout << "|   0: Назад                |" << endl;
-		cout << "|___________________________|" << endl;
+		cout << " ____________________________" << endl;
+		cout << "|     Êàòåãîðèè íîìåðîâ      |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|   Êîä     |    Íàçâàíèå    |" << endl;
+		cout << "| êàòåãîðèè |   êàòåãîðèè    |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|                            |" << endl;
+		for (int i = 0; i != ñategories.size(); i++)		     
+			printf("| %4d      | %14s |\n", ñategories[i].categoryiD, ñategories[i].category_name.c_str());
+		cout << "|                            |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|                            |" << endl;
+		cout << "|   0: Íàçàä                 |" << endl;
+		cout << "|____________________________|" << endl;
 		key = _getch();
 	}
 }
 
-//Информация о постояльцах
+//Èíôîðìàöèÿ î ïîñòîÿëüöàõ
 void printPerson() {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " _______________________________________________________________ " << endl;
-		cout << "|                    Информация о постояльцах                   |" << endl;
+		cout << "|                    Èíôîðìàöèÿ î ïîñòîÿëüöàõ                   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
-		cout << "|    Код     |              Ф.И.О.              |   Паспорт     |" << endl;
-		cout << "| гражданина |            гражданина            |  гражданина   |" << endl;
+		cout << "|    Êîä     |              Ô.È.Î.              |   Ïàñïîðò     |" << endl;
+		cout << "| ãðàæäàíèíà |            ãðàæäàíèíà            |  ãðàæäàíèíà   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
 		for (int i = 0; i != persons.size(); i++)
@@ -383,7 +402,7 @@ void printPerson() {
 		cout << "|                                                               |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
-		cout << "|   0: Назад                                                    |" << endl;
+		cout << "|   0: Íàçàä                                                    |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		key = _getch();
 	}
@@ -392,12 +411,12 @@ void printPerson() {
 void editRoom() {//+
 	int key = 1;
 	while (key != '0') {
-		system("cls");//Номера (Код	номера, Код категории, номер, мест);
+		system("cls");//Íîìåðà (Êîä	íîìåðà, Êîä êàòåãîðèè, íîìåð, ìåñò);
 		cout << " ________________________________________ " << endl;
-		cout << "|        Список номеров                  |" << endl;
+		cout << "|        Ñïèñîê íîìåðîâ                  |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|  Код   |   Код     |  Номер   | Всего  |" << endl;
-		cout << "| номера | категории |          |  мест  |" << endl;
+		cout << "|  Êîä   |   Êîä     |  Íîìåð   | Âñåãî  |" << endl;
+		cout << "| íîìåðà | êàòåãîðèè |          |  ìåñò  |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
 		for (int i = 0; i != rooms.size(); i++)
@@ -405,20 +424,20 @@ void editRoom() {//+
 		cout << "|        |           |          |        |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   a: Добавить         e: Редактировать |" << endl;
-		cout << "|   d: Удалить                           |" << endl;
-		cout << "|   0: Назад                             |" << endl;
+		cout << "|   a: Äîáàâèòü         e: Ðåäàêòèðîâàòü |" << endl;
+		cout << "|   d: Óäàëèòü                           |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		key = _getch();
 		if (key == 'a') {
-			cout << "|   Введите новую запись   :             |" << endl;
+			cout << "|   Ââåäèòå íîâóþ çàïèñü   :             |" << endl;
 			cout << "|________________________________________|" << endl;
 			Room room;
 			cin >> room.roomiD >> room.categoryiD >> room.num >> room.beds;//
 			rooms.push_back(room);
 		}
 		if (key == 'e') {
-			cout << "|   Введите код номера:                  |" << endl;
+			cout << "|   Ââåäèòå êîä íîìåðà:                  |" << endl;
 			cout << "|________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
@@ -429,7 +448,7 @@ void editRoom() {//+
 					printf("| %4d   | %4d      | %5d    |  %2d    |\n", rooms[i].roomiD, rooms[i].categoryiD, rooms[i].num, rooms[i].beds);
 					/*
 					cout << "|________________________________________|" << endl;
-					cout << "|   Введите код номера:              |" << endl;
+					cout << "|   Ââåäèòå êîä íîìåðà:              |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newRoomiD;
@@ -437,21 +456,21 @@ void editRoom() {//+
 					rooms[i].roomiD = newRoomiD;
 					*/
 					cout << "|________________________________________|" << endl;
-					cout << "|   Введите  код категории:              |" << endl;
+					cout << "|   Ââåäèòå  êîä êàòåãîðèè:              |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newcategoryiD;
 					newcategoryiD = getInt();
 					rooms[i].categoryiD = newcategoryiD;
 					cout << "|________________________________________|" << endl;
-					cout << "|   Введите  номер:                      |" << endl;
+					cout << "|   Ââåäèòå  íîìåð:                      |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newnum;
 					newnum = getInt();
 					rooms[i].num = newnum;
 					cout << "|________________________________________|" << endl;
-					cout << "|   Введите количество мест:             |" << endl;
+					cout << "|   Ââåäèòå êîëè÷åñòâî ìåñò:             |" << endl;
 					cout << "|________________________________________|" << endl;
 					cout << ": ";
 					int newbeds;
@@ -461,7 +480,7 @@ void editRoom() {//+
 			}
 		}
 		if (key == 'd') {
-			cout << "|   Введите код номера удаляемой записи: |" << endl;
+			cout << "|   Ââåäèòå êîä íîìåðà óäàëÿåìîé çàïèñè: |" << endl;
 			cout << "|________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
@@ -476,16 +495,16 @@ void editRoom() {//+
 	}
 }
 
-//Занятые номера
+//Çàíÿòûå íîìåðà
 void editLockedRoom() {
 	int key = 1;
 	while (key != '0') {
 		system("cls");
 		cout << " ______________________________________________________________________ " << endl;
-		cout << "|                            Занятые номера                            |" << endl;
+		cout << "|                            Çàíÿòûå íîìåðà                            |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
-		cout << "|    Код     |    Код     |  Код   |     Дата       |       Срок       |" << endl;
-		cout << "| размещения | гражданина | номера |    въезда      |    проживания    |" << endl;
+		cout << "|    Êîä     |    Êîä     |  Êîä   |     Äàòà       |       Ñðîê       |" << endl;
+		cout << "| ðàçìåùåíèÿ | ãðàæäàíèíà | íîìåðà |    âúåçäà      |    ïðîæèâàíèÿ    |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
 		for (int i = 0; i != lockedRooms.size(); i++)
@@ -493,12 +512,12 @@ void editLockedRoom() {
 		cout << "|            |            |        |                |                  |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
-		cout << "|   d: Удалить           e: Редактировать               a: Добавить    |" << endl;
-		cout << "|   0: Назад                                                           |" << endl;
+		cout << "|   d: Óäàëèòü           e: Ðåäàêòèðîâàòü               a: Äîáàâèòü    |" << endl;
+		cout << "|   0: Íàçàä                                                           |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		key = _getch();
 		if (key == 'e') {
-			cout << "|   Введите код размещения :                                           |" << endl;
+			cout << "|   Ââåäèòå êîä ðàçìåùåíèÿ :                                           |" << endl;
 			cout << "|______________________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
@@ -509,15 +528,15 @@ void editLockedRoom() {
 					printf("|  %5d     | %5d      | %4d   |  %10s    |    %10s    |\n", lockedRooms[i].lockedRoomiD, lockedRooms[i].personiD, lockedRooms[i].roomiD, lockedRooms[i].star.c_str(), lockedRooms[i].finis.c_str());
 					/*
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   Введите новый код размещения:                                      |" << endl;
+					cout << "|   Ââåäèòå íîâûé êîä ðàçìåùåíèÿ:                                      |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					int newlockedRoomiD;
-					cin >> newlockedRoomiD;
+					newlockedRoomiD = getInt();
 					lockedRooms[i].lockedRoomiD = newlockedRoomiD;
 					*/
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   Введите новый код гражданина:                                      |" << endl;
+					cout << "|   Ââåäèòå íîâûé êîä ãðàæäàíèíà:                                      |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					int newpersoniD;
@@ -525,20 +544,20 @@ void editLockedRoom() {
 
 					lockedRooms[i].personiD = newpersoniD;
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   Введите новый код номера:                                          |" << endl;
+					cout << "|   Ââåäèòå íîâûé êîä íîìåðà:                                          |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					int newroomiD;
-					cin >> newroomiD;
+					newroomiD = getInt();
 					lockedRooms[i].roomiD = newroomiD;
 					cout << "|______________________________________________________________________|" << endl;
-					cout << "|   Введите новую дату въезда:                                         |" << endl;
+					cout << "|   Ââåäèòå íîâóþ äàòó âúåçäà:                                         |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					string  newstart;
 					cin >> newstart;
 					lockedRooms[i].star = newstart;
-					cout << "|   Введите новый срок проживания:                                     |" << endl;
+					cout << "|   Ââåäèòå íîâûé ñðîê ïðîæèâàíèÿ:                                     |" << endl;
 					cout << "|______________________________________________________________________|" << endl;
 					cout << ": ";
 					string newfinish;
@@ -549,14 +568,16 @@ void editLockedRoom() {
 			
 		}
 		if (key == 'a') {
-			cout << "|   Введите новую запись   :                                           |" << endl;
+			cout << "|   Ââåäèòå íîâóþ çàïèñü   :                                           |" << endl;
 			cout << "|______________________________________________________________________|" << endl;
-			Room room;
-			cin >> room.roomiD >> room.categoryiD >> room.num >> room.beds;// ? тоже проверку на числа?
-			rooms.push_back(room);
+			LockedRoom lockedRoom; 
+			lockedRoom.personiD = getInt();
+			lockedRoom.roomiD = getInt();
+			cin >> lockedRoom.star >> lockedRoom.finis;
+			lockedRooms.push_back(lockedRoom);
 		}
 		if (key == 'd') {
-			cout << "|   Введите код размещения удаляемой записи :                          |" << endl;
+			cout << "|   Ââåäèòå êîä ðàçìåùåíèÿ óäàëÿåìîé çàïèñè :                          |" << endl;
 			cout << "|______________________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
@@ -571,68 +592,69 @@ void editLockedRoom() {
 	}
 }
 
-//Категории номеров
+//Êàòåãîðèè íîìåðîâ
 void editCategory() {
 	int key = 1;
 	 while (key != '0') {
 		system("cls");
-		cout << " ___________________________" << endl;
-		cout << "|     Категории номеров     |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|   Код     |    Название   |" << endl;
-		cout << "| категории |   категории   |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		for (int i = 0; i != сategories.size(); i++)
-			printf("| %4d      | %12s  |\n", сategories[i].categoryiD, сategories[i].category_name.c_str());
-		cout << "|                           |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		cout << "|   e: Редактировать        |" << endl;
-		cout << "|   a: Добавить             |" << endl;
-		cout << "|   d: Удалить              |" << endl;
-		cout << "|   0: Назад                |" << endl;
-		cout << "|___________________________|" << endl;
+		cout << " ____________________________" << endl;
+		cout << "|     Êàòåãîðèè íîìåðîâ      |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|   Êîä     |    Íàçâàíèå    |" << endl;
+		cout << "| êàòåãîðèè |   êàòåãîðèè    |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|                            |" << endl;
+		for (int i = 0; i != ñategories.size(); i++)
+			printf("| %4d      | %14s |\n", ñategories[i].categoryiD, ñategories[i].category_name.c_str());
+		cout << "|                            |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|                            |" << endl;
+		cout << "|   e: Ðåäàêòèðîâàòü         |" << endl;
+		cout << "|   a: Äîáàâèòü              |" << endl;
+		cout << "|   d: Óäàëèòü               |" << endl;
+		cout << "|   0: Íàçàä                 |" << endl;
+		cout << "|____________________________|" << endl;
 		key = _getch();
 		if (key == 'e') {
-			cout << "|   Введите код категории  :|" << endl;
-			cout << "|___________________________|" << endl;
+			cout << "|   Ââåäèòå êîä êàòåãîðèè   :|" << endl;
+			cout << "|____________________________|" << endl;
 			int searchiD;
 			cout << ": ";
 			searchiD = getInt();
-			for (int i = 0; i != сategories.size(); i++) {
-				if (сategories[i].categoryiD == searchiD) {
-					printf("| %4d      | %12s  |\n", сategories[i].categoryiD, сategories[i].category_name.c_str());
+			for (int i = 0; i != ñategories.size(); i++) {
+				if (ñategories[i].categoryiD == searchiD) {
+					printf("| %4d      | %14s |\n", ñategories[i].categoryiD, ñategories[i].category_name.c_str());
 
-					cout << "|___________________________|" << endl;
-					cout << "|      Введите новое        |" << endl;
-					cout << "|    название категории:    |" << endl;
-					cout << "|___________________________|" << endl;
+					cout << "|____________________________|" << endl;
+					cout << "|      Ââåäèòå íîâîå         |" << endl;
+					cout << "|    íàçâàíèå êàòåãîðèè:     |" << endl;
+					cout << "|____________________________|" << endl;
 					cout << ": ";
 					string newcategory_name;
 					cin >> newcategory_name;
-					сategories[i].category_name = newcategory_name;
+					ñategories[i].category_name = newcategory_name;
 				}
 			}
 
 		}
 		if (key == 'a') {
-			cout << "|   Введите новую запись:   |" << endl;
-			cout << "|___________________________|" << endl;
+			cout << "|   Ââåäèòå íîâóþ çàïèñü:    |" << endl;
+			cout << "|____________________________|" << endl;
 			Category category;
-			cin >> category.categoryiD >> category.category_name;
-			сategories.push_back(category);
+			category.categoryiD = getInt();
+			cin >> category.category_name;
+			ñategories.push_back(category);
 		}
 		if (key == 'd') {
-			cout << "|   Введите код категории   |" << endl;
-			cout << "|     удаляемой записи:     |" << endl;
-			cout << "|___________________________|" << endl;
+			cout << "|   Ââåäèòå êîä êàòåãîðèè    |" << endl;
+			cout << "|     óäàëÿåìîé çàïèñè:      |" << endl;
+			cout << "|____________________________|" << endl;
 			int searchiD;
 			cout << ": ";
 			searchiD = getInt();
-			for (int i = 0; i != сategories.size(); i++) {
-				if (сategories[i].categoryiD == searchiD) {
-					сategories.erase(сategories.begin() + i);
+			for (int i = 0; i != ñategories.size(); i++) {
+				if (ñategories[i].categoryiD == searchiD) {
+					ñategories.erase(ñategories.begin() + i);
 					break;
 				}
 			}
@@ -640,17 +662,17 @@ void editCategory() {
 	}
 }
 
-//Информация о постояльцах
+//Èíôîðìàöèÿ î ïîñòîÿëüöàõ
 void editPerson() {
 	int key = 1;
 
 	while (key != '0') {
 		system("cls");
 		cout << " _______________________________________________________________ " << endl;
-		cout << "|                    Информация о постояльцах                   |" << endl;
+		cout << "|                    Èíôîðìàöèÿ î ïîñòîÿëüöàõ                   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
-		cout << "|    Код     |              Ф.И.О.              |   Паспорт     |" << endl;
-		cout << "| гражданина |            гражданина            |  гражданина   |" << endl;
+		cout << "|    Êîä     |              Ô.È.Î.              |   Ïàñïîðò     |" << endl;
+		cout << "| ãðàæäàíèíà |            ãðàæäàíèíà            |  ãðàæäàíèíà   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
 		for (int i = 0; i != persons.size(); i++)
@@ -658,12 +680,12 @@ void editPerson() {
 		cout << "|                                                               |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
-		cout << "|   d: Удалить          e: Редактировать          a: Добавить   |" << endl;
-		cout << "|   0: Назад                                                    |" << endl;
+		cout << "|   d: Óäàëèòü          e: Ðåäàêòèðîâàòü          a: Äîáàâèòü   |" << endl;
+		cout << "|   0: Íàçàä                                                    |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		key = _getch();
 		if (key == 'e') {
-			cout << "|   Введите код гражданина :                                    |" << endl;
+			cout << "|   Ââåäèòå êîä ãðàæäàíèíà :                                    |" << endl;
 			cout << "|_______________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
@@ -673,7 +695,7 @@ void editPerson() {
 					cout << " _______________________________________________________________ " << endl;
 					printf("| %4d       | %30s   | %12s |\n", persons[i].personiD, persons[i].Fio.c_str(), persons[i].passport.c_str());
 					cout << "|_______________________________________________________________|" << endl;
-					cout << "|   Введите новое Ф.И.О гражданина:                             |" << endl;
+					cout << "|   Ââåäèòå íîâîå Ô.È.Î ãðàæäàíèíà:                             |" << endl;
 					cout << "|_______________________________________________________________|" << endl;
 					cout << ": ";
 					string newfio;
@@ -682,7 +704,7 @@ void editPerson() {
 					getline(cin, newfio);
 					persons[i].Fio = newfio;
 					cout << "|_______________________________________________________________|" << endl;
-					cout << "|   Введите паспорт гражданина:                                 |" << endl;
+					cout << "|   Ââåäèòå ïàñïîðò ãðàæäàíèíà:                                 |" << endl;
 					cout << "|_______________________________________________________________|" << endl;
 					cout << ": ";
 					string newpassport;					
@@ -693,19 +715,19 @@ void editPerson() {
 		}
 		if (key == 'a') {
 			Person person;
-			cout << "|   Введите код гражданина :                                    |" << endl;
+			cout << "|   Ââåäèòå êîä ãðàæäàíèíà :                                    |" << endl;
 			cout << "|_______________________________________________________________|" << endl;
 			cout << ": ";
 			person.personiD = getInt();
 			cout << " _______________________________________________________________ " << endl;
-			cout << "|   Введите новое Ф.И.О гражданина:                             |" << endl;
+			cout << "|   Ââåäèòå Ô.È.Î ãðàæäàíèíà:                                   |" << endl;
 			cout << "|_______________________________________________________________|" << endl;
 			cout << ": ";
 			cin.clear();
 			cin.ignore(10000, '\n');
 			getline(cin, person.Fio);
 			cout << " _______________________________________________________________ " << endl;
-			cout << "|   Введите паспорт гражданина:                                 |" << endl;
+			cout << "|   Ââåäèòå ïàñïîðò ãðàæäàíèíà:                                 |" << endl;
 			cout << "|_______________________________________________________________|" << endl;
 			cout << ": ";
 			string passport;
@@ -714,8 +736,8 @@ void editPerson() {
 			persons.push_back(person);
 		}
 		if (key == 'd') {
-			cout << "|   Введите код гражданина                                      |" << endl;
-			cout << "|     удаляемой записи:                                         |" << endl;
+			cout << "|   Ââåäèòå êîä ãðàæäàíèíà                                      |" << endl;
+			cout << "|     óäàëÿåìîé çàïèñè:                                         |" << endl;
 			cout << "|_______________________________________________________________|" << endl;
 			int searchiD;
 			cout << ": ";
@@ -730,31 +752,17 @@ void editPerson() {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//сортировка списка номеров
+//ñîðòèðîâêà ñïèñêà íîìåðîâ
 void sortRoom() {
 	int key = 1;
-	bool down = true;//сортировку сверху-вниз,иначе снизу-вверх
+	bool down = true;//ñîðòèðîâêó ñâåðõó-âíèç,èíà÷å ñíèçó-ââåðõ
 	while (key != '0') {
-		system("cls");//Номера (Код	номера, Код категории, номер, мест);
+		system("cls");//Íîìåðà (Êîä	íîìåðà, Êîä êàòåãîðèè, íîìåð, ìåñò);
 		cout << " ________________________________________ " << endl;
-		cout << "|        Сортировка списка номеров       |" << endl;
+		cout << "|        Ñîðòèðîâêà ñïèñêà íîìåðîâ       |" << endl;
 		cout << "|________________________________________|" << endl;
-		cout << "|  Код   |   Код     |  Номер   | Всего  |" << endl;
-		cout << "| номера | категории |          |  мест  |" << endl;
+		cout << "|  Êîä   |   Êîä     |  Íîìåð   | Âñåãî  |" << endl;
+		cout << "| íîìåðà | êàòåãîðèè |          |  ìåñò  |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
 		for (int i = 0; i != rooms.size(); i++)
@@ -762,12 +770,12 @@ void sortRoom() {
 		cout << "|        |           |          |        |" << endl;
 		cout << "|________________________________________|" << endl;
 		cout << "|                                        |" << endl;
-		cout << "|   Сортировать по:                      |" << endl;
-		cout << "|   1: По коду номера                    |" << endl;
-		cout << "|   2: По коду категории                 |" << endl;
-		cout << "|   3: По номеру                         |" << endl;
-		cout << "|   4: По количеству мест                |" << endl;
-		cout << "|   0: Назад                             |" << endl;
+		cout << "|   Ñîðòèðîâàòü ïî:                      |" << endl;
+		cout << "|   1: Ïî êîäó íîìåðà                    |" << endl;
+		cout << "|   2: Ïî êîäó êàòåãîðèè                 |" << endl;
+		cout << "|   3: Ïî íîìåðó                         |" << endl;
+		cout << "|   4: Ïî êîëè÷åñòâó ìåñò                |" << endl;
+		cout << "|   0: Íàçàä                             |" << endl;
 		cout << "|________________________________________|" << endl;
 		key = _getch();
 		switch (key) {
@@ -831,17 +839,17 @@ void sortRoom() {
 	}
 }
 
-//сортировка списка номеров
+//ñîðòèðîâêà ñïèñêà íîìåðîâ
 void sortLockedRoom(){
 	int key = 1;
-	bool down = true;//сортировку сверху-вниз,иначе снизу-вверх
+	bool down = true;//ñîðòèðîâêó ñâåðõó-âíèç,èíà÷å ñíèçó-ââåðõ
 	while (key != '0') {
 		system("cls");
 		cout << " ______________________________________________________________________ " << endl;
-		cout << "|                    Сортировка списка занятых номеров                 |" << endl;
+		cout << "|                    Ñîðòèðîâêà ñïèñêà çàíÿòûõ íîìåðîâ                 |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
-		cout << "|    Код     |    Код     |  Код   |     Дата       |       Срок       |" << endl;
-		cout << "| размещения | гражданина | номера |    въезда      |    проживания    |" << endl;
+		cout << "|    Êîä     |    Êîä     |  Êîä   |     Äàòà       |       Ñðîê       |" << endl;
+		cout << "| ðàçìåùåíèÿ | ãðàæäàíèíà | íîìåðà |    âúåçäà      |    ïðîæèâàíèÿ    |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
 		for (int i = 0; i != lockedRooms.size(); i++)
@@ -849,13 +857,13 @@ void sortLockedRoom(){
 		cout << "|            |            |        |                |                  |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		cout << "|                                                                      |" << endl;
-		cout << "|   Сортировать по:                                                    |" << endl;
-		cout << "|   1: Коду размещения                                                 |" << endl;
-		cout << "|   2: Коду гражданина                                                 |" << endl;
-		cout << "|   3: Коду номера                                                     |" << endl;
-		cout << "|   4: Дате въезда                                                     |" << endl;
-		cout << "|   5: Сроку проживания                                                |" << endl;
-		cout << "|   0: Назад                                                           |" << endl;
+		cout << "|   Ñîðòèðîâàòü ïî:                                                    |" << endl;
+		cout << "|   1: Êîäó ðàçìåùåíèÿ                                                 |" << endl;
+		cout << "|   2: Êîäó ãðàæäàíèíà                                                 |" << endl;
+		cout << "|   3: Êîäó íîìåðà                                                     |" << endl;
+		cout << "|   4: Äàòå âúåçäà                                                     |" << endl;
+		cout << "|   5: Ñðîêó ïðîæèâàíèÿ                                                |" << endl;
+		cout << "|   0: Íàçàä                                                           |" << endl;
 		cout << "|______________________________________________________________________|" << endl;
 		key = _getch();
 		switch (key) {
@@ -932,53 +940,54 @@ void sortLockedRoom(){
 		}
 	}
 }
-//сортировка списка категорий номеров
+
+//ñîðòèðîâêà ñïèñêà êàòåãîðèé íîìåðîâ
 void sortCategory(){
 	int key = 1;
-	bool down = true;//сортировку сверху-вниз,иначе снизу-вверх
+	bool down = true;//ñîðòèðîâêó ñâåðõó-âíèç,èíà÷å ñíèçó-ââåðõ
 	while (key != '0') {
 		system("cls");
-		cout << " ___________________________" << endl;
-		cout << "|     Сортировка списка     |" << endl;
-		cout << "|     категорий номеров     |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|   Код     |    Название   |" << endl;
-		cout << "| категории |   категории   |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		for (int i = 0; i != сategories.size(); i++)
-			printf("| %4d      | %12s  |\n", сategories[i].categoryiD, сategories[i].category_name.c_str());
-		cout << "|                           |" << endl;
-		cout << "|___________________________|" << endl;
-		cout << "|                           |" << endl;
-		cout << "|   Сортировать по:         |" << endl;
-		cout << "|   1: Коду                 |" << endl;
-		cout << "|   2: Названию             |" << endl;
-		cout << "|   0: Назад                |" << endl;
-		cout << "|___________________________|" << endl;
+		cout << " ____________________________" << endl;
+		cout << "|     Ñîðòèðîâêà ñïèñêà      |" << endl;
+		cout << "|     êàòåãîðèé íîìåðîâ      |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|   Êîä     |    Íàçâàíèå    |" << endl;
+		cout << "| êàòåãîðèè |   êàòåãîðèè    |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|                            |" << endl;
+		for (int i = 0; i != ñategories.size(); i++)
+			printf("| %4d      | %14s |\n", ñategories[i].categoryiD, ñategories[i].category_name.c_str());
+		cout << "|                            |" << endl;
+		cout << "|____________________________|" << endl;
+		cout << "|                            |" << endl;
+		cout << "|   Ñîðòèðîâàòü ïî:          |" << endl;
+		cout << "|   1: Êîäó                  |" << endl;
+		cout << "|   2: Íàçâàíèþ              |" << endl;
+		cout << "|   0: Íàçàä                 |" << endl;
+		cout << "|____________________________|" << endl;
 		key = _getch();
 		switch (key) {
 		case '1':
 			if (down)
-				sort(сategories.begin(), сategories.end(), [](const Category &p1, const Category &p2)
+				sort(ñategories.begin(), ñategories.end(), [](const Category &p1, const Category &p2)
 			{
 				return p1.categoryiD > p2.categoryiD;
 			});
 
 			else
-				sort(сategories.begin(), сategories.end(), [](const Category &p1, const Category &p2) {
+				sort(ñategories.begin(), ñategories.end(), [](const Category &p1, const Category &p2) {
 				return p1.categoryiD < p2.categoryiD;
 			});
 			down = !down;
 			break;
 		case '2':
 			if (down)
-				sort(сategories.begin(), сategories.end(), [](const Category &p1, const Category &p2) {
+				sort(ñategories.begin(), ñategories.end(), [](const Category &p1, const Category &p2) {
 				return p1.category_name > p2.category_name;
 			});
 
 			else
-				sort(сategories.begin(), сategories.end(), [](const Category &p1, const Category &p2) {
+				sort(ñategories.begin(), ñategories.end(), [](const Category &p1, const Category &p2) {
 				return p1.category_name < p2.category_name;
 			});
 			down = !down;
@@ -988,17 +997,17 @@ void sortCategory(){
 	
 }
 
-//сортировка списка граждан
+//ñîðòèðîâêà ñïèñêà ãðàæäàí
 void sortPerson() {
 	int key = 1;
-	bool down = true;//сортировку сверху-вниз,иначе снизу-вверх
+	bool down = true;//ñîðòèðîâêó ñâåðõó-âíèç,èíà÷å ñíèçó-ââåðõ
 	while (key != '0') {
 		system("cls");
 		cout << " _______________________________________________________________ " << endl;
-		cout << "|            Сортировка информации по постояльцам               |" << endl;
+		cout << "|            Ñîðòèðîâêà èíôîðìàöèè ïî ïîñòîÿëüöàì               |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
-		cout << "|    Код     |              Ф.И.О.              |   Паспорт     |" << endl;
-		cout << "| гражданина |            гражданина            |  гражданина   |" << endl;
+		cout << "|    Êîä     |              Ô.È.Î.              |   Ïàñïîðò     |" << endl;
+		cout << "| ãðàæäàíèíà |            ãðàæäàíèíà            |  ãðàæäàíèíà   |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
 		for (int i = 0; i != persons.size(); i++)
@@ -1006,11 +1015,11 @@ void sortPerson() {
 		cout << "|                                                               |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		cout << "|                                                               |" << endl;
-		cout << "|   Сортировать по:                                             |" << endl;
-		cout << "|   1: Коду гражданина                                          |" << endl;
-		cout << "|   2: Ф.И.О.                                                   |" << endl;
-		cout << "|   3: Паспорту                                                 |" << endl;
-		cout << "|   0: Назад                                                    |" << endl;
+		cout << "|   Ñîðòèðîâàòü ïî:                                             |" << endl;
+		cout << "|   1: Êîäó ãðàæäàíèíà                                          |" << endl;
+		cout << "|   2: Ô.È.Î.                                                   |" << endl;
+		cout << "|   3: Ïàñïîðòó                                                 |" << endl;
+		cout << "|   0: Íàçàä                                                    |" << endl;
 		cout << "|_______________________________________________________________|" << endl;
 		key = _getch();
 		switch (key) {
@@ -1061,20 +1070,17 @@ void sortPerson() {
 
 	}
 }
-			
 		
-
-
-//защита от дурака
-int getInt() {//проверка на корректный ввод чисел
+//çàùèòà îò äóðàêà
+int getInt() {//ïðîâåðêà íà êîððåêòíûé ââîä ÷èñåë
 	int value;
 	while (true) {
 		cin >> value;
-		if (cin.fail()) // если предыдущее извлечение было неудачным,
+		if (cin.fail()) // åñëè ïðåäûäóùåå èçâëå÷åíèå áûëî íåóäà÷íûì,
 		{
-			cin.clear(); // то возвращаем cin в 'обычный' режим работы
-			cout << "Введите целочисленное число повторно : ";
-			cin.ignore(32767, '\n'); // и удаляем значения предыдущего ввода из входного буфера
+			cin.clear(); // òî âîçâðàùàåì cin â 'îáû÷íûé' ðåæèì ðàáîòû
+			cout << "Ââåäèòå öåëî÷èñëåííîå ÷èñëî ïîâòîðíî : ";
+			cin.ignore(32767, '\n'); // è óäàëÿåì çíà÷åíèÿ ïðåäûäóùåãî ââîäà èç âõîäíîãî áóôåðà
 		}
 		else
 			return value;
