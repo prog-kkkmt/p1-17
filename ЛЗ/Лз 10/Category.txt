@@ -1,0 +1,8 @@
+8 Bungalow
+3 De Luxe
+5 Family Room
+9 Honeymoon Room
+1 Junior
+7 Standart
+6 Studio
+2 Suite
