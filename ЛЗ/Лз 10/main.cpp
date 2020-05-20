@@ -1,11 +1,9 @@
-﻿#include "data.h"
+#include "data.h"
 #include <locale>
-
 int main()
 {
 	setlocale(LC_ALL, "");
-
-		Menu();
+ 	Menu();
 
 	return 0;
 }
