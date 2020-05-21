@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#table {
+    display: flex;
+    height: 100vh;
+}
+
+#table_currency {
+    margin: auto;
+}
+
+#table_currency td {
+    border: 1px solid #000000;
+    padding: 5px 15px;
+    text-align: center;
+}
+
+#table_row_caption td {
+    background: #c5c5c5;
+}
+
+#table_caption {
+    margin: 15px;
+    font-size: 20px;
+}
