@@ -5,33 +5,38 @@ using namespace std;
 class Cpoint
 {
 	private:
-		int x;
-		int y;
+		int *x; //поле x
+		int *y; //поле y
 	public:
-		void SetX(int _x)
-		{
-			x = _x;
-		}
-		void SetY(int _y)
-		{
-			y = _y;
-		}
-		int GetX()
-		{
-			return x;
-		}
-		int GetY()
-		{
-			return y;
-		}
+		Cpoint(int x = 0, int y = 0); //прототип конструктора 
+		void out();
+		~Cpoint(); //прототип деструктора
 
 };
 
+Cpoint :: Cpoint(int _x, int _y) //выдел память для хранения координат точки
+		{
+			x = new int;
+			*x = _x;
+			y = new int;
+			*y = _y;
+		}
+			
+void Cpoint :: out()
+{
+	cout << "Segment : (" << *x << "," << *y << ")" << endl;
+}
+Cpoint :: ~Cpoint() //освобожд память
+{
+	delete x;
+	delete y;
+}
+
 int main()
 {
-	Cpoint A;
-	A.SetX(3);
-	A.SetY(4);
-	cout << "Segment : (" << A.GetX() << "," << A.GetY() << ")" << endl;
+	Cpoint A(3, 4), B;
+	A.out();
+	B.out();
+
 	return 0;
 }
