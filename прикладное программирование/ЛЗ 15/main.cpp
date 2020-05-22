@@ -7,11 +7,11 @@ int main()
     FindGameObjects obj2;
     archer obj3;
     khith obj4;
-    cout << "Õîòèòå çàäàòü ïàðìåòðû äâèæåíèÿ ñàìîñòîÿòåëüíî? y - äà| n - íåò" << endl;
+    cout << "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð·Ð°Ð´Ð°Ñ‚ÑŒ Ð¿Ð°Ñ€Ð¼ÐµÑ‚Ñ€Ñ‹ Ð´Ð²Ð¸Ð¶ÐµÐ½Ð¸Ñ ÑÐ°Ð¼Ð¾ÑÑ‚Ð¾ÑÑ‚ÐµÐ»ÑŒÐ½Ð¾? y - Ð´Ð°| n - Ð½ÐµÑ‚" << endl;
     cin >> in;
     if (in == 'y') {
         int temp_x, temp_y, temp_z, temp_step;
-    cout << "Ââåäèòå x(ëþáîå ÷èñëî), y(ëþáîå ÷èñëî), z(ëþáîå ÷èñëî), step(÷èñëî > 0): ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ x(Ð»ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾), y(Ð»ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾), z(Ð»ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾), step(Ñ‡Ð¸ÑÐ»Ð¾ > 0): ";
     cin >> temp_x >> temp_y >> temp_z >> temp_step;
     Move obj(temp_x, temp_y, temp_z, temp_step);
     menu(obj, obj2, obj3, obj4);
