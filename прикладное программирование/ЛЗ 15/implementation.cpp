@@ -55,15 +55,15 @@ void FindGameObjects::Reatcs(int k){
     setlocale(0,"");
     do{
         cin.get(c);
-        cout<<"Âû æåëàåòå ïîäîáðïòü ïðåäìåò "<<Game[k].name<<"? ";
+        cout<<"Ð’Ñ‹ Ð¶ÐµÐ»Ð°ÐµÑ‚Ðµ Ð¿Ð¾Ð´Ð¾Ð±Ñ€Ð¿Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚ "<<Game[k].name<<"? ";
         cin.get(c);
     }while(!(c=='y' || c=='Y' || c=='n' || c=='N'));
     if(c=='y' || c=='Y'){
 			Game[k].ready = true;
-        cout<<"óðà, âû íàøëè ïðåäìåò "<<Game[k].name<<" ïîçäðâëÿåì! \n";
+        cout<<"ÑƒÑ€Ð°, Ð²Ñ‹ Ð½Ð°ÑˆÐ»Ð¸ Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚ "<<Game[k].name<<" Ð¿Ð¾Ð·Ð´Ñ€Ð²Ð»ÑÐµÐ¼! \n";
     }
     else
-		cout<<"âû îòêàçàëèñü ïîäáèðàòü ïðåäìåò"<<Game[k].name<<"\n";
+		cout<<"Ð²Ñ‹ Ð¾Ñ‚ÐºÐ°Ð·Ð°Ð»Ð¸ÑÑŒ Ð¿Ð¾Ð´Ð±Ð¸Ñ€Ð°Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚"<<Game[k].name<<"\n";
 }
 
 void FindGameObjects::print(){
@@ -88,13 +88,13 @@ void person::go(){
         z+=speed;
     else if(temp==5)
         z-=speed;
-    cout<<name<<" Ñõîäèë òåïåðü åãî êîîðäèíàòû = "<<x<<' '<<y<<' '<<z<<endl;
+    cout<<name<<" Ð¡Ñ…Ð¾Ð´Ð¸Ð» Ñ‚ÐµÐ¿ÐµÑ€ÑŒ ÐµÐ³Ð¾ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ = "<<x<<' '<<y<<' '<<z<<endl;
 }
 
 bool archer::damage(Move obj){
     float k = fabs(x-obj.x) + fabs(y-obj.y) + fabs(z-obj.z);
     if(k<=3){
-        cout<<"Âû áûëè óáèòû ñòðåëêîì! Ýòî - êîíåö èãðû";
+        cout<<"Ð’Ñ‹ Ð±Ñ‹Ð»Ð¸ ÑƒÐ±Ð¸Ñ‚Ñ‹ ÑÑ‚Ñ€ÐµÐ»ÐºÐ¾Ð¼! Ð­Ñ‚Ð¾ - ÐºÐ¾Ð½ÐµÑ† Ð¸Ð³Ñ€Ñ‹";
         return false;
     }
     return true;
@@ -103,7 +103,7 @@ bool archer::damage(Move obj){
 bool khith::damage(Move obj){
     float k = fabs(x-obj.x) + fabs(y-obj.y) + fabs(z-obj.z);
     if(k<=1.5){
-        cout<<"Âû áûëè óáèòû ðûöàðåì! Ýòî - êîíåö èãðû";
+        cout<<"Ð’Ñ‹ Ð±Ñ‹Ð»Ð¸ ÑƒÐ±Ð¸Ñ‚Ñ‹ Ñ€Ñ‹Ñ†Ð°Ñ€ÐµÐ¼! Ð­Ñ‚Ð¾ - ÐºÐ¾Ð½ÐµÑ† Ð¸Ð³Ñ€Ñ‹";
         return false;
     }
     return true;
@@ -113,7 +113,7 @@ void menu(Move obj, FindGameObjects obj2, archer obj3, khith obj4) {
     bool On = true;
     int action;
     while (On) {
-        cout << "Ââåäèòå:\n" << "1: Äëÿ ïåðåäâèæåíèÿ âïåðåä\n" << "2: Äëÿ ïåðåìåùåíèÿ íàçàä\n" << "3: Äëÿ ïåðåìåùåíèÿ âëåâî\n" << "4: Äëÿ ïåðåìåùåíèÿ âïðàâî\n" << "5: Äëÿ ïåðåìåùåíèÿ ââåðõ\n" << "6: Äëÿ ïåðåìåùåíèÿ âíèç\n" << "7: Èíôîðìàöèÿ î ìåñòîíàõîæäåíèè ïåðñîíàæà\n" << "8: Î ïðîãðàììå\n" << "9: Âûõîä\n0: Âûâîä êîîðäèíàò ïðåäìåòîâ" << endl;
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ:\n" << "1: Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ´Ð²Ð¸Ð¶ÐµÐ½Ð¸Ñ Ð²Ð¿ÐµÑ€ÐµÐ´\n" << "2: Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ Ð½Ð°Ð·Ð°Ð´\n" << "3: Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ Ð²Ð»ÐµÐ²Ð¾\n" << "4: Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ Ð²Ð¿Ñ€Ð°Ð²Ð¾\n" << "5: Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ Ð²Ð²ÐµÑ€Ñ…\n" << "6: Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ Ð²Ð½Ð¸Ð·\n" << "7: Ð˜Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ Ð¼ÐµÑÑ‚Ð¾Ð½Ð°Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ð¸ Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð¶Ð°\n" << "8: Ðž Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ\n" << "9: Ð’Ñ‹Ñ…Ð¾Ð´\n0: Ð’Ñ‹Ð²Ð¾Ð´ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚ Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚Ð¾Ð²" << endl;
         cin >> action;
         switch(action) {
             case 1: system("cls"); obj.go_forward(); obj2.GameObjectsReact(obj); obj3.go(); Sleep(999); obj4.go(); On=(obj3.damage(obj) && obj4.damage(obj)); break;
@@ -126,7 +126,7 @@ void menu(Move obj, FindGameObjects obj2, archer obj3, khith obj4) {
             case 8: system("cls"); about(); obj2.GameObjectsReact(obj); obj3.go(); Sleep(999); obj4.go();obj4.go(); On=(obj3.damage(obj) && obj4.damage(obj)); break;
             case 0: system("cls"); obj2.print(); break;
             case 9: On = false; break;
-            default: system("cls"); cout << "Òàêîãî äåéñòâèÿ íåò" << endl; break;
+            default: system("cls"); cout << "Ð¢Ð°ÐºÐ¾Ð³Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð½ÐµÑ‚" << endl; break;
         }
     }
 }
@@ -135,7 +135,7 @@ void about() {
     setlocale(0,"");
     fstream f("about.txt");
     if(!f.is_open()){
-        cout<<"Ôàéë íå îòêðûò!";
+        cout<<"Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚!";
         return;
     }
     string s;
