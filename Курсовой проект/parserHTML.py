@@ -7,22 +7,24 @@ encoding = [
 ]
 
 def parserHTML(filename):
-	for enc in encoding:
-		try:
-			file = open(filename, encoding=enc)
-			characters = file.read()
-			file.close()
-		except (UnicodeDecodeError, LookupError):
-			pass
-		else:
-			break
+	if filename:
+		for enc in encoding:
+			try:
+				file = open(filename, encoding=enc)
+				characters = file.read()
+				file.close()
+			except (UnicodeDecodeError, LookupError):
+				pass
+			else:
+				break
 	document = ""
 	if characters:
 		tokens = imp_lex(characters) #лексируем файл
-		document = parser(tokens) #парсируем файл
+		if tokens:
+			document = parser(tokens) #парсируем файл
 	# for token in tokens:
 		# print (token)
 	if document != "":
 		return document
-	print("\n\033[41m{}\033[40m\n".format("Parsed not completed! Invalid Encoding!"))
+	print("\n\033[41m{}\033[40m\n".format("Parsed not completed! Invalid File!"))
 	return None

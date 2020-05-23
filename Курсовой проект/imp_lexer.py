@@ -8,6 +8,7 @@ CONTENT       = 'CONTENT'
 SCRIPT        = 'SCRIPT'
 STYLE         = 'STYLE'
 COMMENT       = 'COMMENT'
+LINE          = 'LINE'
 
 TAG_NAME      = 'TAG_NAME'
 ATRIBUTE      = 'ATRIBUTE'
@@ -15,7 +16,8 @@ ATRIBUTE_NAME = 'ATRIBUTE_NAME'
 VALUE         = 'VALUE'
 
 token_exprs = [
-    (r'[ \n\t]+',                                             None),
+    (r'[ \t]+',                                             None),
+    (r'\n',                                                 LINE),
     (r'<!--',                                               COMMENT),
     (r'<script( |\n)*([-\w;: ]+(=(")?[^>]*(")?)?)*(( )?/)?>',         SCRIPT),
     (r'<style( |\n)*([-\w;: ]+(=(")?[^>]*(")?)?)*(( )?/)?>',          STYLE),
@@ -29,7 +31,8 @@ token_exprs = [
 
 token_tag = [
 	[
-		(r'[\s<>/]+',           None),
+		(r'[ \t<>/]+',           None),
+        (r'\n',                   LINE),
     	(r'(?<=<)[\w-]+',             TAG_NAME),
         (r'(?<=</)[\w-]+',             TAG_NAME),
         (r'["\w;:-]+(=("|\')?[^\'"]*("|\')?)?', ATRIBUTE),

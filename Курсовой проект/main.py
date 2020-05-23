@@ -1,4 +1,4 @@
-##	HTML PARSER V.2.3.1.464
+##	HTML PARSER V.2.3.1.610 (Count Lines, Fixed bugs, Correct output of warnings)
 ##	
 ##	DEVELOPER: OVOSKOP
 ##
@@ -88,10 +88,13 @@
 ## 			add (class=qwe) - COMPLETED 18.04.2020
 ##			add documentation - 
 ##			add KEYWORDS - completed
-##			add count lines - 
-##			add correct error parsing - 
-##			add interactive var[..].method
+##			add interactive var[..].method - completed
+##			try errors - completed
+##			add lines  - completed
+##			method(method)
 ##
+##
+
 
 import sys
 import os.path
@@ -118,15 +121,17 @@ def getDocument():
 	document = parserHTML(filename) #парсируем файл
 
 	if document:
-		(document, err) = document
+		(document, (len_err, err)) = document
 		print("\n\033[42m{}\033[40m\n".format("Parsed completed!"))
-		if err:
-			print("\033[30m\033[43m{}\033[37m\033[40m\n".format(f"{err} warning!"))
+		if len_err:
+			print("\033[30m\033[43m{}\033[37m\033[40m\n".format(
+				f"{len_err} warning in {','.join(' < ' + e + ' > on line ' + str(l) for (e, l) in err)}")
+			)
 		return document
 	else:
 		return None
 
-if __name__ == "__main__":
+def getAllFuncs():
 	functions = {}
 	g = globals().copy()
 	for module in g.keys():
@@ -137,7 +142,12 @@ if __name__ == "__main__":
 				if str(mod[item]).find('function') != -1 and item[0] != '_':
 					functions[module].update({item: mod[item]})
 
-	print("HTML Parser v.2.3.1.464 (released 27.04.2020). Created by OVOSKOP.")
+	return functions
+
+if __name__ == "__main__":
+	functions = getAllFuncs()
+
+	print("HTML Parser v.2.3.1.610 (released 13.05.2020). Created by OVOSKOP.")
 	print('Type "help" for more information.')
 	
 	document = getDocument()
@@ -201,10 +211,9 @@ if __name__ == "__main__":
 					else:
 						print("Index out of range: " + indexVar)
 						error = 1
-
-				if not error:
+				
+				if not error:	
 					for method in methods:
-
 						index = None
 						if '[' in method:
 							[method, index] = method.split('[')
@@ -272,9 +281,11 @@ if __name__ == "__main__":
 									else:
 										print("Index out of range: " + index)
 										error = 1
+										break
 								else:
 									print("Index out of range: " + index)
 									error = 1
+									break
 
 						else:
 							print("Unknown command: " + f)
@@ -364,4 +375,3 @@ if __name__ == "__main__":
 								print("Index out of range: " + index)
 					else:
 						print("Unknown command: " + command)
-					
