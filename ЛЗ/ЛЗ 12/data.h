@@ -8,6 +8,7 @@
 #include <cctype>
 #include <locale>
 #include <cstring>
+#include <locale>
 
 using namespace std;
 
