@@ -8,6 +8,35 @@ struct Country {
 
 };
 
+void OutPutHtmlCountries(vector <Country> &country){
+
+    ofstream f("file.html");
+
+    if (f.is_open())
+    {
+        for (int i = 0; i < country.size(); i++) {
+            f << country.at(i).idCountry << '\t' << country.at(i).title << endl;
+        }
+
+    }
+
+    f << "<H1>Страны</H1>"<< endl;
+	f << "<table border = \"2 \">" << endl;
+    f << "<tr>" << endl;
+	f << "<td>Код страны</td>" << endl;
+	f << "<td>Название</td>" << endl;
+	f << "</tr>" << endl;
+
+        for (unsigned i = 0; i < country.size() ; i++)
+        {
+      	 	f << "<tr>" << endl;
+            f << "<td>" << country.at(i).idCountry << "</td>" << endl;
+         	f << "<td>" << country.at(i).title<< "</td>"<< endl;
+         	f << "</tr>" << endl;
+         }
+         f << "</table>" << endl;
+ }
+
 void print(vector <Country> obj) {
     for (int i = 0; i < obj.size(); i++)
         cout << obj.at(i).idCountry << '\t' << obj.at(i).title << endl;

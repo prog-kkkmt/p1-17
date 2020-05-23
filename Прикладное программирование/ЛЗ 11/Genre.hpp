@@ -7,6 +7,33 @@ struct Genre {
     string title;
 
 };
+void OutPutHtmlGenre(vector <Genre> &genre){
+    ofstream f ("file.html");
+
+    if (f.is_open())
+    {
+        for (int i = 0; i < genre.size(); i++) {
+            f << genre.at(i).idGenre << '\t' << genre.at(i).title << endl;
+        }
+
+    }
+
+    f << "<H1>Жанры</H1>"<< endl;
+	f << "<table border = <\"2 \">" << endl;
+    f << "<tr>" << endl;
+	f << "<td>Код жанра</td>" << endl;
+	f << "<td>Название</td>" << endl;
+	f << "</tr>" << endl;
+
+        for (unsigned i = 0; i < genre.size() ; i++)
+        {
+      	 	f << "<tr>" << endl;
+            f << "<td>" << genre.at(i).idGenre << "</td>" << endl;
+         	f << "<td>" << genre.at(i).title<< "</td>"<< endl;
+         	f << "</tr>" << endl;
+         }
+         f << "</table>" << endl;
+ }
 
 void print(vector <Genre> obj) {
     for (int i = 0; i < obj.size(); i++)

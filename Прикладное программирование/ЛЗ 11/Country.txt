@@ -1,0 +1,4 @@
+56	Germany
+62	Russia
+22	Germany
+20	USA
