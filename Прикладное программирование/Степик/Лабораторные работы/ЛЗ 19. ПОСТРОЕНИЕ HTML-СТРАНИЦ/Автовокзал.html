@@ -1,0 +1,74 @@
+<!-- 
+Здесь текст комментария
+ -->
+
+
+<html>
+	<head>
+		<script>
+			function stance()
+			{ 
+				document.form.textview.value = "Номер станции: A567 Название станции: Котельники";
+			}
+			function bus()
+			{ 
+				document.form.textview.value = "Код автобуса: B46 Вместимость автобуса: 500 человек";
+			}
+			function reis()
+			{ 
+				document.form.textview.value = "Код рейса: R345 Время рейса: 11:45";
+			}
+		</script>
+		<style>
+			*{
+				margin: 0;
+				padding 0;
+			}
+			.button
+			{
+				width: 200;
+				height: 50;
+				font-size: 25;
+				margin: 2;
+				cursor: pointer;
+				background: black;
+				color: white;
+			}
+			.textview
+			{
+				width: 675;
+				margin: 5;
+				font-size: 25;
+				padding: 5;
+			}
+			.main
+			{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%)translateY(-50%);
+			}
+			.bg
+			{
+				background: linear-gradient(to right, yellow, orange);
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "bg"></div>
+		<div class = "main">
+			<form name = "form">
+				<input class = "textview" name = "textview">
+			</form>
+			<table>
+				<tr>
+					<td><input class = "button" type = "button" value = "Станции" onclick = "stance()"></td>
+					<td><input class = "button" type = "button" value = "Автобусы" onclick = "bus()"></td>
+					<td><input class = "button" type = "button" value = "Рейсы" onclick = "reis()"></td>
+				</tr>
+				</table>
+			</table>
+		</div>
+	</body>
+</html>
