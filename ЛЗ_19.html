@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<script>
+			function stat()
+			{ 
+				document.form.textview.value = "Название статьи: Продукты";
+			}
+			function razd()
+			{ 
+				document.form.textview.value = "Название раздела: Хлеб";
+			}
+			function cena()
+			{ 
+				document.form.textview.value = "Цена 1 раздела: 20 руб.";
+			}
+			function kolvo()
+			{ 
+				document.form.textview.value = "Количество раздела - 50 кг.";
+			}
+		</script>
+		<style>
+			*{
+				margin: 0;
+				padding 0;
+			}
+			.button
+			{
+				width: 100;
+				height: 50;
+				font-size: 15;
+				margin: 5;
+				cursor: pointer;
+				background: gray;
+				color: black;
+			}
+			.textview
+			{
+				width: 500;
+				margin: 2;
+				font-size: 15;
+				padding: 2;
+			}
+			.main
+			{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%)translateY(-50%);
+			}
+			.bg
+			{
+				background: black;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "bg"></div>
+		<div class = "main">
+			<form name = "form">
+				<input class = "textview" name = "textview">
+			</form>
+			<table>
+				<tr>
+					<td><input class = "button" type = "button" value = "Statii" onclick = "stat()"></td>
+					<td><input class = "button" type = "button" value = "Razdeli" onclick = "razd()"></td>
+					<td><input class = "button" type = "button" value = "Tsena" onclick = "cena()"></td>
+					<td><input class = "button" type = "button" value = "Kolvo" onclick = "kolvo()"></td>
+				</tr>
+				</table>
+			</table>
+		</div>
+	</body>
+</html>
