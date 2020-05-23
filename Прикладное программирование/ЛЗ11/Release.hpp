@@ -17,6 +17,7 @@ struct Release{
 
 void InPutRelease(vector <Release> &rel); //Функция ввода
 void OutPutRelease(ofstream &f, vector <Release> &rel); //Функция вывода в файл
+void OutPutHtmlRelease(ofstream &f, vector <Release> &rel);
 void EditRelease(vector <Release> &rel); //Функция редактирования
 void RemoveRelease(vector <Release> &rel); //Функция удаления
 void SortRelease(vector <Release> &rel); //Функция сортировки по коду плана

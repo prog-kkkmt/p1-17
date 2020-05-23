@@ -1,5 +1,4 @@
 /** Изделия: Код изделия, название */
-
 #include "Products.hpp"
 
 void InPutProd(vector <Product> &prod){
@@ -24,7 +23,23 @@ void OutPutProd(ofstream &f, vector <Product> &prod){
 	f << "________________________"<< endl;
 }
 
+void OutPutHtmlProd(ofstream &f, vector <Product> &prod){
+    f << "<H1>Изделия</H1>"<< endl;
+	f << "<table border = \"2 \">" << endl;
+    f << "<tr id = \"header\">" << endl;
+	f << "<td><i>Код изделия</i></td>" << endl;
+	f << "<td><i>Код название</i></td>" << endl;
+	f << "</tr>" << endl;
 
+        for (unsigned i = 0; i < prod.size() ; i++)
+        {
+      	 	f << "<tr>" << endl;
+            f << "<td>" << prod.at(i).prodCode << "</td>" << endl;
+         	f << "<td>" << prod.at(i).name<< "</td>"<< endl;
+         	f << "</tr>" << endl;
+         }
+         f << "</table>" << endl;
+ }
 
 void RemoveProd(vector <Product> &prod)
 {
@@ -135,9 +150,10 @@ void AboutProgProd(ofstream &f)
 void funcProduct()
 {
     ofstream f("Products.txt");
+    ofstream html("Costing.html", ios_base::app);
+
     vector <Product> prod;
     int num;
-
 
     cout << "0: Добавление записи"<< endl;
     cout << "1: Удаление записи"<< endl;
@@ -178,6 +194,7 @@ void funcProduct()
             AboutProgProd(f);
             break;
         case 6:
+            OutPutHtmlProd(html, prod);
             break;
 
         default:
@@ -185,6 +202,7 @@ void funcProduct()
         }
 
     }while (num != 6);
+
 }
 
 

@@ -17,6 +17,7 @@ struct Product
 
 void InPutProd(vector <Product> &prod); //Функция ввода
 void OutPutProd(ofstream &f, vector <Product> &prod); //Функция вывода в файл
+void OutPutHtmlProd(ofstream &f, vector <Product> &prod);
 void EditProd(vector <Product> &prod); //Функция редактирования
 void RemoveProd(vector <Product> &prod); //Функция удаления
 void SortProd(vector <Product> &prod); //Функция сортировки по коду изделия

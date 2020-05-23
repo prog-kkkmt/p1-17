@@ -17,6 +17,7 @@ struct CostItem
 
 void InPutItem(vector <CostItem> &item); //Функция ввода
 void OutPutItem(ofstream &f, vector <CostItem> &item); //Функция вывода в файл
+void OutPutHtmlItem(ofstream &f, vector <CostItem> &item);
 void EditItem(vector <CostItem> &item); //Функция редактирования
 void RemoveItem(vector <CostItem> &item); //Функция удаления
 void SortItem(vector <CostItem> &item); //Функция сортировки по номеру изделия

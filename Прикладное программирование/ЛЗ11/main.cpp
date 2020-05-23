@@ -1,14 +1,3 @@
-/**Статьи затрат (Код статьи, название)
-Изделия(Код изделия, название)
-Калькуляция (Код калькуляции, Код изделия, Код статьи, сумма)
-План выпуска (Код плана, Код изделия, количество)
-
-Источник: Экономическая информатика: лабораторный практикум / сост. О.В. Гусятинер, Л.Б. Гусятинер. –
-Ковров: ГОУ ВПО «КГТА имени В.А. Дегтярева», 2009
-https://nsportal.ru/sites/default/files/2020/05/05/ekon._inf.pdf
-
-Выполнила: Попкова Алена П1-17
-18.05.2020**/*/
 #include <iostream>
 #include "Costing.hpp"
 #include "Release.hpp"
@@ -28,6 +17,13 @@ int main()
     cout << "2: Калькуляция (Код калькуляции, Код изделия, Код статьи, сумма)" << endl;
     cout << "3: План выпуска (Код плана, Код изделия, Количество)" << endl;
     cout << "4: Выход" << endl;
+
+    ofstream html("Costing.html");
+    html << "<!DOCTYPE html>"<< endl << "<html>" << endl;
+    html << "<head>" << endl << "<title>Калькуляция </title>" << endl;
+    html << "<link rel= \"stylesheet\" href=\"style.css\">" << endl;
+    html << "</head>"<< endl;
+    html << "<body>" << endl;
 
     do{
         cout << "Введите номер таблицы для работы с ней: ";
@@ -53,6 +49,9 @@ int main()
         default:
             cout << "Error" << endl;
         }
-    } while (num != 4);
+    }while(num != 4);
+
+    html.open("Costing.html", ios_base::app);
+    html << "</body>" << endl << "</html>" << endl;
     return 0;
 }

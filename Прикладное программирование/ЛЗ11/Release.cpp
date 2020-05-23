@@ -25,6 +25,25 @@ void OutPutRelease(ofstream &f, vector <Release> &rel){
 	f << "________________________"<< endl;
 }
 
+void OutPutHtmlRelease(ofstream &f, vector <Release> &rel){
+    f << "<H1>План реализации</H1>"<< endl;
+	f << "<table border = \"2 \">" << endl;
+	f << "<tr id = \"header\">" << endl;
+	f << "<td><i>Код плана</i></td>" << endl;
+	f << "<td><i>Код изделия</i></td>" << endl;
+	f << "<td><i>Код количество</i></td>" << endl;
+	f << "</tr>" << endl;
+
+        for (unsigned i = 0; i < rel.size() ; i++)
+        {
+      	 	f << "<tr>" << endl;
+            f << "<td>" << rel.at(i).planCode << "</td>" << endl;
+         	f << "<td>" << rel.at(i).prodCode<< "</td>"<< endl;
+         	f << "<td>" << rel.at(i).quan << "</td>" << endl;
+         	f << "</tr>" << endl;
+         }
+         f << "</table>" << endl;
+ }
 
 
 void RemoveRelease(vector <Release> &rel)
@@ -137,9 +156,10 @@ void AboutProgRelease(ofstream &f)
 void funcRelease()
 {
     ofstream f("TheReleasePlan.txt");
+    ofstream html("Costing.html", ios_base::app);
+
     vector <Release> rel;
     int num;
-
 
     cout << "0: Добавление записи"<< endl;
     cout << "1: Удаление записи"<< endl;
@@ -180,6 +200,7 @@ void funcRelease()
             AboutProgRelease(f);
             break;
         case 6:
+            OutPutHtmlRelease(html, rel);
             break;
 
         default:
@@ -187,6 +208,7 @@ void funcRelease()
         }
 
     }while (num != 6);
+
 }
 
 

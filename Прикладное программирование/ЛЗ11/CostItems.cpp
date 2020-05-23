@@ -24,7 +24,22 @@ void OutPutItem(ofstream &f, vector <CostItem>& item){
 	f << "________________________"<< endl;
 }
 
-
+void OutPutHtmlItem(ofstream &f, vector <CostItem>& item){
+    f << "<H1>Статьи затрат</H1>"<< endl;
+	f << "<table border = \"2 \">" << endl;
+    f << "<tr id = \"header\">" << endl;
+	f << "<td><i>Код калькуляции</i></td>" << endl;
+	f << "<td><i>Код изделия</i></td>" << endl;
+	f << "</tr>" << endl;
+        for (unsigned i = 0; i < item.size() ; i++)
+        {
+      	 	f << "<tr>" << endl;
+            f << "<td>" << item.at(i).itemCode << "</td>" << endl;
+         	f << "<td>" << item.at(i).name<< "</td>"<< endl;
+         	f << "</tr>" << endl;
+         }
+         f << "</table>" << endl;
+ }
 
 void RemoveItem(vector <CostItem> &item)
 {
@@ -135,9 +150,10 @@ void AboutProgItem(ofstream &f)
 void funcCostItem()
 {
     ofstream f("CostItem.txt");
+    ofstream html("Costing.html", ios_base::app);
+
     vector <CostItem> item;
     int num;
-
 
     cout << "0: Добавление записи"<< endl;
     cout << "1: Удаление записи"<< endl;
@@ -178,6 +194,7 @@ void funcCostItem()
             AboutProgItem(f);
             break;
         case 6:
+            OutPutHtmlItem(html, item);
             break;
 
         default:
@@ -185,6 +202,7 @@ void funcCostItem()
         }
 
     }while (num != 6);
+
 }
 
 
