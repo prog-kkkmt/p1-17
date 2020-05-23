@@ -27,15 +27,22 @@ void OutPut(ofstream &f, vector <Costing>& cost){
 }
 
 void OutPutHtml(ofstream &f, vector <Costing>& cost){
+    f << "<H1>Костинг</H1>"<< endl;
 	f << "<table border = \"2 \">" << endl;
- 
+	f << "<tr id = \"header\">" << endl;
+	f << "<td><i>Код калькуляции</i></td>" << endl;
+	f << "<td><i>Код изделия</i></td>" << endl;
+	f << "<td><i>Код статьи</i></td>" << endl;
+	f << "<td><i>Сумма</i></td>" << endl;
+	f << "</tr>" << endl;
+
         for (unsigned i = 0; i < cost.size() ; i++)
         {
       	 	f << "<tr>" << endl;
-                f << "<td>" << cost.at(i).CostCode << "<\td>" << endl ;
-         	f << "<td>" << cost.at(i).ProductName<< "<\td>"<< endl;
-         	f << "<td>" <<cost.at(i).ItemCode<< "<\td>"<< endl;
-         	f << "<td>" << cost.at(i).sum << "<\td>" endl;^M
+            f << "<td>" << cost.at(i).CostCode << "</td>" << endl;
+         	f << "<td>" << cost.at(i).ProductName<< "</td>"<< endl;
+         	f << "<td>" << cost.at(i).ItemCode<< "</td>"<< endl;
+         	f << "<td>" << cost.at(i).sum << "</td>" << endl;
          	f << "</tr>" << endl;
          }
          f << "</table>" << endl;
@@ -146,14 +153,9 @@ void AboutProg(ofstream &f)
 void funcCosting()
 {
     ofstream f("Costing.txt");
-    ofstream html("Costing.html");
+    ofstream html("Costing.html", ios_base::app);
     vector <Costing> cost;
     int num;
-    
-    html << "<!DOCTYPE html>"<< endl << "<html>" << endl;
-    html << "<head>" << endl << "Костинг" << endl << "</head>"<< endl;
-    html << "<body>" << endl;
-
 
     cout << "0: Добавление записи"<< endl;
     cout << "1: Удаление записи"<< endl;
@@ -194,8 +196,7 @@ void funcCosting()
             AboutProg(f);
             break;
         case 6:
-	    OutPutHtml(html, cost);
-            cout << "Goodbye!" << endl;
+            OutPutHtml(html, cost);
             break;
 
         default:
@@ -203,5 +204,6 @@ void funcCosting()
         }
 
     }while (num != 6);
-    html << "</body>" << endl << "</html>" << endl;
+
 }
+
