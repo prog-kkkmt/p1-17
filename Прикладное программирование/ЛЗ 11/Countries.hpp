@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 struct Country {
@@ -10,22 +10,23 @@ struct Country {
 
 void OutPutHtmlCountries(vector <Country> &country){
 
-    ofstream f("file.html");
+    ofstream f("countries.html");
 
     if (f.is_open())
     {
-        for (int i = 0; i < country.size(); i++) {
-            f << country.at(i).idCountry << '\t' << country.at(i).title << endl;
-        }
 
-    }
 
-    f << "<H1>Страны</H1>"<< endl;
-	f << "<table border = \"2 \">" << endl;
-    f << "<tr>" << endl;
-	f << "<td>Код страны</td>" << endl;
-	f << "<td>Название</td>" << endl;
-	f << "</tr>" << endl;
+        f << "<!DOCTYPE html>"<< endl << "<html>" << endl;
+        f << "<head>" << endl << "<title> Сведения о странах</title>" << endl;
+        f << "</head>"<< endl;
+        f << "<body>" << endl;
+
+        f << "<H1>Страны</H1>"<< endl;
+        f << "<table border=\"2\">" << endl;
+        f << "<tr>" << endl;
+        f << "<td>Код страны</td>" << endl;
+        f << "<td>Название</td>" << endl;
+        f << "</tr>" << endl;
 
         for (unsigned i = 0; i < country.size() ; i++)
         {
@@ -34,7 +35,16 @@ void OutPutHtmlCountries(vector <Country> &country){
          	f << "<td>" << country.at(i).title<< "</td>"<< endl;
          	f << "</tr>" << endl;
          }
-         f << "</table>" << endl;
+
+            f << "</table>" << endl;
+            f << "</body>" << endl;
+            f << "</html>" << endl;
+
+
+    }
+    f.close();
+
+
  }
 
 void print(vector <Country> obj) {

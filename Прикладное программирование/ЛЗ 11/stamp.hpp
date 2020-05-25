@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -12,38 +13,47 @@ struct Stamp {
 };
 
 void OutPutHtmlStamp(vector <Stamp> &stamp){
-    ofstream f("file.html");
+    ofstream f("stamp.html");
 
     if (f.is_open())
     {
-        for (int i = 0; i < stamp.size(); i++) {
-            f << stamp.at(i).idStamp << '\t' << stamp.at(i).idCountry << '\t' << stamp.at(i).idGenre << '\t' << stamp.at(i).year << '\t' << stamp.at(i).price << '\t' << stamp.at(i).num << endl;
-        }
+
+        f << "<!DOCTYPE html>"<< endl << "<html>" << endl;
+        f << "<head>" << endl << "<title> Сведения о марках </title>" << endl;
+        f << "</head>"<< endl;
+        f << "<body>" << endl;
+
+        f << "<H1>Марки</H1>"<< endl;
+        f << "<table border=\"2\">" << endl;
+        f << "<tr>" << endl;
+        f << "<td align=\"center\">Код марки</td>" << endl;
+        f << "<td align=\"center\">Код страны</td>" << endl;
+        f << "<td align=\"center\">Код жанра</td>" << endl;
+        f << "<td align=\"center\">Год выпуска</td>" << endl;
+        f << "<td align=\"center\">Цена</td>" << endl;
+        f << "<td align=\"center\">Номер альбома</td>" << endl;
+        f << "</tr>" << endl;
+
+            for (unsigned i = 0; i < stamp.size() ; i++)
+            {
+                f << "<tr>" << endl;
+                f << "<td align=\"center\">" << stamp.at(i).idStamp << "</td>" << endl;
+                f << "<td align=\"center\">" << stamp.at(i).idCountry << "</td>"<< endl;
+                f << "<td align=\"center\">" << stamp.at(i).idGenre << "</td>" << endl;
+                f << "<td align=\"center\">" << stamp.at(i).year<< "</td>"<< endl;
+                f << "<td align=\"center\">" << stamp.at(i).price << "</td>" << endl;
+                f << "<td align=\"center\">" << stamp.at(i).num << "</td>"<< endl;
+                f << "</tr>" << endl;
+             }
+            f << "</table>" << endl;
+            f << "</body>" << endl;
+            f << "</html>" << endl;
+
 
     }
-    f << "<H1>Марки</H1>"<< endl;
-	f << "<table border = <\"2 \">" << endl;
-    f << "<tr>" << endl;
-	f << "<td>Код марки</td>" << endl;
-	f << "<td>Код страны</td>" << endl;
-	f << "<td>Код жанра</td>" << endl;
-	f << "<td>Год выпуска</td>" << endl;
-	f << "<td>Цена</td>" << endl;
-	f << "<td>Номер альбома</td>" << endl;
-	f << "</tr>" << endl;
+    f.close();
 
-        for (unsigned i = 0; i < stamp.size() ; i++)
-        {
-      	 	f << "<tr>" << endl;
-            f << "<td>" << stamp.at(i).idStamp << "</td>" << endl;
-         	f << "<td>" << stamp.at(i).idCountry << "</td>"<< endl;
-            f << "<td>" << stamp.at(i).idGenre << "</td>" << endl;
-         	f << "<td>" << stamp.at(i).year<< "</td>"<< endl;
-            f << "<td>" << stamp.at(i).price << "</td>" << endl;
-         	f << "<td>" << stamp.at(i).num << "</td>"<< endl;
-         	f << "</tr>" << endl;
-         }
-         f << "</table>" << endl;
+
  }
 
 void print(vector <Stamp> obj) {

@@ -59,11 +59,6 @@ int main(){
         cout << "6. Writing in html" << endl;
         cout << "7. About the program" << endl;
 
-        ofstream html("file.html");
-        html << "<!DOCTYPE html>"<< endl << "<html>" << endl;
-        html << "<head>" << endl << "<title> Сведения о марках </title>" << endl;
-        html << "</head>"<< endl;
-        html << "<body>" << endl;
 
         cin >> choice;
 

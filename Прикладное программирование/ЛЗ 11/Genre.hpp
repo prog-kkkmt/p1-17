@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 struct Genre {
@@ -8,22 +8,22 @@ struct Genre {
 
 };
 void OutPutHtmlGenre(vector <Genre> &genre){
-    ofstream f ("file.html");
+    ofstream f ("genre.html");
 
     if (f.is_open())
     {
-        for (int i = 0; i < genre.size(); i++) {
-            f << genre.at(i).idGenre << '\t' << genre.at(i).title << endl;
-        }
 
-    }
+        f << "<!DOCTYPE html>"<< endl << "<html>" << endl;
+        f << "<head>" << endl << "<title> Сведения о жанрах </title>" << endl;
+        f << "</head>"<< endl;
+        f << "<body>" << endl;
 
-    f << "<H1>Жанры</H1>"<< endl;
-	f << "<table border = <\"2 \">" << endl;
-    f << "<tr>" << endl;
-	f << "<td>Код жанра</td>" << endl;
-	f << "<td>Название</td>" << endl;
-	f << "</tr>" << endl;
+        f << "<H1>Жанры</H1>"<< endl;
+        f << "<table border=\"2\">" << endl;
+        f << "<tr>" << endl;
+        f << "<td>Код жанра</td>" << endl;
+        f << "<td>Название</td>" << endl;
+        f << "</tr>" << endl;
 
         for (unsigned i = 0; i < genre.size() ; i++)
         {
@@ -32,7 +32,17 @@ void OutPutHtmlGenre(vector <Genre> &genre){
          	f << "<td>" << genre.at(i).title<< "</td>"<< endl;
          	f << "</tr>" << endl;
          }
-         f << "</table>" << endl;
+
+            f << "</table>" << endl;
+            f << "</body>" << endl;
+            f << "</html>" << endl;
+
+
+    }
+    f.close();
+
+
+
  }
 
 void print(vector <Genre> obj) {
