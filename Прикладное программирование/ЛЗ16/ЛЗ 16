@@ -1,0 +1,40 @@
+Задания.
+Задание 1. [2]Упражнение 7.34. 
+Определите набор перегруженных функций по имени error, который соответствует чследующим обращениям.
+int index, upperBound; char selectVal;
+
+void error (string, int, int);
+void error (strring);
+void error (string, char);
+
+error("Subscript out of bounds: ", index, upperBound);
+error("Division by zero");
+error("Invalid selection", selectVal);
+
+
+Задание 2. [2]Упражнение 7.35. Объясните результат второго объявления в каждом из следующих наборов. 
+Укажите, какое из них (если есть) недопустимо.
+(a)	int calc(int, int); // передаются целочисленные переменные
+	int calc(const int, const int); // передаются константные переменные
+Результат выполнения функций будет один и тот же. 
+
+(b)	int get();  
+	double get();
+Ошибка. Данные функции одинаковы.
+
+error: ambiguating new declaration of ‘double get()’
+ double get();
+        ^~~
+main.cpp:11:5: note: old declaration ‘int get()’
+int get();
+     ^~~
+
+(c)	int *reset(int *); // передается и возвращается указатель целочисленного типа
+	 double *reset(double *); // передается и возвращается указатель типа double
+
+Задание 3. 
+Разработать перегруженные функции для математических операций sum, div, prod, my_abs,
+eq (equal), gt(greater then) 
+3. для многочленов вида a[n]*x^n + a[n-1]*x^(n-1) + ... + a[1]*x + a[0]
+
+См. LZ_16
