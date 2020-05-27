@@ -15,30 +15,16 @@
 михаил кринкин
 */
 
-
- void rotate(int a[], unsigned size, int shift)
-{
-    int i, j, k, zero = 0;
-     if (shift >= size)
-         shift = shift % size;
-     for (i = zero; i < shift; i++)
-     {
-       k = a[zero];
-       for (j = zero; j < size - 1; j++)
-           a[j] = a[j + 1];
-       a[size - 1] = k;
-     }
+void reverse(int a[], unsigned size){
+    int temp = a[0];
+    for(int i = 0; i < size - 1; i++){
+        a[i] = a[i+1];
+    }
+    a[size-1] = temp;
 }
-
-
-void Shift(int* a, int size, int sh)
-{
-    if (size < 2) return;
-    sh %= size;
-    for (int i = 0; i < sh; ++i)
-    {
-        int l = a[0];
-        for (int j = 1; j < size; ++j) a[j - 1] = a[j];
-        a[size - 1] = l;
+void rotate(int a[], unsigned size, int shift){
+    shift %= size;
+    for(int i = 0; i < shift; i++){
+        reverse(a, size);
     }
 }
