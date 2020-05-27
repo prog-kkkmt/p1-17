@@ -62,7 +62,7 @@ Select Case x1
 End Select
 End Sub
 
-Sub while8()
+Sub while4()
 'Дано целое число N (> 0). Если оно является степенью числа 3, то вывести true, если не является — вывести false.
     Dim n As Integer
     n = InputBox("N - ")
