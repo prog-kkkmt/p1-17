@@ -73,3 +73,39 @@ Sub while4()
     Wend
     MsgBox (k = n)
 End Sub
+    
+Sub series4()
+'Дано целое число N и набор из N вещественных чисел. Вывести сумму и произведение чисел из данного набора.
+    Dim n As Integer
+    n = InputBox("N - ")
+    Dim k As Integer
+    Dim s As Double
+    Dim x As Double
+    s = 0
+    For k = 1 To n
+        x = InputBox("x[n] - ")
+        s = s + x
+        Next
+    MsgBox (s)
+End Sub
+
+Sub minimummaximum4()
+
+    'Дано целое число N и набор из N чисел. Найти номер минимального элемента из данного набора.
+    Dim n As Integer
+    Dim i As Integer
+    Dim x As Integer
+    Dim min As Integer
+    Dim mini As Integer
+    n = InputBox("n - ")
+    min = 999
+    mini = 0
+    For i = 1 To n
+        x = InputBox("x[i] - ")
+        If x < min Then
+            min = x
+            mini = i
+        End If
+    Next
+            MsgBox (mini)
+End Sub
