@@ -1,0 +1,2 @@
+C:\Users\valya\source\repos\garant\Debug\garant.exe
+C:\Users\valya\source\repos\garant\Debug\garant.pdb

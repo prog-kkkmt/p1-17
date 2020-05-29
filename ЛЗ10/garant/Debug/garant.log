@@ -1,0 +1,9 @@
+﻿  Source.cpp
+C:\Users\valya\source\repos\garant\Source.cpp(6,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\valya\source\repos\garant\Source.cpp(28,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\valya\source\repos\garant\Source.cpp(45,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\valya\source\repos\garant\Source.cpp(81,23): warning C4018: <: несоответствие типов со знаком и без знака
+  garant.cpp
+C:\Users\valya\source\repos\garant\garant.cpp(28,15): warning C4101: field: неиспользованная локальная переменная
+  Создание кода...
+  garant.vcxproj -> C:\Users\valya\source\repos\garant\Debug\garant.exe
