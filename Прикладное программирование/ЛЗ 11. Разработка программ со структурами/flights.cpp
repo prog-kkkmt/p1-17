@@ -15,7 +15,7 @@ void get_fl(vector <Flights> flights)//функция возвращает сп�
 void add_fl(vector <Flights> &flights, int code_st, int code_bus, string time)//функция добавляет рейс в список
 {
     Flights fl;
-    fl.code_fl = flights[flights.size() - 1].code_fl + 1;
+    fl.code_fl = flights[flights.size() - 1].code_fl + 1;//код генерируется сам
     fl.code_st = code_st;
     fl.code_bus = code_bus;
     fl.time = time;
