@@ -11,12 +11,12 @@ public:
     Move();
     Move(double _x, double _y, double _z, double _step);
 
-    void go_forward();
-    void go_back();
-    void go_left();
-    void go_right();
-    void go_up();
-    void go_down();
+    void go_forward();//ось х в плюс
+    void go_back();//ось х в минус
+    void go_left();//ось z в плюс
+    void go_right();//ось z в минус
+    void go_up();//ось y в плюс
+    void go_down();//ось y в минус
     void out();
 
 private:
