@@ -1,6 +1,6 @@
 #include "functionsForBuses.hpp"
 
-void get(vector <Bus> buses)
+void get(vector <Bus> buses)//функция возвращает список автобусов
 {
     for (int i = 0; i < buses.size(); i++)
     {
@@ -12,10 +12,10 @@ void get(vector <Bus> buses)
     cout << endl;
 }
 
-void add(vector <Bus> &buses, string marka, string number, int capacity)
+void add(vector <Bus> &buses, string marka, string number, int capacity)//функция добавляет новый автобус в список
 {
     Bus bus;
-    bus.code = buses[buses.size() - 1].code + 1;
+    bus.code = buses[buses.size() - 1].code + 1;//код автобуса генерируется сам
     bus.marka = marka;
     bus.number = number;
     bus.capacity = capacity;
@@ -23,16 +23,22 @@ void add(vector <Bus> &buses, string marka, string number, int capacity)
     cout << endl;
 }
 
-void del(vector <Bus> &buses, int code)
+void del(vector <Bus> &buses, int code)//функция удаляет автобус (по коду)  из списка 
 {
-    int i = 0;
-    while (buses[i].code != code)
-        i++;
-    buses.erase(buses.begin() + i);
+    int proverka = 0;
+    for (int i = 0; i < buses.size(); i++)
+        if (buses[i].code == code)
+        {
+            proverka = 1;
+            buses.erase(buses.begin() + i);
+            break;
+        }
+    if (proverka == 0)
+            cout << "Автобус с таким кодом не содержится в списке\n" << endl;
     cout << endl;
 }
 
-void edit(vector <Bus> &buses, int code, int field)
+void edit(vector <Bus> &buses, int code, int field)//функция изменяет выбранное поле field (указывается номер поля) автобуса с кодом code
 {
     string value_str;
     int value_int, i = 0, proverka = 0;
@@ -43,36 +49,37 @@ void edit(vector <Bus> &buses, int code, int field)
             switch (field)
             {
                 case 1:
-                cout << "������� ����� �������� ����: ";
+                cout << "Введите новый код: ";
                 cin >> value_int;
                 buses[i].code = value_int;
                 break;
 
                 case 2:
-                cout << "������� ����� �������� ����: ";
+                cout << "Введите новую марку: ";
                 cin >> value_str;
                 buses[i].marka = value_str;
                 break;
 
                 case 3:
-                cout << "������� ����� �������� ����: ";
+                cout << "Введите новый государственный номер: ";
                 cin >> value_str;
                 buses[i].number = value_str;
                 break;
 
                 case 4:
-                cout << "������� ����� �������� ����: ";
+                cout << "Введите новую вместимость: ";
                 cin >> value_int;
                 buses[i].capacity = value_int;
                 break;
             }
             break;
         }
-        if (proverka == 0)
-            cout << "������� � ����� ����� �� ���������� � ������\n" << endl;
+    if (proverka == 0)
+        cout << "Автобус с таким кодом не содержится в списке\n" << endl;
+    cout << endl;
 }
 
-void saveToFile(vector <Bus> buses)
+void saveToFile(vector <Bus> buses)//функция сохраняет изменения в текстовой файл
 {
     ofstream file;
     file.open("Bus.txt");
