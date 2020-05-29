@@ -13,40 +13,89 @@ Private Sub Add_Click()
     Genre = GenreBox.Value
     
     If Country <> "" Then
-        IDCountry = CInt(Worksheets("Страны").Range(Worksheets("Страны").Cells(2, 2), Worksheets("Страны").Cells(Rows.Count, 2).End(xlUp)).Find(Country, LookIn:=xlValues).Offset(0, -1).Value)
+        IDCountry = CInt(Worksheets("Countries").Range(Worksheets("Countries").Cells(2, 2), Worksheets("Countries").Cells(Rows.Count, 2).End(xlUp)).Find(Country, LookIn:=xlValues).Offset(0, -1).Value)
     Else
-        MsgBox "Выберите страну"
+        MsgBox "Chosen country"
         e = True
     End If
     
     If Genre <> "" Then
-        IDGenre = CInt(Worksheets("Жанры").Range(Worksheets("Жанры").Cells(2, 2), Worksheets("Жанры").Cells(Rows.Count, 2).End(xlUp)).Find(Genre, LookIn:=xlValues).Offset(0, -1).Value)
+        IDGenre = CInt(Worksheets("Genres").Range(Worksheets("Genres").Cells(2, 2), Worksheets("Genres").Cells(Rows.Count, 2).End(xlUp)).Find(Genre, LookIn:=xlValues).Offset(0, -1).Value)
     Else
-        MsgBox "Выберите жанр"
+        MsgBox "Genres"
         e = True
     End If
     
     If IsNumeric(YearText.Text) Then
         Year = YearText.Text
     Else
-        MsgBox "Некорректный год"
+        MsgBox "Incorrect year"
         e = True
     End If
     
     If IsNumeric(PriceText.Text) Then
         Price = PriceText.Text
     Else
-        MsgBox "Некорректная цена"
+        MsgBox "Incorrect price"
         e = True
     End If
     
     If IsNumeric(CountText.Text) Then
         Count = CountText.Text
     Else
-        MsgBox "Некорректный номер альбома"
+        MsgBox "Incorrect number of the album"
         e = True
     End If
     
+    If Not e Then
+        Add_Stamp_Form.Hide
+        
+        If IsNumeric(Cells(Rows.Count, 1).End(xlUp).Value) Then
+            Id = CInt(Cells(Rows.Count, 1).End(xlUp).Value) + 1
+        Else
+            Id = 1
+        End If
+        
+        Cells(Rows.Count, 1).End(xlUp).Offset(1).Select
+        
+        ActiveCell.Value = Id
+        ActiveCell.Offset(0, 1) = IDCountry
+        ActiveCell.Offset(0, 2) = IDGenre
+        ActiveCell.Offset(0, 3) = Year
+        ActiveCell.Offset(0, 4) = Price
+        ActiveCell.Offset(0, 5) = Count
+    End If
+End Sub
+
+Private Sub UserForm_Initialize()
+    Dim Countries() As Variant
+    Dim Genries() As Variant
+    Dim Name As Variant
+
+    If IsArray(Worksheets("Countries").Range(Worksheets("Countries").Cells(2, 2), Worksheets("Countries").Cells(Rows.Count, 2).End(xlUp)).Value) Then
+        Countries = Worksheets("Countries").Range(Worksheets("Countries").Cells(2, 2), Worksheets("Countries").Cells(Rows.Count, 2).End(xlUp)).Value
+    Else
+        Countries = Array(Worksheets("Countries").Range(Worksheets("Countries").Cells(2, 2), Worksheets("Countries").Cells(Rows.Count, 2).End(xlUp)).Value)
+    End If
+    If IsArray(Worksheets("Genres").Range(Worksheets("Genres").Cells(2, 2), Worksheets("Genres").Cells(Rows.Count, 2).End(xlUp)).Value) Then
+        Genries = Worksheets("Genres").Range(Worksheets("Genres").Cells(2, 2), Worksheets("Genres").Cells(Rows.Count, 2).End(xlUp)).Value
+    Else
+        Genries = Array(Worksheets("Genres").Range(Worksheets("Genres").Cells(2, 2), Worksheets("Genres").Cells(Rows.Count, 2).End(xlUp)).Value)
+    End If
+
+    CountryBox.MatchRequired = True
+    GenreBox.MatchRequired = True
+
+    For Each Name In Countries
+        CountryBox.AddItem Name
+    Next Name
+    
+    For Each Name In Genries
+        GenreBox.AddItem Name
+    Next Name
+
+End Sub
+
     If Not e Then
         Add_Stamp_Form.Hide
         

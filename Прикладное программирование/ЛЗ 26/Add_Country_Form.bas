@@ -7,7 +7,7 @@ Private Sub Add_Click()
         name_country = Name_C.Text
     Else
         e = True
-        MsgBox "¬ведите название"
+        MsgBox "Enter a name"
     End If
     If Not e Then
         If Not IsNumeric(Cells(Rows.Count, 1).End(xlUp).Value) Then
