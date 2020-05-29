@@ -10,10 +10,9 @@ using namespace std;
 
 struct City//Города
 {
-	int codeC;
-	int dist;
-	int codeR;
-	
+	int codeC; //код города
+	int dist; //расстояние
+	int codeR; //код тарифа
 };
 
 void input(vector <City>& v, City city);
@@ -24,6 +23,5 @@ void del(vector <City>& v);
 void edit(vector <City>& v);
 void aboutProgram();
 void sorting(vector <City>& v);
-
 
 #endif 
