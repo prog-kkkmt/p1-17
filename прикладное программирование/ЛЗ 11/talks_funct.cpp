@@ -77,12 +77,7 @@ void sorting(vector <Talks>& v)
 		for (int j = 0; j < v.size() - i - 1; j++)
 		{
 			if(v.at(j).codeT > v.at(j + 1).codeT)
-			{
-				swap(v.at(j).codeT, v.at(j + 1).codeT);
-				swap(v.at(j).codeC, v.at(j + 1).codeC);
-				swap(v.at(j).start, v.at(j + 1).start);
-				swap(v.at(j).lasting, v.at(j + 1).lasting);
-			}
+				swap(v.at(j), v.at(j + 1));
 		}
 	}
 	update(v);
