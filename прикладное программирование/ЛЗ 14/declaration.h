@@ -37,7 +37,7 @@ struct GameObjects{
 
 class FindGameObjects{
 public:
-    FindGameObjects(){
+    FindGameObjects(){//переписываем союбственный конструктор
        srand( time( 0 ) );
         Game = new GameObjects[10];
         for(int i=0; i<10; i++){
@@ -50,9 +50,9 @@ public:
             Game[i].name = name[i];
         }
     }
-    void GameObjectsReact(Move obj);
-    void Reatcs(int k);
-    void print();
+    void GameObjectsReact(Move obj);//реакция на побор предмета
+    void Reatcs(int k);//действия 
+    void print();//вывод
 private:
     GameObjects *Game = new GameObjects[10];
     string *name = new string[10]{"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"};
