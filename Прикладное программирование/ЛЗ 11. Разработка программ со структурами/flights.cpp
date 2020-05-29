@@ -1,6 +1,6 @@
 #include "flights.hpp"
 
-void get_fl(vector <Flights> flights)
+void get_fl(vector <Flights> flights)//—Ñ—É–Ω–∫—Ü–∏—è –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç —Å–ø–∏—Å–æ–∫ —Ä–µ–π—Å–æ–≤
 {
     for (int i = 0; i < flights.size(); i++)
     {
@@ -12,7 +12,7 @@ void get_fl(vector <Flights> flights)
     cout << endl;
 }
 
-void add_fl(vector <Flights> &flights, int code_st, int code_bus, string time)
+void add_fl(vector <Flights> &flights, int code_st, int code_bus, string time)//—Ñ—É–Ω–∫—Ü–∏—è –¥–æ–±–∞–≤–ª—è–µ—Ç —Ä–µ–π—Å –≤ —Å–ø–∏—Å–æ–∫
 {
     Flights fl;
     fl.code_fl = flights[flights.size() - 1].code_fl + 1;
@@ -23,7 +23,7 @@ void add_fl(vector <Flights> &flights, int code_st, int code_bus, string time)
     cout << endl;
 }
 
-void del_fl(vector <Flights> &flights, int code_fl)
+void del_fl(vector <Flights> &flights, int code_fl)//—Ñ—É–Ω–∫—Ü–∏—è —É–¥–∞–ª—è–µ—Ç —Ä–µ–π—Å –ø–æ –µ–≥–æ –∫–æ–¥—É
 {
     int proverka = 0;
     for (int i = 0; i < flights.size(); i++)
@@ -34,11 +34,11 @@ void del_fl(vector <Flights> &flights, int code_fl)
             break;
         }
     if (proverka == 0)
-            cout << "–ÂÈÒ Ò Ú‡ÍËÏ ÍÓ‰ÓÏ ÌÂ ÒÓ‰ÂÊËÚÒˇ ‚ ÒÔËÒÍÂ\n" << endl;
+            cout << "–†–µ–π—Å —Å —Ç–∞–∫–∏–º –∫–æ–¥–æ–º –Ω–µ —Å–æ–¥–µ—Ä–∂–∏—Ç—Å—è –≤ —Å–ø–∏—Å–∫–µ\n" << endl;
     cout << endl;
 }
 
-void edit_fl(vector <Flights> &flights, int code_fl, int field)
+void edit_fl(vector <Flights> &flights, int code_fl, int field)//—Ñ—É–Ω–∫—Ü–∏—è –º–µ–Ω—è–µ—Ç –∑–Ω–∞—á–µ–Ω–∏–µ –ø–æ–ª—è –ø–æ –∫–æ–¥—É —Ä–µ–π—Å–∞
 {
     string value_str;
     int value_int, i = 0, proverka = 0;
@@ -49,25 +49,25 @@ void edit_fl(vector <Flights> &flights, int code_fl, int field)
             switch (field)
             {
                 case 1:
-                cout << "¬‚Â‰ËÚÂ ÌÓ‚ÓÂ ÁÌ‡˜ÂÌËÂ ÔÓÎˇ: ";
+                cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –∫–æ–¥ —Ä–µ–π—Å–∞: ";
                 cin >> value_int;
                 flights[i].code_fl = value_int;
                 break;
 
                 case 2:
-                cout << "¬‚Â‰ËÚÂ ÌÓ‚ÓÂ ÁÌ‡˜ÂÌËÂ ÔÓÎˇ: ";
+                cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –∫–æ–¥ —Å—Ç–∞–Ω—Ü–∏–∏: ";
                 cin >> value_int;
                 flights[i].code_st = value_int;
                 break;
 
                 case 3:
-                cout << "¬‚Â‰ËÚÂ ÌÓ‚ÓÂ ÁÌ‡˜ÂÌËÂ ÔÓÎˇ: ";
+                cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –∫–æ–¥ –∞–≤—Ç–æ–±—É—Å–∞: ";
                 cin >> value_int;
                 flights[i].code_bus = value_int;
                 break;
 
                 case 4:
-                cout << "¬‚Â‰ËÚÂ ÌÓ‚ÓÂ ÁÌ‡˜ÂÌËÂ ÔÓÎˇ: ";
+                cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤–æ–µ –≤—Ä–µ–º—è –æ—Ç–ø—Ä–∞–≤–ª–µ–Ω–∏—è: ";
                 cin >> value_str;
                 flights[i].time = value_str;
                 break;
@@ -75,11 +75,11 @@ void edit_fl(vector <Flights> &flights, int code_fl, int field)
             break;
         }
     if (proverka == 0)
-        cout << "–ÂÈÒ Ò Ú‡ÍËÏ ÍÓ‰ÓÏ ÌÂ ÒÓ‰ÂÊËÚÒˇ ‚ ÒÔËÒÍÂ\n" << endl;
+        cout << "–†–µ–π—Å —Å —Ç–∞–∫–∏–º –∫–æ–¥–æ–º –Ω–µ —Å–æ–¥–µ—Ä–∂–∏—Ç—Å—è –≤ —Å–ø–∏—Å–∫–µ\n" << endl;
     cout << endl;
 }
 
-void saveToFile_fl(vector <Flights> flights)
+void saveToFile_fl(vector <Flights> flights)//—Å–æ—Ö—Ä–∞–Ω–∏—Ç—å –∏–∑–º–µ–Ω–µ–Ω–∏—è –≤ —Ñ–∞–π–ª
 {
     ofstream file;
     file.open("Flights.txt");
