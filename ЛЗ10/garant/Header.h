@@ -17,14 +17,14 @@ struct Client
     string gorod;
 };
 
-void get(vector <Client> clients);
+void get(vector <Client> clients);///Вывод
 
-void add(vector <Client>& clients, int code, string surname, string gorod);
+void add(vector <Client>& clients, int code, string surname, string gorod);///Ввод
 
-void delet(vector <Client>& clients, int code);
+void delet(vector <Client>& clients, int code);///Удаление
 
-void edit(vector <Client>& clients);
+void edit(vector <Client>& clients);///Редактирование
 
-void saveToFile(vector <Client> clients);
+void saveToFile(vector <Client> clients);///Сохранение в файл
 
 #endif
