@@ -77,12 +77,7 @@ void sorting(vector <Rate>& v)
 		for (int j = 0; j < v.size() - i - 1; j++)
 		{
 			if(v.at(j).codeR > v.at(j + 1).codeR)
-			{
-				swap(v.at(j).codeR, v.at(j + 1).codeR);
-				swap(v.at(j).mindist, v.at(j + 1).mindist);
-				swap(v.at(j).maxdist, v.at(j + 1).maxdist);
-				swap(v.at(j).price, v.at(j + 1).price);
-			}
+				swap(v.at(j), v.at(j + 1));
 		}
 	}
 	update(v);
