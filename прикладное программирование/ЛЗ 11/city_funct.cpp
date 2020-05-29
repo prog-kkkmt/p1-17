@@ -74,11 +74,7 @@ void sorting(vector <City>& v)
 		for (int j = 0; j < v.size() - i - 1; j++)
 		{
 			if(v.at(j).codeC > v.at(j + 1).codeC)
-			{
-				swap(v.at(j).codeC, v.at(j + 1).codeC);
-				swap(v.at(j).dist, v.at(j + 1).dist);
-				swap(v.at(j).codeR, v.at(j + 1).codeR);
-			}
+				swap(v.at(j), v.at(j + 1));
 		}
 	}
 	update(v);
