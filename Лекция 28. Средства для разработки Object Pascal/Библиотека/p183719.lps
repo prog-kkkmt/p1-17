@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="p183719.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="225"/>
+        <CursorPos X="54" Y="239"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="p183719.lpr"/>
+      </Position1>
+      <Position2>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="140" Column="13" TopLine="97"/>
+      </Position2>
+      <Position3>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="159" Column="13" TopLine="116"/>
+      </Position3>
+      <Position4>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="191" Column="16" TopLine="146"/>
+      </Position4>
+      <Position5>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="210" Column="12" TopLine="166"/>
+      </Position5>
+      <Position6>
+        <Filename Value="p183719.lpr"/>
+      </Position6>
+      <Position7>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="248" Column="20" TopLine="233"/>
+      </Position7>
+      <Position8>
+        <Filename Value="p183719.lpr"/>
+      </Position8>
+      <Position9>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="97" Column="10" TopLine="54"/>
+      </Position9>
+      <Position10>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="235" Column="84" TopLine="208"/>
+      </Position10>
+      <Position11>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="234" Column="3" TopLine="218"/>
+      </Position11>
+      <Position12>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="231" Column="11" TopLine="198"/>
+      </Position12>
+      <Position13>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="10" Column="3"/>
+      </Position13>
+      <Position14>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="232" Column="24" TopLine="218"/>
+      </Position14>
+      <Position15>
+        <Filename Value="p183719.lpr"/>
+      </Position15>
+      <Position16>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="232" Column="24" TopLine="218"/>
+      </Position16>
+      <Position17>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="12" Column="13"/>
+      </Position17>
+      <Position18>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="10" Column="12"/>
+      </Position18>
+      <Position19>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="245" Column="51" TopLine="230"/>
+      </Position19>
+      <Position20>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="234" TopLine="230"/>
+      </Position20>
+      <Position21>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="232" Column="3" TopLine="218"/>
+      </Position21>
+      <Position22>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="12" Column="11"/>
+      </Position22>
+      <Position23>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="234" Column="3" TopLine="220"/>
+      </Position23>
+      <Position24>
+        <Filename Value="p183719.lpr"/>
+      </Position24>
+      <Position25>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="246" Column="95" TopLine="153"/>
+      </Position25>
+      <Position26>
+        <Filename Value="p183719.lpr"/>
+      </Position26>
+      <Position27>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="132" Column="36" TopLine="130"/>
+      </Position27>
+      <Position28>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="280" Column="22" TopLine="249"/>
+      </Position28>
+      <Position29>
+        <Filename Value="p183719.lpr"/>
+      </Position29>
+      <Position30>
+        <Filename Value="p183719.lpr"/>
+        <Caret Line="85" Column="10" TopLine="175"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

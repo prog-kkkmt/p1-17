@@ -1,0 +1,57 @@
+МДК.01.02 "Прикладное программирование"
+Составитель: Гусятинер Л.Б., МГОТУ ККМТ, 29.05.2020
+Лекция 28. Средства для разработки Object Pascal
+
+Задание.
+1. Установить lazarus с официального сайта.
+2. Запустить проект
+3. Поэкспериментировать
+
+Ожидаемый результат, включая домашнюю работу, - вопросы преподавателю,
+файлы проекта в своей ветке на гитхабе
+Критерии оценки.
+1-3 балла
+
+Материалы:
+1. Аудиоконференция в ICQ (на паре)
+
+2. Файлы проекта
+p183719.lpi
+p183719.lpr
+p183719.lps
+
+3. Сайт разработчика Lazarus
+https://www.lazarus-ide.org/
+https://lazarus-rus.ru/
+
+Учебники и пособия
+4. Экспресс курс программирования в Lazarus
+Автор	Е.А. Попов
+Дата публикации	14.04.2020
+Сайт	popovevgeniy.000webhostapp.com
+http://www.freepascal.ru/download/book/express_course_Lazarus_v90.pdf
+
+5. Основы программирования в среде Lazarus
+Автор	К.Т.Мансуров
+Дата публикации	25.10.2010
+ISBN	978-9967-03-646-8
+Сайт	mansurov-oshtu.ucoz.ru
+http://www.freepascal.ru/download/book/lazarus_osnovy/osnovy_programmirovanija_v_srede_lazarus.pdf
+http://www.freepascal.ru/download/book/lazarus_osnovy/linux-samples.7z
+http://www.freepascal.ru/download/book/lazarus_osnovy/windows-samples.7z
+
+6. Free Pascal и Lazarus: Учебник по программированию
+Автор	Е.Р. Алексеев, О.В. Чеснокова, Т.В. Кучер
+Дата публикации	07.05.2010
+Сайт	www.altlinux.org/Books:FreePascal
+http://www.freepascal.ru/download/book/tutorial_fpc&lazarus.pdf
+
+7. Основы программирования для Win32 на Free Pascal
+Автор	И.Л.Шихалев
+Дата публикации	06.10.2003
+http://www.freepascal.ru/article/book/win32/
+
+8. IBX for Lazarus User Guide (rus)
+Автор перевода	DedFrend
+Дата публикации	03.03.2019
+http://www.freepascal.ru/download/book/IBX4LazarusGuideRu.pdf
