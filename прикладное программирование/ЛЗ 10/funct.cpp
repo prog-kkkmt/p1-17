@@ -5,7 +5,7 @@ void input(vector <City>& v, City city)
 	ifstream in("test1.txt");
 	while(in >> city.codeC >> city.dist >> city.codeR)
 	{
-		v.push_back(city);
+		v.push_back(city); //читаем из файла добавляем в вектор v
 	}
 	in.close();
 }
@@ -37,7 +37,7 @@ void add(vector <City>& v, City city)
 void del(vector <City>& v)
 {
 	int number;
-	cout << "enter the city's code to delete : ";
+	cout << "enter the city's code to delete : "; //ввод кода города для удаления позиции
 	cin >> number;
 	for (int i = 0; i < v.size(); i++)
 		if(v.at(i).codeC == number)
@@ -48,7 +48,7 @@ void del(vector <City>& v)
 void edit(vector <City>& v)
 {
 	int number;
-	cout << "enter the city's code to edit : ";
+	cout << "enter the city's code to edit : "; //ввод кода города для редактирования позиции
 	cin >> number;
 
 	for (int i = 0; i < v.size(); i++)
@@ -74,11 +74,7 @@ void sorting(vector <City>& v)
 		for (int j = 0; j < v.size() - i - 1; j++)
 		{
 			if(v.at(j).codeC > v.at(j + 1).codeC)
-			{
-				swap(v.at(j).codeC, v.at(j + 1).codeC);
-				swap(v.at(j).dist, v.at(j + 1).dist);
-				swap(v.at(j).codeR, v.at(j + 1).codeR);
-			}
+				swap(v.at(j), v.at(j + 1));
 		}
 	}
 	update(v);
