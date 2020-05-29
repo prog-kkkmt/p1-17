@@ -1,3 +1,5 @@
+#include "bus.hpp"
+
 void get(vector <Bus> buses)//функция возвращает список автобусов
 {
     for (int i = 0; i < buses.size(); i++)
