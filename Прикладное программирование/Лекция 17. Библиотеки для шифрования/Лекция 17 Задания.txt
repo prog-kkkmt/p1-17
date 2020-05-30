@@ -1,0 +1,27 @@
+МДК.01.02 "Прикладное программирование"
+Составитель: Гусятинер Л.Б., МГОТУ ККМТ, 27.05.2020
+Лекция 17. Библиотеки для шифрования
+
+Задание.
+Изучить примеры, установить библиотеки, запустить
+Ожидаемый результат. Разобраться. Подготовиться к лабораторной работе
+
+Материалы:
+1. Шифрование и криптография в Python
+https://python-scripts.com/encryption-cryptography
+
+2. Криптография с Python – Краткое руководство
+https://coderlessons.com/tutorials/python-technologies/izuchite-kriptografiiu-s-python/kriptografiia-s-python-kratkoe-rukovodstvo
+
+3. Шифрование и криптография в Python
+https://bookflow.ru/shifrovanie-i-kriptografiya-v-python/
+
+Дополнительные материалы:
+4. Python. Взлом шифров
+https://wiki.programstore.ru/python-vzlom-shifrov/
+
+5. Python. Взлом шифров. Продолжение.
+https://wiki.programstore.ru/python-vzlom-shifrov-prodolzhenie/
+
+6. Python. Взлом шифров. Продолжение-2.
+https://wiki.programstore.ru/python-vzlom-shifrov-prodolzhenie-2/
