@@ -1,0 +1,64 @@
+МДК.01.02 "Прикладное программирование"
+ЛЗ 36. Разработка программ с графическим интерфейсом
+Составитель: Гусятинер Л.Б., 31.05.2020, МГОТУ ККМТ, П1-17, П2-17
+
+Задание.
+1. Необходимо прослушать указанную часть курса видеолекций и выполнить приведённые примеры.
+Ожидаемый результат, включая домашнюю работу, - вопросы преподавателю,
+файлы проектов в своей ветке на гитхабе
+Критерии оценки.
+1..5 баллов
+
+Материалы:
+Уроки программирования в Lazarus. 
+1. Урок №6. Работа с компонентами группировки (8.04, 8.04)
+https://www.youtube.com/watch?v=ixJRY23cYW8&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=8
+
+2. Урок №7. Работа с выпадающими списками ComboBox и ListBox (19.37, 27.41)
+https://www.youtube.com/watch?v=tzY1crSkijA&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=9
+
+3. Урок №9. Работа с Menu. (8.56, 36.37)
+https://www.youtube.com/watch?v=tYVGa9yPFck&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=11
+
+4. Урок №10. Работа с несколькими формами. (5.36, 42.13)
+https://www.youtube.com/watch?v=gUyyfptXqLM&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=12
+
+5. Урок №12. Компоненты BitBtn и SpeedButton. (9.58, 52.11)
+https://www.youtube.com/watch?v=bVrwD-XylMY&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=14
+
+6. Урок №13. Компоненты StaticText, LabeledEdit, MaskEdit. (9.04, 61.15)
+https://www.youtube.com/watch?v=bbddNy9hLyk&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=15
+
+7. Урок №19. Компоненты StringGrid и DrawGrid. (20.05, 81.20)
+https://www.youtube.com/watch?v=hTR_Sp1oyyA&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=21
+
+Дополнительные материалы.
+1. Сайт разработчика Lazarus
+https://www.lazarus-ide.org/
+https://lazarus-rus.ru/
+
+2. Экспресс курс программирования в Lazarus
+Автор	Е.А. Попов
+Дата публикации	14.04.2020
+Сайт	popovevgeniy.000webhostapp.com
+http://www.freepascal.ru/download/book/express_course_Lazarus_v90.pdf
+
+3. Основы программирования в среде Lazarus
+Автор	К.Т.Мансуров
+Дата публикации	25.10.2010
+ISBN	978-9967-03-646-8
+Сайт	mansurov-oshtu.ucoz.ru
+http://www.freepascal.ru/download/book/lazarus_osnovy/osnovy_programmirovanija_v_srede_lazarus.pdf
+http://www.freepascal.ru/download/book/lazarus_osnovy/linux-samples.7z
+http://www.freepascal.ru/download/book/lazarus_osnovy/windows-samples.7z
+
+4. Free Pascal и Lazarus: Учебник по программированию
+Автор	Е.Р. Алексеев, О.В. Чеснокова, Т.В. Кучер
+Дата публикации	07.05.2010
+Сайт	www.altlinux.org/Books:FreePascal
+http://www.freepascal.ru/download/book/tutorial_fpc&lazarus.pdf
+
+5. Гуриков, С. Р. Программирование в среде Lazarus : учеб. пособие / С.Р. Гуриков. — 
+Москва : ФОРУМ : ИНФРА-М, 2019. — 336 с. — (Среднее профессиональное образование). - 
+ISBN 978-5-16-107570-8. - Текст : электронный. - 
+URL: https://znanium.com/catalog/product/961652 (дата обращения: 30.05.2020)
