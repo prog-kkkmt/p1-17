@@ -1,0 +1,103 @@
+МДК.01.02 "Прикладное программирование"
+Составитель: Гусятинер Л.Б., МГОТУ ККМТ, 01.05.2020
+Лекция 29. Понятие графического пользовательского интерфейса
+
+Задание.
+1. Изучить тексты примеров, создать проект(ы)
+
+Ожидаемый результат, включая домашнюю работу, - вопросы преподавателю,
+файлы проектов в своей ветке на гитхабе
+Критерии оценки.
+1-3 балла
+
+Материалы:
+[1]. Лекция 13: Коллекции (массивы) строк и компоненты для них
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23300
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23300?page=2
+
+[1]. Лекция 14: Диалоги
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23302?page=1
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23302?page=2
+Диалоги: TOpenDialog, TSaveDialog, TCalendarDialog
+
+[1]. Лекция 15: Организация меню и панелей инструментов
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23304
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23304?page=2
+
+[1]. Лекция 18: Многооконные приложения. SDI- и MDI-интерфейсы
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23310?page=1
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23310?page=2
+Интерфейс SDI
+
+[1]. Лекция 20: Тип TStringList. Работа с папками
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23313
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23313?page=2
+
+[1]. Лекция 22: Записи и вариант. Сетка строк TStringGrid
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23317
+https://www.intuit.ru/studies/courses/13745/1221/lecture/23317?page=2
+
+[2]. Лекция 8: Работа со строками и записями
+https://www.intuit.ru/studies/courses/3488/730/lecture/25793
+https://www.intuit.ru/studies/courses/3488/730/lecture/25793?page=2
+
+Источники
+1. Программирование на Lazarus
+Автор: Вячеслав Ачкасов
+https://www.intuit.ru/studies/courses/13745/1221/info
+
+2. Академия ALT Linux: Программирование на Free Pascal и Lazarus.
+Авторы: Евгений Алексеев, Татьяна Кучер, Оксана Чеснокова | Компания ALT Linux
+https://www.intuit.ru/studies/courses/3488/730/info
+
+3. Free Pascal и Lazarus: Учебник по программированию
+Автор	Е.Р. Алексеев, О.В. Чеснокова, Т.В. Кучер
+Дата публикации	07.05.2010
+Сайт	www.altlinux.org/Books:FreePascal
+http://www.freepascal.ru/download/book/tutorial_fpc&lazarus.pdf
+
+4. Гуриков, С. Р. Программирование в среде Lazarus : учеб. пособие / С.Р. Гуриков. — 
+Москва : ФОРУМ : ИНФРА-М, 2019. — 336 с. — (Среднее профессиональное образование). - 
+ISBN 978-5-16-107570-8. - Текст : электронный. - 
+URL: https://znanium.com/catalog/product/961652 (дата обращения: 30.05.2020)
+
+5. Основы программирования в среде Lazarus
+Автор	К.Т.Мансуров
+Дата публикации	25.10.2010
+ISBN	978-9967-03-646-8
+Сайт	mansurov-oshtu.ucoz.ru
+http://www.freepascal.ru/download/book/lazarus_osnovy/osnovy_programmirovanija_v_srede_lazarus.pdf
+http://www.freepascal.ru/download/book/lazarus_osnovy/linux-samples.7z
+http://www.freepascal.ru/download/book/lazarus_osnovy/windows-samples.7z
+
+6. Экспресс курс программирования в Lazarus
+Автор	Е.А. Попов
+Дата публикации	14.04.2020
+Сайт	popovevgeniy.000webhostapp.com
+http://www.freepascal.ru/download/book/express_course_Lazarus_v90.pdf
+
+7. Уроки программирования в Lazarus. 
+7.1. Урок №0. Установка и настройка Lazarus (5.03, 5.03)
+https://youtu.be/UBbE0p7oU-U?list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg
+
+7.2. Урок №1. Обзор среды программирования, типов проектов в Lazarus (13.54, 18.57)
+https://www.youtube.com/watch?v=VWHec3Fwuck&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=2
+
+7.3. Урок №2. Свойства формы и компонент Button (12.05, 31.02)
+https://www.youtube.com/watch?v=C00SMOXttGg&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=3
+
+7.4. Урок №3. Работа с полем ввода, компонентом Edit (13.27, 44.29)
+https://www.youtube.com/watch?v=IspaWtBNhGw&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=4
+
+7.5. Урок №4 (Часть 1). Работа с компонентом Memo (15.40, 60.09)
+https://www.youtube.com/watch?v=x1L2E_lhYVM&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=5
+
+7.6. Урок №4 (Часть 2). Работа с компонентом Memo (4.06, 64.15)
+https://www.youtube.com/watch?v=uuz6_Wxp7DE&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=6
+
+7.7. Урок №5. Работа с компонентом RadioButton, CheckBox, ToggleBox (11.08, 75.23)
+https://www.youtube.com/watch?v=BgRTxsaxH2s&list=PLaHMNOpHDYwpfIA6-ykJrkng0pd2smyeg&index=7
+
+8. Сайт разработчика Lazarus
+https://www.lazarus-ide.org/
+https://lazarus-rus.ru/
