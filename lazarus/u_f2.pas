@@ -36,7 +36,7 @@ implementation
       begin
         Main.kolday :=  Main.kolday  +1;
         for i:=0 to Main.Kolstudent-1 do begin
-          setlength(Students[i].Oc,Main.kolday);
+        setlength(Students[i].Oc,Main.kolday);{Расширяем динамический массив оценок}
           k:=InputBox('Введите оценку для студента ' + Students[i].secondname, 'Введите оценку', ' ');
                Students[i].Oc[j] := StrToInt(k);
         end;
