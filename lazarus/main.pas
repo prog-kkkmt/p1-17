@@ -18,15 +18,15 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Batton_append: TBitBtn;
-    AppendDay: TButton;
-    PrintAll: TBitBtn;
-    Setings: TBitBtn;
-    PrintNext: TBitBtn;
-    PrintLast: TBitBtn;
-    In_name: TLabeledEdit;
-    in_SecondName: TLabeledEdit;
-    InFatherName: TLabeledEdit;
+  Batton_append: TBitBtn;{Добавляем студента}
+    AppendDay: TButton;{Добавляем день}
+    PrintAll: TBitBtn;{Выводим оценки}
+    Setings: TBitBtn;{Изменяем нашего студента}
+    PrintNext: TBitBtn;{смотрм следующего}
+    PrintLast: TBitBtn;{смотрим предыдущего}
+    In_name: TLabeledEdit;{Добавляем студента}
+    in_SecondName: TLabeledEdit;{Добавляем студента}
+    InFatherName: TLabeledEdit;{Добавляем студента}
     procedure Batton_appendClick(Sender: TObject);
     procedure AppendDayClick(Sender: TObject);
     procedure PrintAllClick(Sender: TObject);
@@ -43,12 +43,12 @@ type
 var
   Form1: TForm1;
   i, j: integer ;
-  Students: array of NOTE;
+  Students: array of NOTE;{массив структуры студентов}
   temps :string;
   Kolstudent, Last, kolday: integer;
 
 implementation
-uses u_f2;
+uses u_f2;{подсоеденяем вторую форму}
 {$R *.lfm}
   {PrintStudents}
 { TForm1 }
@@ -56,7 +56,7 @@ uses u_f2;
 procedure TForm1.Batton_appendClick(Sender: TObject);
 begin
      KolStudent:=KolStudent + 1;
-     setlength(Students,KolStudent);
+     setlength(Students,KolStudent);{Изменяем размер динмаческого  массива}
      Students[kolStudent-1].name:=in_name.Text;
      Students[kolStudent-1].secondname :=in_SecondName.Text;
      Students[kolStudent-1].fathername:=InFatherName.Text;
@@ -65,11 +65,11 @@ end;
 
 procedure TForm1.AppendDayClick(Sender: TObject);
 begin
-     if(kolStudent<=0)then
+if(kolStudent<=0)then{проверка на правильность ввода}
                 ShowMessage('Сначала введите студентов')
                 else begin
-      u_f2.Form3.Show;
-      Main.Form1.Hide;
+                u_f2.Form3.Show;{Показываем следующую форму}
+                Main.Form1.Hide;{Скрываем нынешнюю это две команды можно было заменить на showmodel}
                 end;
 end;
 
@@ -86,11 +86,6 @@ begin
 end;
 
 
-{procedure TForm1.PrintFaileClick(Sender: TObject);
-begin
-    assign(f,'PrintStudents.txt');
-end; }
-
 procedure TForm1.PrintLastClick(Sender: TObject);
 begin
      if(kolstudent>0) then begin
@@ -98,7 +93,7 @@ begin
      in_SecondName.Text:= Students[last].secondname;
      InFatherName.Text:= Students[last].fathername;
      last:= last-1;
-     if(last<0) then
+     if(last<0) then{проверка на уход в низ}
                 last :=0;
      end;
 end;
@@ -110,7 +105,7 @@ begin
      in_SecondName.Text:= Students[last].secondname;
      InFatherName.Text:= Students[last].fathername;
      last:= last+1;
-     if(last>KolStudent-1) then
+     if(last>KolStudent-1) then{прверка на уход в верх}
                 last :=KolStudent-1;
      end;
 end;
