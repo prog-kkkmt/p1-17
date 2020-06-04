@@ -1,0 +1,27 @@
+object Form3: TForm3
+  Left = 870
+  Height = 297
+  Top = 252
+  Width = 442
+  Caption = 'Form3'
+  ClientHeight = 297
+  ClientWidth = 442
+  LCLVersion = '2.0.8.0'
+  object Input: TButton
+    Left = 113
+    Height = 61
+    Top = 203
+    Width = 207
+    Caption = 'Input'
+    OnClick = InputClick
+    TabOrder = 0
+  end
+  object InputFamily: TStaticText
+    Left = 16
+    Height = 43
+    Top = 25
+    Width = 408
+    Caption = 'Введите оценку для студента. оценка от 2 до 5 . 0 - отсутсвие студента на паре '
+    TabOrder = 1
+  end
+end

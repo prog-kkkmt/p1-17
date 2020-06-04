@@ -1,0 +1,100 @@
+object Form1: TForm1
+  Left = 1154
+  Height = 447
+  Top = 284
+  Width = 648
+  Caption = 'Form1'
+  ClientHeight = 447
+  ClientWidth = 648
+  LCLVersion = '2.0.8.0'
+  object Batton_append: TBitBtn
+    Left = 8
+    Height = 47
+    Top = 24
+    Width = 137
+    Caption = 'Batton_append'
+    OnClick = Batton_appendClick
+    TabOrder = 0
+  end
+  object In_name: TLabeledEdit
+    Left = 32
+    Height = 23
+    Top = 224
+    Width = 221
+    EditLabel.Height = 15
+    EditLabel.Width = 221
+    EditLabel.Caption = 'In_name'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+    Text = 'In_name'
+  end
+  object in_SecondName: TLabeledEdit
+    Left = 328
+    Height = 23
+    Top = 224
+    Width = 230
+    EditLabel.Height = 15
+    EditLabel.Width = 230
+    EditLabel.Caption = 'in_SecondName'
+    EditLabel.ParentColor = False
+    TabOrder = 2
+    Text = 'in_SecondName'
+  end
+  object InFatherName: TLabeledEdit
+    Left = 32
+    Height = 23
+    Top = 288
+    Width = 221
+    EditLabel.Height = 15
+    EditLabel.Width = 221
+    EditLabel.Caption = 'InFatherName'
+    EditLabel.ParentColor = False
+    TabOrder = 3
+    Text = 'InFatherName'
+  end
+  object PrintLast: TBitBtn
+    Left = 201
+    Height = 49
+    Top = 23
+    Width = 139
+    Caption = 'PrintLast'
+    OnClick = PrintLastClick
+    TabOrder = 4
+  end
+  object PrintNext: TBitBtn
+    Left = 383
+    Height = 48
+    Top = 23
+    Width = 149
+    Caption = 'PrintNext'
+    OnClick = PrintNextClick
+    TabOrder = 5
+  end
+  object Setings: TBitBtn
+    Left = 8
+    Height = 45
+    Top = 104
+    Width = 137
+    Caption = 'Setings'
+    OnClick = SetingsClick
+    TabOrder = 6
+  end
+  object PrintAll: TBitBtn
+    Left = 384
+    Height = 44
+    Top = 104
+    Width = 154
+    Caption = 'PrintAll'
+    OnClick = PrintAllClick
+    TabOrder = 7
+  end
+  object AppendDay: TButton
+    Left = 200
+    Height = 42
+    Top = 106
+    Width = 139
+    Caption = 'AppendDay'
+    OnClick = AppendDayClick
+    TabOrder = 8
+  end
+end
