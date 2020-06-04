@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="D:\DOWNLOAD\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1351329191"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\Наталья\Desktop\ololo\p1-17\Прикладное программирование\ЛЗ 35\Ежедневник\lib\x86_64-win64&quot; &quot;-FuC:\Users\Наталья\Desktop\ololo\p1-17\Прикладное программирование\ЛЗ 35\Ежедневник\&quot; &quot;-FUC:\Users\Наталья\Desktop\ololo\p1-17\Прикладное программирование\ЛЗ 35\Ежедневник\lib\x86_64-win64\&quot; &quot;-FEC:\Users\Наталья\Desktop\ololo\p1-17\Прикладное программирование\ЛЗ 35\Ежедневник\&quot; &quot;-oC:\Users\Наталья\Desktop\ololo\p1-17\Прикладное программирование\ЛЗ 35\Ежедневник\proekt.exe&quot; proekt.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

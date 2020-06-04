@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="proekt.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="3" Y="8"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="7" HistoryIndex="6">
+      <Position1>
+        <Filename Value="proekt.lpr"/>
+        <Caret Line="12"/>
+      </Position1>
+      <Position2>
+        <Filename Value="proekt.lpr"/>
+        <Caret Column="15"/>
+      </Position2>
+      <Position3>
+        <Filename Value="proekt.lpr"/>
+        <Caret Line="41" Column="6" TopLine="17"/>
+      </Position3>
+      <Position4>
+        <Filename Value="proekt.lpr"/>
+        <Caret Line="12" Column="11"/>
+      </Position4>
+      <Position5>
+        <Filename Value="proekt.lpr"/>
+        <Caret Line="13"/>
+      </Position5>
+      <Position6>
+        <Filename Value="proekt.lpr"/>
+        <Caret Line="8" Column="3"/>
+      </Position6>
+      <Position7>
+        <Filename Value="proekt.lpr"/>
+        <Caret Line="10" Column="16"/>
+      </Position7>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
