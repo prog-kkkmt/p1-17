@@ -1,0 +1,156 @@
+object Form1: TForm1
+  Left = 243
+  Height = 365
+  Top = 125
+  Width = 524
+  Caption = 'Pong'
+  ClientHeight = 365
+  ClientWidth = 524
+  Color = clAqua
+  OnCreate = FormCreate
+  OnMouseMove = ControlPaddle
+  LCLVersion = '1.6.4.0'
+  object Paddle: TShape
+    Left = 240
+    Height = 17
+    Top = 336
+    Width = 73
+    ParentShowHint = False
+    OnMouseMove = PaddleMouseMove
+    Shape = stEllipse
+  end
+  object Ball: TShape
+    Left = 112
+    Height = 15
+    Top = 144
+    Width = 15
+    Shape = stCircle
+  end
+  object lblScore: TLabel
+    Left = 370
+    Height = 26
+    Top = 14
+    Width = 140
+    Alignment = taRightJustify
+    Anchors = [akTop, akRight]
+    AutoSize = False
+    Caption = 'Score: 0'
+    Font.Color = clWhite
+    Font.Height = -19
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblGameOver: TLabel
+    Left = 0
+    Height = 34
+    Top = 64
+    Width = 524
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'GameOver'
+    Font.Color = clWhite
+    Font.Height = -27
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblRestart: TLabel
+    Left = 216
+    Height = 24
+    Top = 96
+    Width = 93
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Restart'
+    Font.Color = clWhite
+    Font.Height = -19
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblRestartClick
+    OnMouseEnter = lblRestartMouseEnter
+    OnMouseLeave = lblRestartMouseLeave
+  end
+  object lblNewGame: TLabel
+    Left = 200
+    Height = 36
+    Top = 120
+    Width = 120
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'New Game'
+    Font.Color = clWhite
+    Font.Height = -24
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblNewGameClick
+    OnMouseEnter = lblNewGameMouseEnter
+    OnMouseLeave = lblNewGameMouseLeave
+  end
+  object lblExit: TLabel
+    Left = 232
+    Height = 36
+    Top = 168
+    Width = 56
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Exit'
+    Font.Color = clWhite
+    Font.Height = -24
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblExitClick
+    OnMouseEnter = lblExitMouseEnter
+    OnMouseLeave = lblExitMouseLeave
+  end
+  object lblRecord: TLabel
+    Left = 208
+    Height = 36
+    Top = 144
+    Width = 104
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Record'
+    Font.Color = clWhite
+    Font.Height = -24
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblRecordClick
+    OnMouseEnter = lblRecordMouseEnter
+    OnMouseLeave = lblRecordMouseLeave
+  end
+  object lblMenu: TLabel
+    Left = 216
+    Height = 24
+    Top = 120
+    Width = 93
+    Alignment = taCenter
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Menu'
+    Font.Color = clWhite
+    Font.Height = -19
+    Font.Name = 'Harrington'
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblMenuClick
+    OnMouseEnter = lblMenuMouseEnter
+    OnMouseLeave = lblMenuMouseLeave
+  end
+  object tmrGame: TTimer
+    Enabled = False
+    Interval = 25
+    OnTimer = tmrGameTimer
+    left = 16
+    top = 56
+  end
+end
