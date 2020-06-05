@@ -1,0 +1,139 @@
+object Form1: TForm1
+  Left = 357
+  Height = 342
+  Top = 280
+  Width = 583
+  BorderStyle = bsSingle
+  Caption = 'Интерфейс'
+  ClientHeight = 342
+  ClientWidth = 583
+  Color = 8454143
+  Position = poDesktopCenter
+  LCLVersion = '2.0.8.0'
+  object Label1: TLabel
+    Left = 232
+    Height = 21
+    Top = 25
+    Width = 137
+    Caption = 'Добро пожаловать'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button1: TButton
+    Left = 32
+    Height = 41
+    Top = 72
+    Width = 160
+    Caption = 'Hello'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 400
+    Height = 41
+    Top = 72
+    Width = 160
+    Caption = 'Выход'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 208
+    Height = 21
+    Top = 80
+    Width = 173
+    Caption = 'Нажмите кнопку "Hello"'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button3: TButton
+    Left = 32
+    Height = 41
+    Top = 224
+    Width = 171
+    Caption = 'Увеличить ширину окна'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 32
+    Height = 42
+    Top = 280
+    Width = 171
+    Caption = 'Увеличить высоту окна'
+    OnClick = Button4Click
+    TabOrder = 3
+  end
+  object Button5: TButton
+    Left = 400
+    Height = 42
+    Top = 224
+    Width = 171
+    Caption = 'Уменьшить ширину окна'
+    OnClick = Button5Click
+    TabOrder = 4
+  end
+  object Button6: TButton
+    Left = 400
+    Height = 41
+    Top = 281
+    Width = 171
+    Caption = 'Уменьшить высоту окна'
+    OnClick = Button6Click
+    TabOrder = 5
+  end
+  object CheckBox1: TCheckBox
+    Left = 32
+    Height = 19
+    Top = 184
+    Width = 272
+    Caption = 'Отключить кнопку "Увеличить ширину окна"'
+    OnChange = CheckBox1Change
+    TabOrder = 6
+  end
+  object RadioButton1: TRadioButton
+    Left = 32
+    Height = 19
+    Top = 128
+    Width = 77
+    Caption = 'Цифра "1"'
+    OnChange = RadioButton1Change
+    TabOrder = 7
+  end
+  object RadioButton2: TRadioButton
+    Left = 32
+    Height = 19
+    Top = 152
+    Width = 77
+    Caption = 'Цифра "2"'
+    OnChange = RadioButton2Change
+    TabOrder = 8
+  end
+  object Label3: TLabel
+    Left = 246
+    Height = 21
+    Top = 139
+    Width = 121
+    Caption = 'Выберите цифру'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+end
