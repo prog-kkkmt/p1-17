@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="rate.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="185"/>
+        <CursorPos X="11" Y="215"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="7" HistoryIndex="6">
+      <Position1>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="40" Column="11" TopLine="34"/>
+      </Position1>
+      <Position2>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="47" Column="29" TopLine="34"/>
+      </Position2>
+      <Position3>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="51" Column="79" TopLine="46"/>
+      </Position3>
+      <Position4>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="145" Column="4" TopLine="128"/>
+      </Position4>
+      <Position5>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="172" Column="20" TopLine="101"/>
+      </Position5>
+      <Position6>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="181" Column="14" TopLine="165"/>
+      </Position6>
+      <Position7>
+        <Filename Value="rate.lpr"/>
+        <Caret Line="214" Column="14" TopLine="186"/>
+      </Position7>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
