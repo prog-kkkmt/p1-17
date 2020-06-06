@@ -1,0 +1,44 @@
+МДК 01.02 "Прикладное программирование"
+Преподаватель: Гусятинер Л.Б., МГОТУ ККМТ, 04.06.2020
+П1-17, П2-17
+К-2. Консультация по курсовому проектированию.
+Анализ имеющихся программных решений
+
+Прежде, чем разрабатывать новое ПО, нужно выяснить что уже разработано к этому моменту
+1. Находим триал- или официальную полнофункциональную версию на официальном сайте.
+2. Скачиваем, запускаем, анализируем.
+3. Делаем вывод о том, что можно применить в своей разработке
+
+Пример поиска имеющегося программного обеспечения по теме "Автоматизация гостиницы"
+
+1. Обзор
+https://ozlocks.ru/statii/programmy_bronirovaniya_dlya_gostinic/
+
+2. Учетные программы гостиницы, отеля
+https://hotelstartup.ru/services/information-technology/the-hotels-programs/
+
+3. Автоматизация управления гостиницей. Программа HOTEL.
+http://www.intel-sfera.ru/development/solutions/hotel
+
+4. Logus HMS (Hospitality Management System)
+Система управления отелем
+https://www.librahospitality.com/logus_hms/
+
+5. 1С:Предприятие 8. Отель
+https://solutions.1c.ru/catalog/hotel/features
+
+6. Гостиничная система автоматизации Shelter
+https://www.ucs.ru/products/shelter/
+
+7. Oracle Hospitality Suite8
+https://www.hrsinternational.com/russia/ru/
+
+8. АСУ ЭДЕЛЬВЕЙС
+https://edelweiss.edelink.ru/
+
+Приложения.
+Файлы с рецензиями (ошибки при анализе программных решений)
+К2-Бакайса Автосалон.pdf
+К2-Конопада Игра.pdf
+К2-Моисеев ДетСад.pdf
+К2-Панкратов АТС.pdf
