@@ -1,3 +1,7 @@
+*.depend
+*.layout
+bin/
+obj/
 test/
 *.swp
 # Prerequisites

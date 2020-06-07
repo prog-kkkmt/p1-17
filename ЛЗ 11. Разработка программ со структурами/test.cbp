@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="test" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="AboutProg.cpp" />
+		<Unit filename="AboutProg.hpp" />
+		<Unit filename="Buyers.cpp" />
+		<Unit filename="Buyers.hpp" />
+		<Unit filename="BuyersMenu.cpp" />
+		<Unit filename="BuyersMenu.hpp" />
+		<Unit filename="Managers.cpp" />
+		<Unit filename="Managers.hpp" />
+		<Unit filename="ManagersMenu.cpp" />
+		<Unit filename="ManagersMenu.hpp" />
+		<Unit filename="Sales.cpp" />
+		<Unit filename="Sales.hpp" />
+		<Unit filename="SalesMenu.cpp" />
+		<Unit filename="SalesMenu.hpp" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
