@@ -25,6 +25,10 @@
 		<Unit filename="Buyers.hpp" />
 		<Unit filename="BuyersMenu.cpp" />
 		<Unit filename="BuyersMenu.hpp" />
+		<Unit filename="Cars.cpp" />
+		<Unit filename="Cars.hpp" />
+		<Unit filename="CarsMenu.cpp" />
+		<Unit filename="CarsMenu.hpp" />
 		<Unit filename="Managers.cpp" />
 		<Unit filename="Managers.hpp" />
 		<Unit filename="ManagersMenu.cpp" />
