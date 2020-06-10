@@ -1,0 +1,301 @@
+object Form1: TForm1
+  Left = 1295
+  Height = 279
+  Top = 149
+  Width = 208
+  Caption = 'Калькулятор'
+  ClientHeight = 279
+  ClientWidth = 208
+  LCLVersion = '1.6.0.4'
+  object EdRes: TEdit
+    Left = 8
+    Height = 44
+    Top = 16
+    Width = 190
+    Alignment = taRightJustify
+    AutoSize = False
+    AutoSelect = False
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -23
+    Font.Name = 'Cambria'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    MaxLength = 14
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+    Text = '0'
+  end
+  object BtnNum0: TButton
+    Left = 8
+    Height = 25
+    Top = 248
+    Width = 70
+    Caption = '0'
+    OnClick = BtnNum1Click
+    TabOrder = 1
+  end
+  object BtnNum1: TButton
+    Left = 8
+    Height = 25
+    Top = 136
+    Width = 30
+    Caption = '1'
+    OnClick = BtnNum1Click
+    TabOrder = 2
+  end
+  object BtnNum2: TButton
+    Left = 48
+    Height = 25
+    Top = 136
+    Width = 30
+    Caption = '2'
+    OnClick = BtnNum1Click
+    TabOrder = 3
+  end
+  object BtnNum3: TButton
+    Left = 88
+    Height = 25
+    Top = 136
+    Width = 30
+    Caption = '3'
+    OnClick = BtnNum1Click
+    TabOrder = 4
+  end
+  object BtnNum4: TButton
+    Left = 8
+    Height = 25
+    Top = 176
+    Width = 30
+    Caption = '4'
+    OnClick = BtnNum1Click
+    TabOrder = 5
+  end
+  object BtnNum5: TButton
+    Left = 48
+    Height = 25
+    Top = 176
+    Width = 30
+    Caption = '5'
+    OnClick = BtnNum1Click
+    TabOrder = 6
+  end
+  object BtnNum6: TButton
+    Left = 88
+    Height = 25
+    Top = 176
+    Width = 30
+    Caption = '6'
+    OnClick = BtnNum1Click
+    TabOrder = 7
+  end
+  object BtnNum7: TButton
+    Left = 8
+    Height = 25
+    Top = 216
+    Width = 30
+    Caption = '7'
+    OnClick = BtnNum1Click
+    TabOrder = 8
+  end
+  object BtnNum8: TButton
+    Left = 48
+    Height = 25
+    Top = 216
+    Width = 30
+    Caption = '8'
+    OnClick = BtnNum1Click
+    TabOrder = 9
+  end
+  object BtnNum9: TButton
+    Left = 88
+    Height = 25
+    Top = 216
+    Width = 30
+    Caption = '9'
+    OnClick = BtnNum1Click
+    TabOrder = 10
+  end
+  object BtnP: TButton
+    Left = 128
+    Height = 25
+    Top = 136
+    Width = 30
+    Caption = '+'
+    OnClick = BtnPClick
+    TabOrder = 11
+  end
+  object BtnM: TButton
+    Left = 128
+    Height = 25
+    Top = 176
+    Width = 30
+    Caption = '-'
+    OnClick = BtnPClick
+    TabOrder = 12
+  end
+  object BtnD: TButton
+    Left = 128
+    Height = 25
+    Top = 216
+    Width = 30
+    Caption = '/'
+    OnClick = BtnPClick
+    TabOrder = 13
+  end
+  object BtnU: TButton
+    Left = 128
+    Height = 25
+    Top = 248
+    Width = 30
+    Caption = '*'
+    OnClick = BtnPClick
+    TabOrder = 14
+  end
+  object BtnRes: TButton
+    Left = 168
+    Height = 57
+    Top = 216
+    Width = 30
+    Caption = '='
+    OnClick = BtnResClick
+    TabOrder = 15
+  end
+  object BacSpBtn: TButton
+    Left = 8
+    Height = 25
+    Top = 104
+    Width = 30
+    Caption = '<-'
+    OnClick = BacSpBtnClick
+    TabOrder = 16
+  end
+  object CEBtn: TButton
+    Left = 48
+    Height = 25
+    Top = 104
+    Width = 30
+    Caption = 'CE'
+    OnClick = CEBtnClick
+    TabOrder = 17
+  end
+  object CBtn: TButton
+    Left = 88
+    Height = 25
+    Top = 104
+    Width = 30
+    Caption = 'C'
+    OnClick = CBtnClick
+    TabOrder = 18
+  end
+  object PlMiBtn: TButton
+    Left = 88
+    Height = 25
+    Top = 248
+    Width = 30
+    Caption = '+-'
+    OnClick = PlMiBtnClick
+    TabOrder = 19
+  end
+  object MCBtn: TButton
+    Left = 8
+    Height = 25
+    Top = 72
+    Width = 30
+    Caption = 'MC'
+    OnClick = MCBtnClick
+    TabOrder = 20
+  end
+  object MRBtn: TButton
+    Left = 48
+    Height = 25
+    Top = 72
+    Width = 30
+    Caption = 'MR'
+    OnClick = MRBtnClick
+    TabOrder = 21
+  end
+  object MSBtn: TButton
+    Left = 88
+    Height = 25
+    Top = 72
+    Width = 30
+    Caption = 'MS'
+    OnClick = MSBtnClick
+    TabOrder = 22
+  end
+  object MPlusBtn: TButton
+    Left = 128
+    Height = 25
+    Top = 72
+    Width = 30
+    Caption = 'M+'
+    OnClick = MPlusBtnClick
+    TabOrder = 23
+  end
+  object MMiBtn: TButton
+    Left = 168
+    Height = 25
+    Top = 72
+    Width = 30
+    Caption = 'M-'
+    OnClick = MMiBtnClick
+    TabOrder = 24
+  end
+  object ProcBtn: TButton
+    Left = 168
+    Height = 25
+    Top = 136
+    Width = 30
+    Caption = '%'
+    OnClick = ProcBtnClick
+    TabOrder = 25
+  end
+  object KorBtn: TButton
+    Left = 168
+    Height = 25
+    Top = 104
+    Width = 30
+    Caption = 'V'
+    OnClick = KorBtnClick
+    TabOrder = 26
+  end
+  object StepBtn: TButton
+    Left = 128
+    Height = 25
+    Top = 104
+    Width = 30
+    Caption = '^i'
+    OnClick = StepBtnClick
+    TabOrder = 27
+  end
+  object MLetterPan: TPanel
+    Left = 10
+    Height = 16
+    Top = 40
+    Width = 11
+    BevelOuter = bvNone
+    ClientHeight = 16
+    ClientWidth = 11
+    Color = clWindow
+    ParentColor = False
+    TabOrder = 28
+    Visible = False
+    object MFlbl: TLabel
+      Left = 0
+      Height = 15
+      Top = 0
+      Width = 11
+      Caption = 'M'
+      ParentColor = False
+    end
+  end
+  object Button1: TButton
+    Left = 168
+    Height = 25
+    Top = 176
+    Width = 30
+    Caption = '1/x'
+    TabOrder = 29
+  end
+end
