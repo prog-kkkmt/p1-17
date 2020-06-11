@@ -1,0 +1,37 @@
+object Formmain: TFormmain
+  Left = 665
+  Height = 192
+  Top = 236
+  Width = 391
+  Caption = 'MainForm'
+  ClientHeight = 192
+  ClientWidth = 391
+  LCLVersion = '2.0.8.0'
+  object Button1: TButton
+    Left = 24
+    Height = 40
+    Top = 16
+    Width = 104
+    Caption = 'Groups'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 160
+    Height = 40
+    Top = 88
+    Width = 104
+    Caption = 'Look Students'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 160
+    Height = 40
+    Top = 16
+    Width = 104
+    Caption = 'Students'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+end

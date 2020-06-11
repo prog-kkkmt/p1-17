@@ -1,0 +1,50 @@
+object FGroup: TFGroup
+  Left = 1063
+  Height = 404
+  Top = 157
+  Width = 550
+  Caption = 'FGroup'
+  ClientHeight = 404
+  ClientWidth = 550
+  LCLVersion = '2.0.8.0'
+  object DBGrid1: TDBGrid
+    Left = 40
+    Height = 341
+    Top = 48
+    Width = 471
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'IDGROUPS'
+      end    
+      item
+        Title.Caption = 'Название группы'
+        Width = 120
+        FieldName = 'NAMEGROUPS'
+      end>
+    DataSource = MainDatas.SourceGroupe
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 38
+    Height = 29
+    Top = 6
+    Width = 473
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 29
+    ClientWidth = 473
+    DataSource = MainDatas.SourceGroupe
+    Options = []
+    TabOrder = 1
+  end
+end

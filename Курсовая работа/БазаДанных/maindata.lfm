@@ -1,0 +1,271 @@
+object MainDatas: TMainDatas
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 430
+  HorizontalOffset = 938
+  VerticalOffset = 255
+  Width = 656
+  PPI = 96
+  object IDData: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = '127.0.0.1:C:\Users\asferd\Desktop\workwithbd\MYSTUDENTS.FDB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterke'
+      'lc_ctype=UNICODE_FSS'
+    )
+    DefaultTransaction = IdTrans
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 40
+    top = 16
+  end
+  object IdTrans: TIBTransaction
+    Active = False
+    DefaultDatabase = IDData
+    left = 120
+    top = 16
+  end
+  object MainGroups: TIBTable
+    AllowAutoActivateTransaction = True
+    Database = IDData
+    Transaction = IdTrans
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'GROUPS'
+    left = 216
+    top = 16
+    object MainGroupsIDGROUPS: TIBIntegerField
+      DisplayLabel = 'ID'
+      FieldKind = fkData
+      FieldName = 'IDGROUPS'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MainGroupsNAMEGROUPS: TIBStringField
+      DisplayLabel = 'Название группы'
+      FieldKind = fkData
+      FieldName = 'NAMEGROUPS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object SourceGroupe: TDataSource
+    DataSet = MainGroups
+    left = 304
+    top = 16
+  end
+  object QueryStudents: TIBQuery
+    AllowAutoActivateTransaction = True
+    Database = IDData
+    Transaction = IdTrans
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'select  students.idstudents, students.secondname, students.name, students.fathername, Groups.namegroups, students.nameingit'
+      'from students, groups'
+      'where  students.idgroups = Groups.idgroups'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 40
+    top = 104
+    object QueryStudentsIDSTUDENTS: TIBIntegerField
+      DisplayLabel = 'ID'
+      FieldKind = fkData
+      FieldName = 'IDSTUDENTS'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryStudentsSECONDNAME: TIBStringField
+      DisplayLabel = 'Фамилия'
+      FieldKind = fkData
+      FieldName = 'SECONDNAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object QueryStudentsNAME: TIBStringField
+      DisplayLabel = 'Имя'
+      FieldKind = fkData
+      FieldName = 'NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object QueryStudentsFATHERNAME: TIBStringField
+      DisplayLabel = 'Отчество'
+      FieldKind = fkData
+      FieldName = 'FATHERNAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object QueryStudentsNAMEGROUPS: TIBStringField
+      DisplayLabel = 'Название группы'
+      FieldKind = fkData
+      FieldName = 'NAMEGROUPS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object QueryStudentsNAMEINGIT: TIBStringField
+      DisplayLabel = 'Имя на Гитхабе'
+      FieldKind = fkData
+      FieldName = 'NAMEINGIT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object SourceQSt: TDataSource
+    DataSet = QueryStudents
+    left = 120
+    top = 104
+  end
+  object MainStudent: TIBTable
+    AllowAutoActivateTransaction = True
+    Database = IDData
+    Transaction = IdTrans
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'STUDENTS'
+    left = 216
+    top = 104
+    object MainStudentIDSTUDENTS: TIBIntegerField
+      DisplayLabel = 'ID'
+      FieldKind = fkData
+      FieldName = 'IDSTUDENTS'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MainStudentSECONDNAME: TIBStringField
+      DisplayLabel = 'Фамилия'
+      FieldKind = fkData
+      FieldName = 'SECONDNAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object MainStudentNAME: TIBStringField
+      DisplayLabel = 'Имя'
+      FieldKind = fkData
+      FieldName = 'NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object MainStudentFATHERNAME: TIBStringField
+      DisplayLabel = 'Отчество'
+      FieldKind = fkData
+      FieldName = 'FATHERNAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object MainStudentIDGROUPS: TIBIntegerField
+      DisplayLabel = 'Группа'
+      FieldKind = fkData
+      FieldName = 'IDGROUPS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object MainStudentNAMEINGIT: TIBStringField
+      DisplayLabel = 'Имя на Гитхабе'
+      FieldKind = fkData
+      FieldName = 'NAMEINGIT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object SourceStudent: TDataSource
+    DataSet = MainStudent
+    left = 304
+    top = 104
+  end
+  object QuaryNameGR: TIBQuery
+    AllowAutoActivateTransaction = True
+    Database = IDData
+    Transaction = IdTrans
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'select  * from groups;'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 400
+    top = 104
+  end
+  object SourceNameGR: TDataSource
+    DataSet = QuaryNameGR
+    left = 488
+    top = 104
+  end
+end

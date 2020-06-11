@@ -1,0 +1,92 @@
+object FWorkStd: TFWorkStd
+  Left = 827
+  Height = 556
+  Top = 60
+  Width = 948
+  Caption = 'FWorkStd'
+  ClientHeight = 556
+  ClientWidth = 948
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object Stud: TDBGrid
+    Left = 24
+    Height = 421
+    Top = 88
+    Width = 683
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'IDSTUDENTS'
+      end    
+      item
+        Title.Caption = 'Фамилия'
+        Width = 120
+        FieldName = 'SECONDNAME'
+      end    
+      item
+        Title.Caption = 'Имя'
+        Width = 120
+        FieldName = 'NAME'
+      end    
+      item
+        Title.Caption = 'Отчество'
+        Width = 120
+        FieldName = 'FATHERNAME'
+      end    
+      item
+        Title.Caption = 'Группа'
+        Width = 120
+        FieldName = 'IDGROUPS'
+      end    
+      item
+        Title.Caption = 'Имя на Гитхабе'
+        Width = 120
+        FieldName = 'NAMEINGIT'
+      end>
+    DataSource = MainDatas.SourceStudent
+    TabOrder = 0
+  end
+  object DBGrid2: TDBGrid
+    Left = 728
+    Height = 501
+    Top = 8
+    Width = 207
+    Anchors = [akTop, akLeft, akRight]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'IDGROUPS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Название группы'
+        Width = 120
+        FieldName = 'NAMEGROUPS'
+      end>
+    DataSource = MainDatas.SourceGroupe
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 24
+    Height = 56
+    Top = 8
+    Width = 686
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 56
+    ClientWidth = 686
+    DataSource = MainDatas.SourceStudent
+    Options = []
+    TabOrder = 2
+  end
+end
