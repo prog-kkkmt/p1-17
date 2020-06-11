@@ -1,0 +1,38 @@
+object Main_Form: TMain_Form
+  Left = 316
+  Height = 154
+  Top = 173
+  Width = 271
+  Caption = 'Главное окно'
+  ClientHeight = 154
+  ClientWidth = 271
+  DesignTimePPI = 120
+  LCLVersion = '2.0.8.0'
+  object EventsOpen: TButton
+    Left = 32
+    Height = 28
+    Top = 64
+    Width = 208
+    Caption = 'События'
+    TabOrder = 0
+  end
+  object PhoneBookOpen: TButton
+    Left = 32
+    Height = 28
+    Top = 104
+    Width = 208
+    Caption = 'Телефонный справочник'
+    TabOrder = 1
+  end
+  object CaptionMainForm: TLabel
+    Left = 45
+    Height = 40
+    Top = 6
+    Width = 185
+    Alignment = taCenter
+    Caption = 'Ежедневник, включающий'#13#10'телефонный справочник'
+    Font.Height = 20
+    ParentColor = False
+    ParentFont = False
+  end
+end
