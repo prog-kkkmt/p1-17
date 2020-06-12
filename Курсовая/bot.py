@@ -14,8 +14,6 @@ import aiogram.types.base
 
 from sqlighter import SQLighter
 
-from stopgame import StopGame
-
 # задаем уровень логов
 logging.basicConfig(level=logging.INFO)
 
