@@ -5,23 +5,22 @@ unit warehouse;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
+  DBGrids;
 
 type
 
-  { TForm3 }
+  { TFWarehouse }
 
-  TForm3 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Label1: TLabel;
-    Label2: TLabel;
-    Memo1: TMemo;
-    Memo2: TMemo;
-    procedure Button4Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+  TFWarehouse = class(TForm)
+    BackFromWarehouse: TButton;
+    DBGrid1: TDBGrid;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    procedure BackFromWarehouseClick(Sender: TObject);
   private
 
   public
@@ -29,23 +28,18 @@ type
   end;
 
 var
-  Form3: TForm3;
+  FWarehouse: TFWarehouse;
 
 implementation
-
+uses AppMenu;
 {$R *.lfm}
 
-{ TForm3 }
+{ TFWarehouse }
 
-procedure TForm3.FormCreate(Sender: TObject);
+procedure TFWarehouse.BackFromWarehouseClick(Sender: TObject);
 begin
-
-end;
-
-procedure TForm3.Button4Click(Sender: TObject);
-begin
-
-     AppMenu.Show;
+     Close;
+     AppMenu1.Show;
 end;
 
 end.

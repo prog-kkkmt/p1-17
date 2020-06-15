@@ -1,0 +1,52 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 167
+  HorizontalOffset = 316
+  VerticalOffset = 357
+  Width = 423
+  PPI = 96
+  object ibWarehouse: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'WAREHOUSE'
+    left = 200
+    top = 32
+  end
+  object ibdb: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = 'D:\DB\DBFINANCE.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterke'
+      'lc_ctype=WIN1252'
+    )
+    DefaultTransaction = ibtr
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 32
+    top = 32
+  end
+  object ibtr: TIBTransaction
+    Active = False
+    DefaultDatabase = ibdb
+    left = 112
+    top = 32
+  end
+  object dtsWarehouse: TDataSource
+    DataSet = ibWarehouse
+    left = 296
+    top = 32
+  end
+end

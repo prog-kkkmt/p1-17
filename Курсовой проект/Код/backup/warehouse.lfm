@@ -1,0 +1,39 @@
+object FWarehouse: TFWarehouse
+  Left = 512
+  Height = 312
+  Top = 193
+  Width = 504
+  Caption = 'Склад'
+  ClientHeight = 287
+  ClientWidth = 504
+  Color = 16315102
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  LCLVersion = '2.0.8.0'
+  object BackFromWarehouse: TButton
+    Left = 16
+    Height = 30
+    Top = 244
+    Width = 94
+    Anchors = [akLeft, akBottom]
+    Caption = 'Назад'
+    OnClick = BackFromWarehouseClick
+    TabOrder = 0
+  end
+  object MainMenu1: TMainMenu
+    left = 80
+    top = 51
+    object MenuItem1: TMenuItem
+      Caption = 'Добавить'
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Удалить'
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Изменить'
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'О программе'
+    end
+  end
+end

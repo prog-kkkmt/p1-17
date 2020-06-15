@@ -9,20 +9,16 @@ uses
 
 type
 
-  { TForm2 }
+  { TFProdMenu }
 
-  TForm2 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    memo1: TMemo;
-    Memo2: TMemo;
-    Memo3: TMemo;
-    procedure FormCreate(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
+  TFProdMenu = class(TForm)
+    ButMenuBack: TButton;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    procedure ButMenuBackClick(Sender: TObject);
   private
 
   public
@@ -30,22 +26,18 @@ type
   end;
 
 var
-  Form2: TForm2;
+  FProdMenu: TFProdMenu;
 
 implementation
-
+uses AppMenu;
 {$R *.lfm}
 
-{ TForm2 }
+{ TFProdMenu }
 
-procedure TForm2.FormCreate(Sender: TObject);
+procedure TFProdMenu.ButMenuBackClick(Sender: TObject);
 begin
-
-end;
-
-procedure TForm2.Label2Click(Sender: TObject);
-begin
-
+  Close;
+  AppMenu1.Show;
 end;
 
 end.

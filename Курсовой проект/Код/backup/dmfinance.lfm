@@ -1,0 +1,52 @@
+object DataMFinance: TDataMFinance
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 386
+  HorizontalOffset = 482
+  VerticalOffset = 343
+  Width = 590
+  PPI = 120
+  object ibtr: TIBTransaction
+    Active = False
+    DefaultDatabase = ibdb
+    left = 168
+    top = 56
+  end
+  object ibdb: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = 'D:\DB\DBFINANCE.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterke'
+      'lc_ctype=WIN1252'
+    )
+    DefaultTransaction = ibtr
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 85
+    top = 56
+  end
+  object ibFinance: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'NEW_TABLE'
+    left = 256
+    top = 56
+  end
+  object dtsFinance: TDataSource
+    DataSet = ibFinance
+    left = 344
+    top = 56
+  end
+end

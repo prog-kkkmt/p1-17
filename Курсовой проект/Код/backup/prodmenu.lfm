@@ -1,0 +1,21 @@
+object FProdMenu: TFProdMenu
+  Left = 624
+  Height = 300
+  Top = 296
+  Width = 400
+  Caption = 'Меню заведения'
+  ClientHeight = 300
+  ClientWidth = 400
+  Color = 16315102
+  DesignTimePPI = 120
+  LCLVersion = '2.0.8.0'
+  object ButMenuBack: TButton
+    Left = 152
+    Height = 31
+    Top = 248
+    Width = 94
+    Caption = 'Назад'
+    OnClick = ButMenuBackClick
+    TabOrder = 0
+  end
+end
