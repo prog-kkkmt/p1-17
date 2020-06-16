@@ -37,7 +37,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="6">
       <Unit0>
         <Filename Value="FastFood.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -72,19 +72,11 @@
         <ResourceBaseClass Value="Form"/>
       </Unit4>
       <Unit5>
-        <Filename Value="dmfinance.pas"/>
+        <Filename Value="dmd.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="DataMFinance"/>
-        <HasResources Value="True"/>
+        <ComponentName Value="DataModule2"/>
         <ResourceBaseClass Value="DataModule"/>
-        <UnitName Value="dmFinance"/>
       </Unit5>
-      <Unit6>
-        <Filename Value="dmwarehouse.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="DataModule1"/>
-        <ResourceBaseClass Value="DataModule"/>
-      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

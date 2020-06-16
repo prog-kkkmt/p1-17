@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
-  DBGrids, IBTable;
+  DBGrids, DBCtrls, IBTable;
 
 type
 
@@ -15,6 +15,7 @@ type
   TFormFinance = class(TForm)
     BackFromFinance: TButton;
     DBGrid1: TDBGrid;
+    dbnFinance: TDBNavigator;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;

@@ -7,8 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, AppMenu, finance, prodmenu, warehouse, dmFinance, dmwarehouse, dmprodmenu
-  { you can add units after this };
+  Forms, AppMenu, finance, prodmenu, warehouse, dmd;
 
 {$R *.res}
 
@@ -20,8 +19,6 @@ begin
   Application.CreateForm(TFormFinance, FormFinance);
   Application.CreateForm(TFProdMenu, FProdMenu);
   Application.CreateForm(TFWarehouse, FWarehouse);
-  Application.CreateForm(TDataMFinance, DataMFinance);
-  Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TDataModule2, DataModule2);
   Application.Run;
 end.

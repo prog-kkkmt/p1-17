@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
-  DBGrids;
+  DBGrids, DBCtrls;
 
 type
 
@@ -15,12 +15,12 @@ type
   TFWarehouse = class(TForm)
     BackFromWarehouse: TButton;
     DBGrid1: TDBGrid;
+    dbnWarehouse: TDBNavigator;
     MainMenu1: TMainMenu;
-    MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
-    MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     procedure BackFromWarehouseClick(Sender: TObject);
+    procedure dbnWarehouseClick(Sender: TObject; Button: TDBNavButtonType);
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -40,6 +40,17 @@ procedure TFWarehouse.BackFromWarehouseClick(Sender: TObject);
 begin
      Close;
      AppMenu1.Show;
+end;
+
+procedure TFWarehouse.dbnWarehouseClick(Sender: TObject;
+  Button: TDBNavButtonType);
+begin
+
+end;
+
+procedure TFWarehouse.FormCreate(Sender: TObject);
+begin
+
 end;
 
 end.

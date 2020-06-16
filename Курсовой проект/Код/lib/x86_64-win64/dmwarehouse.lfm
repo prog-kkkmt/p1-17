@@ -1,11 +1,35 @@
 object DataModule1: TDataModule1
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 167
-  HorizontalOffset = 316
-  VerticalOffset = 357
-  Width = 423
-  PPI = 96
+  Height = 368
+  HorizontalOffset = 807
+  VerticalOffset = 288
+  Width = 469
+  PPI = 120
+  object ibdb: TIBDatabase
+    Connected = False
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = '127.0.0.1:D:\DB\FASTFOOD.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterke'
+      'lc_ctype=UNICODE_FSS'
+    )
+    DefaultTransaction = ibtr
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 24
+    top = 136
+  end
+  object ibtr: TIBTransaction
+    Active = False
+    DefaultDatabase = ibdb
+    left = 128
+    top = 136
+  end
   object ibWarehouse: TIBTable
     AllowAutoActivateTransaction = False
     Database = ibdb
@@ -17,8 +41,8 @@ object DataModule1: TDataModule1
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
     MasterDetailDelay = 0
     TableName = 'WAREHOUSE'
-    left = 200
-    top = 32
+    left = 240
+    top = 24
     object ibWarehousePROD_NAME: TIBStringField
       DisplayLabel = 'Наименование продукта'
       FieldKind = fkData
@@ -28,46 +52,124 @@ object DataModule1: TDataModule1
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 30
+      Size = 50
     end
     object ibWarehousePROD_QUANTITY: TIBIntegerField
-      DisplayLabel = 'Количество'
+      DisplayLabel = 'Колличество '
       FieldKind = fkData
       FieldName = 'PROD_QUANTITY'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = True
+      Required = False
     end
   end
-  object ibdb: TIBDatabase
-    Connected = True
-    LoginPrompt = False
-    CreateIfNotExists = False
-    AllowStreamedConnected = True
-    DatabaseName = 'D:\DB\DBFINANCE.FDB'
-    Params.Strings = (
-      'user_name=SYSDBA'
-      'password=masterke'
-      'lc_ctype=WIN1252'
-    )
-    DefaultTransaction = ibtr
-    IdleTimer = 0
-    TraceFlags = []
-    UseDefaultSystemCodePage = False
-    left = 32
-    top = 32
+  object ibProdmenu: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'PROD_MENU'
+    left = 240
+    top = 144
+    object ibProdmenuFOOD_NAME: TIBStringField
+      DisplayLabel = 'Название блюда'
+      FieldKind = fkData
+      FieldName = 'FOOD_NAME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object ibProdmenuCOOKING_TIME: TIBStringField
+      DisplayLabel = 'Время приготовления'
+      FieldKind = fkData
+      FieldName = 'COOKING_TIME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object ibProdmenuPRICE: TIBIntegerField
+      DisplayLabel = 'Цена'
+      FieldKind = fkData
+      FieldName = 'PRICE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
-  object ibtr: TIBTransaction
-    Active = False
-    DefaultDatabase = ibdb
-    left = 112
-    top = 32
+  object ibFinance: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'FINANCE'
+    left = 240
+    top = 272
+    object ibFinanceCDATE: TIBStringField
+      DisplayLabel = 'Дата'
+      FieldKind = fkData
+      FieldName = 'CDATE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object ibFinanceINCOME: TIBIntegerField
+      DisplayLabel = 'Доход'
+      FieldKind = fkData
+      FieldName = 'INCOME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ibFinanceEXPENDITURE: TIBIntegerField
+      DisplayLabel = 'Расход'
+      FieldKind = fkData
+      FieldName = 'EXPENDITURE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
-  object dtsWarehouse: TDataSource
+  object dsWarehouse: TDataSource
     DataSet = ibWarehouse
-    left = 296
-    top = 32
+    OnDataChange = dsWarehouseDataChange
+    left = 368
+    top = 24
+  end
+  object dsProdmenu: TDataSource
+    DataSet = ibProdmenu
+    left = 364
+    top = 144
+  end
+  object dsFinance: TDataSource
+    DataSet = ibFinance
+    left = 368
+    top = 272
   end
 end

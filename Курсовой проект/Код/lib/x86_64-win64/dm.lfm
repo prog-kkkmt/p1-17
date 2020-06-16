@@ -1,0 +1,135 @@
+object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 368
+  HorizontalOffset = 807
+  VerticalOffset = 288
+  Width = 689
+  PPI = 120
+  object ibWarehouse: TIBTable
+    AllowAutoActivateTransaction = True
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'WAREHOUSE'
+    left = 250
+    top = 40
+    object ibWarehousePROD_NAME: TIBStringField
+      DisplayLabel = 'Наименование продукта'
+      FieldKind = fkData
+      FieldName = 'PROD_NAME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 30
+    end
+    object ibWarehousePROD_QUANTITY: TIBIntegerField
+      DisplayLabel = 'Количество'
+      FieldKind = fkData
+      FieldName = 'PROD_QUANTITY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object ibdb: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = '127.0.0.1:D:\DB\DBFINANCE.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterke'
+      'lc_ctype=UNICODE_FSS'
+    )
+    DefaultTransaction = ibtr
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 40
+    top = 40
+  end
+  object ibtr: TIBTransaction
+    Active = False
+    DefaultDatabase = ibdb
+    left = 140
+    top = 40
+  end
+  object dtsWarehouse: TDataSource
+    DataSet = ibWarehouse
+    left = 370
+    top = 40
+  end
+  object IBQuery1: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'select * from warehouse'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 256
+    top = 120
+  end
+  object DataSource1: TDataSource
+    DataSet = IBQuery1
+    left = 368
+    top = 120
+  end
+  object ibFinance: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'NEW_TABLE'
+    left = 250
+    top = 211
+  end
+  object ibProdmenu: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'PRODUCT_MENU'
+    left = 250
+    top = 296
+  end
+  object dtsFinance: TDataSource
+    DataSet = ibFinance
+    left = 360
+    top = 211
+  end
+  object dtsProdmenu: TDataSource
+    DataSet = ibProdmenu
+    left = 360
+    top = 296
+  end
+end

@@ -1,37 +1,74 @@
 object FProdMenu: TFProdMenu
   Left = 624
-  Height = 389
+  Height = 526
   Top = 296
-  Width = 545
+  Width = 603
   Caption = 'Меню заведения'
-  ClientHeight = 364
-  ClientWidth = 545
+  ClientHeight = 501
+  ClientWidth = 603
   Color = 16315102
   DesignTimePPI = 120
   Menu = MainMenu1
+  OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object ButMenuBack: TButton
     Left = 16
     Height = 31
-    Top = 320
+    Top = 457
     Width = 94
     Anchors = [akLeft, akBottom]
     Caption = 'Назад'
     OnClick = ButMenuBackClick
     TabOrder = 0
   end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 377
+    Top = 72
+    Width = 572
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Наименование блюда'
+        Width = 200
+        FieldName = 'FOOD_NAME'
+      end    
+      item
+        Title.Caption = 'Время приготовления'
+        Width = 180
+        FieldName = 'COOKING_TIME'
+      end    
+      item
+        Title.Caption = 'Цена'
+        Width = 100
+        FieldName = 'PRICE'
+      end>
+    DataSource = DataModule2.dtsProdMenu
+    TabOrder = 1
+  end
+  object dbnProdMenu: TDBNavigator
+    Left = 16
+    Height = 39
+    Top = 16
+    Width = 572
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 39
+    ClientWidth = 572
+    DataSource = DataModule2.dtsProdMenu
+    OnClick = dbnProdMenuClick
+    Options = []
+    TabOrder = 2
+  end
   object MainMenu1: TMainMenu
-    left = 480
-    top = 312
-    object MenuItem1: TMenuItem
-      Caption = 'Добавить'
-    end
-    object MenuItem2: TMenuItem
-      Caption = 'Удалить'
-    end
-    object MenuItem3: TMenuItem
-      Caption = 'Изменить'
-    end
+    left = 448
+    top = 360
     object MenuItem4: TMenuItem
       Caption = 'О программе'
     end

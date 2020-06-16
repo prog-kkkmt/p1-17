@@ -1,7 +1,7 @@
 object FWarehouse: TFWarehouse
-  Left = 512
+  Left = 532
   Height = 489
-  Top = 193
+  Top = 260
   Width = 677
   Caption = 'Склад'
   ClientHeight = 464
@@ -9,6 +9,7 @@ object FWarehouse: TFWarehouse
   Color = 16315102
   DesignTimePPI = 120
   Menu = MainMenu1
+  OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object BackFromWarehouse: TButton
     Left = 16
@@ -20,28 +21,49 @@ object FWarehouse: TFWarehouse
     OnClick = BackFromWarehouseClick
     TabOrder = 0
   end
-  object DBGrid1: TDBGrid
-    Left = 10
-    Height = 398
-    Top = 10
-    Width = 646
-    Color = clWindow
-    Columns = <>
-    DataSource = DataModule1.dtsWarehouse
+  object dbnWarehouse: TDBNavigator
+    Left = 16
+    Height = 40
+    Top = 16
+    Width = 640
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 40
+    ClientWidth = 640
+    DataSource = DataModule2.dtsWarehouse
+    OnClick = dbnWarehouseClick
+    Options = []
     TabOrder = 1
   end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 320
+    Top = 72
+    Width = 640
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Наименование продукта'
+        Width = 200
+        FieldName = 'PROD_NAME'
+      end    
+      item
+        Title.Caption = 'Колличество'
+        Width = 120
+        FieldName = 'PROD_QUAN'
+      end>
+    DataSource = DataModule2.dtsWarehouse
+    TabOrder = 2
+  end
   object MainMenu1: TMainMenu
-    left = 608
-    top = 400
-    object MenuItem1: TMenuItem
-      Caption = 'Добавить'
-    end
-    object MenuItem2: TMenuItem
-      Caption = 'Удалить'
-    end
-    object MenuItem3: TMenuItem
-      Caption = 'Изменить'
-    end
+    left = 600
+    top = 416
     object MenuItem4: TMenuItem
       Caption = 'О программе'
     end

@@ -1,8 +1,0 @@
-object DataModule2: TDataModule2
-  OldCreateOrder = False
-  Height = 306
-  HorizontalOffset = 316
-  VerticalOffset = 154
-  Width = 423
-  PPI = 96
-end

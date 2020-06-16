@@ -18,6 +18,7 @@ type
     ibFinanceEXPENDITURE: TIBIntegerField;
     ibFinanceINCOME: TIBIntegerField;
     ibFinance: TIBTable;
+    ibFinanceMY_DATA: TIBStringField;
     ibtr: TIBTransaction;
     procedure DataModuleCreate(Sender: TObject);
     procedure dtsFinanceDataChange(Sender: TObject; Field: TField);
