@@ -15,7 +15,6 @@ type
     ButProdMenu: TButton;
     ButWarehouse: TButton;
     ButFunance: TButton;
-    Label1: TLabel;
     procedure ButFunanceClick(Sender: TObject);
     procedure ButProdMenuClick(Sender: TObject);
     procedure ButWarehouseClick(Sender: TObject);
@@ -37,19 +36,22 @@ uses finance, prodmenu, warehouse;
 
 { TAppMenu1 }
 
-procedure TAppMenu1.ButProdMenuClick(Sender: TObject);
+procedure TAppMenu1.ButProdMenuClick(Sender: TObject);  // Кнопка "Меню заведения"
 begin
-     FProdMenu.ShowModal;
+     AppMenu1.Hide;
+     FProdMenu.Show;
 end;
 
-procedure TAppMenu1.ButFunanceClick(Sender: TObject);
+procedure TAppMenu1.ButFunanceClick(Sender: TObject);  // Кнопка "Финансы"
 begin
-     FormFinance.ShowModal;
+     AppMenu1.Hide;
+     FormFinance.Show;
 end;
 
-procedure TAppMenu1.ButWarehouseClick(Sender: TObject);
+procedure TAppMenu1.ButWarehouseClick(Sender: TObject);  // Кнопка "Склад"
 begin
-     FWarehouse.ShowModal;
+     AppMenu1.Hide;
+     FWarehouse.Show;
 end;
 
 procedure TAppMenu1.Button4Click(Sender: TObject);

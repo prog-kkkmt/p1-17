@@ -1,17 +1,18 @@
 object FormFinance: TFormFinance
-  Left = 424
+  Left = 595
   Height = 603
-  Top = 198
-  Width = 499
+  Top = 268
+  Width = 893
+  Align = alCustom
   Caption = 'Финансы'
   ClientHeight = 578
-  ClientWidth = 499
+  ClientWidth = 893
   Color = 16315102
   DesignTimePPI = 120
   Menu = MainMenu1
   LCLVersion = '2.0.8.0'
   object BackFromFinance: TButton
-    Left = 10
+    Left = 16
     Height = 31
     Top = 523
     Width = 94
@@ -24,8 +25,7 @@ object FormFinance: TFormFinance
     Left = 16
     Height = 405
     Top = 89
-    Width = 466
-    Anchors = [akTop, akLeft, akRight, akBottom]
+    Width = 406
     Color = clWindow
     Columns = <    
       item
@@ -50,7 +50,7 @@ object FormFinance: TFormFinance
     Left = 16
     Height = 40
     Top = 24
-    Width = 464
+    Width = 400
     BevelOuter = bvNone
     ChildSizing.EnlargeHorizontal = crsScaleChilds
     ChildSizing.EnlargeVertical = crsScaleChilds
@@ -59,23 +59,74 @@ object FormFinance: TFormFinance
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 100
     ClientHeight = 40
-    ClientWidth = 464
+    ClientWidth = 400
     DataSource = DataModule2.dtsFinance
     Options = []
     TabOrder = 2
   end
+  object DBGrid2: TDBGrid
+    Left = 464
+    Height = 403
+    Top = 89
+    Width = 408
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Дата'
+        Width = 120
+        FieldName = 'CDATE'
+      end    
+      item
+        Title.Caption = 'Доход'
+        Width = 120
+        FieldName = 'INCOME'
+      end    
+      item
+        Title.Caption = 'Расход'
+        Width = 120
+        FieldName = 'EXPENDITURE'
+      end>
+    DataSource = DataModule2.dtsFinanceQ
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 468
+    Height = 20
+    Top = 44
+    Width = 43
+    Caption = 'Поиск'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 528
+    Height = 28
+    Top = 40
+    Width = 344
+    OnChange = Edit1Change
+    TabOrder = 4
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 464
+    Height = 31
+    Top = 512
+    Width = 341
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 31
+    ClientWidth = 341
+    DataSource = DataModule2.dtsFinanceQ
+    Options = []
+    TabOrder = 5
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+  end
   object MainMenu1: TMainMenu
     left = 1808
     top = 928
-    object MenuItem1: TMenuItem
-      Caption = 'Добавить'
-    end
-    object MenuItem2: TMenuItem
-      Caption = 'Удалить'
-    end
-    object MenuItem3: TMenuItem
-      Caption = 'Изменить'
-    end
     object MenuItem4: TMenuItem
       Caption = 'О программе'
     end

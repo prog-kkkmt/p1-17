@@ -1,55 +1,61 @@
 object AppMenu1: TAppMenu1
-  Left = 316
-  Height = 281
+  Left = 343
+  Height = 324
   Top = 213
-  Width = 400
-  Caption = 'Меню'
-  ClientHeight = 281
-  ClientWidth = 400
+  Width = 335
+  Align = alCustom
+  Caption = 'ФастФуд'
+  ClientHeight = 324
+  ClientWidth = 335
   Color = 16315102
   DesignTimePPI = 120
   LCLVersion = '2.0.8.0'
-  object Label1: TLabel
-    Left = 72
-    Height = 28
-    Top = 26
-    Width = 279
-    Caption = 'Выберите таблицу для работы'
+  object ButProdMenu: TButton
+    Left = 62
+    Height = 80
+    Top = 24
+    Width = 210
+    Caption = 'Меню заведения'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
-    ParentColor = False
-    ParentFont = False
-    OnClick = Label1Click
-  end
-  object ButProdMenu: TButton
-    Left = 120
-    Height = 31
-    Top = 104
-    Width = 158
-    Caption = 'Меню заведения'
     OnClick = ButProdMenuClick
+    ParentFont = False
     TabOrder = 0
   end
   object ButWarehouse: TButton
-    Left = 120
-    Height = 31
-    Top = 152
-    Width = 158
+    Left = 62
+    Height = 80
+    Top = 112
+    Width = 210
     Caption = 'Склад'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -20
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
     OnClick = ButWarehouseClick
+    ParentFont = False
     TabOrder = 1
   end
   object ButFunance: TButton
-    Left = 120
-    Height = 31
+    Left = 62
+    Height = 80
     Top = 200
-    Width = 158
+    Width = 210
     Caption = 'Финансы'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -20
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
     OnClick = ButFunanceClick
+    ParentFont = False
     TabOrder = 2
   end
 end

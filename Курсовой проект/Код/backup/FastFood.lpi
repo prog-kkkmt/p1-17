@@ -75,6 +75,7 @@
         <Filename Value="dmd.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DataModule2"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
       </Unit5>
     </Units>
