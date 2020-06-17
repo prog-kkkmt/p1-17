@@ -1,0 +1,110 @@
+object FormOrdersShow: TFormOrdersShow
+  Left = 471
+  Height = 421
+  Top = 307
+  Width = 861
+  Caption = 'Клиенты и заказы'
+  ClientHeight = 391
+  ClientWidth = 861
+  DesignTimePPI = 144
+  Menu = MainMenu1
+  LCLVersion = '2.0.8.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 240
+    Top = 56
+    Width = 861
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID заказа'
+        FieldName = 'ID_ORDER'
+      end    
+      item
+        Title.Caption = 'Статус заказа'
+        FieldName = 'STATUS_ORDER'
+      end    
+      item
+        Title.Caption = 'Ф.И.О клиента'
+        FieldName = 'FIO_CLIENT'
+      end    
+      item
+        Title.Caption = 'Телефон клиента'
+        FieldName = 'PHONE_CLIENT'
+      end    
+      item
+        Title.Caption = 'Зада приёма'
+        FieldName = 'DATE_RECEIPT'
+      end    
+      item
+        Title.Caption = 'Дата выдачи'
+        FieldName = 'DATE_ISSUE'
+      end    
+      item
+        Title.Caption = 'Заявка'
+        FieldName = 'REQUEST'
+      end    
+      item
+        Title.Caption = 'Поставщик'
+        FieldName = 'PROVIDER'
+      end    
+      item
+        Title.Caption = 'Затраты'
+        FieldName = 'EXPENSES'
+      end    
+      item
+        Title.Caption = 'Итого к оплате'
+        FieldName = 'TOTAL_PAYABLE'
+      end    
+      item
+        Title.Caption = 'Мастер'
+        FieldName = 'MASTER'
+      end>
+    DataSource = DM.DSOrderEdit
+    TabOrder = 0
+  end
+  object ButtonEdit: TButton
+    Left = 576
+    Height = 38
+    Top = 328
+    Width = 249
+    Caption = 'Редактировать таблицу'
+    OnClick = ButtonEditClick
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    left = 16
+    top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'Детали'
+      OnClick = MenuItem1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Сортировка'
+      object MenuItem4: TMenuItem
+        Caption = 'По статусу'
+        OnClick = MenuItem4Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'По номеру заказа'
+        OnClick = MenuItem5Click
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'По дате приема'
+        OnClick = MenuItem6Click
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'По дате выдачи'
+        OnClick = MenuItem7Click
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'По поставщику комплектующих'
+        OnClick = MenuItem8Click
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'О программе'
+      OnClick = MenuItem3Click
+    end
+  end
+end

@@ -1,0 +1,263 @@
+object DM: TDM
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 635
+  HorizontalOffset = 933
+  VerticalOffset = 215
+  Width = 507
+  PPI = 144
+  object DB: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = 'C:\Project\DB.FDB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey'
+    )
+    DefaultTransaction = Trans
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 48
+    top = 48
+  end
+  object Trans: TIBTransaction
+    Active = True
+    DefaultDatabase = DB
+    left = 180
+    top = 48
+  end
+  object QueryVhod: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = DB
+    Transaction = Trans
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'Select A.LOGIN_WORKER, A.PASSWORD_WORKER From WORKERS A'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 48
+    top = 152
+  end
+  object tableOrders: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = DB
+    Transaction = Trans
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'CLIENTS_AND_ORDERS'
+    left = 48
+    top = 256
+    object tableOrdersID_ORDER: TIBIntegerField
+      DisplayLabel = 'ID заказа'
+      FieldKind = fkData
+      FieldName = 'ID_ORDER'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tableOrdersSTATUS_ORDER: TIBStringField
+      DisplayLabel = 'Статус заказа'
+      FieldKind = fkData
+      FieldName = 'STATUS_ORDER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tableOrdersFIO_CLIENT: TIBStringField
+      DisplayLabel = 'Ф.И.О клиента'
+      FieldKind = fkData
+      FieldName = 'FIO_CLIENT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tableOrdersPHONE_CLIENT: TIBStringField
+      DisplayLabel = 'Телефон клиента'
+      FieldKind = fkData
+      FieldName = 'PHONE_CLIENT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tableOrdersDATE_RECEIPT: TDateField
+      DisplayLabel = 'Дата приёма'
+      FieldKind = fkData
+      FieldName = 'DATE_RECEIPT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tableOrdersDATE_ISSUE: TDateField
+      DisplayLabel = 'Дата выдачи'
+      FieldKind = fkData
+      FieldName = 'DATE_ISSUE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tableOrdersREQUEST: TIBStringField
+      DisplayLabel = 'Заявка'
+      FieldKind = fkData
+      FieldName = 'REQUEST'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tableOrdersPROVIDER: TIBStringField
+      DisplayLabel = 'Поставщик'
+      FieldKind = fkData
+      FieldName = 'PROVIDER'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tableOrdersEXPENSES: TIBStringField
+      DisplayLabel = 'Затраты'
+      FieldKind = fkData
+      FieldName = 'EXPENSES'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tableOrdersTOTAL_PAYABLE: TIBStringField
+      DisplayLabel = 'Итого к оплате'
+      FieldKind = fkData
+      FieldName = 'TOTAL_PAYABLE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object tableOrdersMASTER: TIBStringField
+      DisplayLabel = 'Мастер'
+      FieldKind = fkData
+      FieldName = 'MASTER'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+  end
+  object DSOrderEdit: TDataSource
+    DataSet = tableOrders
+    left = 200
+    top = 256
+  end
+  object tableDetails: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = DB
+    Transaction = Trans
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'CLIENTS_AND_ORDERS'
+    left = 48
+    top = 492
+    object tableDetailsID_ORDER: TIBIntegerField
+      DisplayLabel = 'ID заказа'
+      FieldKind = fkData
+      FieldName = 'ID_ORDER'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object tableDetailsFIO_CLIENT: TIBStringField
+      DisplayLabel = 'Ф.И.О клиента'
+      FieldKind = fkData
+      FieldName = 'FIO_CLIENT'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object tableDetailsDETAILS: TIBStringField
+      DisplayLabel = 'Детали'
+      FieldKind = fkData
+      FieldName = 'DETAILS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+  end
+  object DataSourceDetails: TDataSource
+    DataSet = tableDetails
+    left = 240
+    top = 492
+  end
+  object QueryOrders: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = DB
+    Transaction = Trans
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'Select * From CLIENTS_AND_ORDERS A'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 48
+    top = 368
+  end
+  object DSOrderShow: TDataSource
+    DataSet = QueryOrders
+    left = 200
+    top = 368
+  end
+end
