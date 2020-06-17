@@ -1,0 +1,46 @@
+МДК 01.02 "Прикладное программирование"
+Преподаватель: Гусятинер Л.Б., МГОТУ ККМТ, 12.06.2020
+П1-17, П2-17
+К13. Консультация по курсовому проектированию.
+Написание руководства оператора
+
+Задание. 
+1. Изучить нормативные документы и примеры
+2. Добавить в записку раздел "Руководство оператора"
+
+Ожидаемый результат. 
+1. Записка с разделом "Руководство оператора"
+
+Критерии оценки 1..5 баллов
+
+Материалы.
+1. Материалы консультаций К1-К13
+2. Файлы
+- gost19_rukovodstvo_operatora.doc
+- 19.505-79.pdf
+- ESPD_34.pdf
+- rukovodstvo-operatora-server-sinerget-ksbo.pdf
+- ESPD_34.zip
+3. Аудио-конференция в Skype
+
+Ссылки
+1. ГОСТ 19.505-79 Руководство оператора. Требования к содержанию и оформлению 
+УДК 651.7/.78:681.3.06:002:006.354
+1.1. http://docs.cntd.ru/document/gost-19-505-79-espd
+1.2. https://gost2014.ru/D/Gost_dokumentatsii-na-razrabotku-programmnogo-obespecheniya/19505-79_2097.gost
+1.3. https://internet-law.ru/gosts/gost/40115/
+1.4. http://www.rugost.com/index.php?option=com_content&view=article&id=65:19505-79&catid=19&Itemid=50
+
+2. Как писать руководство оператора по ГОСТ 19.505-79?
+2.1. https://tdocs.su/12354
+2.2. http://tehpis.ru/info/articles/ro_po_gost/
+
+3. A.B.00001-01 34 01 (Руководство оператора)
+http://asutpseta.narod.ru/espd/espd_34.htm
+3.1. A.B.00001-01 34 01 (Руководство оператора) (пример - .pdf)
+http://asutpseta.narod.ru/download/ESPD_34.pdf
+3.2. A.B.00001-01 34 01 (Руководство оператора) ((шаблон - .dot))
+http://asutpseta.narod.ru/download/ESPD_34.zip
+
+4. Шаблон «Руководство оператора» по ГОСТ 19.505-79.
+https://techwriters.ru/services/shablony/shablony-gost19/shablon-rukovodstvo-operatora-po-gost-19-505-79/

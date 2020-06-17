@@ -1,0 +1,50 @@
+МДК 01.02 "Прикладное программирование"
+Преподаватель: Гусятинер Л.Б., МГОТУ ККМТ, 12.06.2020
+П1-17, П2-17
+К02. Консультация по курсовому проектированию.
+Изучение предметной области
+
+Ожидаемый результат:
+1. Файл (ы) на гитхабе
+2. Краткое сообщение в Skype
+3. Ответы на вопросы преподавателя
+
+Критерий оценки. 1..5
+
+Материалы. 
+1. Аудио-конференция в Skype
+2. Примеры для некоторых тем
+
+1. Разработка приложения "Кинотеатр"
+1.1. Кинотеатр
+https://ru.wikipedia.org/wiki/Кинотеатр
+
+1.2. Кейс «Проектирование веб-сервиса бронирования билетов». 
+Бизнес-анализ. Контекст и заинтересованные лица
+https://habr.com/ru/post/107488/
+
+1.3. Кейс «Проектирование веб-сервиса бронирования билетов».
+Бизнес-анализ. Описание существующих бизнес-процессов (AS-IS)
+https://habr.com/ru/post/107908/
+
+2. Разработка приложения "Библиотека"
+2.1. КАК УСТРОЕНА БИБЛИОТЕКА БИБЛИОТЕКА Библио книга
+https://present5.com/kak-ustroena-biblioteka-biblioteka-biblio-kniga/
+2.2. А вы знаете, как работает библиотека?
+https://ribalych-ru.turbopages.org/s/ribalych.ru/2014/06/03/a-vy-znaete-kak-rabotaet-biblioteka/
+
+3. Разработка приложения "Туристский клуб"
+3.1. Клуб туристов
+https://ru.wikipedia.org/wiki/Клуб_туристов
+
+3.2. ТУРИСТСКИЙ КЛУБ - ОСНОВНОЙ ОРГАНИЗАЦИОННО-МЕТОДИЧЕСКИЙ ЦЕНТР САМОДЕЯТЕЛЬНОГО ТУРИЗМА
+https://skitalets.ru/information/books/poryadok-organizatsii-turistskogo-kluba-i-planirovanie-ego-raboty-2410_4666/
+
+3.3. Ахметова А.Р. Организационная деятельность туристской фирмы.: Краткий конспект лекций / 
+А.Р.Ахметова; Каз. федер.ун-т. – Казань, 2013. – 11 с.
+http://yandex.ru/clck/jsredir?bu=ez986j&from=yandex.ru%3Bsearch%2F%3Bweb%3B%3B&text=&etext=2202.PtNrlrkWjp8vkVrJAxIQkN83ICIo-f_gKs5SPvW9b1XaQr1FXMAACaTDPjnP_zJmfv1S4s6lnIqLjoaiw8cLFDJ1ftlNeL3WNjM-_DjYNlpRQw4oS4hZJZblazYItXlEwjcckqPhmV65V4mv3IAGw5GqgLS6pJZ5FSNAhVRpkqtNVsTOFyYdeJZwP6-aH8CQDkSM32LoxV2KcymFZ2rOmxaHJNuca75xPRcvSyT_7qxjphLXDERbt-uj7CccgYNqkQ2M8mH9_gYK5pZqHlcs5rFXvJqV-sbdhayn99mijPoxUNRDFyUHsVmb1vZUci41adi9ZeNFY2gJymQEGK73KXNia21peWpreXljaWJnc2k.8fd10977d502ecbc86748b2809c5550d457d2ca7&uuid=&state=jLT9ScZ_wbo,&&cst=AiuY0DBWFJ5fN_r-AEszk3zgXJU5hC4AREfG5hfNm0ASoCHrHaLIgGB4z1XYYHLS0ca1Rw8__9KAo7gMOp7h5ECtQNAyoH6H1FmOijoD2303a6BWFzZb1EivJV0am_pqJjsOp8Cw0gGBtZK1oy6woYnLClNwEeuyesjVbhONibriDYBjoBUrtrgkSmVI83InaTEkR1S1n__b-ehMucVMJP-cxqrJFoJWHfvsAJoWLMe3bQ92YWKKH5bnXo8nckDGyyPJOtl7lVwsZvPx5WOS4ddovyD4bljiFvqyTEXj6B8P_YVWboRz0sRKB6JmXg0-EkpS0eKshBjhGj1Oqvn-swm1wwUxoHNtMfehFmb6R7fAPeLaFCzeItQxFhJUgyMghDUT78H8yml3P7DYkONOeBPEeaGJ3St9BflghFm7BeWcsCdxaMtH3DdJFslej43oei119kFT9FeJoYnnwgJoq8hgO1XJRF5CMN6Ht6sQ1dDlALlmxv_lzx3uj9bO7UCxyPnBdiAAbEH1iiYuI0L0BtVXH1Yh0H6NvSESkfjbC9kxt4x1ivOkiRG8PgE_HKiHlMlurM0_ukpxtiQXms-k9DKa6RbNzu4A0fPTsp6WjvA5z5xes7WNwB4QZ4lktyq82FQGBpGHKO1DXOE0s7VHHKlFhsHDTJi00b26JwK8b_klsUcgqCDo4cgob8mpBsqYUhD-iBaWoUAYdXHb8oTRI-XXFeYCXCG3ZQ_TWn3CZfNZSx99aXIvjmb1v_N334yUUXjw5uSGdnd1exCZATbd2bFFhyO3R8mpR4sgJiQTPleqswQpKIjvYuT7LWPazg1NHmWHnFsKtKpDAjZRZ_isv6tC33K3gltsncCfoNBNvpfvjZaizQxCss75eOcGKr0md_l1sIk0imVT_6taEikItegjPVvzhCpkhPGq5UZBpIZzG7FGi5NnjxTuTJzWylBjOONMPGtSLXFI1L3ZvJXuFsax9YMqpmizePLKxgee-Cm3UhebAMUV1qIL4kjygYQrbRAA4M6A5cgO8-3KoaANqQ,,&data=UlNrNmk5WktYejY4cHFySjRXSWhXS0lVQVMzV3ZVd0tqZTBGeEgtY2VPOFFWcmVRZnNfYXlXdDlvd3NXclV4QzRqTGF4b0NCLXh3SUViUTNVQWg4eTJLc19yblhVM3RRdUJKMGxxNlVKWjVZZWJGNzdfcDlJR3ZzSlcwc0ZpZjBDQTQ4LXBac01wcXNITklCWkJseGttYkhiMV9rNmJNWm1pelZtempSdlEyeEJYY3ZTaVNhMVl6Y3Boalo4Slk2&sign=aa8f2ade3b4c20e0d848bdf2bfcd248b&keyno=0&b64e=2&ref=orjY4mGPRjk5boDnW0uvlrrd71vZw9kpVBUyA8nmgRHRF_w55rs0jxW384BrIeaImCw06Y95mIFJH995wjWXWe7Gf8-huXLYBlcNI2T5G2D8kobvjouzlOlO2y5eLWz6wW1lm4eVq12-RDNqfoRxhd7NOx3Zh-OtI22JYrTXZKaBZbvdCK_0hwvDcQ_gZjc7nHeS4zw-mkOJ77QgrpeK8-k_XeOl4vT4G43Z_A-p7m105dw88TP0zUzW38FJb2394ze97YjgfYbelAAoZmhE3MS-2JSk0VpRmBGHzT3KjH95kxkgCUheiO_KRpT_J1E6H0Ri7N80wXrtaCM_k0TyA2wQH9LIHwNXAhm3h_VXkaU7og4J8vFZrNvIUtwaaVbCEx8kqY1g_KTyygYf33uP-vxZRsvQUevR2lkpCMWvdBAvhrFFYnayi5rgd09D6g-hb8l3QY2b-8NgeTZEK2lLQliedRIDMCtjN0E4wrvXiv1cV9Ecw_rtiMQXV7mQmeacQIxHckUxPJM85ApTN2YcKC-x-UCJb8YPIrqRcIzqBk7mQsZg7toA2KXpeFZ6FfC8aX2u2cTGKb-VJAplNIvsRyo7apFnHAwgVLzAQfQa-2Aw3XCsqFW3r0lx_4VrHbFzPFrY4qHPihirkAeUmd6O6UBVT_Y3cV95DXjGDQQSTst2lD5RztdNcG0C9wrnpJvncvOhAZMczxdwmln8Ow8WYNr21UY8v383i1H3uT_6hHnVCAdVdjd7vsPVAjLx5kVaj7ljl7HbPLaFb8ahDjMZbWdvHY2k57Vzeqv4K8k20YUG710PrPX0Ib93qn9GZp0zsnEQ0-RtvFuUbR8pifHXTXTC8F-QxFhZsD7Y0OuVhkOMzZ553uGy00TxxXV-WIjPU3y50Gh88FAaIC01yqs0jQK4OGpSrl0m_bPJD4ZBYcN238-e9ndCCr8LRHde_ciXGur5_aPvKVmLgqsTMfA0Xg,,&l10n=ru&cts=1591960881549%40%40events%3D%5B%7B%22event%22%3A%22click%22%2C%22id%22%3A%22ez986j%22%2C%22cts%22%3A1591960881549%2C%22fast%22%3A%7B%22organic%22%3A1%7D%2C%22service%22%3A%22web%22%2C%22event-id%22%3A%22kbc4elqlxh%22%7D%5D&mc=1.584962500721156&hdtime=6492.5
+
+4. Разработка абстрактного типа данных "Дек"
+4.1. Алгоритмы: теория и практика. Структуры данных
+Александр Куликов. ПОМИ РАН, Computer Science Center
+https://stepik.org/course/1547
