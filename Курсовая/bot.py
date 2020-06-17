@@ -6,7 +6,6 @@ import pyowm
 import geo
 import json
 import geocoder
-import telebot
 from datetime import datetime
 
 from aiogram import Bot, Dispatcher, executor, types
@@ -62,5 +61,4 @@ async def krest(message: types.Message):
 
 # запускаем лонг поллинг
 if __name__ == '__main__':
-	#dp.loop.create_task(weather(10))
 	executor.start_polling(dp, skip_updates=True)
