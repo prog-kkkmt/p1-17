@@ -1,4 +1,5 @@
 object DataModule1: TDataModule1
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 380
   HorizontalOffset = 927
@@ -6,11 +7,11 @@ object DataModule1: TDataModule1
   Width = 389
   PPI = 120
   object ibdb: TIBDatabase
-    Connected = True
+    Connected = False
     LoginPrompt = False
     CreateIfNotExists = False
     AllowStreamedConnected = False
-    DatabaseName = 'D:\db\COURSE'
+    DatabaseName = 'D:\db\COURSE.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -24,7 +25,7 @@ object DataModule1: TDataModule1
     top = 30
   end
   object ibtr: TIBTransaction
-    Active = True
+    Active = False
     DefaultDatabase = ibdb
     left = 200
     top = 30
@@ -33,7 +34,6 @@ object DataModule1: TDataModule1
     AllowAutoActivateTransaction = True
     Database = ibdb
     Transaction = ibtr
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     DataSetCloseAction = dcDiscardChanges
@@ -86,7 +86,6 @@ object DataModule1: TDataModule1
     Database = ibdb
     Transaction = ibtr
     ForcedRefresh = True
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     DataSetCloseAction = dcDiscardChanges

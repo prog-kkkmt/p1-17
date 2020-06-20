@@ -5,7 +5,7 @@ unit DBC;
 interface
 
 uses
-  Classes, SysUtils, db, IBDatabase, IBTable, IBCustomDataSet;
+  Classes, SysUtils, db, IBDatabase, IBTable, IBCustomDataSet, INIFiles;
 
 type
 
@@ -26,6 +26,7 @@ type
     IBEVENTSID: TIBIntegerField;
     IBPHONEBOOK: TIBTable;
     ibtr: TIBTransaction;
+    procedure DataModuleCreate(Sender: TObject);
   private
 
   public
@@ -34,11 +35,30 @@ type
 
 var
   DataModule1: TDataModule1;
+  IniF:TINIFile;
+  DBname: String;
 
 implementation
 
 {$R *.lfm}
 
 { TDataModule1 }
+
+procedure TDataModule1.DataModuleCreate(Sender: TObject);
+begin
+    IF(FileExists('db.ini'))then
+    begin
+      IniF := TINIFile.Create('db.ini');
+      DBname := IniF.ReadString('db','dbname', '');
+
+
+      ibdb.DatabaseName:=DBname;
+      ibdb.Connected:=True;
+      ibdb.AllowStreamedConnected:=True;
+      IBEVENTS.Active:=True;
+      IBPHONEBOOK.Active:=True;
+
+    end;
+end;
 
 end.
