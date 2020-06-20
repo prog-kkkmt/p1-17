@@ -1,0 +1,41 @@
+object umain: Tumain
+  Left = 389
+  Height = 249
+  Top = 358
+  Width = 325
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Семейный бюджет'
+  ClientHeight = 249
+  ClientWidth = 325
+  Color = clGradientInactiveCaption
+  LCLVersion = '2.0.8.0'
+  object tables: TButton
+    Left = 96
+    Height = 51
+    Top = 24
+    Width = 141
+    Caption = 'Добавить доход/расход'
+    Color = clHighlightText
+    OnClick = tablesClick
+    TabOrder = 0
+  end
+  object budget: TButton
+    Left = 96
+    Height = 50
+    Top = 88
+    Width = 141
+    Caption = 'Бюджет'
+    OnClick = budgetClick
+    TabOrder = 1
+  end
+  object about: TButton
+    Left = 96
+    Height = 48
+    Top = 152
+    Width = 141
+    Caption = 'О программе'
+    OnClick = aboutClick
+    TabOrder = 2
+  end
+end
