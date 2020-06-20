@@ -1,0 +1,530 @@
+object dmb: Tdmb
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 436
+  HorizontalOffset = 370
+  VerticalOffset = 314
+  Width = 474
+  PPI = 96
+  object ibdb: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = True
+    DatabaseName = 'C:\dm\BQ.FDB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey'
+      'lc_ctype=UTF8'
+    )
+    DefaultTransaction = ibtr
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 320
+    top = 24
+  end
+  object ibtr: TIBTransaction
+    Active = False
+    DefaultDatabase = ibdb
+    left = 248
+    top = 24
+  end
+  object ibIncome: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'INCOME'
+    left = 35
+    top = 102
+    object ibIncomeID: TIBIntegerField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ibIncomeMEMBER: TIBStringField
+      DisplayLabel = 'Член семьи'
+      FieldKind = fkData
+      FieldName = 'MEMBER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibIncomeCATEGORY: TIBStringField
+      DisplayLabel = 'Категория'
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibIncomePROFIT: TIBBCDField
+      DisplayLabel = 'Доход'
+      FieldKind = fkData
+      FieldName = 'PROFIT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object ibIncomeDATA: TDateField
+      DisplayLabel = 'Дата'
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object dsIncome: TDataSource
+    DataSet = ibIncome
+    left = 117
+    top = 102
+  end
+  object ibOutgo: TIBTable
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'OUTGO'
+    left = 192
+    top = 102
+    object ibOutgoID: TIBIntegerField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ibOutgoMEMBER: TIBStringField
+      DisplayLabel = 'Член семьи'
+      FieldKind = fkData
+      FieldName = 'MEMBER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibOutgoCATEGORY: TIBStringField
+      DisplayLabel = 'Категория'
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibOutgoCOST: TIBBCDField
+      DisplayLabel = 'Расход'
+      FieldKind = fkData
+      FieldName = 'COST'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object ibOutgoDATA: TDateField
+      DisplayLabel = 'Дата'
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object dsOutgo: TDataSource
+    DataSet = ibOutgo
+    left = 272
+    top = 102
+  end
+  object ibqIncome: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      '    select income.member, income.category, income.profit, income.data from income'
+      ''
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 35
+    top = 184
+    object ibqIncomeMEMBER: TIBStringField
+      DisplayLabel = 'Член семьи'
+      FieldKind = fkData
+      FieldName = 'MEMBER'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibqIncomeCATEGORY: TIBStringField
+      DisplayLabel = 'Категория'
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibqIncomePROFIT: TIBBCDField
+      DisplayLabel = 'Доход'
+      FieldKind = fkData
+      FieldName = 'PROFIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object ibqIncomeDATA: TDateField
+      DisplayLabel = 'Дата'
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object dsqIncome: TDataSource
+    DataSet = ibqIncome
+    left = 117
+    top = 184
+  end
+  object ibq: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 168
+    top = 24
+  end
+  object ibqOutgo: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'select outgo.member, outgo.category, outgo.cost, outgo.data from outgo'
+      ''
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 200
+    top = 184
+    object ibqOutgoMEMBER: TIBStringField
+      DisplayLabel = 'Член семьи'
+      FieldKind = fkData
+      FieldName = 'MEMBER'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibqOutgoCATEGORY: TIBStringField
+      DisplayLabel = 'Категория'
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibqOutgoCOST: TIBBCDField
+      DisplayLabel = 'Расход'
+      FieldKind = fkData
+      FieldName = 'COST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object ibqOutgoDATA: TDateField
+      DisplayLabel = 'Дата'
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+  end
+  object dsqOutgo: TDataSource
+    DataSet = ibqOutgo
+    left = 272
+    top = 184
+  end
+  object ibqIncomeSum: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      '    select sum(profit) as d from income'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 35
+    top = 248
+    object ibqIncomeSumD: TIBBCDField
+      DisplayLabel = 'Итого доходов'
+      FieldKind = fkData
+      FieldName = 'D'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+  end
+  object ibqOutgoSum: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      '   select sum(cost) as d from outgo'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 232
+    top = 248
+    object ibqOutgoSumD: TIBBCDField
+      DisplayLabel = 'Итого расходов'
+      FieldKind = fkData
+      FieldName = 'D'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+  end
+  object dsqIncomeSum: TDataSource
+    DataSet = ibqIncomeSum
+    left = 136
+    top = 248
+  end
+  object dsqOutgoSum: TDataSource
+    DataSet = ibqOutgoSum
+    left = 320
+    top = 248
+  end
+  object ibqIncomeCat: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'select income.category as category, sum(profit) as total from income group by category'
+      ''
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 35
+    top = 312
+    object ibqIncomeCatCATEGORY: TIBStringField
+      DisplayLabel = 'Категория'
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibqIncomeCatTOTAL: TIBBCDField
+      DisplayLabel = 'Итог'
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+  end
+  object dsqIncomeCat: TDataSource
+    DataSet = ibqIncomeCat
+    left = 136
+    top = 312
+  end
+  object ibqOutgoCat: TIBQuery
+    AllowAutoActivateTransaction = False
+    Database = ibdb
+    Transaction = ibtr
+    BufferChunks = 1000
+    CachedUpdates = False
+    CaseSensitiveParameterNames = False
+    EnableStatistics = False
+    GenerateParamNames = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    SQL.Strings = (
+      'select outgo.category as category, sum(cost) as total from outgo group by category'
+    )
+    Params = <>
+    DataSetCloseAction = dcDiscardChanges
+    left = 232
+    top = 312
+    object ibqOutgoCatCATEGORY: TIBStringField
+      DisplayLabel = 'Категория'
+      FieldKind = fkData
+      FieldName = 'CATEGORY'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object ibqOutgoCatTOTAL: TIBBCDField
+      DisplayLabel = 'Итог'
+      FieldKind = fkData
+      FieldName = 'TOTAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+  end
+  object dsqOutgoCat: TDataSource
+    DataSet = ibqOutgoCat
+    left = 320
+    top = 312
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'база данных|*.fdb'
+    left = 392
+    top = 24
+  end
+end
