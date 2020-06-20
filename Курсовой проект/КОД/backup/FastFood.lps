@@ -21,6 +21,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AppMenu"/>
+        <TopLine Value="40"/>
         <CursorPos X="61" Y="14"/>
         <UsageCount Value="51"/>
         <Loaded Value="True"/>
@@ -45,7 +46,6 @@
         <ComponentName Value="FProdMenu"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="6" Y="81"/>
         <UsageCount Value="51"/>
@@ -58,6 +58,7 @@
         <ComponentName Value="FWarehouse"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="16"/>
         <CursorPos Y="70"/>
@@ -72,6 +73,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <EditorIndex Value="2"/>
+        <TopLine Value="61"/>
         <CursorPos X="23" Y="65"/>
         <UsageCount Value="39"/>
         <Loaded Value="True"/>
@@ -85,7 +87,6 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutProgramm"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="3"/>
         <CursorPos X="12" Y="40"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>

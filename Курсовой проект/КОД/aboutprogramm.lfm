@@ -1,0 +1,77 @@
+object FAboutProgramm: TFAboutProgramm
+  Left = 592
+  Height = 300
+  Top = 365
+  Width = 400
+  BorderStyle = bsSizeToolWin
+  Caption = 'О программе'
+  ClientHeight = 300
+  ClientWidth = 400
+  Color = clWhite
+  DesignTimePPI = 120
+  FormStyle = fsSystemStayOnTop
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object Label1: TLabel
+    Left = 24
+    Height = 23
+    Top = 184
+    Width = 345
+    Caption = 'Разработчик: студент П1-17 Попкова Алена'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -17
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 104
+    Height = 25
+    Top = 48
+    Width = 215
+    Caption = 'Курсовая работа на  тему:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -18
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 96
+    Height = 25
+    Top = 96
+    Width = 226
+    Caption = 'Разработка приложения'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -18
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 40
+    Height = 25
+    Top = 128
+    Width = 321
+    Caption = '"Предприятие быстрого питания"'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -18
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentColor = False
+    ParentFont = False
+  end
+end
