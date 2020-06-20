@@ -1,5 +1,6 @@
 import lexer
 
+# список всех элементов языка
 TAG           = 'TAG'
 OPEN_TAG      = 'OPEN_TAG'
 CLOSE_TAG     = 'CLOSE_TAG'
@@ -15,6 +16,7 @@ ATRIBUTE      = 'ATRIBUTE'
 ATRIBUTE_NAME = 'ATRIBUTE_NAME'
 VALUE         = 'VALUE'
 
+# список токенов в виде регулярных выражений
 token_exprs = [
     (r'[ \t]+',                                             None),
     (r'\n',                                                 LINE),
@@ -29,6 +31,7 @@ token_exprs = [
     (r'<([\w-]+)( |\n)*([-\w;: ]+(=(")?[^>]*(")?)?)*(( )?/)?>',       OPEN_TAG),    
 ]
 
+# токены для тегов
 token_tag = [
 	[
 		(r'[ \t<>/]+',           None),
@@ -39,5 +42,6 @@ token_tag = [
     ],
 ]
 
+# функция лексинга файла, передаем в нее все токены
 def imp_lex(characters):
     return lexer.lex(characters, token_exprs, token_tag)

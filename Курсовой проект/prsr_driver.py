@@ -1,20 +1,20 @@
 # ***** CLASSES *****
 
+# Text
 class Text:
-    def __init__(self, text):
+    def __init__(self, text): # конструктор
         self.content = text
         self.parent = None
         self.level = 0
         self.levels = []
 
 
-    def __repr__(self):
+    def __repr__(self): # функция правильного вывода
         return self.content
 
 # Tag
 class Tag:
-    def __init__(self, args, line, is_need_close_tag = True):
-        # global styles
+    def __init__(self, args, line, is_need_close_tag = True): # конструктор
         self.content = []
         self.parent = None
         self.level = 0
@@ -23,12 +23,8 @@ class Tag:
         self.name = args[0][0]
         self.atrs = {}
         self.style = {}
-        # if '*' in styles:
-        #   self.style.update(styles['*'])
-        # if self.name in styles:
-        #   self.style.update(styles[self.name])
         self.is_need_close_tag = is_need_close_tag
-        for atr in args[1:]: 
+        for atr in args[1:]: # добавление атрибутов
             if atr[1] == "ATRIBUTE":
                 atr_value = None
                 if '=' in atr[0]:
@@ -41,22 +37,12 @@ class Tag:
                         atr_value = atr_value[1:-1]
                 self.addAtribute(**{atr_name: (atr_value if atr_value else "")})
 
-        #               **** STYLES ****
-        # if self.name == "link" and "rel" in self.atrs:
-        #   if self.atrs["rel"] == "stylesheet":
-        #       styles = updateDict(styles, getStyle(self.atrs["href"]))
-
-
-    def __repr__(self):
-        # print(self.name, self.level, self.levels)
+    def __repr__(self): #split функция правильного вывода
         tabs = ""
         if self.level >= 1:
             tabs = ''.join(['|    ' if self.levels[i] else '     ' for i in range(self.level)])
 
         line = f"{self.name + self._getIdentyAtrs()}"
-        # atributes
-        # for atr in self.atrs:
-        #   line += f"\n{tabs}  {atr + ' : ' + self.atrs[atr]}"
         for item in self.content:
             typeElem = str(type(item)).split("'")[1].split(".")
             typeElem = typeElem[1] if len(typeElem) > 1 else typeElem[0] 
@@ -70,7 +56,7 @@ class Tag:
         self.levels = []
         return line
 
-    def _getIdentyAtrs(self):
+    def _getIdentyAtrs(self): # функция получения списка атрибутов
         identy = ""
         if 'id' in self.atrs:
             for ids in self.atrs['id']:
@@ -83,7 +69,7 @@ class Tag:
 
         return identy
 
-    def _findBy(self, atr = None, value = None, tagName = None):
+    def _findBy(self, atr = None, value = None, tagName = None): # поиск элемента по необходимым критериям
         elems = []
         for elem in self.content:
             typeElem = str(type(elem)).split("'")[1].split(".")
@@ -105,7 +91,7 @@ class Tag:
                     elems.extend(elem._findBy(tagName=tagName))
         return elems
 
-    def addAtribute(self, **atrs):
+    def addAtribute(self, **atrs): # добавить атрибуты тегу
         for atr, value in atrs.items():
             if atr == 'style':
                 pass
@@ -118,6 +104,7 @@ class Tag:
     def tagName(self):
         return self.name
 
+# класс дерева
 class Node:
     def __init__(self, content = None):
         self.content = []
@@ -130,17 +117,16 @@ class Node:
         if content:
             self.content.append(content)
 
-    def __repr__(self):
+    def __repr__(self): # функция правильного вывода данных
         line = ""
         for item in self.content:
             line += f"{str(item)}\n"
-            # line += str(styles)
         return line
 
-    def _setType(self, typeDOM):
+    def _setType(self, typeDOM): # установка типа файла
         self.type = typeDOM.split(" ")[1].split(">")[0]
 
-    def _addItem(self, level, content, tag = None, current_level = 0):
+    def _addItem(self, level, content, tag = None, current_level = 0): # добавление элемента в дерево
         if not tag:
             tag = self
         if level == current_level:
@@ -155,17 +141,17 @@ class Node:
         tag.content[len(tag.content) - 1] = self._addItem(level, content, tag.content[len(tag.content) - 1], current_level + 1)
         return tag
 
-    def _addJS(self, content):
+    def _addJS(self, content): # добавление скиптов
         self.JS.append(content)
 
-    def _addCSS(self, content):
+    def _addCSS(self, content): # добавление стилей
         self.CSS.append(content)
 
-    def _getIdentyAtrs(self):
+    def _getIdentyAtrs(self): # функция правильного вывода атрибутов
         return ""
 
-    def _addWarnings(self, warnings):
+    def _addWarnings(self, warnings): # добавление списка ошибок
         self.warnings = warnings
 
-    def _setSize(self, lines):
+    def _setSize(self, lines): # установка размера
         self.lines = lines

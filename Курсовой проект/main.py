@@ -21,15 +21,15 @@ import ctypes
 from parserHTML import *
 
 kernel32 = ctypes.windll.kernel32
-kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7) # подключаем ANSI в консоль
 
 def getDocument():
-    filename = input("\nName of HTML file ('q' - exit): ")
+    filename = input("\nName of HTML file ('q' - exit): ") # получаем имя файла
 
-    if filename == 'q':
-        sys.exit()
+    if filename == 'q': # выходим при q
+        sys.exit() 
 
-    while not os.path.isfile(filename) or not 'html' in filename.split('.') or len(filename.split('.')) < 2:
+    while not os.path.isfile(filename) or not 'html' in filename.split('.') or len(filename.split('.')) < 2: # пока ошибки, просим еще раз ввести имя файла
         if filename == 'q':
             sys.exit()
         if not 'html' in filename.split('.') or len(filename.split('.')) < 2:
@@ -39,14 +39,14 @@ def getDocument():
 
     document = parserHTML(filename) #парсируем файл
 
-    if document:
-        (document, (len_err, err)) = document
+    if document: # если успешно
+        (document, (len_err, err)) = document # то получаем дерево и ошибки
         print("\n\033[42m{}\033[40m\n".format("Parsed completed!"))
-        if len_err:
+        # if len_err: # если есть ошибки, то выводим их
             print("\033[30m\033[43m{}\033[37m\033[40m\n".format(
                 f"{len_err} warning in {','.join(' < ' + e + ' > on line ' + str(l) for (e, l) in err)}")
             )
-        return document
+        return document # возвращаем дерево
     else:
         return None
 
@@ -57,6 +57,6 @@ if __name__ == "__main__":
     
     document = getDocument()
     while not document:
-        document = getDocument()
+        document = getDocument() # получаем дерево
     print('\n')
-    print(document)
+    print(document) # выводим его на экран
