@@ -45,8 +45,8 @@
         <ComponentName Value="FProdMenu"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="4"/>
         <CursorPos X="6" Y="81"/>
         <UsageCount Value="51"/>
         <Loaded Value="True"/>
@@ -59,7 +59,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="7"/>
+        <TopLine Value="16"/>
         <CursorPos Y="70"/>
         <UsageCount Value="50"/>
         <Loaded Value="True"/>
@@ -71,10 +71,8 @@
         <ComponentName Value="DataModule2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="61"/>
-        <CursorPos X="69" Y="70"/>
+        <CursorPos X="23" Y="65"/>
         <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
