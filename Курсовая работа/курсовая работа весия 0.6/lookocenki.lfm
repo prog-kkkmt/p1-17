@@ -1,0 +1,80 @@
+object LookinOc: TLookinOc
+  Left = 1034
+  Height = 424
+  Top = 200
+  Width = 675
+  Caption = 'Просмотр оценок'
+  ClientHeight = 424
+  ClientWidth = 675
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object lookoc: TDBGrid
+    Left = 0
+    Height = 390
+    Top = 40
+    Width = 674
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID оценки'
+        Width = 64
+        FieldName = 'IDOC'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Фамилия'
+        Width = 120
+        FieldName = 'SECONDNAME'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Название группы'
+        Width = 120
+        FieldName = 'NAMEGROUPS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Оценка'
+        Width = 64
+        FieldName = 'OCENKA'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Наличие работы'
+        Width = 120
+        FieldName = 'HAVEWORK'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Дата'
+        Width = 100
+        FieldName = 'DATAS'
+      end>
+    DataSource = MainDatas.SourceOc
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 56
+    Height = 15
+    Top = 16
+    Width = 109
+    Caption = 'Сортировка по дате'
+    ParentColor = False
+  end
+  object ComboBox1: TComboBox
+    Left = 176
+    Height = 23
+    Top = 8
+    Width = 224
+    ItemHeight = 15
+    ItemIndex = 0
+    Items.Strings = (
+      'Все'
+    )
+    OnChange = ComboBox1Change
+    TabOrder = 1
+    Text = 'Все'
+  end
+end
