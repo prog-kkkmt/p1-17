@@ -3,27 +3,27 @@
 # Text
 class Text:
     def __init__(self, text): # конструктор
-        self.content = text
-        self.parent = None
-        self.level = 0
-        self.levels = []
+        self.content = text # контент тега
+        self.parent = None #  родительский тег
+        self.level = 0 # уровень вложенности тега
+        self.levels = [] # список последний ли тег на своем уровнре вложенности(для вывода дерева)
 
 
-    def __repr__(self): # функция правильного вывода
+    def __repr__(self): # строковое представления объекта
         return self.content
 
 # Tag
 class Tag:
     def __init__(self, args, line, is_need_close_tag = True): # конструктор
-        self.content = []
-        self.parent = None
-        self.level = 0
-        self.levels = []
-        self.line = line
-        self.name = args[0][0]
-        self.atrs = {}
-        self.style = {}
-        self.is_need_close_tag = is_need_close_tag
+        self.content = [] # контент тега
+        self.parent = None #  родительский тег
+        self.level = 0 # уровень вложенности тега
+        self.levels = [] # список последний ли тег на своем уровнре вложенности(для вывода дерева)
+        self.line = line # номер строки тега
+        self.name = args[0][0] # имя тгеа
+        self.atrs = {} # словарь атрибутов
+        self.style = {} # словарь стилей
+        self.is_need_close_tag = is_need_close_tag # требуется ли закрывающий тег
         for atr in args[1:]: # добавление атрибутов
             if atr[1] == "ATRIBUTE":
                 atr_value = None
@@ -37,7 +37,7 @@ class Tag:
                         atr_value = atr_value[1:-1]
                 self.addAtribute(**{atr_name: (atr_value if atr_value else "")})
 
-    def __repr__(self): #split функция правильного вывода
+    def __repr__(self): # строковое представления объекта
         tabs = ""
         if self.level >= 1:
             tabs = ''.join(['|    ' if self.levels[i] else '     ' for i in range(self.level)])
@@ -56,7 +56,7 @@ class Tag:
         self.levels = []
         return line
 
-    def _getIdentyAtrs(self): # функция получения списка атрибутов
+    def _getIdentyAtrs(self): # функция превращения атрибутов в цельную строку
         identy = ""
         if 'id' in self.atrs:
             for ids in self.atrs['id']:
@@ -107,17 +107,17 @@ class Tag:
 # класс дерева
 class Node:
     def __init__(self, content = None):
-        self.content = []
-        self.type = None
-        self.JS = []
-        self.CSS = []
-        self.level = -1
-        self.lines = 0
-        self.warnings = None
-        if content:
+        self.content = []  # контент дерева
+        self.type = None  # тип файла
+        self.JS = []  # скрипты
+        self.CSS = []  # стили
+        self.level = -1  # уровень вложенности
+        self.lines = 0  # список последний ли тег на своем уровнре вложенности(для вывода дерева)
+        self.warnings = None # список ошибок
+        if content: 
             self.content.append(content)
 
-    def __repr__(self): # функция правильного вывода данных
+    def __repr__(self): # строковое представления объекта
         line = ""
         for item in self.content:
             line += f"{str(item)}\n"
@@ -147,7 +147,7 @@ class Node:
     def _addCSS(self, content): # добавление стилей
         self.CSS.append(content)
 
-    def _getIdentyAtrs(self): # функция правильного вывода атрибутов
+    def _getIdentyAtrs(self): # функция превращения атрибутов в цельную строку
         return ""
 
     def _addWarnings(self, warnings): # добавление списка ошибок
