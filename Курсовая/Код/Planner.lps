@@ -9,9 +9,9 @@
         <Filename Value="Planner.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="5"/>
-        <CursorPos X="13" Y="14"/>
-        <UsageCount Value="44"/>
+        <TopLine Value="3"/>
+        <CursorPos X="13" Y="24"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,10 +21,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="18"/>
-        <CursorPos X="20" Y="6"/>
-        <UsageCount Value="44"/>
+        <TopLine Value="16"/>
+        <CursorPos X="21" Y="36"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -38,7 +37,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="24"/>
         <CursorPos X="26" Y="26"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="47"/>
       </Unit2>
       <Unit3>
         <Filename Value="unit1.pas"/>
@@ -50,7 +49,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="12"/>
         <CursorPos Y="13"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="45"/>
       </Unit3>
       <Unit4>
         <Filename Value="dbc.pas"/>
@@ -59,9 +58,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="DBC"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="18" Y="53"/>
-        <UsageCount Value="36"/>
+        <TopLine Value="43"/>
+        <CursorPos X="9" Y="47"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -72,9 +73,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="26"/>
-        <CursorPos X="66" Y="8"/>
-        <UsageCount Value="33"/>
+        <CursorPos X="11" Y="28"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="D:\db\lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1351329191"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiC:\Users\Наталья\Desktop\ololo\p1-17\Курсовая\lib\x86_64-win64 -FuD:\db\lazarus\lcl\units\x86_64-win64\win32 -FuD:\db\lazarus\lcl\units\x86_64-win64 -FuD:\DOWNLOAD\package\ibx\runtime\nongui\lib\x86_64-win64 -FuD:\db\lazarus\components\lazutils\lib\x86_64-win64 -FuD:\DOWNLOAD\package\ibx\lib\x86_64-win64 -FuD:\db\lazarus\packager\units\x86_64-win64 -FuC:\Users\Наталья\Desktop\ololo\p1-17\Курсовая\ -FUC:\Users\Наталья\Desktop\ololo\p1-17\Курсовая\lib\x86_64-win64\ -FEC:\Users\Наталья\Desktop\ololo\p1-17\Курсовая\ -oC:\Users\Наталья\Desktop\ololo\p1-17\Курсовая\Planner.exe -dLCL -dLCLwin32 Planner.lpr"/>
-</CONFIG>

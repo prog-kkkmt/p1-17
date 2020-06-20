@@ -2,8 +2,8 @@ object DataModule1: TDataModule1
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 380
-  HorizontalOffset = 927
-  VerticalOffset = 338
+  HorizontalOffset = 463
+  VerticalOffset = 264
   Width = 389
   PPI = 120
   object ibdb: TIBDatabase
@@ -11,7 +11,7 @@ object DataModule1: TDataModule1
     LoginPrompt = False
     CreateIfNotExists = False
     AllowStreamedConnected = False
-    DatabaseName = 'D:\db\COURSE.fdb'
+    DatabaseName = 'C:\Users\Наталья\Desktop\ololo\p1-17\Курсовая\COURSE.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'

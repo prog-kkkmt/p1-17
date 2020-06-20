@@ -12,12 +12,12 @@ type
   { TOpen_Form }
 
   TOpen_Form = class(TForm)  //класс главной формы
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Open: TButton;
+    Label1: TLabel;          //текст
+    Label2: TLabel;          //текст
+    Label3: TLabel;          //текст
+    Label4: TLabel;          //текст
+    Label5: TLabel;          //текст
+    Open: TButton;           //кнопка открытия
     procedure OpenClick(Sender: TObject);
   private
 
