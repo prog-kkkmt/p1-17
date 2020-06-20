@@ -9,6 +9,7 @@ object FWarehouse: TFWarehouse
   ClientWidth = 821
   Color = 16315102
   DesignTimePPI = 120
+  FormStyle = fsSystemStayOnTop
   Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
@@ -66,6 +67,7 @@ object FWarehouse: TFWarehouse
     Height = 312
     Top = 80
     Width = 384
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clWindow
     Columns = <    
       item
@@ -86,6 +88,7 @@ object FWarehouse: TFWarehouse
     Height = 20
     Top = 24
     Width = 43
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'Поиск'
     ParentColor = False
   end
@@ -94,34 +97,16 @@ object FWarehouse: TFWarehouse
     Height = 28
     Top = 23
     Width = 304
+    Anchors = [akTop, akLeft, akRight, akBottom]
     OnChange = Edit1Change
     TabOrder = 4
-  end
-  object DBNavigator1: TDBNavigator
-    Left = 416
-    Height = 31
-    Top = 408
-    Width = 301
-    BevelOuter = bvNone
-    ChildSizing.EnlargeHorizontal = crsScaleChilds
-    ChildSizing.EnlargeVertical = crsScaleChilds
-    ChildSizing.ShrinkHorizontal = crsScaleChilds
-    ChildSizing.ShrinkVertical = crsScaleChilds
-    ChildSizing.Layout = cclLeftToRightThenTopToBottom
-    ChildSizing.ControlsPerLine = 100
-    ClientHeight = 31
-    ClientWidth = 301
-    DataSource = DataModule2.dtsWarehouseQ
-    OnClick = DBNavigator1Click
-    Options = []
-    TabOrder = 5
-    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
   end
   object MainMenu1: TMainMenu
     left = 760
     top = 400
     object MenuItem4: TMenuItem
       Caption = 'О программе'
+      OnClick = MenuItem4Click
     end
   end
 end

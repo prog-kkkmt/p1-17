@@ -5,21 +5,24 @@ unit AppMenu;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus;
 
 type
 
   { TAppMenu1 }
 
-  TAppMenu1 = class(TForm)
+  TAppMenu1 = class(TForm)             //Класс главной формы "ФастФуд"
     ButProdMenu: TButton;
     ButWarehouse: TButton;
     ButFunance: TButton;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
     procedure ButFunanceClick(Sender: TObject);
     procedure ButProdMenuClick(Sender: TObject);
     procedure ButWarehouseClick(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure Label1Click(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
   private
 
   public
@@ -31,7 +34,7 @@ var
 
 implementation
 
-uses finance, prodmenu, warehouse;
+uses finance, prodmenu, warehouse, AboutProgramm;
 {$R *.lfm}
 
 { TAppMenu1 }
@@ -54,14 +57,20 @@ begin
      FWarehouse.Show;
 end;
 
-procedure TAppMenu1.Button4Click(Sender: TObject);
+procedure TAppMenu1.FormCreate(Sender: TObject);
 begin
 
 end;
 
+
 procedure TAppMenu1.Label1Click(Sender: TObject);
 begin
 
+end;
+
+procedure TAppMenu1.MenuItem1Click(Sender: TObject);
+begin
+  FAboutProgramm.Show;
 end;
 
 

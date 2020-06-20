@@ -37,7 +37,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="FastFood.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -78,6 +78,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="aboutprogramm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FAboutProgramm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="AboutProgramm"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

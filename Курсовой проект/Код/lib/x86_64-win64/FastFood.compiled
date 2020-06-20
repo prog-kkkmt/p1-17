@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="C:\lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1351329191"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq &quot;-FiC:\Users\User\Desktop\Код (2)\lib\x86_64-win64&quot; -FuC:\lazarus\lcl\units\x86_64-win64\win32 -FuC:\lazarus\lcl\units\x86_64-win64 -FuD:\lazarus\addCompons\ibx\runtime\nongui\lib\x86_64-win64 -FuC:\lazarus\components\lazutils\lib\x86_64-win64 -FuD:\lazarus\addCompons\ibx\lib\x86_64-win64 -FuC:\lazarus\packager\units\x86_64-win64 &quot;-FuC:\Users\User\Desktop\Код (2)\&quot; &quot;-FUC:\Users\User\Desktop\Код (2)\lib\x86_64-win64\&quot; &quot;-FEC:\Users\User\Desktop\Код (2)\&quot; &quot;-oC:\Users\User\Desktop\Код (2)\FastFood.exe&quot; -dLCL -dLCLwin32 FastFood.lpr"/>
-</CONFIG>

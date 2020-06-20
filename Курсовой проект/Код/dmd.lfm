@@ -2,9 +2,9 @@ object DataModule2: TDataModule2
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 386
-  HorizontalOffset = 744
-  VerticalOffset = 377
-  Width = 869
+  HorizontalOffset = 883
+  VerticalOffset = 383
+  Width = 850
   PPI = 120
   object ibdb: TIBDatabase
     Connected = True
@@ -14,20 +14,20 @@ object DataModule2: TDataModule2
     DatabaseName = '127.0.0.1:D:\DB\FASTFOOD.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
-      'lc_ctype=WIN1251'
       'password=masterke'
+      'lc_ctype=UNICODE_FSS'
     )
     DefaultTransaction = ibtr
     IdleTimer = 0
     TraceFlags = []
     UseDefaultSystemCodePage = False
-    left = 80
+    left = 50
     top = 140
   end
   object ibtr: TIBTransaction
     Active = False
     DefaultDatabase = ibdb
-    left = 192
+    left = 180
     top = 140
   end
   object ibWarehouse: TIBTable

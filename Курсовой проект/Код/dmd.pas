@@ -11,7 +11,7 @@ type
 
   { TDataModule2 }
 
-  TDataModule2 = class(TDataModule)
+  TDataModule2 = class(TDataModule)    // Класс "Модуль данных"
     dtsWarehouseQ: TDataSource;
     dtsFinanceQ: TDataSource;
     dtsProdmenuQ: TDataSource;

@@ -1,13 +1,18 @@
 object AppMenu1: TAppMenu1
-  Left = 343
+  Left = 542
   Height = 324
-  Top = 213
+  Top = 345
   Width = 335
+  BorderStyle = bsSizeToolWin
   Caption = 'ФастФуд'
-  ClientHeight = 324
+  ClientHeight = 299
   ClientWidth = 335
   Color = 16315102
   DesignTimePPI = 120
+  FormStyle = fsSystemStayOnTop
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poDesktopCenter
   LCLVersion = '2.0.8.0'
   object ButProdMenu: TButton
     Left = 62
@@ -56,5 +61,13 @@ object AppMenu1: TAppMenu1
     OnClick = ButFunanceClick
     ParentFont = False
     TabOrder = 2
+  end
+  object MainMenu1: TMainMenu
+    left = 22
+    top = 78
+    object MenuItem1: TMenuItem
+      Caption = 'О программе'
+      OnClick = MenuItem1Click
+    end
   end
 end
