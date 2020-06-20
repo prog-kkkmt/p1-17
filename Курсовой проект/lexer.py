@@ -54,7 +54,7 @@ def lex(characters, token_exprs, sub_token_exprs=None):
                         # print(('\n', 'LINE'))
                 break
         if not match:
-            print("\n\033[41m{}\033[40m".format('Illegal character: "%s" ' % (characters[pos:pos+10:]) + 'in pos: %s' % str(pos)))
+            print("\n\033[41m{}\033[40m\n".format('Illegal character: "%s" ' % (characters[pos]) + 'in pos: %s' % str(pos)))
             return None
         else:
             pos = match.end(0)
