@@ -1,0 +1,70 @@
+object LookStudents: TLookStudents
+  Left = 1182
+  Height = 764
+  Top = 140
+  Width = 838
+  Caption = 'LookStudents'
+  ClientHeight = 764
+  ClientWidth = 838
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object DBGrid1: TDBGrid
+    Left = 24
+    Height = 556
+    Top = 152
+    Width = 783
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'IDSTUDENTS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Фамилия'
+        Width = 120
+        FieldName = 'SECONDNAME'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Имя'
+        Width = 120
+        FieldName = 'NAME'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Отчество'
+        Width = 120
+        FieldName = 'FATHERNAME'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Название группы'
+        Width = 120
+        FieldName = 'NAMEGROUPS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Имя на Гитхабе'
+        Width = 100
+        FieldName = 'NAMEINGIT'
+      end>
+    DataSource = MainDatas.SourceQSt
+    TabOrder = 0
+  end
+  object GroupsSort: TComboBox
+    Left = 600
+    Height = 23
+    Top = 48
+    Width = 174
+    ItemHeight = 15
+    Items.Strings = (
+      'Все'
+    )
+    TabOrder = 1
+    Text = 'GroupsSort'
+  end
+end
