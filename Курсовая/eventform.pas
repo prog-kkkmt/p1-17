@@ -20,7 +20,7 @@ type
     EditEvent: TButton;
     DeleteEvent: TButton;
     CaptionEventForm: TLabel;
-    procedure FormCreate(Sender: TObject);
+    procedure BackClick(Sender: TObject);
   private
 
   public
@@ -31,14 +31,18 @@ var
   Event_Form: TEvent_Form;
 
 implementation
+uses
+  MainForm;
+
 
 {$R *.lfm}
 
 { TEvent_Form }
 
-procedure TEvent_Form.FormCreate(Sender: TObject);
+procedure TEvent_Form.BackClick(Sender: TObject);
 begin
-  ShowModal;
+  Close;
+  Main_Form.Show;
 end;
 
 end.

@@ -7,7 +7,6 @@ object Event_Form: TEvent_Form
   ClientHeight = 225
   ClientWidth = 223
   DesignTimePPI = 120
-  OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object ShowEventsTable: TButton
     Left = 40
@@ -63,6 +62,7 @@ object Event_Form: TEvent_Form
     Top = 9
     Width = 41
     Caption = 'B'
+    OnClick = BackClick
     TabOrder = 4
   end
 end

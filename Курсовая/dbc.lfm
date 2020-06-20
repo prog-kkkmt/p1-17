@@ -1,0 +1,158 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 380
+  HorizontalOffset = 927
+  VerticalOffset = 338
+  Width = 389
+  PPI = 120
+  object ibdb: TIBDatabase
+    Connected = True
+    LoginPrompt = False
+    CreateIfNotExists = False
+    AllowStreamedConnected = False
+    DatabaseName = 'D:\db\COURSE'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey'
+      'lc_ctype=WIN1251'
+    )
+    DefaultTransaction = ibtr
+    IdleTimer = 0
+    TraceFlags = []
+    UseDefaultSystemCodePage = False
+    left = 312
+    top = 30
+  end
+  object ibtr: TIBTransaction
+    Active = True
+    DefaultDatabase = ibdb
+    left = 200
+    top = 30
+  end
+  object IBEVENTS: TIBTable
+    AllowAutoActivateTransaction = True
+    Database = ibdb
+    Transaction = ibtr
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'EVENTS'
+    left = 100
+    top = 30
+    object IBEVENTSID: TIBIntegerField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MinValue = 10000
+    end
+    object IBEVENTSDATA: TDateField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object IBEVENTSDBEVENT: TIBStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'DBEVENT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object EventsS: TDataSource
+    DataSet = IBEVENTS
+    left = 104
+    top = 128
+  end
+  object IBPHONEBOOK: TIBTable
+    AllowAutoActivateTransaction = True
+    Database = ibdb
+    Transaction = ibtr
+    ForcedRefresh = True
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    EnableStatistics = False
+    GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
+    TableName = 'PHONEBOOK'
+    left = 200
+    top = 120
+    object IBPHONEBOOKID: TIBIntegerField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object IBPHONEBOOKNAME: TIBStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object IBPHONEBOOKPHONE: TIBStringField
+      DisplayWidth = 13
+      FieldKind = fkData
+      FieldName = 'PHONE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object IBPHONEBOOKADDRESS: TIBStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ADDRESS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object IBPHONEBOOKNOTE: TIBStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'NOTE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+  end
+  object PhoneBookS: TDataSource
+    DataSet = IBPHONEBOOK
+    left = 310
+    top = 120
+  end
+end
