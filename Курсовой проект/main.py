@@ -42,7 +42,7 @@ def getDocument():
     if document: # если успешно
         (document, (len_err, err)) = document # то получаем дерево и ошибки
         print("\n\033[42m{}\033[40m\n".format("Parsed completed!"))
-        # if len_err: # если есть ошибки, то выводим их
+        if len_err: # если есть ошибки, то выводим их
             print("\033[30m\033[43m{}\033[37m\033[40m\n".format(
                 f"{len_err} warning in {','.join(' < ' + e + ' > on line ' + str(l) for (e, l) in err)}")
             )
