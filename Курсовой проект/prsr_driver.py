@@ -141,7 +141,7 @@ class Node:
         tag.content[len(tag.content) - 1] = self._addItem(level, content, tag.content[len(tag.content) - 1], current_level + 1)
         return tag
 
-    def _addJS(self, content): # добавление скиптов
+    def _addJS(self, content): # добавление скриптов
         self.JS.append(content)
 
     def _addCSS(self, content): # добавление стилей
