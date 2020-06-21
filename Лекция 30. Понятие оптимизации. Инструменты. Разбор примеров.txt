@@ -1,0 +1,76 @@
+МДК.01.02 "Прикладное программирование"
+Составитель: Гусятинер Л.Б., МГОТУ ККМТ, 20.06.2020
+Лекция 30. Понятие оптимизации. Инструменты. Разбор примеров
+
+Задание. 
+1. Изучить [1] Лекция 11: Оптимизация
+https://www.intuit.ru/studies/courses/26/26/lecture/815?page=2
+
+Рассмотреть следующее:
+- Виды оптимизации
+- Удаление пустого оператора
+- Удаление мертвого кода
+- Чистка циклов вверх
+- Чистка циклов вниз
+- Объединение циклов
+- Раскрутка циклов
+- Понижение силы операций
+- Упрощение выражений
+- Экономия общих подвыражений
+- Зависимость качества оптимизации от размера участка экономии
+
+Критерии оценки.
+1 метод - 1 балл,
+2 метода - 2 балла,
+3 и более методов - 3 балла
+
+Материалы:
+1. Академия Microsoft: Разработка компиляторов.
+Авторы: Дмитрий Булычев, Наталья Вояковская, Антон Москаль, Андрей Терехов
+https://www.intuit.ru/studies/courses/26/26/info
+
+2. Уменьшение размера исполняемого файла в Lazarus
+https://devlaz.ru/уменьшение-размера-исполняемого-фай/
+
+3. Как уменьшить размер программы в Lazarus
+https://info-master.su/programming/profi/how-reduce-size-program-lazarus.php
+
+4. Lazarus: оптимизируем размер исполняемого файла.
+https://webdelphi-ru.turbopages.org/s/webdelphi.ru/2009/11/lazarus-optimiziruem-razmer-ispolnyaemogo-fajla/
+
+5. Уменьшение размера исполняемого файла в Lazarus
+https://delphi-devs.ru/index.php/lazarus/umenshenie-razmera-ispolnyaemogo-fajla-v-lazarus.html
+
+6. 45 способов улучшить производительность Firebird
+https://www.ibase.ru/45-ways-to-improve-firebird-performance-russian/
+
+7. 7 ПРОСТЫХ СПОСОБОВ ОПТИМИЗИРОВАТЬ КОД PYTHON
+https://pylab.ru/7-prostyx-sposobov-optimizirovat-kod-python/
+
+8. Ускорение кода на Python средствами самого языка
+https://habr.com/ru/post/124388/
+
+9. Оптимизация кода Python
+https://sysdev.me/python-optimization/
+
+10. Python: простые, но полезные советы по оптимизации кода
+https://academy.yandex.ru/posts/python-prostye-no-poleznye-sovety-po-optimizatsii-koda
+
+11. Как оптимизировать код наPython
+https://nuancesprog-ru.turbopages.org/s/nuancesprog.ru/p/4188/
+
+12. 10 практик кода, ускоряющих выполнение программ на Python ??
+https://proglib.io/p/10-praktik-koda-uskoryayushchih-vypolnenie-programm-na-python-2020-04-20
+
+Дополнительные источники.
+13. Оптимизация программного кода
+https://techrocks.ru/2019/01/25/code-optimization-tips/
+
+14. Пять правил оптимизации программ
+https://tech-geek.ru/program-optimization/
+
+15. Понижение силы операций
+https://ru-wiki.ru/wiki/Понижение_силы_операций
+
+16. 10 слов об оптимизации кода
+https://xakep.ru/2005/01/14/25216/
