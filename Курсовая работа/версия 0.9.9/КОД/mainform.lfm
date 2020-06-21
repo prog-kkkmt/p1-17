@@ -1,0 +1,82 @@
+object Formmain: TFormmain
+  Left = -21
+  Height = 182
+  Top = 347
+  Width = 480
+  Caption = 'Главная Форма'
+  ClientHeight = 182
+  ClientWidth = 480
+  LCLVersion = '2.0.8.0'
+  object Button1: TButton
+    Left = 8
+    Height = 40
+    Top = 16
+    Width = 104
+    Caption = 'Группы'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 128
+    Height = 40
+    Top = 72
+    Width = 152
+    Caption = 'Просмотр студентов'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 128
+    Height = 40
+    Top = 16
+    Width = 152
+    Caption = 'Работа со студентами'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 296
+    Height = 40
+    Top = 72
+    Width = 154
+    Caption = 'Просмотр оценок'
+    OnClick = Button4Click
+    TabOrder = 3
+  end
+  object Button5: TButton
+    Left = 296
+    Height = 40
+    Top = 16
+    Width = 152
+    Caption = 'Работа с оценками'
+    OnClick = Button5Click
+    TabOrder = 4
+  end
+  object Button6: TButton
+    Left = 8
+    Height = 34
+    Top = 128
+    Width = 104
+    Caption = 'Вывод групп'
+    OnClick = Button6Click
+    TabOrder = 5
+  end
+  object Button7: TButton
+    Left = 128
+    Height = 33
+    Top = 129
+    Width = 152
+    Caption = 'Вывод студентов'
+    OnClick = Button7Click
+    TabOrder = 6
+  end
+  object Button8: TButton
+    Left = 296
+    Height = 34
+    Top = 128
+    Width = 155
+    Caption = 'Вывод оценок'
+    OnClick = Button8Click
+    TabOrder = 7
+  end
+end

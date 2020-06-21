@@ -1,0 +1,94 @@
+object FWorkStd: TFWorkStd
+  Left = 956
+  Height = 556
+  Top = 174
+  Width = 948
+  Caption = 'Работа со студентами'
+  ClientHeight = 556
+  ClientWidth = 948
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object Stud: TDBGrid
+    Left = 16
+    Height = 488
+    Top = 72
+    Width = 691
+    Anchors = [akTop, akLeft, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'IDSTUDENTS'
+      end    
+      item
+        Title.Caption = 'Фамилия'
+        Width = 120
+        FieldName = 'SECONDNAME'
+      end    
+      item
+        Title.Caption = 'Имя'
+        Width = 120
+        FieldName = 'NAME'
+      end    
+      item
+        Title.Caption = 'Отчество'
+        Width = 120
+        FieldName = 'FATHERNAME'
+      end    
+      item
+        Title.Caption = 'Группа'
+        Width = 120
+        FieldName = 'IDGROUPS'
+      end    
+      item
+        Title.Caption = 'Имя на Гитхабе'
+        Width = 120
+        FieldName = 'NAMEINGIT'
+      end>
+    DataSource = MainDatas.SourceStudent
+    TabOrder = 0
+  end
+  object DBGrid2: TDBGrid
+    Left = 728
+    Height = 552
+    Top = 8
+    Width = 207
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID'
+        Width = 50
+        FieldName = 'IDGROUPS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Название группы'
+        Width = 120
+        FieldName = 'NAMEGROUPS'
+      end>
+    DataSource = MainDatas.SourceGroupe
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 16
+    Height = 56
+    Top = 8
+    Width = 694
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 56
+    ClientWidth = 694
+    DataSource = MainDatas.SourceStudent
+    Options = []
+    TabOrder = 2
+  end
+end
