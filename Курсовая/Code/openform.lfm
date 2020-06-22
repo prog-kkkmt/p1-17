@@ -22,8 +22,8 @@ object Open_Form: TOpen_Form
     Left = 120
     Height = 28
     Top = 10
-    Width = 165
-    Caption = 'Курсовая работа'
+    Width = 168
+    Caption = 'Курсовой проект'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -20
