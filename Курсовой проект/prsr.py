@@ -3,6 +3,18 @@ import sys
 
 # функция получает токены из лексера в виде ((text), tag)
 def parser(tokens):
+    """
+    Функция парсинга HTML документа
+
+    Args:
+        tokens: Список тегов в виде ((text), tag).
+
+    Returns:
+        (doc, (len(err), err)): AST дерево, список ошибок и их количество.
+
+    Raises:
+        
+    """
     buff = []
     level = 0
     err = []
@@ -13,15 +25,18 @@ def parser(tokens):
         if token[1] == 'OPEN_TAG':
             tag = Tag(token[0], lines) # создание объекта тега
             doc._addItem(level, tag) # добавление в дерево
-            buff.append(tag) # добавление в список тега, чтобы отслеживать закрывающиеся
+            # добавление в список тега, чтобы отслеживать закрывающиеся
+            buff.append(tag) 
             level += 1 # добавление уровня вложенности
         elif token[1] == 'CLOSE_TAG':
-            if buff[-1].tagName() == token[0][0][0]: # проверка закрывающихся тегов
+            # проверка закрывающихся тегов
+            if buff[-1].tagName() == token[0][0][0]: 
                 buff.pop()
                 level -= 1 # убавление уровня вложенности
             else:
-                
-                while buff[-1].tagName() != token[0][0][0]: # если предыдущий тег не был закрыт, то ищем ближайший подходящий тег к текущему тегу и
+                # если предыдущий тег не был закрыт, то ищем ближайший 
+                # подходящий тег к текущему тегу и
+                while buff[-1].tagName() != token[0][0][0]: 
                     err.append((buff[-1].name + buff[-1]._getIdentyAtrs(), buff[-1].line)) #  из неподходящих делаем список ошибок
                     buff.pop()
                     level -= 1
@@ -46,6 +61,7 @@ def parser(tokens):
 
     doc._setSize(lines) # добавление размера файла в строках
     for item in buff:
-        err.append((item.name + item._getIdentyAtrs(), item.line)) # создание списка ошибок
+        # создание списка ошибок
+        err.append((item.name + item._getIdentyAtrs(), item.line)) 
     doc._addWarnings(err) # добавление списка ошибок в объект дерева
     return (doc, (len(err), err)) # возвращаем дерево

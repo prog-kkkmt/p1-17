@@ -8,14 +8,28 @@ encoding = [
 ]
 
 def parserHTML(filename):
+    """
+    Функция парсинга HTML документа
+
+    Args:
+        filename: Имя файла.
+
+    Returns:
+        document: AST tree.
+
+    Raises:
+        UnicodeDecodeError, LookupError: Ошибки кодировки.
+    """
     characters = None
     if filename: # если имя файла корректное, то 
         for enc in encoding:
             try:
-                file = open(filename, encoding=enc) # пытаемся открыть файл в разных кодировках
+                # пытаемся открыть файл в разных кодировках
+                file = open(filename, encoding=enc) 
                 characters = file.read()
                 file.close()
-            except (UnicodeDecodeError, LookupError): # сли ошибка, игнорируем ее
+            # eсли ошибка, игнорируем ее
+            except (UnicodeDecodeError, LookupError): 
                 pass
             else: # иначе выходим из цикла
                 break 

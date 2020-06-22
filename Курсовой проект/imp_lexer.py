@@ -42,6 +42,17 @@ token_tag = [
     ],
 ]
 
-# функция лексинга файла, передаем в нее все токены
+# функция лексинга файла, передаем в нее текст файла
 def imp_lex(characters):
+    """
+    Функция лексирования файла
+
+    Args:
+
+    Returns:
+        lexer.lex: Функция лексинга
+
+    Raises:
+        
+    """
     return lexer.lex(characters, token_exprs, token_tag)

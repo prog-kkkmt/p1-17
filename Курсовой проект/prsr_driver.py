@@ -6,7 +6,9 @@ class Text:
         self.content = text # контент тега
         self.parent = None #  родительский тег
         self.level = 0 # уровень вложенности тега
-        self.levels = [] # список последний ли тег на своем уровнре вложенности(для вывода дерева)
+        # список последний ли тег на своем уровнре вложенности(для вывода 
+        # дерева)
+        self.levels = [] 
 
 
     def __repr__(self): # строковое представления объекта
@@ -18,7 +20,9 @@ class Tag:
         self.content = [] # контент тега
         self.parent = None #  родительский тег
         self.level = 0 # уровень вложенности тега
-        self.levels = [] # список последний ли тег на своем уровнре вложенности(для вывода дерева)
+        # список последний ли тег на своем уровнре вложенности(для вывода 
+        # дерева)
+        self.levels = [] 
         self.line = line # номер строки тега
         self.name = args[0][0] # имя тгеа
         self.atrs = {} # словарь атрибутов
@@ -56,7 +60,19 @@ class Tag:
         self.levels = []
         return line
 
-    def _getIdentyAtrs(self): # функция превращения атрибутов в цельную строку
+    def _getIdentyAtrs(self):
+        """
+        функция превращения атрибутов в цельную строку
+
+        Args:
+            self: Объект класса.
+
+        Returns:
+            identy: Строка атрибутов.
+
+        Raises:
+            
+        """
         identy = ""
         if 'id' in self.atrs:
             for ids in self.atrs['id']:
@@ -69,8 +85,24 @@ class Tag:
 
         return identy
 
-    def _findBy(self, atr = None, value = None, tagName = None): # поиск элемента по необходимым критериям
+    def _findBy(self, atr = None, value = None, tagName = None):
+        """
+        поиск элемента по необходимым критериям
+
+        Args:
+            self: Объект класса.
+            atr: Атрибут
+            value: значение атрибута
+            tagName: имя тега
+
+        Returns:
+            elems: Объект тега.
+
+        Raises:
+            
+        """
         elems = []
+        
         for elem in self.content:
             typeElem = str(type(elem)).split("'")[1].split(".")
             typeElem = typeElem[1] if len(typeElem) > 1 else typeElem[0] 
@@ -91,7 +123,18 @@ class Tag:
                     elems.extend(elem._findBy(tagName=tagName))
         return elems
 
-    def addAtribute(self, **atrs): # добавить атрибуты тегу
+    def addAtribute(self, **atrs): 
+        """
+        добавить атрибуты тегу
+
+        Args:
+            **atrs: Словарь атрибутов.
+
+        Returns:
+
+        Raises:
+            
+        """
         for atr, value in atrs.items():
             if atr == 'style':
                 pass
@@ -123,10 +166,35 @@ class Node:
             line += f"{str(item)}\n"
         return line
 
-    def _setType(self, typeDOM): # установка типа файла
+    def _setType(self, typeDOM):
+        """
+        установка типа файла
+
+        Args:
+            typeDOM: Тип файла.
+
+        Returns:
+
+        Raises:
+            
+        """
         self.type = typeDOM.split(" ")[1].split(">")[0]
 
-    def _addItem(self, level, content, tag = None, current_level = 0): # добавление элемента в дерево
+    def _addItem(self, level, content, tag = None, current_level = 0):
+        """
+        рекурсивное добавление элемента в дерево
+
+        Args:
+            level: Уровень вложенности.
+            content: Контент элемента
+            tag: объект тега
+            current_level: текущий уровень вложенности
+
+        Returns:
+            tag: объект тега
+        Raises:
+            
+        """
         if not tag:
             tag = self
         if level == current_level:
@@ -141,17 +209,71 @@ class Node:
         tag.content[len(tag.content) - 1] = self._addItem(level, content, tag.content[len(tag.content) - 1], current_level + 1)
         return tag
 
-    def _addJS(self, content): # добавление скриптов
+    def _addJS(self, content):
+        """
+         добавление скриптов
+
+        Args:
+            content: Контент скрипта
+
+        Returns:
+
+        Raises:
+            
+        """
         self.JS.append(content)
 
-    def _addCSS(self, content): # добавление стилей
+    def _addCSS(self, content): 
+        """
+        добавление стилей
+
+        Args:
+            content: Контент стилей
+
+        Returns:
+
+        Raises:
+            
+        """
         self.CSS.append(content)
 
-    def _getIdentyAtrs(self): # функция превращения атрибутов в цельную строку
+    def _getIdentyAtrs(self):
+        """
+        функция превращения атрибутов в цельную строку
+
+        Args:
+
+        Returns:
+
+        Raises:
+            
+        """
         return ""
 
-    def _addWarnings(self, warnings): # добавление списка ошибок
+    def _addWarnings(self, warnings):
+        """
+        добавление списка ошибок
+
+        Args:
+            warnings: список ошибок
+
+        Returns:
+
+        Raises:
+            
+        """
         self.warnings = warnings
 
-    def _setSize(self, lines): # установка размера
+    def _setSize(self, lines): # 
+        """
+        установка размера
+
+        Args:
+            lines: Количество строк
+
+        Returns:
+
+        Raises:
+            
+        """
         self.lines = lines
