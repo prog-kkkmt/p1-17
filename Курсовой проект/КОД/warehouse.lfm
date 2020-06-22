@@ -11,7 +11,6 @@ object FWarehouse: TFWarehouse
   DesignTimePPI = 120
   FormStyle = fsSystemStayOnTop
   Menu = MainMenu1
-  OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object BackFromWarehouse: TButton
     Left = 16
@@ -38,7 +37,6 @@ object FWarehouse: TFWarehouse
     ClientHeight = 40
     ClientWidth = 368
     DataSource = DataModule2.dtsWarehouse
-    OnClick = dbnWarehouseClick
     Options = []
     TabOrder = 1
   end

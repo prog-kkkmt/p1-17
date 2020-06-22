@@ -23,7 +23,6 @@ type
     MenuItem4: TMenuItem;            // пункт меню
     procedure BackFromFinanceClick(Sender: TObject);    // процедура события кнопки "Назад"
     procedure Edit1Change(Sender: TObject);         // обработчик события Edit
-    procedure FormCreate(Sender: TObject);        // процедура создания формы
     procedure MenuItem4Click(Sender: TObject);
   private
 
@@ -58,11 +57,6 @@ begin
        SQL.Add('select * from FINANCE where CDATE like' + strSearch + ' or INCOME like' + strSearch + ' or EXPENDITURE like'+ strSearch + ' order by CDATE'); // Запрос поиска
        open;
      end;
-end;
-
-procedure TFormFinance.FormCreate(Sender: TObject);
-begin
-
 end;
 
 procedure TFormFinance.MenuItem4Click(Sender: TObject);   // Процедура события кнопка меню "О программе"

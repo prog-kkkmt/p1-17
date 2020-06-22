@@ -22,9 +22,7 @@ type
     MainMenu1: TMainMenu;               // невизиальный компонент меню
     MenuItem4: TMenuItem;               // пункт меню
     procedure BackFromWarehouseClick(Sender: TObject);  // процедура события кнопки "Назад"
-    procedure dbnWarehouseClick(Sender: TObject; Button: TDBNavButtonType);
     procedure Edit1Change(Sender: TObject);    // обработчик события Edit
-   procedure FormCreate(Sender: TObject);    // процедура создания формы
     procedure MenuItem4Click(Sender: TObject);
   private
 
@@ -47,11 +45,6 @@ begin
      AppMenu1.Show;
 end;
 
-procedure TFWarehouse.dbnWarehouseClick(Sender: TObject;
-  Button: TDBNavButtonType);
-begin
-
-end;
 
 procedure TFWarehouse.Edit1Change(Sender: TObject); // Процедура запроса поиска к таблице Warehouse
 var buff, strSearch: string;
@@ -65,11 +58,6 @@ begin
        SQL.Add('select * from WAREHOUSE where PROD_NAME like' + strSearch + ' or PROD_QUAN like' + strSearch + ' order by PROD_NAME');  // Запрос поиска
        open;
      end;
-end;
-
-procedure TFWarehouse.FormCreate(Sender: TObject);
-begin
-
 end;
 
 procedure TFWarehouse.MenuItem4Click(Sender: TObject);    // Процедура события кнопка меню "О программе"

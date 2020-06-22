@@ -11,7 +11,6 @@ object FProdMenu: TFProdMenu
   DesignTimePPI = 120
   FormStyle = fsSystemStayOnTop
   Menu = MainMenu1
-  OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object ButMenuBack: TButton
     Left = 16
@@ -64,7 +63,6 @@ object FProdMenu: TFProdMenu
     ClientHeight = 39
     ClientWidth = 520
     DataSource = DataModule2.dtsProdMenu
-    OnClick = dbnProdMenuClick
     Options = []
     TabOrder = 2
   end

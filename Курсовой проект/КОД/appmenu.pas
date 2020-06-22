@@ -20,8 +20,6 @@ type
     procedure ButFunanceClick(Sender: TObject);
     procedure ButProdMenuClick(Sender: TObject);
     procedure ButWarehouseClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure Label1Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
   private
 
@@ -55,17 +53,6 @@ procedure TAppMenu1.ButWarehouseClick(Sender: TObject);  // Кнопка "Скл
 begin
      AppMenu1.Hide;
      FWarehouse.Show;
-end;
-
-procedure TAppMenu1.FormCreate(Sender: TObject);
-begin
-
-end;
-
-
-procedure TAppMenu1.Label1Click(Sender: TObject);
-begin
-
 end;
 
 procedure TAppMenu1.MenuItem1Click(Sender: TObject);

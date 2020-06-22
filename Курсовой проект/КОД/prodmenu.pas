@@ -22,9 +22,7 @@ type
     MainMenu1: TMainMenu;             // невизиальный компонент меню
     MenuItem4: TMenuItem;            // пункт меню
     procedure ButMenuBackClick(Sender: TObject);   // процедура события кнопки "Назад"
-    procedure dbnProdMenuClick(Sender: TObject; Button: TDBNavButtonType);
     procedure Edit1Change(Sender: TObject);      // обработчик события Edit
-    procedure FormCreate(Sender: TObject);     // процедура создания формы
     procedure MenuItem4Click(Sender: TObject);
   private
 
@@ -47,11 +45,6 @@ begin
   AppMenu1.Show;
 end;
 
-procedure TFProdMenu.dbnProdMenuClick(Sender: TObject; Button: TDBNavButtonType
-  );
-begin
-
-end;
 
 procedure TFProdMenu.Edit1Change(Sender: TObject);  // Процедура запроса поиска к таблице ProdMenu
 var buff, strSearch: string;
@@ -65,11 +58,6 @@ begin
        SQL.Add('select * from PROD_MENU where FOOD_NAME like' + strSearch + ' or COOKING_TIME like' + strSearch + ' or PRICE like' + strSearch + ' order by FOOD_NAME');  // Запрос поиска
        open;
      end;
-end;
-
-procedure TFProdMenu.FormCreate(Sender: TObject);
-begin
-
 end;
 
 procedure TFProdMenu.MenuItem4Click(Sender: TObject);     // Процедура события кнопка меню "О программе"

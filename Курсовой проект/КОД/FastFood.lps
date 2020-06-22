@@ -11,7 +11,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="3"/>
         <CursorPos X="42" Y="10"/>
-        <UsageCount Value="51"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,8 +21,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AppMenu"/>
-        <CursorPos X="61" Y="14"/>
-        <UsageCount Value="51"/>
+        <TopLine Value="41"/>
+        <CursorPos X="50" Y="22"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -33,9 +34,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="51"/>
-        <CursorPos X="9" Y="73"/>
-        <UsageCount Value="51"/>
+        <TopLine Value="26"/>
+        <CursorPos X="15" Y="31"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -46,9 +47,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="4"/>
-        <CursorPos X="6" Y="81"/>
-        <UsageCount Value="51"/>
+        <TopLine Value="17"/>
+        <CursorPos X="10" Y="31"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -58,10 +59,11 @@
         <ComponentName Value="FWarehouse"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="7"/>
-        <CursorPos Y="70"/>
-        <UsageCount Value="50"/>
+        <TopLine Value="45"/>
+        <CursorPos X="34" Y="24"/>
+        <UsageCount Value="51"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -71,11 +73,10 @@
         <ComponentName Value="DataModule2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="61"/>
-        <CursorPos X="69" Y="70"/>
-        <UsageCount Value="39"/>
+        <CursorPos X="23" Y="65"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -87,9 +88,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="AboutProgramm"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="12" Y="40"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="14"/>
+        <CursorPos X="57" Y="25"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -177,124 +178,124 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="aboutprogramm.pas"/>
-        <Caret Line="27" Column="4" TopLine="10"/>
-      </Position1>
-      <Position2>
-        <Filename Value="aboutprogramm.pas"/>
-        <Caret Line="37" Column="3" TopLine="18"/>
-      </Position2>
-      <Position3>
-        <Filename Value="warehouse.pas"/>
-        <Caret Line="65" Column="114" TopLine="49"/>
-      </Position3>
-      <Position4>
-        <Filename Value="prodmenu.pas"/>
-        <Caret Line="78" Column="25" TopLine="55"/>
-      </Position4>
-      <Position5>
-        <Filename Value="finance.pas"/>
-        <Caret Line="37" Column="33" TopLine="37"/>
-      </Position5>
-      <Position6>
-        <Filename Value="finance.pas"/>
-        <Caret Line="65" Column="3" TopLine="46"/>
-      </Position6>
-      <Position7>
-        <Filename Value="finance.pas"/>
-        <Caret Line="70" Column="23" TopLine="24"/>
-      </Position7>
-      <Position8>
-        <Filename Value="appmenu.pas"/>
-        <Caret Line="20" Column="50" TopLine="9"/>
-      </Position8>
-      <Position9>
-        <Filename Value="appmenu.pas"/>
-        <Caret Line="21" Column="50" TopLine="9"/>
-      </Position9>
-      <Position10>
         <Filename Value="appmenu.pas"/>
         <Caret Line="22" Column="50" TopLine="9"/>
-      </Position10>
-      <Position11>
+      </Position1>
+      <Position2>
         <Filename Value="warehouse.pas"/>
         <Caret Line="6" Column="27"/>
-      </Position11>
-      <Position12>
+      </Position2>
+      <Position3>
         <Filename Value="appmenu.pas"/>
         <Caret Line="33" Column="63" TopLine="28"/>
-      </Position12>
-      <Position13>
+      </Position3>
+      <Position4>
         <Filename Value="appmenu.pas"/>
         <Caret Line="51" Column="100" TopLine="29"/>
-      </Position13>
-      <Position14>
+      </Position4>
+      <Position5>
         <Filename Value="appmenu.pas"/>
         <Caret Line="60" TopLine="52"/>
-      </Position14>
-      <Position15>
+      </Position5>
+      <Position6>
         <Filename Value="appmenu.pas"/>
         <Caret Line="51" Column="100" TopLine="50"/>
-      </Position15>
-      <Position16>
+      </Position6>
+      <Position7>
         <Filename Value="appmenu.pas"/>
         <Caret Line="68" Column="30" TopLine="49"/>
-      </Position16>
-      <Position17>
+      </Position7>
+      <Position8>
         <Filename Value="finance.pas"/>
         <Caret Line="26" Column="148" TopLine="4"/>
-      </Position17>
-      <Position18>
+      </Position8>
+      <Position9>
         <Filename Value="warehouse.pas"/>
         <Caret Line="59" Column="166" TopLine="54"/>
-      </Position18>
-      <Position19>
+      </Position9>
+      <Position10>
         <Filename Value="warehouse.pas"/>
         <Caret Line="51" Column="89" TopLine="50"/>
-      </Position19>
-      <Position20>
+      </Position10>
+      <Position11>
         <Filename Value="appmenu.pas"/>
         <Caret Line="66" Column="127" TopLine="49"/>
-      </Position20>
-      <Position21>
+      </Position11>
+      <Position12>
         <Filename Value="finance.pas"/>
         <Caret Line="38" Column="19" TopLine="33"/>
-      </Position21>
-      <Position22>
+      </Position12>
+      <Position13>
         <Filename Value="warehouse.pas"/>
         <Caret Line="46" Column="12" TopLine="41"/>
-      </Position22>
-      <Position23>
+      </Position13>
+      <Position14>
         <Filename Value="warehouse.pas"/>
         <Caret Line="26" Column="36" TopLine="13"/>
+      </Position14>
+      <Position15>
+        <Filename Value="warehouse.pas"/>
+        <Caret Line="25" Column="48" TopLine="13"/>
+      </Position15>
+      <Position16>
+        <Filename Value="dmd.pas"/>
+        <Caret Line="69" Column="31" TopLine="58"/>
+      </Position16>
+      <Position17>
+        <Filename Value="dmd.pas"/>
+        <Caret Line="74" Column="38" TopLine="56"/>
+      </Position17>
+      <Position18>
+        <Filename Value="dmd.pas"/>
+        <Caret Line="73" Column="21" TopLine="61"/>
+      </Position18>
+      <Position19>
+        <Filename Value="dmd.pas"/>
+        <Caret Line="74" Column="148" TopLine="61"/>
+      </Position19>
+      <Position20>
+        <Filename Value="dmd.pas"/>
+        <Caret Line="68" Column="101" TopLine="61"/>
+      </Position20>
+      <Position21>
+        <Filename Value="warehouse.pas"/>
+        <Caret Line="70" TopLine="55"/>
+      </Position21>
+      <Position22>
+        <Filename Value="appmenu.pas"/>
+        <Caret Line="14" Column="78"/>
+      </Position22>
+      <Position23>
+        <Filename Value="appmenu.pas"/>
+        <Caret Line="60" TopLine="52"/>
       </Position23>
       <Position24>
         <Filename Value="warehouse.pas"/>
-        <Caret Line="25" Column="48" TopLine="13"/>
+        <Caret Line="68" Column="5" TopLine="53"/>
       </Position24>
       <Position25>
-        <Filename Value="dmd.pas"/>
-        <Caret Line="69" Column="31" TopLine="58"/>
+        <Filename Value="prodmenu.pas"/>
+        <Caret Line="68" Column="5" TopLine="53"/>
       </Position25>
       <Position26>
-        <Filename Value="dmd.pas"/>
-        <Caret Line="74" Column="38" TopLine="56"/>
+        <Filename Value="finance.pas"/>
+        <Caret Line="61" Column="5" TopLine="46"/>
       </Position26>
       <Position27>
-        <Filename Value="dmd.pas"/>
-        <Caret Line="73" Column="21" TopLine="61"/>
+        <Filename Value="prodmenu.pas"/>
+        <Caret Line="48" TopLine="31"/>
       </Position27>
       <Position28>
-        <Filename Value="dmd.pas"/>
-        <Caret Line="74" Column="148" TopLine="61"/>
+        <Filename Value="warehouse.pas"/>
+        <Caret Line="48" TopLine="39"/>
       </Position28>
       <Position29>
-        <Filename Value="dmd.pas"/>
-        <Caret Line="68" Column="101" TopLine="61"/>
+        <Filename Value="aboutprogramm.pas"/>
+        <Caret Line="34" TopLine="14"/>
       </Position29>
       <Position30>
-        <Filename Value="warehouse.pas"/>
-        <Caret Line="70" TopLine="55"/>
+        <Filename Value="appmenu.pas"/>
+        <Caret Line="57" Column="5"/>
       </Position30>
     </JumpHistory>
     <RunParams>

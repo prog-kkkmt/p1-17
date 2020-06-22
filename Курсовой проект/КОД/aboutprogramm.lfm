@@ -10,7 +10,6 @@ object FAboutProgramm: TFAboutProgramm
   Color = clWhite
   DesignTimePPI = 120
   FormStyle = fsSystemStayOnTop
-  OnCreate = FormCreate
   LCLVersion = '2.0.8.0'
   object Label1: TLabel
     Left = 24
