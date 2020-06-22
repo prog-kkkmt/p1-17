@@ -1,0 +1,100 @@
+object WorkOc: TWorkOc
+  Left = 510
+  Height = 546
+  Top = 124
+  Width = 1087
+  Caption = 'Работа с оценка'
+  ClientHeight = 546
+  ClientWidth = 1087
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object DBGrid2: TDBGrid
+    Left = 664
+    Height = 460
+    Top = 80
+    Width = 424
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID Студента'
+        Width = 80
+        FieldName = 'IDSTUDENTS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Фамилия'
+        Width = 120
+        FieldName = 'SECONDNAME'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID группы'
+        Width = 70
+        FieldName = 'IDGROUPS'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'Название группы'
+        Width = 120
+        FieldName = 'NAMEGROUPS'
+      end>
+    DataSource = MainDatas.SQstud
+    TabOrder = 0
+  end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 460
+    Top = 80
+    Width = 634
+    Anchors = [akTop, akLeft, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID оценки'
+        FieldName = 'IDOC'
+      end    
+      item
+        Title.Caption = 'ID студента'
+        Width = 100
+        FieldName = 'IDSTUD'
+      end    
+      item
+        Title.Caption = 'Оценка'
+        Width = 64
+        FieldName = 'OCENKA'
+      end    
+      item
+        Title.Caption = 'Наличие работы'
+        Width = 120
+        FieldName = 'HAVEWORK'
+      end    
+      item
+        Title.Caption = 'Дата'
+        Width = 100
+        FieldName = 'DATAS'
+      end>
+    DataSource = MainDatas.SourceWorkStd
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 16
+    Height = 56
+    Top = 8
+    Width = 634
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 56
+    ClientWidth = 634
+    DataSource = MainDatas.SourceWorkStd
+    Options = []
+    TabOrder = 2
+  end
+end
