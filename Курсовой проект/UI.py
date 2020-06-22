@@ -1,5 +1,5 @@
 """Модуль реалиующий интерфейс программы"""
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets  # Импорт модулей для работы с интерфейсом
 
 
 class UiInterface(object):
@@ -170,7 +170,7 @@ class UiInterface(object):
         self.verticalLayout.addWidget(self.tables)
 
     def setup_table(self):
-        """Заполняет таблицу в зависимости от выбранной таблицы"""
+        """Создает поле для отображения таблиц"""
         self.table = QtWidgets.QTableWidget(self.TablesPage)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")

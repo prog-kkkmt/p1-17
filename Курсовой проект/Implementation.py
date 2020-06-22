@@ -1,7 +1,6 @@
 """Модуль реализующий работу программы"""
-from UI import UiInterface
-from PyQt5 import QtWidgets, QtCore
-import os
+from UI import UiInterface  # Импорт класса реализующего интерфейс
+from PyQt5 import QtWidgets, QtCore  # Импорт модулей для работы с интерфейсом
 
 
 class UiImplementation(UiInterface):
@@ -9,6 +8,7 @@ class UiImplementation(UiInterface):
 
     def __init__(self, interface):
         """Обработка всех событий в программе"""
+        import os  # Импорт модуля для работы с ОС
         if os.path.isfile(os.path.abspath(os.curdir) + "\\Path to hotel DB.txt"):
             with open(os.path.abspath(os.curdir) + "\\Path to hotel DB.txt") as fp:
                 self.path = fp.readline()
@@ -28,8 +28,10 @@ class UiImplementation(UiInterface):
 
     def load_table(self):
         """Загрузка и вывод таблицы на экран"""
-        import csv
+        import csv  # Импорт модуля для работы с файлами в формате *.cvs
         self.table.setSortingEnabled(False)
+        self.table.setRowCount(0)
+        self.table.setColumnCount(0)
         with open(self.path + "\\Hotel data bases\\" + self.tables.itemText(self.tables.currentIndex()) + ".cvs") as f:
             reader = csv.reader(f)
             for row_number, row_data in enumerate(reader):
@@ -45,15 +47,13 @@ class UiImplementation(UiInterface):
 
     def save_table(self):
         """Сохранение таблицы"""
-        import csv
+        import csv  # Импорт модуля для работы с файлами в формате *.cvs
         with open(self.path + "\\Hotel data bases\\" + self.tables.itemText(self.tables.currentIndex()) + ".cvs", "w",
                   newline="") as f:
             writer = csv.writer(f)
             row_count = self.table.rowCount()
             column_count = self.table.columnCount()
-            header = list()
-            for column in range(column_count):
-                header.append(self.table.horizontalHeaderItem(column).text())
+            header = [self.table.horizontalHeaderItem(column).text() for column in range(column_count)]
             writer.writerow(header)
             for row in range(row_count):
                 row_data = list()
@@ -70,10 +70,8 @@ class UiImplementation(UiInterface):
 
     def delete(self):
         """Удаление выбранных строк из таблицы"""
-        index_list = []
-        for model_index in self.table.selectionModel().selectedRows():
-            index = QtCore.QPersistentModelIndex(model_index)
-            index_list.append(index)
+        index_list = [QtCore.QPersistentModelIndex(model_index)
+                      for model_index in self.table.selectionModel().selectedRows()]
         for index in index_list:
             self.table.removeRow(index.row())
         self.save_table()
@@ -89,7 +87,7 @@ class UiImplementation(UiInterface):
 
 
 if __name__ == "__main__":
-    import sys
+    import sys  # Импорт модуля для работы с системой
     QtWidgets.QApplication.setStyle("Fusion")
     app = QtWidgets.QApplication(sys.argv)
     Interface = QtWidgets.QStackedWidget()
