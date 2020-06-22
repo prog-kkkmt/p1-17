@@ -51,9 +51,9 @@ object Open_Form: TOpen_Form
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 70
+    Left = 75
     Height = 21
-    Top = 149
+    Top = 160
     Width = 248
     Caption = 'Выполнила: Саполетова Анастасия'
     Font.CharSet = RUSSIAN_CHARSET
@@ -66,9 +66,9 @@ object Open_Form: TOpen_Form
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 120
+    Left = 121
     Height = 20
-    Top = 190
+    Top = 200
     Width = 166
     Caption = 'студентка группы П1-17'
     ParentColor = False
@@ -89,5 +89,20 @@ object Open_Form: TOpen_Form
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 37
+    Height = 1
+    Top = 129
+    Width = 1
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clRed
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Visible = False
   end
 end

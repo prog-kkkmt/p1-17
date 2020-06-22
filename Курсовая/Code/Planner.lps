@@ -9,9 +9,8 @@
         <Filename Value="Planner.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="3"/>
         <CursorPos X="13" Y="24"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,9 +20,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
-        <TopLine Value="16"/>
-        <CursorPos X="21" Y="36"/>
-        <UsageCount Value="47"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="24"/>
+        <CursorPos X="23" Y="38"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -37,7 +37,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="24"/>
         <CursorPos X="26" Y="26"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="52"/>
       </Unit2>
       <Unit3>
         <Filename Value="unit1.pas"/>
@@ -49,7 +49,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="12"/>
         <CursorPos Y="13"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="50"/>
       </Unit3>
       <Unit4>
         <Filename Value="dbc.pas"/>
@@ -58,13 +58,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="DBC"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="43"/>
-        <CursorPos X="9" Y="47"/>
-        <UsageCount Value="39"/>
+        <CursorPos X="33" Y="60"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="openform.pas"/>
@@ -73,10 +70,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="11" Y="28"/>
-        <UsageCount Value="36"/>
+        <CursorPos X="22" Y="33"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="D:\DOWNLOAD\lcl\include\customform.inc"/>
@@ -122,127 +118,123 @@
         <UsageCount Value="10"/>
       </Unit11>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="openform.pas"/>
-        <Caret Line="37" Column="6" TopLine="5"/>
+        <Caret Line="17" Column="98" TopLine="8"/>
       </Position1>
       <Position2>
         <Filename Value="openform.pas"/>
-        <Caret Line="13" Column="95"/>
+        <Caret Line="19" Column="19"/>
       </Position2>
       <Position3>
-        <Filename Value="openform.pas"/>
-        <Caret Line="16" Column="19" TopLine="8"/>
-      </Position3>
-      <Position4>
-        <Filename Value="openform.pas"/>
-        <Caret Line="18" Column="19" TopLine="8"/>
-      </Position4>
-      <Position5>
-        <Filename Value="openform.pas"/>
-        <Caret Line="17" Column="98" TopLine="8"/>
-      </Position5>
-      <Position6>
-        <Filename Value="openform.pas"/>
-        <Caret Line="19" Column="19"/>
-      </Position6>
-      <Position7>
         <Filename Value="mainform.pas"/>
         <Caret Line="29" Column="12" TopLine="3"/>
+      </Position3>
+      <Position4>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="33" Column="20"/>
+      </Position4>
+      <Position5>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="34" Column="20" TopLine="14"/>
+      </Position5>
+      <Position6>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="50" Column="5" TopLine="30"/>
+      </Position6>
+      <Position7>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="41" Column="46" TopLine="30"/>
       </Position7>
       <Position8>
         <Filename Value="dbc.pas"/>
-        <Caret Line="33" Column="20"/>
+        <Caret Line="47" Column="25" TopLine="31"/>
       </Position8>
       <Position9>
         <Filename Value="dbc.pas"/>
-        <Caret Line="34" Column="20" TopLine="14"/>
+        <Caret Line="48" Column="22" TopLine="31"/>
       </Position9>
       <Position10>
         <Filename Value="dbc.pas"/>
-        <Caret Line="50" Column="5" TopLine="30"/>
+        <Caret Line="47" Column="5" TopLine="30"/>
       </Position10>
       <Position11>
         <Filename Value="dbc.pas"/>
-        <Caret Line="41" Column="46" TopLine="30"/>
+        <Caret Line="50" Column="5" TopLine="30"/>
       </Position11>
       <Position12>
         <Filename Value="dbc.pas"/>
-        <Caret Line="47" Column="25" TopLine="31"/>
+        <Caret Line="49" Column="29" TopLine="30"/>
       </Position12>
       <Position13>
         <Filename Value="dbc.pas"/>
-        <Caret Line="48" Column="22" TopLine="31"/>
+        <Caret Line="35" Column="16" TopLine="26"/>
       </Position13>
       <Position14>
-        <Filename Value="dbc.pas"/>
-        <Caret Line="47" Column="5" TopLine="30"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="37" Column="32" TopLine="17"/>
       </Position14>
       <Position15>
         <Filename Value="dbc.pas"/>
-        <Caret Line="50" Column="5" TopLine="30"/>
+        <Caret Line="43" Column="44" TopLine="34"/>
       </Position15>
       <Position16>
-        <Filename Value="dbc.pas"/>
-        <Caret Line="49" Column="29" TopLine="30"/>
+        <Filename Value="openform.pas"/>
+        <Caret Line="45" Column="25" TopLine="27"/>
       </Position16>
       <Position17>
-        <Filename Value="dbc.pas"/>
-        <Caret Line="35" Column="16" TopLine="26"/>
+        <Filename Value="openform.pas"/>
+        <Caret Line="52" Column="25" TopLine="34"/>
       </Position17>
       <Position18>
-        <Filename Value="mainform.pas"/>
-        <Caret Line="37" Column="32" TopLine="17"/>
+        <Filename Value="openform.pas"/>
+        <Caret Line="22" Column="43" TopLine="14"/>
       </Position18>
       <Position19>
-        <Filename Value="dbc.pas"/>
-        <Caret Line="43" Column="44" TopLine="34"/>
+        <Filename Value="openform.pas"/>
+        <Caret Line="25" Column="29" TopLine="20"/>
       </Position19>
       <Position20>
         <Filename Value="openform.pas"/>
-        <Caret Line="45" Column="25" TopLine="27"/>
+        <Caret Line="24" Column="29" TopLine="20"/>
       </Position20>
       <Position21>
         <Filename Value="openform.pas"/>
-        <Caret Line="52" Column="25" TopLine="34"/>
+        <Caret Line="34" Column="32" TopLine="13"/>
       </Position21>
       <Position22>
-        <Filename Value="openform.pas"/>
-        <Caret Line="22" Column="43" TopLine="14"/>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="52" Column="38" TopLine="40"/>
       </Position22>
       <Position23>
-        <Filename Value="openform.pas"/>
-        <Caret Line="25" Column="29" TopLine="20"/>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="53" Column="9" TopLine="44"/>
       </Position23>
       <Position24>
-        <Filename Value="openform.pas"/>
-        <Caret Line="24" Column="29" TopLine="20"/>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="52" TopLine="46"/>
       </Position24>
       <Position25>
-        <Filename Value="openform.pas"/>
-        <Caret Line="34" Column="32" TopLine="13"/>
+        <Filename Value="dbc.pas"/>
+        <Caret Line="42" Column="19" TopLine="37"/>
       </Position25>
       <Position26>
         <Filename Value="dbc.pas"/>
-        <Caret Line="52" Column="38" TopLine="40"/>
+        <Caret Line="52" Column="17" TopLine="43"/>
       </Position26>
       <Position27>
-        <Filename Value="dbc.pas"/>
-        <Caret Line="53" Column="9" TopLine="44"/>
+        <Filename Value="openform.pas"/>
+        <Caret Line="28" Column="11"/>
       </Position27>
       <Position28>
         <Filename Value="dbc.pas"/>
-        <Caret Line="52" TopLine="46"/>
+        <Caret Line="65" Column="38" TopLine="48"/>
       </Position28>
       <Position29>
         <Filename Value="dbc.pas"/>
-        <Caret Line="42" Column="19" TopLine="37"/>
+        <Caret Line="50" Column="6" TopLine="42"/>
       </Position29>
-      <Position30>
-        <Filename Value="dbc.pas"/>
-        <Caret Line="52" Column="17" TopLine="43"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

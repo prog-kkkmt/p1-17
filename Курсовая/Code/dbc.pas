@@ -39,7 +39,8 @@ var
   DBname: String;
 
 implementation
-
+uses
+  openform;
 {$R *.lfm}
 
 { TDataModule1 }
@@ -50,14 +51,17 @@ begin
     begin
       IniF := TINIFile.Create('db.ini');
       DBname := IniF.ReadString('db','dbname', '');
-
-
       ibdb.DatabaseName:=DBname;
       ibdb.Connected:=True;
       ibdb.AllowStreamedConnected:=True;
       IBEVENTS.Active:=True;
       IBPHONEBOOK.Active:=True;
-
+    end
+    Else
+    begin
+       Open_Form.Label6.Caption:='db.ini отсутствует! База данных не подключена.';
+       Open_Form.Label6.Visible:=True;
+       Open_Form.Open.Enabled:=False;
     end;
 end;
 

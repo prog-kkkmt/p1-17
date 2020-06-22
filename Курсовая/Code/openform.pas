@@ -17,6 +17,7 @@ type
     Label3: TLabel;          //текст
     Label4: TLabel;          //текст
     Label5: TLabel;          //текст
+    Label6: TLabel;          //текст
     Open: TButton;           //кнопка открытия
     procedure OpenClick(Sender: TObject);
   private

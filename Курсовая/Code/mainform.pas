@@ -19,6 +19,7 @@ type
     DBNavigator2: TDBNavigator;   //компонент для работы с таблицей
     Label1: TLabel;               //текст
     Label2: TLabel;               //текст
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -32,6 +33,13 @@ implementation
 
 {$R *.lfm}
 
+
+{ TMain_Form }
+
+procedure TMain_Form.FormCreate(Sender: TObject);
+begin
+
+end;
 
 end.
 
