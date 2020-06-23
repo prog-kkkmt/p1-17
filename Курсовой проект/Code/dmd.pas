@@ -5,7 +5,7 @@ unit dmd;
 interface
 
 uses
-  Classes, SysUtils, IBDatabase, IBTable, IBCustomDataSet, IBQuery, db, INIFiles;
+  Classes, SysUtils, IBDatabase, IBTable, IBCustomDataSet, IBQuery, db, INIFiles, Dialogs;
 
 type
 
@@ -65,8 +65,10 @@ begin
      IF(FileExists('DataBase.ini'))then // Проверка ini-файла
      begin
           IniF := TINIFile.Create('DataBase.ini');
-          DBname := IniF.ReadString('db', 'dbname', ''); // Считывание путя файла
+          DBname := IniF.ReadString('db', 'dbname', ''); // Считывание пути файла
 
+          IF ( FileExists(DBname)) then // Проверка на существование БД
+          begin
           ibdb.DatabaseName := DBname;
           ibdb.Connected := True;
           ibdb.AllowStreamedConnected := True;
@@ -77,6 +79,9 @@ begin
           ibqProdmenu.Open;        // Открытие таблицы Prodmenu для запроса поиска
           ibFinance.Open;          // Открытие таблицы Finance
           ibqFinance.Open;         // Открытие таблицы Finance для запроса поиска
+          end
+          Else
+          ShowMessage('Ошибка. Невозможно открыть БД');
      end;
 end;
 

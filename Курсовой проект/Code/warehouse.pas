@@ -18,8 +18,8 @@ type
     DBGrid2: TDBGrid;                   // компонент для отображения данных таблицы БД
     dbnWarehouse: TDBNavigator;         // компонент для работы с данными таблицы БД
     Edit1: TEdit;                       // поле ввода
-    Label1: TLabel;                     // надпись
-    MainMenu1: TMainMenu;               // невизиальный компонент меню
+    Label1: TLabel;                     // надпись "Поиск"
+    MainMenu1: TMainMenu;               // невизульный компонент меню
     MenuItem4: TMenuItem;               // пункт меню
     procedure BackFromWarehouseClick(Sender: TObject);  // процедура события кнопки "Назад"
     procedure Edit1Change(Sender: TObject);    // обработчик события Edit

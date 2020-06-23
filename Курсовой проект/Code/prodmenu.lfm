@@ -5,8 +5,8 @@ object FProdMenu: TFProdMenu
   Width = 1097
   BorderStyle = bsSizeToolWin
   Caption = 'Меню заведения'
-  ClientHeight = 501
-  ClientWidth = 1097
+  ClientHeight = 0
+  ClientWidth = 0
   Color = 16315102
   DesignTimePPI = 120
   FormStyle = fsSystemStayOnTop

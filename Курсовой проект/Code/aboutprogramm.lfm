@@ -1,7 +1,7 @@
 object FAboutProgramm: TFAboutProgramm
-  Left = 592
+  Left = 1155
   Height = 300
-  Top = 365
+  Top = 329
   Width = 400
   BorderStyle = bsSizeToolWin
   Caption = 'О программе'
@@ -30,8 +30,8 @@ object FAboutProgramm: TFAboutProgramm
     Left = 104
     Height = 25
     Top = 48
-    Width = 215
-    Caption = 'Курсовая работа на  тему:'
+    Width = 218
+    Caption = 'Курсовой проект на  тему:'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -18
