@@ -9,14 +9,14 @@ data IndentType
     | Tabs
     deriving (Show, Eq)
 
-indentChar :: IndentType -> Char
+indentChar :: IndentType -> Char -- returns corresponding character for every indent type
 indentChar Spaces = ' '
 indentChar Tabs   = '\t'
 
-indentN :: Indent -> ReadP [Char]
+indentN :: Indent -> ReadP [Char] -- reads indent
 indentN (n, t) = count n $ char $ indentChar t
 
-lookTypeIndent :: IndentType -> ReadP Indent
+lookTypeIndent :: IndentType -> ReadP Indent 
 lookTypeIndent t = do
     s <- look
     return (indent s, t)
@@ -31,7 +31,7 @@ lookSpaceIndent = lookTypeIndent Spaces
 lookTabIndent :: ReadP Indent
 lookTabIndent = lookTypeIndent Tabs
 
-lookIndent :: ReadP Indent
+lookIndent :: ReadP Indent -- checks for indent size and type
 lookIndent = do
     spaceInd@(nSpaces, _) <- lookSpaceIndent
     if nSpaces == 0

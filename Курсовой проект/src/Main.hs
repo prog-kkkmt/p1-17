@@ -14,7 +14,7 @@ import           Text.ParserCombinators.ReadP
 main :: IO ()
 main = mainWith makeDiagram
 
-makeDiagram :: FilePath -> IO (Diagram B)
+makeDiagram :: FilePath -> IO (Diagram B) -- reads a file and makes a diagram from blocks
 makeDiagram file = do
     contents <- readFile file
     let result = parsePython contents
@@ -24,7 +24,7 @@ makeDiagram file = do
             putStrLn "Parsed"
             return $ convertCodeToDiagram p 
 
-convertCodeToDiagram :: Programm -> Diagram B
+convertCodeToDiagram :: Programm -> Diagram B -- converts parsed code to diagram
 convertCodeToDiagram p = blocksToDiagram blocks
   where
       blocks = programmToBlock left : (functionsToBlock right)
