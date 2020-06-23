@@ -17,9 +17,9 @@ type
     DBGrid2: TDBGrid;       //компонент для отображения данных таблицы
     DBNavigator1: TDBNavigator;   //компонент для работы с таблицей
     DBNavigator2: TDBNavigator;   //компонент для работы с таблицей
-    Label1: TLabel;               //текст
-    Label2: TLabel;               //текст
-    procedure FormCreate(Sender: TObject);
+    Label1: TLabel;               //события
+    Label2: TLabel;               //телефонный справочник
+    procedure FormCreate(Sender: TObject);  //процедура создания формы
   private
 
   public
@@ -36,7 +36,7 @@ implementation
 
 { TMain_Form }
 
-procedure TMain_Form.FormCreate(Sender: TObject);
+procedure TMain_Form.FormCreate(Sender: TObject);  //процедура
 begin
 
 end;

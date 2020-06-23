@@ -1,7 +1,7 @@
 object Main_Form: TMain_Form
-  Left = 258
+  Left = 163
   Height = 574
-  Top = 90
+  Top = 127
   Width = 1148
   Caption = 'Главное окно'
   ClientHeight = 574

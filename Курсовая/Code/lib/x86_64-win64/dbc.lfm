@@ -52,7 +52,6 @@ object DataModule1: TDataModule1
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MinValue = 10000
     end
     object IBEVENTSDATA: TDateField
       DisplayWidth = 8

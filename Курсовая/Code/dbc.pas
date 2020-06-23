@@ -35,7 +35,7 @@ type
 
 var
   DataModule1: TDataModule1;
-  IniF:TINIFile;
+  IniF:TINIFile; //класс для работы с INI-файлами
   DBname: String;
 
 implementation
@@ -45,17 +45,30 @@ uses
 
 { TDataModule1 }
 
-procedure TDataModule1.DataModuleCreate(Sender: TObject);
+procedure TDataModule1.DataModuleCreate(Sender: TObject);  //открытие таблиц
 begin
-    IF(FileExists('db.ini'))then
+    IF(FileExists('db.ini'))then   //проверка ini файла
     begin
       IniF := TINIFile.Create('db.ini');
-      DBname := IniF.ReadString('db','dbname', '');
-      ibdb.DatabaseName:=DBname;
-      ibdb.Connected:=True;
-      ibdb.AllowStreamedConnected:=True;
-      IBEVENTS.Active:=True;
-      IBPHONEBOOK.Active:=True;
+      DBname := IniF.ReadString('db','dbname', ''); //считывание пути файла
+
+      If (FileExists(DBname))  then  //проверка на существование БД
+      begin
+          ibdb.DatabaseName:=DBname;
+          ibdb.Connected:=True;
+          ibdb.AllowStreamedConnected:=True;
+          IBEVENTS.Active:=True;
+          IBPHONEBOOK.Active:=True;
+
+      end
+      Else
+      begin
+          Open_Form.Label6.Caption:='Неверный путь к БД! База данных не подключена.';
+          Open_Form.Label6.Visible:=True;
+          Open_Form.Open.Enabled:=False;
+      end;
+
+
     end
     Else
     begin

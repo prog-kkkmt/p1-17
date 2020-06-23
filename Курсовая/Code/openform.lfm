@@ -1,7 +1,7 @@
 object Open_Form: TOpen_Form
-  Left = 490
+  Left = 947
   Height = 260
-  Top = 316
+  Top = 298
   Width = 400
   Caption = 'Главный модуль'
   ClientHeight = 260
