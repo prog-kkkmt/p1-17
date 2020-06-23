@@ -52,7 +52,7 @@ def getDocument():
             filename = input("\n\033[41m{}\033[40m\n".format("File '" + filename +"' is not HTML file.") + "\nPlease enter correct name of HTML file ('q' - exit): ")
         else:
             filename = input("\n\033[41m{}\033[40m\n".format("File '" + filename +"' is not exist.") + "\nPlease enter correct name of HTML file ('q' - exit): ")
-    
+    start_time = datetime.now()
     document = parserHTML(filename) #парсируем файл
 
     if document: # если успешно
@@ -60,8 +60,9 @@ def getDocument():
         print("\n\033[42m{}\033[40m\n".format("Parsed completed!"))
         if len_err: # если есть ошибки, то выводим их
             print("\033[30m\033[43m{}\033[37m\033[40m\n".format(
-                f"{len_err} warning in {','.join(''.join([' < ', e, ' > on line ', str(l)]) for (e, l) in err)}")
+                f"{len_err} warning in {','.join(' < ' + e + ' > on line ' + str(l) for (e, l) in err)}")
             )
+        print(datetime.now() - start_time)
         return document # возвращаем дерево
     else:
         return None
@@ -75,5 +76,5 @@ if __name__ == "__main__":
     while not document:
         document = getDocument() # получаем дерево
     print('\n')
-    print(document) # выводим его на экран
+    #print(document) # выводим его на экран
     
