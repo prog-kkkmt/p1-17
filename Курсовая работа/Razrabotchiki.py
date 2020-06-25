@@ -12,8 +12,7 @@ def Razrabotchiki():
     window.configure(bg = 'black')  
     R = Label(window)
     R.configure(text = 'Разработчики', font = 'Batang 40', bg = 'black', fg = 'white')
-    R.place(x = 550, y = 40)
-#=====================================================================================================    
+    R.place(x = 550, y = 40)   
     Alex = PhotoImage(file = 'Alex.png')
     lbl1 = Label(window)
     lbl1.configure(image = Alex)
@@ -26,8 +25,7 @@ def Razrabotchiki():
     T1.place(x = 285, y = 210)
     P1 = Label(window)
     P1.configure(text = 'alexbob17@yandex.ru', font = 'Batang 20', bg = 'black', fg = 'white')
-    P1.place(x = 285, y = 260)
-#=====================================================================================================     
+    P1.place(x = 285, y = 260)    
     Maria = PhotoImage(file = 'Maria.png')
     lbl2 = Label(window)
     lbl2.configure(image = Maria)
@@ -43,8 +41,7 @@ def Razrabotchiki():
     P2.place(x = 990, y = 260)
     P22 = Label(window)
     P22.configure(text = 'severdrakon@ya.ru', font = 'Batang 20', bg = 'black', fg = 'white')
-    P22.place(x = 990, y = 310)
-#=====================================================================================================     
+    P22.place(x = 990, y = 310)  
     window.mainloop()
 
 
