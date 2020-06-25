@@ -1,0 +1,1 @@
+print("hyesos pososi moi iaitsa")
