@@ -1,0 +1,51 @@
+object FormDetails: TFormDetails
+  Left = 471
+  Height = 421
+  Top = 307
+  Width = 861
+  Caption = 'Детали заявок'
+  ClientHeight = 421
+  ClientWidth = 861
+  DesignTimePPI = 144
+  LCLVersion = '2.0.8.0'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 222
+    Top = 72
+    Width = 844
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID заказа'
+        FieldName = 'ID_ORDER'
+      end    
+      item
+        Title.Caption = 'Ф.И.О клиента'
+        FieldName = 'FIO_CLIENT'
+      end    
+      item
+        Title.Caption = 'Детали'
+        FieldName = 'DETAILS'
+      end>
+    DataSource = DM.DataSourceDetails
+    TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Height = 38
+    Top = 16
+    Width = 826
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 38
+    ClientWidth = 826
+    DataSource = DM.DataSourceDetails
+    Options = []
+    TabOrder = 1
+  end
+end
