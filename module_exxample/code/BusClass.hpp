@@ -1,7 +1,7 @@
 /*
 Автобус(код автобуса, марка автобуса, гос номер, вместимость)
 */
-
+#pragma once
 #include <vector>
 #include <iostream>
 #include <fstream>
