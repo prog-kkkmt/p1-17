@@ -1,7 +1,7 @@
 /*
 Рейсы(код рейса, код станции, код автобуса, время прибытия)
 */
-
+#pragma once
 #include <vector>
 #include <iostream>
 #include <fstream>
