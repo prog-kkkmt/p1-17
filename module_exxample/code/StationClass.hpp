@@ -1,7 +1,7 @@
 /*
 Станции(код станции, название станции)
 */
-
+#pragma once
 #include <vector>
 #include <iostream>
 #include <fstream>
