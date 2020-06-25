@@ -1,18 +1,18 @@
 object FormOrdersShow: TFormOrdersShow
-  Left = 471
+  Left = 495
   Height = 421
-  Top = 307
+  Top = 309
   Width = 861
   Caption = 'Клиенты и заказы'
   ClientHeight = 391
   ClientWidth = 861
   DesignTimePPI = 144
-  Menu = MainMenu1
+  Menu = MainMenu
   LCLVersion = '2.0.8.0'
   object DBGrid1: TDBGrid
     Left = 0
     Height = 240
-    Top = 56
+    Top = 80
     Width = 861
     Color = clWindow
     Columns = <    
@@ -66,14 +66,14 @@ object FormOrdersShow: TFormOrdersShow
   object ButtonEdit: TButton
     Left = 576
     Height = 38
-    Top = 328
+    Top = 336
     Width = 249
     Caption = 'Редактировать таблицу'
     OnClick = ButtonEditClick
     TabOrder = 1
   end
-  object MainMenu1: TMainMenu
-    left = 16
+  object MainMenu: TMainMenu
+    left = 32
     top = 8
     object MenuItem1: TMenuItem
       Caption = 'Детали'
