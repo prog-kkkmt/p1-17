@@ -43,24 +43,3 @@ def Razrabotchiki():
     P22.configure(text = 'severdrakon@ya.ru', font = 'Batang 20', bg = 'black', fg = 'white')
     P22.place(x = 990, y = 310)  
     window.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
