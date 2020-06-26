@@ -17,5 +17,3 @@ def clock():
     lbl = Label(root, font = ('Ubuntu', 40, 'bold'), background = 'black', foreground = 'white')
     lbl.pack(anchor = 'center')
     time()
-
-
