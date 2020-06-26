@@ -135,4 +135,3 @@ def Avto_zapchasti():
         lbl1.configure(font = 'Batang 30', text = 'Вернитесь в главное меню и\n нажмите "Помощь"', bg = 'black', fg = 'white')
         lbl1.place(x = 10, y = 10)
     Button(window, width = 15, height = 2, font = "Batang 20", text = "Help", command = Help, bg = 'Red2', fg = 'Black').place(x = 30, y = 500)
-
