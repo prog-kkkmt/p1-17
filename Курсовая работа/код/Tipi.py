@@ -1,3 +1,5 @@
+## модуль запускает окно с данными о типах отдыха
+
 from tkinter import *
 from tkinter import ttk
 from tkinter import scrolledtext
@@ -5,7 +7,7 @@ import ctypes
 import tkinter as tk
 import random
 
-def tt():
+def tt(): ##функция, открывающая окно с данными о типах отдыха
     window = Tk()
     window.resizable(False, False)
     window.title("Типы")
@@ -16,34 +18,34 @@ def tt():
     widthButton = widthButtonPlace // 7
 
     canvas = Canvas(window, width = user32.GetSystemMetrics(0), height = user32.GetSystemMetrics(1))
-    canvas.configure(bg = 'pink')
+    canvas.configure(bg = 'pink') ## фон  окна
     canvas.pack()
 
-    f = open('tipi.txt', 'r', encoding = 'utf-8')
+    f = open('tipi.txt', 'r', encoding = 'utf-8') ## открытие и чтение файла
     text = Text()
     text = scrolledtext.ScrolledText(window, height = '17', font = 'Batang 20', width = '40')
     text.insert(INSERT, f.read())
     text.place(x = 425, y = 80)
     f.close()
 
-    def clicked_dobavlenie():
+    def clicked_dobavlenie(): ## функция добавления информации
         z = open('tipi.txt', 'r', encoding = 'utf-8')
         y = z.read()
         x = y.split()
         tipi = []
         for i in range (0, len(x), 2):
             u = x[i] + ' ' + x[i+1]
-            tipi.append(u)
+            tipi.append(u) ## добавление информации
         b = txt1.get()
         
 
-        f = open('tipi.txt', 'a', encoding = 'utf-8')
+        f = open('tipi.txt', 'a', encoding = 'utf-8')##запись в файл
         u11 = txt1.get() + ' ' + com.get() + '\n'
         f.write(u11)
         f.close()
         
         
-        f = open('tipi.txt', 'r', encoding = 'utf-8')
+        f = open('tipi.txt', 'r', encoding = 'utf-8') 
         text = Text()
         text = scrolledtext.ScrolledText(window, height = '17', font = 'Batang 20', width = '40')
         text.insert(INSERT, f.read())
@@ -51,7 +53,7 @@ def tt():
         f.close()
 
         
-    def clicked_delete():      
+    def clicked_delete(): ## функция удаления информации      
         z = open('tipi.txt', 'r', encoding = 'utf-8')
         y = z.read()
         x = y.split()
@@ -63,7 +65,7 @@ def tt():
         b = txt3.get()
         b1 = com.get()
         v = open('tipi.txt','w', encoding = 'utf-8')
-        for i in range(len(x)):
+        for i in range(len(x)): ## удаление информации
             j = tipi[i].split()
             if i%2 == 0 and j[0] != b:
                 v.write(j[0])
@@ -79,15 +81,15 @@ def tt():
         f.close()
     
     
-    lbl1 = Label(window)
+    lbl1 = Label(window) ## метка
     lbl2 = Label(window)
     lbl1.configure(font = 'Batang 20', text = '  Стоимость', bg = 'pink', fg = 'crimson')
     lbl1.place(x = 10, y = 81)
     lbl2.configure(font = 'Batang 20', text = '  Тип отдыха', bg = 'pink', fg = 'crimson')
-    lbl2.place(x = 180, y = 80)
-    txt1 = Entry(window, width = 10, font = 'Batang 20')  
+    lbl2.place(x = 180, y = 80) ## положение метки
+    txt1 = Entry(window, width = 10, font = 'Batang 20') ## поле ввода
     txt1.place(x = 20, y = 120)
-    btn = Button(window, text = "Добавить", font = 'Batang 20', command = clicked_dobavlenie, bg = 'hotpink')  
+    btn = Button(window, text = "Добавить", font = 'Batang 20', command = clicked_dobavlenie, bg = 'hotpink') ## кнопка добавления 
     btn.place(x = 105, y = 170)
     
     lbl3 = Label(window)
@@ -100,14 +102,16 @@ def tt():
     txt3.place(x = 20, y = 320)
     btn1 = Button(window, text = "Удалить", font = 'Batang 20', command = clicked_delete, bg = 'hotpink')  
     btn1.place(x = 105, y = 370)
-    com = ttk.Combobox(window)
+    com = ttk.Combobox(window) ## выпадающий список
     com.place(x = 190, y = 120, height = 37, width = 155)
-    com['values'] = ['Рюкзаки', 'Скалолазание', 'Рыбалка', 'Каяки', 'Восхождения', 'Яхтинг']
+    com['values'] = ['Рюкзаки', 'Скалолазание', 'Рыбалка', 'Каяки', 'Восхождения', 'Яхтинг', 'Охота']
     com.current(0)
     com2 = ttk.Combobox(window)
     com2.place(x = 190, y = 320, height = 37, width = 155)
     com2['values'] = ['Рюкзаки', 'Скалолазание', 'Рыбалка', 'Каяки', 'Восхождения', 'Яхтинг']
     com2.current(0)
+
+
 
 
   
