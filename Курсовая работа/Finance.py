@@ -111,18 +111,3 @@ def Finance():
     btn1 = Button(window, text = "Удалить", font = 'Batang 20', command = clicked1, bg = 'red2')  
     btn1.place(x = 105, y = 290)
     window.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
