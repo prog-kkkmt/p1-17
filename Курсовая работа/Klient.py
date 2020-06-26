@@ -115,19 +115,3 @@ def Klient():
                       'Hyundai', 'Infiniti', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'MINI', 'Mazda',
                      'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'Opel', 'Peugeot', 'Porsche', 'Renault', 'Skoda']
     com2.current(0)
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
