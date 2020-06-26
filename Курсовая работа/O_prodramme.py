@@ -21,21 +21,3 @@ def O_prodramme():
     txt.insert(INSERT, f.read())
     txt.place(x = 20, y = 55)  
     window.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
