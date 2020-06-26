@@ -1,14 +1,16 @@
+## этот модуль запускает информацию о клубе
+
 from tkinter import *  
 import ctypes
 
-def razrab():
+def razrab(): ## функия вывода информации на экран о клубе
     window = Tk()
     window.resizable(False, False)
-    window.title("О нас")
+    window.title("О нас") ## название окна 
     user32 = ctypes.windll.user32
     widthButtonPlace = (user32.GetSystemMetrics(0) // 15)
     widthButton = widthButtonPlace // 7
-    f = open('proga.txt','r', encoding='utf-8')
+    f = open('proga.txt','r', encoding='utf-8') ## открытие и чтение файла
     canvas = Canvas(window, width = user32.GetSystemMetrics(0), height = user32.GetSystemMetrics(1))
     canvas.configure(bg = 'pink')
     canvas.pack()
@@ -17,7 +19,6 @@ def razrab():
     txt.insert(INSERT, f.read())
     txt.place(x = 20, y = 55)  
     window.mainloop()
-
 
 
 
