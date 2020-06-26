@@ -1,4 +1,4 @@
-##Главный модель программы
+##Главный модуль программы
 from tkinter import * ## импорт самого модуля  
 from tkinter import messagebox
 from tkinter import scrolledtext
