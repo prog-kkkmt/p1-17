@@ -179,6 +179,3 @@ main_menu.add_cascade(label="Системные требования", menu = fi
 main_menu.add_cascade(label="Время", menu = file_menu3)
 okno1.config(menu = main_menu)
 okno1.mainloop()
-
-
-
