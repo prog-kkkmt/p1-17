@@ -127,18 +127,3 @@ def Diagnostika():
         lbl1.place(x = 10, y = 10)    
     Button(window, width = 15, height = 2, font = "Batang 20", text = "Help", command = Help, bg = 'red2', fg = 'black').place(x = 90, y = 380)
     window.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
