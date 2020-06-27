@@ -1,28 +1,25 @@
 # Звонарев Данила П1-17
-#импорт модулей для работы с клавиатурой и кнопками
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton, ReplyKeyboardMarkup 
+import pyowm 
+#импорт модуля для работы с погодой
 
-#кнопки для меню
-button1 = InlineKeyboardButton(" ", callback_data='btn1')
-button2 = InlineKeyboardButton(" ", callback_data='btn2')
-button3 = InlineKeyboardButton(" ", callback_data='btn3')
-button4 = InlineKeyboardButton(" ", callback_data='btn4')
-button5 = InlineKeyboardButton(" ", callback_data='btn5')
-button6 = InlineKeyboardButton(" ", callback_data='btn6')
-button7 = InlineKeyboardButton(" ", callback_data='btn7')
-button8 = InlineKeyboardButton(" ", callback_data='btn8')
-button9 = InlineKeyboardButton(" ", callback_data='btn9')
+#погода
+def weatherd(city):
 
-inline_kb1 = InlineKeyboardMarkup()
-#печать в чат поля 3*3 из кнопок для будущего меню
-inline_kb1.add(
-	button1, button2, button3, button4, button5, button6, button7, button8, button9
-)
-#кнопки для виртуальной клавиатуры
-button10 = KeyboardButton('/weather')
-button11 = KeyboardButton('/subscribe')
-button12 = KeyboardButton('/unsubscribe')
-#вывод на экран виртуальной клавиатуры с кнопками
-markup3 = ReplyKeyboardMarkup().row(
-    button10, button11, button12
-)
+    # инициализируем бота для работы с погодой
+    owm = pyowm.OWM('a7a5f151b3845f1d0a5979f764dbb267')
+    mgr = owm.weather_manager()    
+    # получение информации о погоде в городе
+    observation = mgr.weather_at_place(city + ',rus')
+    # погода 
+    w = observation.weather
+    # температура
+    temp = w.temperature('celsius')["temp"]
+    # скорость ветра
+    wind = w.wind()["speed"]
+    # погода влажность
+    hum = w.humidity
+    # формирование ответа, выводимого в чат пользователю
+    answer = "В городе " + city + " сейчас " + w.detailed_status + "\n---------------------"
+    answer += "\nТемпература: " + str(temp) + "°C" + "\n---------------------" + "\nСкорость ветра: " + str(wind) + "м/с." 
+    answer += "\n---------------------" + "\nВлажность: " + str(hum) + "%" + "\n---------------------"
+    return answer
