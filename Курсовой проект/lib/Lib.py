@@ -1,11 +1,35 @@
 
 class Library_UI(QtWidgets.QWidget):
+    """ 
+PyQt5 - библотека для создания графического дизайна, 
+окно программы, и всё его содержимое, были созданы
+с помощью её функций и методов
+"""
+
+
+# database_ui - основной класс программы, содержащий в себе все функции
+class database_ui(QtWidgets.QWidget):
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-
+ """ 
+    setupUI - главная функция программы, в ней идёт 
+    описание всех элементов графического интерфейса.
+    Код setupUI, как и код функции retranslateUi 
+    были созданы при конвертации файла типа .ui,
+    в файл типа .py с помощью комманды pyuic5
+    """
     def setupUi(self, Lib_Tool):
+        
+        """setObjectName задаётся внутри программы QT Designer,
+        позволяет дать имена объектам для более удобного использования"""
+        #UI_Tool.setObjectName("CEPDB")
+        #resize отвечает за открытие окна программы в установленном разрешении
+        #UI_Tool.resize(610, 431)
+        """ QGridLayout, QVBoxLayout - элементы модуля PyQt5,
+        отвечающие за расстановку элементов внутри окна по сетке
+        и их динамическое расширение при расширении окна программы """
         Lib_Tool.setObjectName("TPayne_MySQL_Tool")
         Lib_Tool.resize(610, 431)
         self.gridLayout = QtWidgets.QGridLayout(Lib_Tool)
@@ -14,7 +38,10 @@ class Library_UI(QtWidgets.QWidget):
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(Lib_Tool)
         font = QtGui.QFont()
+        #QTabWidget - виджет переключаемых вкладок
         font.setPointSize(11)
+        """setFont, setLayoutDirection, setScaledContents,setAlignment
+        отвечают за свойства и поведение текста в окне программы"""
         self.label.setFont(font)
         self.label.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label.setScaledContents(True)
@@ -25,12 +52,14 @@ class Library_UI(QtWidgets.QWidget):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.tabWidget = QtWidgets.QTabWidget(Lib_Tool)
         self.tabWidget.setObjectName("tabWidget")
+        #следующие 2 строки устанавливают колличество изначальных колонок и рядов в таблице
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.tab)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.tableWidget_1 = QtWidgets.QTableWidget(self.tab)
         self.tableWidget_1.setObjectName("tableWidget_1")
+          #QPushButton - кнопка
         self.tableWidget_1.setColumnCount(5)
         self.tableWidget_1.setRowCount(1)
         item = QtWidgets.QTableWidgetItem()
@@ -116,13 +145,15 @@ class Library_UI(QtWidgets.QWidget):
         self.retranslateUi(Lib_Tool)
         self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Lib_Tool)
+        #функция retranslateUi устанавливает текст на элементы окна
 
     def retranslateUi(self, TPayne_MySQL_Tool):
         _translate = QtCore.QCoreApplication.translate
         TPayne_MySQL_Tool.setWindowTitle(_translate("TPayne_MySQL_Tool", "CEPDB Manager"))
-        self.label.setText(_translate("TPayne_MySQL_Tool", "База данных пункта обмена валютой"))
+        self.label.setText(_translate("TPayne_MySQL_Tool", ""))
         item = self.tableWidget_1.verticalHeaderItem(0)
         item.setText(_translate("TPayne_MySQL_Tool", "New Row"))
+         #setText устанавливает текст на какой - либо элемент
         item = self.tableWidget_1.horizontalHeaderItem(0)
         item.setText(_translate("TPayne_MySQL_Tool", "Код книги"))
         item = self.tableWidget_1.horizontalHeaderItem(1)
@@ -185,7 +216,7 @@ class Library_UI(QtWidgets.QWidget):
             self.tableWidget_3.setItem(0, 2, QTableWidgetItem(splited[2]))
             self.tableWidget_3.setItem(0, 3, QTableWidgetItem(splited[3]))
             self.tableWidget_3.insertRow(0)
-
+#открытие текстовых файлов с данными для считывания из них информации
         db_file_books.close()
         db_file_readers.close()
         db_file_extra.close()
@@ -196,6 +227,7 @@ class Library_UI(QtWidgets.QWidget):
 
     def addrow_1(self):
         db_file_books = open('database_books.txt', 'a')
+# занесение данных из текстовых файлов в таблицу Книги
         for i in range(0, 3):
             temp = self.tableWidget_1.item(0, i).text()
             db_file_books.write(temp)
@@ -224,7 +256,7 @@ class Library_UI(QtWidgets.QWidget):
         db_file_extra.close()
         self.tableWidget_3.insertRow(0)
 
-
+#блок выполнения программы
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Library_UI()
