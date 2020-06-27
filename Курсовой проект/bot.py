@@ -30,7 +30,7 @@ db = SQLighter('db.db')
 #async def —  Сопрограмма  (coroutine) асинхронная функция 
 async def subscribe(message: types.Message):
 
-    #проверка на наличие подписки у пользователя
+	#проверка на наличие подписки у пользователя
 	if(not db.subscriber_exists(message.from_user.id)):
 		db.add_subscriber(message.from_user.id)
 	else:
@@ -38,7 +38,7 @@ async def subscribe(message: types.Message):
 
 async def subscribe(message: types.Message):
 
-    #проверка на наличие подписки у пользователя
+	#проверка на наличие подписки у пользователя
 	if(not db.subscriber_exists(message.from_user.id)):
 		db.add_subscriber(message.from_user.id)
 	else:
