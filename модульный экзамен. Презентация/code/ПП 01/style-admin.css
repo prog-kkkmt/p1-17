@@ -1,0 +1,109 @@
+.paragraph {
+    border: 1px solid #6666;
+    box-sizing: border-box;
+    width: 700px;
+    min-height: 200px;
+    margin: 20px 0;
+}
+
+form#add_art textarea {
+    width: 700px;
+    height: 80px;
+    margin: 20px 0;
+    resize: none;
+}
+
+form#add_art input {
+    width: 700px;
+    margin: 20px 0;
+    height: 25px;
+    font-size: 20px;
+}
+
+form#add_art {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label#add_img_title_form {
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    border: 3px solid #6666;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #6666;
+    display: block;
+}
+
+img.thumb {
+    width: 200px;
+    margin: 20px 0;
+}
+
+.add {
+    margin: 20px 0;
+    padding: 5px;
+    display: block;    
+    width: 18px;
+    text-align: center;
+    border: 1px solid #666;
+    color: #666;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#add_text {
+    border: 1px solid;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#add_art button {
+    background: white;
+    border: 1px solid #666;
+    padding: 8px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#input_form button {
+    margin: 10px;
+    padding: 2px 10px;
+    background: white;
+    border: 0;
+}
+
+#input_form button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#input_form input {
+    width: 200px;
+    margin: 10px;
+}
+
+form#input_form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+span.hello {
+    float: right;
+}
