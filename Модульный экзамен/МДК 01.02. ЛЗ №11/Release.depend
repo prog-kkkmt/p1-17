@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1592311502 source:d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\costing(1).cpp
+	"Costing.hpp"
+
+1592311502 d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\costing.hpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+
+1592311502 source:d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\costitems.cpp
+	"CostItems.hpp"
+
+1592311502 d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\costitems.hpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+	<string>
+
+1592311502 source:d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\main.cpp
+	<iostream>
+	"Costing.hpp"
+	"Release.hpp"
+	"CostItems.hpp"
+	"Products.hpp"
+
+1592311502 d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\release.hpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+
+1592311502 d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\products.hpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+	<string>
+
+1592311502 source:d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\products.cpp
+	"Products.hpp"
+
+1592311502 source:d:\Дистант\Приклад.програм\p1-17\Прикладное программирование\ЛЗ11\release.cpp
+	"Release.hpp"
+

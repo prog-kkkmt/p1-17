@@ -1,0 +1,37 @@
+body {
+	background-color: #ADD8E6;
+}
+
+H1{
+	font-family:Arial, Helvetica, Verdana, sans-serif;
+	text-align: center;
+}
+
+table{
+
+	width: 500px; 
+	height: 250px;
+    	border: 1px solid #191970; 
+    	margin: auto;
+}
+
+#header {
+	font-family:Arial, Helvetica, Verdana, sans-serif;
+	font-style: italic;
+	font-size: 16pt;
+	text-align: center;
+	background-color: #4682B4;
+}
+
+tr{
+	
+	font-family:Arial, Helvetica, Verdana, sans-serif;
+        font-style: normal;
+        font-size: 12pt;
+	text-align: center;
+	background-color: #B0C4DE;
+}
+
+td{
+	padding: 5px 20px;
+}

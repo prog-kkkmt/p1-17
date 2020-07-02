@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     int num;
-    setlocale(LC_ALL, "Russian");
+    setlocale(LC_CTYPE, "rus");
     cout << "Введите номер таблицы для работы с ней:" << endl;
     cout << "0: Статьи затрат (Код статьи, Название)" << endl;
     cout << "1: Изделия (Код изделия, Название)" << endl;

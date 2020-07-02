@@ -55,8 +55,6 @@ begin
 end;  { OpenOrCreate }
 
 procedure Input(var dish : array of Dish);
-var
-  i : integer;
 begin
      writeln(UTF8ToAnsi('Введите код блюда'));
      readln(dish[n].code);
