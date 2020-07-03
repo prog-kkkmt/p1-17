@@ -1,13 +1,13 @@
 #include <iostream>
-#include <fstream>
+
 using namespace std;
 
-class Bus {
+class Bus {      /*класс автобусов*/
 public:
-    int idBus;
-    string label;
-    int number;
-    int capacity;
+    int idBus;      /*код автобуса*/
+    string label;   /*марка автобуса*/
+    int number;     /*гос.номер*/
+    int capacity;   /*вместимость*/
 };
 
 

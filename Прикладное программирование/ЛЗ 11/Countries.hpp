@@ -10,7 +10,7 @@ struct Country {
 
 void OutPutHtmlCountries(vector <Country> &country){
 
-    ofstream f("countries.html");
+    ofstream f("countries.html");В базе данных содержатся сведения о личной коллекции марок.
 
     if (f.is_open())
     {

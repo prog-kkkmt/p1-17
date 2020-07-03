@@ -1,11 +1,11 @@
 #include <iostream>
-#include <fstream>
+
 using namespace std;
 
-class Station {
+class Station {     /*класс станций*/
 public:
-    int idStation;
-    string name;
+    int idStation;  /*код станции*/
+    string name;    /*название станции*/
 };
 
 

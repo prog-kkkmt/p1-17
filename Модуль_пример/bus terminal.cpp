@@ -1,4 +1,4 @@
-/*es run to stations on a scheduled basis. Each  can accommodate no more than a certain
+/*Buses run to stations on a scheduled basis. Each  can accommodate no more than a certain
 number of passengers
 Tables:
 stations (station code, station name),
@@ -15,21 +15,21 @@ Finished: Sapoletova Anastasia
 #include <vector>
 #include "Stations.hpp"
 #include "Bus.hpp"
-#include "Flight.hpp"
+#include "Trip.hpp"
 using namespace std;
 
 int main(){
-    vector <Station> stations;
+    vector <Station> stations;  /*создание вектора*/
     vector <Bus> bus;
-    vector <Flight> flight;
+    vector <Trip> trip;
     vector <int> busN;
     Station obj = Station();
     Bus obj1 = Bus();
-    Flight obj2 = Flight();
+    Trip obj2 = Trip();
     bool menu = true;
     int counts = 0;
     int cap = 0;
-
+    int indexS = -1;
     ifstream in("stations.txt");
 
     int choice;
@@ -49,11 +49,11 @@ int main(){
         }
     }
     in.close();
-    in.open("flight.txt");
+    in.open("trip.txt");
 
     if (in.is_open()) {
-        while(in >> obj2.idFlight >> obj2.idStation >> obj2.idBus >> obj2.time ){
-            flight.push_back(obj2);
+        while(in >> obj2.idTrip >> obj2.idStation >> obj2.idBus >> obj2.time ){
+            trip.push_back(obj2);
         }
     }
     in.close();
@@ -61,7 +61,7 @@ int main(){
     while (menu) {
         counts = 0;
         cap = 0;
-        busN.clear();
+        busN.clear();   /*удаление элементов вектора*/
         cout << "Menu" << endl;
 
         for (int i = 0; i < stations.size(); i++)
@@ -69,20 +69,20 @@ int main(){
 
         cin >> choice;
 
-        int indexS = 0;
+
         for (int i = 0; i < stations.size(); i++)
             if (stations.at(i).idStation == choice)
                 indexS = i;
 
-        if (!indexS) {
+        if (indexS == -1) {
             cout << "Incorrect ID" << endl;
             continue;
         }
 
-        for (int i = 0; i < flight.size(); i++) {
-            if (flight.at(i).idStation == choice) {
+        for (int i = 0; i < trip.size(); i++) {
+            if (trip.at(i).idStation == choice) {
                 counts += 1;
-                busN.push_back(flight.at(i).idBus);
+                busN.push_back(trip.at(i).idBus);
             }
         }
 
@@ -93,7 +93,7 @@ int main(){
             }
         }
 
-        cout << stations.at(indexS).name << ": Flight - " << counts << ", Capacity - " << cap << endl;
+        cout << stations.at(indexS).name << ": Trip - " << counts << ", Capacity - " << cap << endl;
     }
 
     return 0;
