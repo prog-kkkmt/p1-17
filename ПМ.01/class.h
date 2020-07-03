@@ -1,4 +1,5 @@
 //Звонарев П1-17
+//подлкючаниемые библиотеки
 #pragma once
 #include <vector>
 #include <algorithm>
