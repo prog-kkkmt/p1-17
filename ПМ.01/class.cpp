@@ -2,9 +2,10 @@
 #include "class.h"
 //методы класса книги  
 void books::load()//загрузка списка книг
-{
+{	
+	//открыть на чтение файл
 	ifstream f("books.txt");
-
+	//проверка на открытие файла
 	if (f.is_open()) {
 		while (!f.eof()) {
 			book book;
@@ -15,6 +16,7 @@ void books::load()//загрузка списка книг
 			f >> book.book_yaer;
 			list_book.push_back(book);
 		}
+		//закрыть файл
 		f.close();
 	}
 }
