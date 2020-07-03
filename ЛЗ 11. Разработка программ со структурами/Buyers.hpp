@@ -8,14 +8,19 @@ using namespace std;
 
 class Buyer{
     public:
-        Buyer(int buyerCode, string name);
-        bool changeInt(int field, int newValue);
-        bool changeStr(int field, string newValue);
+        Buyer(int buyerCode,
+            string name);
+        bool changeInt(int field,
+            int newValue);
+        bool changeStr(int field,
+            string newValue);
 
         int getBuyerCode();
         string getName();
 
-        friend ostream& operator<<(ostream& os, const Buyer& sl);
+        friend ostream&
+            operator<<(ostream& os,
+            const Buyer& sl);
     private:
         int buyerCode;
         string name;
