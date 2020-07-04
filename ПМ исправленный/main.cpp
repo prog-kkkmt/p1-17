@@ -1,11 +1,11 @@
 #include "busclass.h"
 
-vector<buses>list_bus;
-vector<cruises>list_cruise;
-vector<stations>list_station;
+vector<Buses>list_bus;
+vector<Cruises>list_cruise;
+vector<Stations>list_station;
 
 //методы класса buses
-void buses :: input() //загрузка данных из файла
+void Buses :: input() //загрузка данных из файла
 {
 	//открываем на чтение файл
 	ifstream file("buses.txt");
@@ -14,7 +14,7 @@ void buses :: input() //загрузка данных из файла
 	{
 		while (!file.eof())
 		{
-			buses bus;
+			Buses bus;
 			file >> bus.bus_ID;
 			file >> bus.bus_brand;
 			file >> bus.bus_number;
@@ -27,7 +27,7 @@ void buses :: input() //загрузка данных из файла
 }
 
 //методы класса buses
-void buses :: total_capacity() //подсчет общего числа пассажиров
+int Buses :: total_capacity() //подсчет общего числа пассажиров
 {
 	int sum = 0;
 	for (int i = 0; i != list_bus.size(); i++) 
@@ -38,7 +38,7 @@ void buses :: total_capacity() //подсчет общего числа пассажиров
 }
 
 //методы класса stations
-void stations :: input()
+void Stations :: input()
 {
 	//открываем на чтение файл
 	ifstream file("stations.txt");
@@ -47,7 +47,7 @@ void stations :: input()
 	{
 		while (!file.eof()) 
 		{
-			stations station;
+			Stations station;
 			file >> station.station_ID;
 			file >> station.station_name;
 			list_station.push_back(station);
@@ -58,7 +58,7 @@ void stations :: input()
 }
 
 //методы класса cruises
-void cruises :: input()
+void Cruises :: input()
 {
 	//открываем на чтение файл
 	ifstream file("cruise.txt");
@@ -67,7 +67,7 @@ void cruises :: input()
 	{
 		while (!file.eof()) 
 		{
-			cruises cruise;
+			Cruises cruise;
 			file >> cruise.cruise_ID;
 			file >> cruise.station_ID;
 			file >> cruise.bus_ID;
@@ -80,7 +80,7 @@ void cruises :: input()
 }
 
 //функция подсчета общего числа рейсов по станциям
-void total_cruises(stations stations, cruises cruises) 
+void total_cruises(Stations stations, Cruises cruises) 
 {
 	for (int i = 0; i != list_station.size(); i++)
 	{
@@ -99,16 +99,17 @@ void total_cruises(stations stations, cruises cruises)
 int main()
 {
 	//инициализируем списки
-	buses buses;
+	Buses buses;
 	buses.input();
-	cruises cruises;
+	Cruises cruises;
 	cruises.input();
-	stations stations;
+	Stations stations;
 	stations.input();
 	//колво пассажиров
 	buses.total_capacity();
 	//колво рейсов
 	total_cruises(stations, cruises);
+	return 0;
 }
 
 

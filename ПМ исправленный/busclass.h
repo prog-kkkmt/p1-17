@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class buses
+class Buses
 {
 public:
 	int bus_ID; //id
@@ -14,10 +14,10 @@ public:
 	string bus_number; // госномер
 	int bus_capacity; // вместимость
 	void input();
-	void total_capacity();
+	int total_capacity();
 };
 
-class stations
+class Stations
 {
 public:
 	int station_ID; // id станции
@@ -25,7 +25,7 @@ public:
 	void input();
 };
 
-class cruises
+class Cruises
 {
 public:
 	int cruise_ID; // id рейса
