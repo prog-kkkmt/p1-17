@@ -1,0 +1,5 @@
+1 01.02.2020 Old_boughtgalter 70000 open 4 2 3
+2 01.03.2020 Teamleader 110000 close 1 1 0
+3 05.03.2020 Manager_marketing 85000 close 3 2 3
+4 19.04.2020 System_administrator 150000 open 2 1 0
+
