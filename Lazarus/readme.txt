@@ -4,3 +4,10 @@
 - файл с описанием задания и контрольным примером
 - файлы проекта
 -- ... ещё какие-то файлы по ситуации
+
+Задания П1-17, П2-17.
+p1-17/Лекция 29. GUI Lazarus.txt
+https://github.com/prog-kkkmt/p1-17/blob/master/%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F%2029.%20GUI%20Lazarus.txt
+
+p1-17/ЛЗ 36. GUI Lazarus.txt
+https://github.com/prog-kkkmt/p1-17/blob/master/%D0%9B%D0%97%2036.%20GUI%20Lazarus.txt
