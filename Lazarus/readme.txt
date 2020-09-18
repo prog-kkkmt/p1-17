@@ -11,3 +11,6 @@ https://github.com/prog-kkkmt/p1-17/blob/master/%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D
 
 p1-17/ЛЗ 36. GUI Lazarus.txt
 https://github.com/prog-kkkmt/p1-17/blob/master/%D0%9B%D0%97%2036.%20GUI%20Lazarus.txt
+
+18.09.2020, 16.04
+Уровень этих задач понятен, нужно делать Лекцию 29 и ЛЗ 36
