@@ -1,0 +1,42 @@
+object Form1: TForm1
+  Left = 1152
+  Height = 470
+  Top = 215
+  Width = 582
+  Caption = 'Form1'
+  ClientHeight = 470
+  ClientWidth = 582
+  LCLVersion = '2.0.10.0'
+  object Edit1: TEdit
+    Left = 11
+    Height = 23
+    Top = 17
+    Width = 80
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 105
+    Height = 23
+    Top = 18
+    Width = 80
+    OnEditingDone = Edit2EditingDone
+    TabOrder = 1
+    Text = 'Edit2'
+  end
+  object Edit3: TEdit
+    Left = 11
+    Height = 23
+    Top = 48
+    Width = 558
+    TabOrder = 2
+    Text = 'Edit3'
+  end
+  object StringGrid1: TStringGrid
+    Left = 11
+    Height = 380
+    Top = 80
+    Width = 558
+    TabOrder = 3
+  end
+end
