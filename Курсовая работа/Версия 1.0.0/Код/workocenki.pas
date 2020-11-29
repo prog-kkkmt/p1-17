@@ -5,7 +5,7 @@ unit WorkOcenki;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, DBGrids, DBCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, DBGrids, DBCtrls, maindata;
 
 type
 
