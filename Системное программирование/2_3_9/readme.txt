@@ -9,7 +9,7 @@ touch file2 // создаем пустые файлы
 написал cp -r /etc/default /home/box // Я скопировал целую папку default из /etc/default в /home/box 
 можно было и перенести целую папку используя утилиту mv
 
-следом напписал mkdir newdir и создал новую директорию -> написал
+следом напписал mkdir newdir и создал новую директорию, написал
 
 cp ~/default/syslog-ng newdir //скопировал syslog-ng из ~/default в newdir
 cp ~/default/rsyslog  newdir //скопировал rsyslog из ~/default в newdir 
