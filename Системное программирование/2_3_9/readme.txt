@@ -15,3 +15,6 @@ cp ~/default/syslog-ng newdir //скопировал syslog-ng из ~/default в
 cp ~/default/rsyslog  newdir //скопировал rsyslog из ~/default в newdir 
 
 sudo rm -rf apt удалил директорию apt с правами суперпользователя(sudo)
+
+Все хорошо. 
+Когда начнём программировать?
