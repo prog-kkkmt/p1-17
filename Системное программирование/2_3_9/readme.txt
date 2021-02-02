@@ -6,7 +6,7 @@
 touch file1 // создаем пустые файлы
 touch file2 // создаем пустые файлы
 
-следом написал cp -r /etc/default /home/box // Я скопировал целую папку default из /etc/default в /home/box 
+написал cp -r /etc/default /home/box // Я скопировал целую папку default из /etc/default в /home/box 
 можно было и перенести целую папку используя утилиту mv
 
 следом напписал mkdir newdir и создал новую директорию -> написал
