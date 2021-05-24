@@ -6,12 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1019</width>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>StudInStudOut</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Изображения/free-icon-binder-4624080.png</normaloff>Изображения/free-icon-binder-4624080.png</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>30</width>
+    <height>30</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -40,7 +50,7 @@
           <property name="currentIndex">
            <number>0</number>
           </property>
-          <widget class="QWidget" name="tab">
+          <widget class="QWidget" name="bachelor_course">
            <property name="styleSheet">
             <string notr="true"/>
            </property>
@@ -48,27 +58,250 @@
             <string>Бакалавриат</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3">
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="table_widget_b">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Sunken</enum>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QAbstractScrollArea::AdjustIgnored</enum>
+              </property>
+              <property name="defaultDropAction">
+               <enum>Qt::IgnoreAction</enum>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::ExtendedSelection</enum>
+              </property>
+              <property name="showGrid">
+               <bool>true</bool>
+              </property>
+              <property name="gridStyle">
+               <enum>Qt::SolidLine</enum>
+              </property>
+              <property name="sortingEnabled">
+               <bool>true</bool>
+              </property>
+              <property name="cornerButtonEnabled">
+               <bool>false</bool>
+              </property>
+              <property name="rowCount">
+               <number>0</number>
+              </property>
+              <property name="columnCount">
+               <number>30</number>
+              </property>
+              <attribute name="horizontalHeaderVisible">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>100</number>
+              </attribute>
+              <attribute name="horizontalHeaderHighlightSections">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderVisible">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderCascadingSectionResizes">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderMinimumSectionSize">
+               <number>30</number>
+              </attribute>
+              <attribute name="verticalHeaderDefaultSectionSize">
+               <number>30</number>
+              </attribute>
+              <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderStretchLastSection">
+               <bool>false</bool>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Код направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Названия направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Уровень обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Форма обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Дата записи</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Курс</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего зачислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего отчислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено платное)</string>
+               </property>
+              </column>
+             </widget>
+            </item>
             <item row="0" column="0">
-             <layout class="QGridLayout" name="gridLayout_2">
-              <item row="1" column="2">
-               <widget class="QComboBox" name="comboBox_3">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255, 255);</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Все</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="grid_layout_b">
               <item row="0" column="0">
-               <widget class="QLabel" name="label">
+               <widget class="QLabel" name="foe_label_b">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -88,84 +321,8 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="2">
-               <widget class="QLabel" name="label_3">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::NoFocus</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255, 255);</string>
-                </property>
-                <property name="text">
-                 <string>Год</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="comboBox_2">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255, 255);</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Все</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QLabel" name="label_4">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::NoFocus</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255, 255);</string>
-                </property>
-                <property name="text">
-                 <string>Месяц</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QComboBox" name="comboBox_4">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(255, 255, 255);</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Все</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
               <item row="1" column="0">
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QComboBox" name="foe_combo_box_b">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -177,12 +334,33 @@
                 <item>
                  <property name="text">
                   <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очно-заочная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Заочная</string>
                  </property>
                 </item>
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLabel" name="label_2">
+               <widget class="QLabel" name="direction_label_b">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -202,47 +380,352 @@
                 </property>
                </widget>
               </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="year_combo_box_b">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="year_label_b">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="text">
+                 <string>Год</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QComboBox" name="month_combo_box_b">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="direction_combo_box_b">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="month_label_b">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Месяц</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="master_course">
+           <attribute name="title">
+            <string>Магистратура</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="grid_layout_m">
+              <item row="0" column="0">
+               <widget class="QLabel" name="foe_label_m">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Форма обучения</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="foe_combo_box_m">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очно-заочная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Заочная</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="direction_label_m">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Направление</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="year_combo_box_m">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="year_label_m">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="text">
+                 <string>Год</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QComboBox" name="month_combo_box_m">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="direction_combo_box_m">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="month_label_m">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Месяц</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
              </layout>
             </item>
             <item row="1" column="0">
-             <widget class="QTableWidget" name="tableWidget">
-              <property name="maximumSize">
-               <size>
-                <width>740</width>
-                <height>391</height>
-               </size>
+             <widget class="QTableWidget" name="table_widget_m">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(255, 255, 255);</string>
               </property>
-              <property name="defaultDropAction">
-               <enum>Qt::IgnoreAction</enum>
-              </property>
-              <property name="selectionMode">
-               <enum>QAbstractItemView::ExtendedSelection</enum>
-              </property>
-              <property name="gridStyle">
-               <enum>Qt::SolidLine</enum>
-              </property>
-              <property name="sortingEnabled">
-               <bool>true</bool>
-              </property>
               <property name="rowCount">
-               <number>2</number>
+               <number>0</number>
               </property>
               <property name="columnCount">
-               <number>8</number>
+               <number>30</number>
               </property>
-              <row>
+              <column>
                <property name="text">
-                <string>Направление 1</string>
+                <string>Код направления подготовки</string>
                </property>
-              </row>
-              <row>
+              </column>
+              <column>
                <property name="text">
-                <string>Направление 2</string>
+                <string>Названия направления подготовки</string>
                </property>
-              </row>
+              </column>
+              <column>
+               <property name="text">
+                <string>Уровень обучения</string>
+               </property>
+              </column>
               <column>
                <property name="text">
                 <string>Форма обучения</string>
@@ -250,62 +733,1233 @@
               </column>
               <column>
                <property name="text">
-                <string>Отчислены</string>
+                <string>Дата записи</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string>Ушли в академ</string>
+                <string>Курс</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string>Вернулись из академа</string>
+                <string>Всего зачислено</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string>Всего зачислены</string>
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string>Из других ОО</string>
+                <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string>Восстановлено</string>
+                <string>Из них иностранные граждане (всего зачислено)</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string>Другие причины</string>
+                <string>Всего отчислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено платное)</string>
                </property>
               </column>
              </widget>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_2">
-           <attribute name="title">
-            <string>Магистратура</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_3">
+          <widget class="QWidget" name="specialist_degree">
            <attribute name="title">
             <string>Специалитет</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="grid_layout_s">
+              <item row="0" column="0">
+               <widget class="QLabel" name="for_label_s">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Форма обучения</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="foe_combo_box_s">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очно-заочная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Заочная</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="direction_label_s">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Направление</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="year_combo_box_s">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="year_label_s">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="text">
+                 <string>Год</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QComboBox" name="month_combo_box_s">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="direction_combo_box_s">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="month_label_s">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Месяц</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="tableWidget_3">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);</string>
+              </property>
+              <column>
+               <property name="text">
+                <string>Код направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Названия направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Уровень обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Форма обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Дата записи</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Курс</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего зачислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего зачислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего отчислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено платное)</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
           </widget>
-          <widget class="QWidget" name="tab_4">
+          <widget class="QWidget" name="CSET">
            <attribute name="title">
             <string>ККМТ</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_10">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="grid_layout_CSET">
+              <item row="0" column="0">
+               <widget class="QLabel" name="foe_label_CSET">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Форма обучения</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="foe_combo_box_CSET">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очно-заочная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Заочная</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="direction_label_CSET">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Направление</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="year_combo_box_CSET">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="year_label_CSET">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="text">
+                 <string>Год</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QComboBox" name="month_combo_box_CSET">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="direction_combo_box_CSET">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="month_label_CSET">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Месяц</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="table_widget_CSET">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);</string>
+              </property>
+              <column>
+               <property name="text">
+                <string>Код направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Названия направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Уровень обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Форма обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Дата записи</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Курс</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего зачислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего отчислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено платное)</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
           </widget>
-          <widget class="QWidget" name="tab_5">
+          <widget class="QWidget" name="TSTD">
            <attribute name="title">
             <string>ТТД</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="0" column="0">
+             <layout class="QGridLayout" name="grid_layout_TSTD">
+              <item row="0" column="0">
+               <widget class="QLabel" name="foe_label_TSTD">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Форма обучения</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="foe_combo_box_TSTD">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Очно-заочная</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Заочная</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="direction_label_TSTD">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Направление</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="year_combo_box_TSTD">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="year_label_TSTD">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="text">
+                 <string>Год</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QComboBox" name="month_combo_box_TSTD">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="direction_combo_box_TSTD">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Все</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="month_label_TSTD">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="text">
+                 <string>Месяц</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QTableWidget" name="table_widget_TSTD">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);</string>
+              </property>
+              <column>
+               <property name="text">
+                <string>Код направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Названия направления подготовки</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Уровень обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Форма обучения</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Дата записи</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Курс</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего зачислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего зачислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Всего отчислено</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (всего отчислено)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Зачислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (зачислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено за счет бюджетных ассигнований бюджета субъекта РФ</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено бюджет)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Отчислено по договорам об оказании платных образовательных услуг</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них на места в рамках квоты целевого приема (отчислено платное)</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Из них иностранные граждане (отчислено платное)</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -321,7 +1975,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1019</width>
      <height>26</height>
     </rect>
    </property>
