@@ -1,12 +1,6 @@
 import sys
+from ui_control import UiControl
 from PyQt5 import QtWidgets
-import ui
-import db_control
-
-
-class UiControl(ui.UiWindow, db_control.DbControl):
-    def __init__(self, _window):
-        super(UiControl, self).__init__(window=_window)
 
 
 if __name__ == "__main__":

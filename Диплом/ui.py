@@ -3,6 +3,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class UiWindow:
     def __init__(self, window):
+        """Конструктор класса UiWindow"""
         super(UiWindow, self).__init__()
         window.setObjectName("MainWindow")
         window.resize(1019, 592)
@@ -363,16 +364,16 @@ class UiWindow:
         self.gridLayout_8.setObjectName("gridLayout_8")
         self.grid_layout_s = QtWidgets.QGridLayout()
         self.grid_layout_s.setObjectName("grid_layout_s")
-        self.for_label_s = QtWidgets.QLabel(self.specialist_degree)
-        self.for_label_s.setMaximumSize(QtCore.QSize(16777215, 28))
+        self.foe_label_s = QtWidgets.QLabel(self.specialist_degree)
+        self.foe_label_s.setMaximumSize(QtCore.QSize(16777215, 28))
         font = QtGui.QFont()
         font.setPointSize(14)
-        self.for_label_s.setFont(font)
-        self.for_label_s.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.for_label_s.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.for_label_s.setAlignment(QtCore.Qt.AlignCenter)
-        self.for_label_s.setObjectName("for_label_s")
-        self.grid_layout_s.addWidget(self.for_label_s, 0, 0, 1, 1)
+        self.foe_label_s.setFont(font)
+        self.foe_label_s.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.foe_label_s.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.foe_label_s.setAlignment(QtCore.Qt.AlignCenter)
+        self.foe_label_s.setObjectName("for_label_s")
+        self.grid_layout_s.addWidget(self.foe_label_s, 0, 0, 1, 1)
         self.foe_combo_box_s = QtWidgets.QComboBox(self.specialist_degree)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -835,6 +836,7 @@ class UiWindow:
         QtCore.QMetaObject.connectSlotsByName(window)
 
     def retranslate_ui(self, window):
+        """Установка всех названий"""
         _translate = QtCore.QCoreApplication.translate
         window.setWindowTitle(_translate("MainWindow", "StudInStudOut"))
         self.table_widget_b.setSortingEnabled(True)
@@ -982,7 +984,7 @@ class UiWindow:
         item = self.table_widget_m.horizontalHeaderItem(29)
         item.setText(_translate("MainWindow", "Из них иностранные граждане (отчислено платное)"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.master_course), _translate("MainWindow", "Магистратура"))
-        self.for_label_s.setText(_translate("MainWindow", "Форма обучения"))
+        self.foe_label_s.setText(_translate("MainWindow", "Форма обучения"))
         self.foe_combo_box_s.setItemText(0, _translate("MainWindow", "Все"))
         self.foe_combo_box_s.setItemText(1, _translate("MainWindow", "Очная"))
         self.foe_combo_box_s.setItemText(2, _translate("MainWindow", "Очно-заочная"))
