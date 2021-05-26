@@ -892,7 +892,7 @@ class UiWindow(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.table_widget_last_month = QtWidgets.QTableWidget(self.page_2)
         font = QtGui.QFont()
-        font.setPointSize(9)
+        font.setPointSize(14)
         self.table_widget_last_month.setFont(font)
         self.table_widget_last_month.setObjectName("table_widget_last_month")
         self.table_widget_last_month.setColumnCount(14)

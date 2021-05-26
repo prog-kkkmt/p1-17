@@ -54,35 +54,51 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                   "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)",
                                   "Из них на места в рамках квоты целевого приема (всего отчислено)",
                                   "Из них иностранные граждане (всего отчислено)"]
-        # Создание триггеров
+        # Создание общих триггеров
         self.tabWidget.currentChanged.connect(self.load_table)
+        self.back_button.clicked.connect(self.open_page_1)
         # Триггеры для бакалавриата
         self.foe_combo_box_b.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_b.currentIndexChanged.connect(self.load_table)
         self.year_combo_box_b.currentIndexChanged.connect(self.load_table)
         self.month_combo_box_b.currentIndexChanged.connect(self.load_table)
+        self.table_widget_b.doubleClicked.connect(self.open_page_2)
         # Триггеры для магистратуры
         self.foe_combo_box_m.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_m.currentIndexChanged.connect(self.load_table)
         self.year_combo_box_m.currentIndexChanged.connect(self.load_table)
         self.month_combo_box_m.currentIndexChanged.connect(self.load_table)
+        self.table_widget_m.doubleClicked.connect(self.open_page_2)
         # Триггеры для специалитета
         self.foe_combo_box_s.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_s.currentIndexChanged.connect(self.load_table)
         self.year_combo_box_s.currentIndexChanged.connect(self.load_table)
         self.month_combo_box_s.currentIndexChanged.connect(self.load_table)
+        self.table_widget_s.doubleClicked.connect(self.open_page_2)
         # Триггеры для ККМТ
         self.foe_combo_box_CSET.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_CSET.currentIndexChanged.connect(self.load_table)
         self.year_combo_box_CSET.currentIndexChanged.connect(self.load_table)
         self.month_combo_box_CSET.currentIndexChanged.connect(self.load_table)
+        self.table_widget_CSET.doubleClicked.connect(self.open_page_2)
         # Триггеры для ТТД
         self.foe_combo_box_TSTD.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_TSTD.currentIndexChanged.connect(self.load_table)
         self.year_combo_box_TSTD.currentIndexChanged.connect(self.load_table)
         self.month_combo_box_TSTD.currentIndexChanged.connect(self.load_table)
+        self.table_widget_TSTD.doubleClicked.connect(self.open_page_2)
         # Предварительные настройки
         self.load_table()
+        self.direction_combo_box_b.addItems(self.get_directions("Бакалавриат"))
+        self.direction_combo_box_m.addItems(self.get_directions("Магистратура"))
+        self.direction_combo_box_s.addItems(self.get_directions("Специалитет"))
+        self.direction_combo_box_CSET.addItems(self.get_directions("ККМТ"))
+        self.direction_combo_box_TSTD.addItems(self.get_directions("ТТД"))
+        self.year_combo_box_b.addItems(self.get_years("Бакалавриат"))
+        self.year_combo_box_m.addItems(self.get_years("Магистратура"))
+        self.year_combo_box_s.addItems(self.get_years("Специалитет"))
+        self.year_combo_box_CSET.addItems(self.get_years("ККМТ"))
+        self.year_combo_box_TSTD.addItems(self.get_years("ТТД"))
 
     def set_menu_and_tool_bars(self):
         """Добавление действий в меню и панель инструментов, а также установка триггеров для них"""
@@ -104,7 +120,6 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                  str(self.month_combo_box_b.currentIndex()))
             self.table_widget_b.setSortingEnabled(False)
             self.table_widget_b.setRowCount(0)
-            self.table_widget_b.clear()
             self.table_widget_b.setHorizontalHeaderLabels(self.stud_table_header)
             self.table_widget_b.horizontalHeader().setSectionResizeMode(PyQt5.Qt.QHeaderView.ResizeToContents)
             self.table_widget_b.horizontalHeader().setMinimumSectionSize(0)
@@ -188,3 +203,380 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                         item.setTextAlignment(QtCore.Qt.AlignCenter)
                         self.table_widget_TSTD.setItem(row, col, item)
             self.table_widget_TSTD.setSortingEnabled(True)
+
+    def data_analysis(self):
+        """Анализирует информацию о движении контингента"""
+        if self.tabWidget.currentIndex() == 0:
+            for idx in self.table_widget_b.selectionModel().selectedIndexes():
+                row_index = idx.row()
+                # Анализ за прошлый месяц
+                data_old = self.get_data_old_month(row_index)
+                data_new = self.get_data_new(row_index)
+                self.table_widget_last_month.setSortingEnabled(False)
+                self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_month.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_month.setRowCount(len(data_new))
+                self.set_style_last_month(data_new, data_old)
+                # Анализ за прошлый год
+                data_old = self.get_data_old_year(row_index)
+                self.table_widget_last_year.setSortingEnabled(False)
+                self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_year.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_year.setRowCount(len(data_new))
+                self.set_style_last_year(data_new, data_old)
+        elif self.tabWidget.currentIndex() == 1:
+            for idx in self.table_widget_m.selectionModel().selectedIndexes():
+                row_index = idx.row()
+                # Анализ за прошлый месяц
+                data_old = self.get_data_old_month(row_index)
+                data_new = self.get_data_new(row_index)
+                self.table_widget_last_month.setSortingEnabled(False)
+                self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_month.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_month.setRowCount(len(data_new))
+                self.set_style_last_month(data_new, data_old)
+                # Анализ за прошлый год
+                data_old = self.get_data_old_year(row_index)
+                self.table_widget_last_year.setSortingEnabled(False)
+                self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_year.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_year.setRowCount(len(data_new))
+                self.set_style_last_year(data_new, data_old)
+        elif self.tabWidget.currentIndex() == 2:
+            for idx in self.table_widget_s.selectionModel().selectedIndexes():
+                row_index = idx.row()
+                # Анализ за прошлый месяц
+                data_old = self.get_data_old_month(row_index)
+                data_new = self.get_data_new(row_index)
+                self.table_widget_last_month.setSortingEnabled(False)
+                self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_month.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_month.setRowCount(len(data_new))
+                self.set_style_last_month(data_new, data_old)
+                # Анализ за прошлый год
+                data_old = self.get_data_old_year(row_index)
+                self.table_widget_last_year.setSortingEnabled(False)
+                self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_year.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_year.setRowCount(len(data_new))
+                self.set_style_last_year(data_new, data_old)
+        elif self.tabWidget.currentIndex() == 3:
+            for idx in self.table_widget_CSET.selectionModel().selectedIndexes():
+                row_index = idx.row()
+                # Анализ за прошлый месяц
+                data_old = self.get_data_old_month(row_index)
+                data_new = self.get_data_new(row_index)
+                self.table_widget_last_month.setSortingEnabled(False)
+                self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_month.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_month.setRowCount(len(data_new))
+                self.set_style_last_month(data_new, data_old)
+                # Анализ за прошлый год
+                data_old = self.get_data_old_year(row_index)
+                self.table_widget_last_year.setSortingEnabled(False)
+                self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_year.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_year.setRowCount(len(data_new))
+                self.set_style_last_year(data_new, data_old)
+        else:
+            for idx in self.table_widget_TSTD.selectionModel().selectedIndexes():
+                row_index = idx.row()
+                # Анализ за прошлый месяц
+                data_old = self.get_data_old_month(row_index)
+                data_new = self.get_data_new(row_index)
+                self.table_widget_last_month.setSortingEnabled(False)
+                self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_month.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_month.setRowCount(len(data_new))
+                self.set_style_last_month(data_new, data_old)
+                # Анализ за прошлый год
+                data_old = self.get_data_old_year(row_index)
+                self.table_widget_last_year.setSortingEnabled(False)
+                self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
+                self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
+                    PyQt5.Qt.QHeaderView.ResizeToContents)
+                self.table_widget_last_year.horizontalHeader().setMinimumSectionSize(0)
+                self.table_widget_last_year.setRowCount(len(data_new))
+                self.set_style_last_year(data_new, data_old)
+
+    def set_style_last_month(self, data_new, data_old):
+        """Установка стиля для таблицы с анализом за предыдущий месяц"""
+        if data_old:
+            for row in range(len(data_new)):
+                for col in range(0, 6):
+                    item = QtWidgets.QTableWidgetItem(str(data_new[row][col]))
+                    item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_month.setItem(row, col, item)
+                for col in range(6, 10):
+                    if data_new[row][col] - data_old[row][col] < 0:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - data_old[row][col] > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_month.setItem(row, col, item)
+                for col in range(10, 14):
+                    if data_new[row][col] - data_old[row][col] > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - data_old[row][col] < 0:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_month.setItem(row, col, item)
+        else:
+            for row in range(len(data_new)):
+                for col in range(0, 6):
+                    item = QtWidgets.QTableWidgetItem(str(data_new[row][col]))
+                    item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_month.setItem(row, col, item)
+                for col in range(6, 10):
+                    if data_new[row][col] - 0 < 0:
+                        item = QtWidgets.QTableWidgetItem("-" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - 0 > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_month.setItem(row, col, item)
+                for col in range(10, 14):
+                    if data_new[row][col] - 0 > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - 0 < 0:
+                        item = QtWidgets.QTableWidgetItem("-" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_month.setItem(row, col, item)
+
+    def set_style_last_year(self, data_new, data_old):
+        """Установка стиля для таблицы с анализом за предыдущий год"""
+        if data_old:
+            for row in range(len(data_new)):
+                for col in range(0, 6):
+                    item = QtWidgets.QTableWidgetItem(str(data_new[row][col]))
+                    item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_year.setItem(row, col, item)
+                for col in range(6, 10):
+                    if data_new[row][col] - data_old[row][col] < 0:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - data_old[row][col] > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_year.setItem(row, col, item)
+                for col in range(10, 14):
+                    if data_new[row][col] - data_old[row][col] > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - data_old[row][col] < 0:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - data_old[row][col]))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_year.setItem(row, col, item)
+        else:
+            for row in range(len(data_new)):
+                for col in range(0, 6):
+                    item = QtWidgets.QTableWidgetItem(str(data_new[row][col]))
+                    item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_year.setItem(row, col, item)
+                for col in range(6, 10):
+                    if data_new[row][col] - 0 < 0:
+                        item = QtWidgets.QTableWidgetItem("-" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - 0 > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_year.setItem(row, col, item)
+                for col in range(10, 14):
+                    if data_new[row][col] - 0 > 0:
+                        item = QtWidgets.QTableWidgetItem("+" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(255, 0, 0))
+                    elif data_new[row][col] - 0 < 0:
+                        item = QtWidgets.QTableWidgetItem("-" + str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                        item.setForeground(QtGui.QColor(0, 128, 0))
+                    else:
+                        item = QtWidgets.QTableWidgetItem(str(data_new[row][col] - 0))
+                        item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.table_widget_last_year.setItem(row, col, item)
+
+    def get_data_old_month(self, row_index):
+        """Возвращает данные за предыдущий месяц"""
+        if self.tabWidget.currentIndex() == 0:
+            data_old = self.get_data_for_analysis(self.table_widget_b.item(row_index, 2).text(),
+                                                  self.table_widget_b.item(row_index, 3).text(),
+                                                  self.table_widget_b.item(row_index, 1).text(),
+                                                  self.table_widget_b.item(row_index, 4).text().split('-')[0],
+                                                  str(int(self.table_widget_b.item(row_index, 4).text().
+                                                          split('-')[1]) - 1))
+        elif self.tabWidget.currentIndex() == 1:
+            data_old = self.get_data_for_analysis(self.table_widget_m.item(row_index, 2).text(),
+                                                  self.table_widget_m.item(row_index, 3).text(),
+                                                  self.table_widget_m.item(row_index, 1).text(),
+                                                  self.table_widget_m.item(row_index, 4).text().split('-')[0],
+                                                  str(int(self.table_widget_m.item(row_index, 4).text().
+                                                          split('-')[1]) - 1))
+        elif self.tabWidget.currentIndex() == 2:
+            data_old = self.get_data_for_analysis(self.table_widget_s.item(row_index, 2).text(),
+                                                  self.table_widget_s.item(row_index, 3).text(),
+                                                  self.table_widget_s.item(row_index, 1).text(),
+                                                  self.table_widget_s.item(row_index, 4).text().split('-')[0],
+                                                  str(int(self.table_widget_s.item(row_index, 4).text().
+                                                          split('-')[1]) - 1))
+        elif self.tabWidget.currentIndex() == 3:
+            data_old = self.get_data_for_analysis(self.table_widget_CSET.item(row_index, 2).text(),
+                                                  self.table_widget_CSET.item(row_index, 3).text(),
+                                                  self.table_widget_CSET.item(row_index, 1).text(),
+                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[0],
+                                                  str(int(self.table_widget_CSET.item(row_index, 4).text().
+                                                          split('-')[1]) - 1))
+        else:
+            data_old = self.get_data_for_analysis(self.table_widget_TSTD.item(row_index, 2).text(),
+                                                  self.table_widget_TSTD.item(row_index, 3).text(),
+                                                  self.table_widget_TSTD.item(row_index, 1).text(),
+                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[0],
+                                                  str(int(self.table_widget_TSTD.item(row_index, 4).text().
+                                                          split('-')[1]) - 1))
+        return data_old
+
+    def get_data_old_year(self, row_index):
+        if self.tabWidget.currentIndex() == 0:
+            data_old = self.get_data_for_analysis(self.table_widget_b.item(row_index, 2).text(),
+                                                  self.table_widget_b.item(row_index, 3).text(),
+                                                  self.table_widget_b.item(row_index, 1).text(),
+                                                  str(int(self.table_widget_b.item(row_index, 4).text().
+                                                          split('-')[0]) - 1),
+                                                  self.table_widget_b.item(row_index, 4).text().split('-')[1])
+        elif self.tabWidget.currentIndex() == 1:
+            data_old = self.get_data_for_analysis(self.table_widget_m.item(row_index, 2).text(),
+                                                  self.table_widget_m.item(row_index, 3).text(),
+                                                  self.table_widget_m.item(row_index, 1).text(),
+                                                  str(int(self.table_widget_m.item(row_index, 4).text().
+                                                          split('-')[0]) - 1),
+                                                  self.table_widget_m.item(row_index, 4).text().split('-')[1])
+        elif self.tabWidget.currentIndex() == 2:
+            data_old = self.get_data_for_analysis(self.table_widget_s.item(row_index, 2).text(),
+                                                  self.table_widget_s.item(row_index, 3).text(),
+                                                  self.table_widget_s.item(row_index, 1).text(),
+                                                  str(int(self.table_widget_s.item(row_index, 4).text().
+                                                          split('-')[0]) - 1),
+                                                  self.table_widget_s.item(row_index, 4).text().split('-')[1])
+        elif self.tabWidget.currentIndex() == 3:
+            data_old = self.get_data_for_analysis(self.table_widget_CSET.item(row_index, 2).text(),
+                                                  self.table_widget_CSET.item(row_index, 3).text(),
+                                                  self.table_widget_CSET.item(row_index, 1).text(),
+                                                  str(int(self.table_widget_CSET.item(row_index, 4).text().
+                                                          split('-')[0]) - 1),
+                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[1])
+        else:
+            data_old = self.get_data_for_analysis(self.table_widget_TSTD.item(row_index, 2).text(),
+                                                  self.table_widget_TSTD.item(row_index, 3).text(),
+                                                  self.table_widget_TSTD.item(row_index, 1).text(),
+                                                  str(int(self.table_widget_TSTD.item(row_index, 4).text().
+                                                          split('-')[0]) - 1),
+                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
+        return data_old
+
+    def get_data_new(self, row_index):
+        """Возварщает данные за выбранный период"""
+        if self.tabWidget.currentIndex() == 0:
+            data_new = self.get_data_for_analysis(self.table_widget_b.item(row_index, 2).text(),
+                                                  self.table_widget_b.item(row_index, 3).text(),
+                                                  self.table_widget_b.item(row_index, 1).text(),
+                                                  self.table_widget_b.item(row_index, 4).text().split('-')[0],
+                                                  self.table_widget_b.item(row_index, 4).text().split('-')[1])
+        elif self.tabWidget.currentIndex() == 1:
+            data_new = self.get_data_for_analysis(self.table_widget_m.item(row_index, 2).text(),
+                                                  self.table_widget_m.item(row_index, 3).text(),
+                                                  self.table_widget_m.item(row_index, 1).text(),
+                                                  self.table_widget_m.item(row_index, 4).text().split('-')[0],
+                                                  self.table_widget_m.item(row_index, 4).text().split('-')[1])
+        elif self.tabWidget.currentIndex() == 2:
+            data_new = self.get_data_for_analysis(self.table_widget_s.item(row_index, 2).text(),
+                                                  self.table_widget_s.item(row_index, 3).text(),
+                                                  self.table_widget_s.item(row_index, 1).text(),
+                                                  self.table_widget_s.item(row_index, 4).text().split('-')[0],
+                                                  self.table_widget_s.item(row_index, 4).text().split('-')[1])
+        elif self.tabWidget.currentIndex() == 3:
+            data_new = self.get_data_for_analysis(self.table_widget_CSET.item(row_index, 2).text(),
+                                                  self.table_widget_CSET.item(row_index, 3).text(),
+                                                  self.table_widget_CSET.item(row_index, 1).text(),
+                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[0],
+                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[1])
+        else:
+            data_new = self.get_data_for_analysis(self.table_widget_TSTD.item(row_index, 2).text(),
+                                                  self.table_widget_TSTD.item(row_index, 3).text(),
+                                                  self.table_widget_TSTD.item(row_index, 1).text(),
+                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[0],
+                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
+        return data_new
+
+    def open_page_2(self):
+        """Открывает 2 лист программы"""
+        self.stackedWidget.setCurrentIndex(1)
+        self.data_analysis()
+
+    def open_page_1(self):
+        """Открывает 1 лист программы"""
+        self.stackedWidget.setCurrentIndex(0)

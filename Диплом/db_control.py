@@ -43,8 +43,25 @@ class DbControl:
 
     def get_directions(self, loe):
         """Получение всех направлений подготовки определенного уровня обучения"""
-        pass
+        self.cursor.execute("EXEC [Получение направлений] @loe_name = ?", loe)
+        data = self.cursor.fetchall()
+        data = list(map("".join, list(map(list, data))))
+        return data
 
     def get_years(self, loe):
         """Получение списка лет за которые хранятся данные определенного уровня обучения"""
-        pass
+        self.cursor.execute("EXEC [Получение лет] @loe_name = ?", loe)
+        data = self.cursor.fetchall()
+        info = list()
+        for i in data:
+            info.append(str(*i))
+        return info
+
+    def get_data_for_analysis(self, loe, foe, direction, year, month):
+        """Получение данных для анализа"""
+        if len(month) < 2:
+            month = "0" + month
+        self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
+                            "@month = ?", loe, foe, direction, year, month)
+        data = self.cursor.fetchall()
+        return data
