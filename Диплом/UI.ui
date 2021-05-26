@@ -35,6 +35,9 @@
       <property name="styleSheet">
        <string notr="true"/>
       </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
@@ -442,6 +445,66 @@
                   <string>Все</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>Январь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Февраль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Март</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Апрель</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Май</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июнь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Август</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Сентябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Октябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ноябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Декабрь</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="1" column="1">
@@ -645,6 +708,66 @@
                 <item>
                  <property name="text">
                   <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Январь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Февраль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Март</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Апрель</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Май</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июнь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Август</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Сентябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Октябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ноябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Декабрь</string>
                  </property>
                 </item>
                </widget>
@@ -873,7 +996,7 @@
             <item row="0" column="0">
              <layout class="QGridLayout" name="grid_layout_s">
               <item row="0" column="0">
-               <widget class="QLabel" name="for_label_s">
+               <widget class="QLabel" name="foe_label_s">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -1020,6 +1143,66 @@
                   <string>Все</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>Январь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Февраль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Март</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Апрель</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Май</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июнь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Август</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Сентябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Октябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ноябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Декабрь</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="1" column="1">
@@ -1069,7 +1252,7 @@
              </layout>
             </item>
             <item row="1" column="0">
-             <widget class="QTableWidget" name="tableWidget_3">
+             <widget class="QTableWidget" name="table_widget_s">
               <property name="font">
                <font>
                 <pointsize>14</pointsize>
@@ -1385,6 +1568,66 @@
                 <item>
                  <property name="text">
                   <string>Все</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Январь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Февраль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Март</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Апрель</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Май</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июнь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Август</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Сентябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Октябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ноябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Декабрь</string>
                  </property>
                 </item>
                </widget>
@@ -1754,6 +1997,66 @@
                   <string>Все</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>Январь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Февраль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Март</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Апрель</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Май</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июнь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Июль</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Август</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Сентябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Октябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ноябрь</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Декабрь</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="1" column="1">
@@ -1965,7 +2268,184 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="1" column="1">
+         <widget class="QTableWidget" name="table_widget_last_month">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <column>
+           <property name="text">
+            <string>Код направления подготовки</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Названия направления подготовки</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Уровень обучения</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Форма обучения</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Дата записи</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Курс</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Всего зачислено</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них иностранные граждане (всего зачислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Всего отчислено</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них иностранные граждане (всего отчислено)</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QTableWidget" name="table_widget_last_year">
+          <column>
+           <property name="text">
+            <string>Код направления подготовки</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Названия направления подготовки</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Уровень обучения</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Форма обучения</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Дата записи</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Курс</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Всего зачислено</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них на места в рамках квоты целевого приема (всего зачислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них иностранные граждане (всего зачислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Всего отчислено</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них на места в рамках квоты целевого приема (всего отчислено)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Из них иностранные граждане (всего отчислено)</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="back_button">
+          <property name="text">
+           <string>Назад</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="last_month_label">
+          <property name="text">
+           <string>По сравнению с предыдущим месяцем:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="last_year_label">
+          <property name="text">
+           <string>По сравнению с этим месяцем прошлого года:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>

@@ -34,6 +34,6 @@ class ExcelControl(db_control.DbControl):
                         pars = data.iloc[[2], [k]]
                         statistic.append(*pars[pars.columns.tolist()[0]].tolist())
                     if info[0] == info[0]:  # Добавление существующих данных в БД
-                        self.insert_data(course, info, statistic[4:12] + statistic[16:24])
+                        self.insert_data(course + 1, info, statistic[4:12] + statistic[16:24])
                     left_side += 24
                     ride_side += 24

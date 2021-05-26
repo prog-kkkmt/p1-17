@@ -28,10 +28,23 @@ class DbControl:
                             statistic[11], statistic[12], statistic[13], statistic[14], statistic[15])
         self.cursor.commit()
 
-    def get_data(self, foe, direction, year, month):
+    def get_data(self, loe, foe, direction, year, month):
         """Получение данных из БД по выбранным параметрам"""
+        if month == "0":
+            self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?"
+                                , loe, foe, direction, year)
+        else:
+            if len(month) < 2:
+                month = "0" + month
+            self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
+                                "@month = ?", loe, foe, direction, year, month)
+        data = self.cursor.fetchall()
+        return data
+
+    def get_directions(self, loe):
+        """Получение всех направлений подготовки определенного уровня обучения"""
         pass
 
-    def create_condition(self):
-        """Создание условия для выборки из БД"""
+    def get_years(self, loe):
+        """Получение списка лет за которые хранятся данные определенного уровня обучения"""
         pass
