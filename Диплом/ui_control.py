@@ -1,25 +1,43 @@
 import PyQt5.Qt
 
-import ui
+import main_ui
 import excel_control
 from PyQt5 import QtWidgets, QtGui, QtCore
 
 
-class UiControl(ui.UiWindow, excel_control.ExcelControl):
+class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
     def __init__(self, _window):
         """Конструктор класса UiControl"""
         super(UiControl, self).__init__(window=_window)
         # Создание меню бара и установка иконок
-        self.data_menu = self.menubar.addMenu("&Data")
-        self.analysis = self.menubar.addMenu("&Analysis")
+        self.data_menu = self.menubar.addMenu("&Данные")
+        self.report = self.menubar.addMenu("&Отчет")
+        self.settings = self.menubar.addMenu("&Настройки")
         icon_file_bar = QtGui.QIcon()
         icon_file_bar.addPixmap(QtGui.QPixmap("Изображения/free-icon-attached-file-4481159.png"), QtGui.QIcon.Normal,
                                 QtGui.QIcon.Off)
-        icon_analysis_bar = QtGui.QIcon()
-        icon_analysis_bar.addPixmap(QtGui.QPixmap("Изображения/free-icon-statistics-4624025.png"), QtGui.QIcon.Normal,
-                                    QtGui.QIcon.Off)
-        self.open_file_action = QtWidgets.QAction(icon_file_bar, "&Load data")
-        self.analysis_action = QtWidgets.QAction(icon_analysis_bar, "&Start analysis")
+        icon_all_export = QtGui.QIcon()
+        icon_all_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-export-2878843"), QtGui.QIcon.Normal,
+                                  QtGui.QIcon.Off)
+        icon_disabled_export = QtGui.QIcon()
+        icon_disabled_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-disabled-person-2707234"),
+                                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon_target_export = QtGui.QIcon()
+        icon_target_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-target-audience-2282175"), QtGui.QIcon.Normal,
+                                     QtGui.QIcon.Off)
+        icon_foreigners_export = QtGui.QIcon()
+        icon_foreigners_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-tourist-925642"), QtGui.QIcon.Normal,
+                                         QtGui.QIcon.Off)
+        icon_settings = QtGui.QIcon()
+        icon_settings.addPixmap(QtGui.QPixmap("Изображения/free-icon-font-size-1634828"), QtGui.QIcon.Normal,
+                                QtGui.QIcon.Off)
+        self.open_file_action = QtWidgets.QAction(icon_file_bar, "&Загрузить данные")
+        self.customizable_report_action = QtWidgets.QAction("&Настраиваемый отчет")
+        self.settings_action = QtWidgets.QAction(icon_settings, "&Шрифт")
+        self.report_all_action = QtWidgets.QAction(icon_all_export, "&Всего")
+        self.report_disabled_action = QtWidgets.QAction(icon_disabled_export, "&Лица с ОВЗ, инвалиды, дети-инвалиды")
+        self.report_target_action = QtWidgets.QAction(icon_target_export, "&Места в рамках квоты целевого приема")
+        self.report_foreigners_action = QtWidgets.QAction(icon_foreigners_export, "&Иностранные граждане")
         self.set_menu_and_tool_bars()
         # Форматирование таблиц
         self.stud_table_header = ["Код направления подготовки", "Названия направления подготовки", "Уровень обучения",
@@ -57,6 +75,11 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
         # Создание общих триггеров
         self.tabWidget.currentChanged.connect(self.load_table)
         self.back_button.clicked.connect(self.open_page_1)
+        self.open_file_action.triggered.connect(self.update_table)
+        self.report_all_action.triggered.connect(self.export_all)
+        self.report_disabled_action.triggered.connect(self.export_disabled)
+        self.report_target_action.triggered.connect(self.export_target)
+        self.report_foreigners_action.triggered.connect(self.export_foreigners)
         # Триггеры для бакалавриата
         self.foe_combo_box_b.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_b.currentIndexChanged.connect(self.load_table)
@@ -103,10 +126,22 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
     def set_menu_and_tool_bars(self):
         """Добавление действий в меню и панель инструментов, а также установка триггеров для них"""
         self.data_menu.addAction(self.open_file_action)
-        self.analysis.addAction(self.analysis_action)
+        report = self.report.addMenu("&Встроенный отчет")
+        self.report.addAction(self.customizable_report_action)
+        report.addAction(self.report_all_action)
+        report.addAction(self.report_disabled_action)
+        report.addAction(self.report_target_action)
+        report.addAction(self.report_foreigners_action)
+        self.settings.addAction(self.settings_action)
         self.toolBar.addAction(self.open_file_action)
-        self.toolBar.addAction(self.analysis_action)
-        self.open_file_action.triggered.connect(self.get_excel_data)
+        self.toolBar.addSeparator()
+        self.toolBar.addAction(self.report_all_action)
+        self.toolBar.addAction(self.report_disabled_action)
+        self.toolBar.addAction(self.report_target_action)
+        self.toolBar.addAction(self.report_foreigners_action)
+        self.toolBar.addSeparator()
+        self.toolBar.addAction(self.settings_action)
+        self.toolBar.setMovable(False)
 
     def load_table(self):
         """Загрузка данных в таблицу"""
@@ -120,6 +155,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                  str(self.month_combo_box_b.currentIndex()))
             self.table_widget_b.setSortingEnabled(False)
             self.table_widget_b.setRowCount(0)
+            self.table_widget_b.setColumnCount(len(self.stud_table_header))
             self.table_widget_b.setHorizontalHeaderLabels(self.stud_table_header)
             self.table_widget_b.horizontalHeader().setSectionResizeMode(PyQt5.Qt.QHeaderView.ResizeToContents)
             self.table_widget_b.horizontalHeader().setMinimumSectionSize(0)
@@ -137,7 +173,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                  str(self.month_combo_box_m.currentIndex()))
             self.table_widget_m.setSortingEnabled(False)
             self.table_widget_m.setRowCount(0)
-            self.table_widget_m.clear()
+            self.table_widget_m.setColumnCount(len(self.stud_table_header))
             self.table_widget_m.setHorizontalHeaderLabels(self.stud_table_header)
             self.table_widget_m.horizontalHeader().setSectionResizeMode(PyQt5.Qt.QHeaderView.ResizeToContents)
             self.table_widget_m.horizontalHeader().setMinimumSectionSize(0)
@@ -155,7 +191,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                  str(self.month_combo_box_s.currentIndex()))
             self.table_widget_s.setSortingEnabled(False)
             self.table_widget_s.setRowCount(0)
-            self.table_widget_s.clear()
+            self.table_widget_s.setColumnCount(len(self.stud_table_header))
             self.table_widget_s.setHorizontalHeaderLabels(self.stud_table_header)
             self.table_widget_s.horizontalHeader().setSectionResizeMode(PyQt5.Qt.QHeaderView.ResizeToContents)
             self.table_widget_s.horizontalHeader().setMinimumSectionSize(0)
@@ -173,7 +209,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                  str(self.month_combo_box_CSET.currentIndex()))
             self.table_widget_CSET.setSortingEnabled(False)
             self.table_widget_CSET.setRowCount(0)
-            self.table_widget_CSET.clear()
+            self.table_widget_CSET.setColumnCount(len(self.stud_table_header))
             self.table_widget_CSET.setHorizontalHeaderLabels(self.stud_table_header)
             self.table_widget_CSET.horizontalHeader().setSectionResizeMode(PyQt5.Qt.QHeaderView.ResizeToContents)
             self.table_widget_CSET.horizontalHeader().setMinimumSectionSize(0)
@@ -191,7 +227,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                  str(self.month_combo_box_TSTD.currentIndex()))
             self.table_widget_TSTD.setSortingEnabled(False)
             self.table_widget_TSTD.setRowCount(0)
-            self.table_widget_TSTD.clear()
+            self.table_widget_TSTD.setColumnCount(len(self.stud_table_header))
             self.table_widget_TSTD.setHorizontalHeaderLabels(self.stud_table_header)
             self.table_widget_TSTD.horizontalHeader().setSectionResizeMode(PyQt5.Qt.QHeaderView.ResizeToContents)
             self.table_widget_TSTD.horizontalHeader().setMinimumSectionSize(0)
@@ -214,6 +250,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_new = self.get_data_new(row_index)
                 self.table_widget_last_month.setSortingEnabled(False)
                 self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -224,6 +261,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_old = self.get_data_old_year(row_index)
                 self.table_widget_last_year.setSortingEnabled(False)
                 self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -238,6 +276,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_new = self.get_data_new(row_index)
                 self.table_widget_last_month.setSortingEnabled(False)
                 self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -248,6 +287,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_old = self.get_data_old_year(row_index)
                 self.table_widget_last_year.setSortingEnabled(False)
                 self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -262,6 +302,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_new = self.get_data_new(row_index)
                 self.table_widget_last_month.setSortingEnabled(False)
                 self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -272,6 +313,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_old = self.get_data_old_year(row_index)
                 self.table_widget_last_year.setSortingEnabled(False)
                 self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -286,6 +328,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_new = self.get_data_new(row_index)
                 self.table_widget_last_month.setSortingEnabled(False)
                 self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -296,6 +339,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_old = self.get_data_old_year(row_index)
                 self.table_widget_last_year.setSortingEnabled(False)
                 self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -310,6 +354,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_new = self.get_data_new(row_index)
                 self.table_widget_last_month.setSortingEnabled(False)
                 self.table_widget_last_month.setRowCount(0)
+                self.table_widget_last_month.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_month.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_month.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -320,6 +365,7 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                 data_old = self.get_data_old_year(row_index)
                 self.table_widget_last_year.setSortingEnabled(False)
                 self.table_widget_last_year.setRowCount(0)
+                self.table_widget_last_year.setColumnCount(len(self.last_table_header))
                 self.table_widget_last_year.setHorizontalHeaderLabels(self.last_table_header)
                 self.table_widget_last_year.horizontalHeader().setSectionResizeMode(
                     PyQt5.Qt.QHeaderView.ResizeToContents)
@@ -572,11 +618,63 @@ class UiControl(ui.UiWindow, excel_control.ExcelControl):
                                                   self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
         return data_new
 
+    def open_page_1(self):
+        """Открывает 1 лист программы"""
+        self.stackedWidget.setCurrentIndex(0)
+
     def open_page_2(self):
         """Открывает 2 лист программы"""
         self.stackedWidget.setCurrentIndex(1)
         self.data_analysis()
 
-    def open_page_1(self):
-        """Открывает 1 лист программы"""
-        self.stackedWidget.setCurrentIndex(0)
+    def open_page_3(self):
+        """Открывает 3 лист программы"""
+        self.stackedWidget.setCurrentIndex(2)
+
+    def update_table(self):
+        """Добавляет информацию в БД и обновляет текущую таблицу"""
+        self.get_excel_data()
+        self.load_table()
+        self.update_interface()
+
+    def update_interface(self):
+        self.direction_combo_box_b.blockSignals(True)
+        self.direction_combo_box_b.clear()
+        self.direction_combo_box_b.addItems(["Все", *self.get_directions("Бакалавриат")])
+        self.direction_combo_box_b.blockSignals(False)
+        self.direction_combo_box_m.blockSignals(True)
+        self.direction_combo_box_m.clear()
+        self.direction_combo_box_m.addItems(["Все", *self.get_directions("Магистратура")])
+        self.direction_combo_box_m.blockSignals(False)
+        self.direction_combo_box_s.blockSignals(True)
+        self.direction_combo_box_s.clear()
+        self.direction_combo_box_s.addItems(["Все", *self.get_directions("Специалитет")])
+        self.direction_combo_box_s.blockSignals(False)
+        self.direction_combo_box_CSET.blockSignals(True)
+        self.direction_combo_box_CSET.clear()
+        self.direction_combo_box_CSET.addItems(["Все", *self.get_directions("ККМТ")])
+        self.direction_combo_box_CSET.blockSignals(False)
+        self.direction_combo_box_TSTD.blockSignals(True)
+        self.direction_combo_box_TSTD.clear()
+        self.direction_combo_box_TSTD.addItems(["Все", *self.get_directions("ТТД")])
+        self.direction_combo_box_TSTD.blockSignals(False)
+        self.year_combo_box_b.blockSignals(True)
+        self.year_combo_box_b.clear()
+        self.year_combo_box_b.addItems(["Все", *self.get_years("Бакалавриат")])
+        self.year_combo_box_b.blockSignals(False)
+        self.year_combo_box_m.blockSignals(True)
+        self.year_combo_box_m.clear()
+        self.year_combo_box_m.addItems(["Все", *self.get_years("Магистратура")])
+        self.year_combo_box_m.blockSignals(False)
+        self.year_combo_box_s.blockSignals(True)
+        self.year_combo_box_s.clear()
+        self.year_combo_box_s.addItems(["Все", *self.get_years("Специалитет")])
+        self.year_combo_box_s.blockSignals(False)
+        self.year_combo_box_CSET.blockSignals(True)
+        self.year_combo_box_CSET.clear()
+        self.year_combo_box_CSET.addItems(["Все", *self.get_years("ККМТ")])
+        self.year_combo_box_CSET.blockSignals(False)
+        self.year_combo_box_TSTD.blockSignals(True)
+        self.year_combo_box_TSTD.clear()
+        self.year_combo_box_TSTD.addItems(["Все", *self.get_years("ТТД")])
+        self.year_combo_box_TSTD.blockSignals(False)
