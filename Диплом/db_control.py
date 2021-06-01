@@ -28,16 +28,18 @@ class DbControl:
                             statistic[11], statistic[12], statistic[13], statistic[14], statistic[15])
         self.cursor.commit()
 
-    def get_data(self, loe, foe, direction, year, month):
+    def get_data(self, loe, foe, direction, year, month, course=0):
         """Получение данных из БД по выбранным параметрам"""
+        if course == "Все":
+            course = 0
         if month == "0":
-            self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?"
-                                , loe, foe, direction, year)
+            self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
+                                "@course = ?", loe, foe, direction, year, course)
         else:
             if len(month) < 2:
                 month = "0" + month
             self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
-                                "@month = ?", loe, foe, direction, year, month)
+                                "@month = ?, @course = ?", loe, foe, direction, year, month, course)
         data = self.cursor.fetchall()
         return data
 
@@ -57,11 +59,11 @@ class DbControl:
             info.append(str(*i))
         return info
 
-    def get_data_for_analysis(self, loe, foe, direction, year, month):
-        """Получение данных для анализа"""
-        if len(month) < 2:
-            month = "0" + month
-        self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
-                            "@month = ?", loe, foe, direction, year, month)
+    def get_months(self, loe):
+        """Получение списка лет за которые хранятся данные определенного уровня обучения"""
+        self.cursor.execute("EXEC [Получение месяцев] @loe_name = ?", loe)
         data = self.cursor.fetchall()
-        return data
+        info = list()
+        for i in data:
+            info.append(str(*i))
+        return info

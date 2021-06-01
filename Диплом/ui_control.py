@@ -1,5 +1,5 @@
 import PyQt5.Qt
-
+import dialog_ui
 import main_ui
 import excel_control
 from PyQt5 import QtWidgets, QtGui, QtCore
@@ -80,6 +80,10 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.report_disabled_action.triggered.connect(self.export_disabled)
         self.report_target_action.triggered.connect(self.export_target)
         self.report_foreigners_action.triggered.connect(self.export_foreigners)
+        self.customizable_report_action.triggered.connect(self.open_dialog)
+        self.settings_action.triggered.connect(self.user_settings)
+        self.left_click = QtCore.pyqtSignal()
+        self.right_click = QtCore.pyqtSignal()
         # Триггеры для бакалавриата
         self.foe_combo_box_b.currentIndexChanged.connect(self.load_table)
         self.direction_combo_box_b.currentIndexChanged.connect(self.load_table)
@@ -139,6 +143,7 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.toolBar.addAction(self.report_disabled_action)
         self.toolBar.addAction(self.report_target_action)
         self.toolBar.addAction(self.report_foreigners_action)
+        self.toolBar.addAction(self.customizable_report_action)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.settings_action)
         self.toolBar.setMovable(False)
@@ -510,112 +515,113 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
     def get_data_old_month(self, row_index):
         """Возвращает данные за предыдущий месяц"""
         if self.tabWidget.currentIndex() == 0:
-            data_old = self.get_data_for_analysis(self.table_widget_b.item(row_index, 2).text(),
-                                                  self.table_widget_b.item(row_index, 3).text(),
-                                                  self.table_widget_b.item(row_index, 1).text(),
-                                                  self.table_widget_b.item(row_index, 4).text().split('-')[0],
-                                                  str(int(self.table_widget_b.item(row_index, 4).text().
-                                                          split('-')[1]) - 1))
+            data_old = self.get_data(self.table_widget_b.item(row_index, 2).text(),
+                                     self.table_widget_b.item(row_index, 3).text(),
+                                     self.table_widget_b.item(row_index, 1).text(),
+                                     self.table_widget_b.item(row_index, 4).text().split('-')[0],
+                                     str(int(self.table_widget_b.item(row_index, 4).text().
+                                             split('-')[1]) - 1))
         elif self.tabWidget.currentIndex() == 1:
-            data_old = self.get_data_for_analysis(self.table_widget_m.item(row_index, 2).text(),
-                                                  self.table_widget_m.item(row_index, 3).text(),
-                                                  self.table_widget_m.item(row_index, 1).text(),
-                                                  self.table_widget_m.item(row_index, 4).text().split('-')[0],
-                                                  str(int(self.table_widget_m.item(row_index, 4).text().
-                                                          split('-')[1]) - 1))
+            data_old = self.get_data(self.table_widget_m.item(row_index, 2).text(),
+                                     self.table_widget_m.item(row_index, 3).text(),
+                                     self.table_widget_m.item(row_index, 1).text(),
+                                     self.table_widget_m.item(row_index, 4).text().split('-')[0],
+                                     str(int(self.table_widget_m.item(row_index, 4).text().
+                                             split('-')[1]) - 1))
         elif self.tabWidget.currentIndex() == 2:
-            data_old = self.get_data_for_analysis(self.table_widget_s.item(row_index, 2).text(),
-                                                  self.table_widget_s.item(row_index, 3).text(),
-                                                  self.table_widget_s.item(row_index, 1).text(),
-                                                  self.table_widget_s.item(row_index, 4).text().split('-')[0],
-                                                  str(int(self.table_widget_s.item(row_index, 4).text().
-                                                          split('-')[1]) - 1))
+            data_old = self.get_data(self.table_widget_s.item(row_index, 2).text(),
+                                     self.table_widget_s.item(row_index, 3).text(),
+                                     self.table_widget_s.item(row_index, 1).text(),
+                                     self.table_widget_s.item(row_index, 4).text().split('-')[0],
+                                     str(int(self.table_widget_s.item(row_index, 4).text().
+                                             split('-')[1]) - 1))
         elif self.tabWidget.currentIndex() == 3:
-            data_old = self.get_data_for_analysis(self.table_widget_CSET.item(row_index, 2).text(),
-                                                  self.table_widget_CSET.item(row_index, 3).text(),
-                                                  self.table_widget_CSET.item(row_index, 1).text(),
-                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[0],
-                                                  str(int(self.table_widget_CSET.item(row_index, 4).text().
-                                                          split('-')[1]) - 1))
+            data_old = self.get_data(self.table_widget_CSET.item(row_index, 2).text(),
+                                     self.table_widget_CSET.item(row_index, 3).text(),
+                                     self.table_widget_CSET.item(row_index, 1).text(),
+                                     self.table_widget_CSET.item(row_index, 4).text().split('-')[0],
+                                     str(int(self.table_widget_CSET.item(row_index, 4).text().
+                                             split('-')[1]) - 1))
         else:
-            data_old = self.get_data_for_analysis(self.table_widget_TSTD.item(row_index, 2).text(),
-                                                  self.table_widget_TSTD.item(row_index, 3).text(),
-                                                  self.table_widget_TSTD.item(row_index, 1).text(),
-                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[0],
-                                                  str(int(self.table_widget_TSTD.item(row_index, 4).text().
-                                                          split('-')[1]) - 1))
+            data_old = self.get_data(self.table_widget_TSTD.item(row_index, 2).text(),
+                                     self.table_widget_TSTD.item(row_index, 3).text(),
+                                     self.table_widget_TSTD.item(row_index, 1).text(),
+                                     self.table_widget_TSTD.item(row_index, 4).text().split('-')[0],
+                                     str(int(self.table_widget_TSTD.item(row_index, 4).text().
+                                             split('-')[1]) - 1))
         return data_old
 
     def get_data_old_year(self, row_index):
+        """Возвращает данные за прошлый год выбранного месяца"""
         if self.tabWidget.currentIndex() == 0:
-            data_old = self.get_data_for_analysis(self.table_widget_b.item(row_index, 2).text(),
-                                                  self.table_widget_b.item(row_index, 3).text(),
-                                                  self.table_widget_b.item(row_index, 1).text(),
-                                                  str(int(self.table_widget_b.item(row_index, 4).text().
-                                                          split('-')[0]) - 1),
-                                                  self.table_widget_b.item(row_index, 4).text().split('-')[1])
+            data_old = self.get_data(self.table_widget_b.item(row_index, 2).text(),
+                                     self.table_widget_b.item(row_index, 3).text(),
+                                     self.table_widget_b.item(row_index, 1).text(),
+                                     str(int(self.table_widget_b.item(row_index, 4).text().
+                                             split('-')[0]) - 1),
+                                     self.table_widget_b.item(row_index, 4).text().split('-')[1])
         elif self.tabWidget.currentIndex() == 1:
-            data_old = self.get_data_for_analysis(self.table_widget_m.item(row_index, 2).text(),
-                                                  self.table_widget_m.item(row_index, 3).text(),
-                                                  self.table_widget_m.item(row_index, 1).text(),
-                                                  str(int(self.table_widget_m.item(row_index, 4).text().
-                                                          split('-')[0]) - 1),
-                                                  self.table_widget_m.item(row_index, 4).text().split('-')[1])
+            data_old = self.get_data(self.table_widget_m.item(row_index, 2).text(),
+                                     self.table_widget_m.item(row_index, 3).text(),
+                                     self.table_widget_m.item(row_index, 1).text(),
+                                     str(int(self.table_widget_m.item(row_index, 4).text().
+                                             split('-')[0]) - 1),
+                                     self.table_widget_m.item(row_index, 4).text().split('-')[1])
         elif self.tabWidget.currentIndex() == 2:
-            data_old = self.get_data_for_analysis(self.table_widget_s.item(row_index, 2).text(),
-                                                  self.table_widget_s.item(row_index, 3).text(),
-                                                  self.table_widget_s.item(row_index, 1).text(),
-                                                  str(int(self.table_widget_s.item(row_index, 4).text().
-                                                          split('-')[0]) - 1),
-                                                  self.table_widget_s.item(row_index, 4).text().split('-')[1])
+            data_old = self.get_data(self.table_widget_s.item(row_index, 2).text(),
+                                     self.table_widget_s.item(row_index, 3).text(),
+                                     self.table_widget_s.item(row_index, 1).text(),
+                                     str(int(self.table_widget_s.item(row_index, 4).text().
+                                             split('-')[0]) - 1),
+                                     self.table_widget_s.item(row_index, 4).text().split('-')[1])
         elif self.tabWidget.currentIndex() == 3:
-            data_old = self.get_data_for_analysis(self.table_widget_CSET.item(row_index, 2).text(),
-                                                  self.table_widget_CSET.item(row_index, 3).text(),
-                                                  self.table_widget_CSET.item(row_index, 1).text(),
-                                                  str(int(self.table_widget_CSET.item(row_index, 4).text().
-                                                          split('-')[0]) - 1),
-                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[1])
+            data_old = self.get_data(self.table_widget_CSET.item(row_index, 2).text(),
+                                     self.table_widget_CSET.item(row_index, 3).text(),
+                                     self.table_widget_CSET.item(row_index, 1).text(),
+                                     str(int(self.table_widget_CSET.item(row_index, 4).text().
+                                             split('-')[0]) - 1),
+                                     self.table_widget_CSET.item(row_index, 4).text().split('-')[1])
         else:
-            data_old = self.get_data_for_analysis(self.table_widget_TSTD.item(row_index, 2).text(),
-                                                  self.table_widget_TSTD.item(row_index, 3).text(),
-                                                  self.table_widget_TSTD.item(row_index, 1).text(),
-                                                  str(int(self.table_widget_TSTD.item(row_index, 4).text().
-                                                          split('-')[0]) - 1),
-                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
+            data_old = self.get_data(self.table_widget_TSTD.item(row_index, 2).text(),
+                                     self.table_widget_TSTD.item(row_index, 3).text(),
+                                     self.table_widget_TSTD.item(row_index, 1).text(),
+                                     str(int(self.table_widget_TSTD.item(row_index, 4).text().
+                                             split('-')[0]) - 1),
+                                     self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
         return data_old
 
     def get_data_new(self, row_index):
         """Возварщает данные за выбранный период"""
         if self.tabWidget.currentIndex() == 0:
-            data_new = self.get_data_for_analysis(self.table_widget_b.item(row_index, 2).text(),
-                                                  self.table_widget_b.item(row_index, 3).text(),
-                                                  self.table_widget_b.item(row_index, 1).text(),
-                                                  self.table_widget_b.item(row_index, 4).text().split('-')[0],
-                                                  self.table_widget_b.item(row_index, 4).text().split('-')[1])
+            data_new = self.get_data(self.table_widget_b.item(row_index, 2).text(),
+                                     self.table_widget_b.item(row_index, 3).text(),
+                                     self.table_widget_b.item(row_index, 1).text(),
+                                     self.table_widget_b.item(row_index, 4).text().split('-')[0],
+                                     self.table_widget_b.item(row_index, 4).text().split('-')[1])
         elif self.tabWidget.currentIndex() == 1:
-            data_new = self.get_data_for_analysis(self.table_widget_m.item(row_index, 2).text(),
-                                                  self.table_widget_m.item(row_index, 3).text(),
-                                                  self.table_widget_m.item(row_index, 1).text(),
-                                                  self.table_widget_m.item(row_index, 4).text().split('-')[0],
-                                                  self.table_widget_m.item(row_index, 4).text().split('-')[1])
+            data_new = self.get_data(self.table_widget_m.item(row_index, 2).text(),
+                                     self.table_widget_m.item(row_index, 3).text(),
+                                     self.table_widget_m.item(row_index, 1).text(),
+                                     self.table_widget_m.item(row_index, 4).text().split('-')[0],
+                                     self.table_widget_m.item(row_index, 4).text().split('-')[1])
         elif self.tabWidget.currentIndex() == 2:
-            data_new = self.get_data_for_analysis(self.table_widget_s.item(row_index, 2).text(),
-                                                  self.table_widget_s.item(row_index, 3).text(),
-                                                  self.table_widget_s.item(row_index, 1).text(),
-                                                  self.table_widget_s.item(row_index, 4).text().split('-')[0],
-                                                  self.table_widget_s.item(row_index, 4).text().split('-')[1])
+            data_new = self.get_data(self.table_widget_s.item(row_index, 2).text(),
+                                     self.table_widget_s.item(row_index, 3).text(),
+                                     self.table_widget_s.item(row_index, 1).text(),
+                                     self.table_widget_s.item(row_index, 4).text().split('-')[0],
+                                     self.table_widget_s.item(row_index, 4).text().split('-')[1])
         elif self.tabWidget.currentIndex() == 3:
-            data_new = self.get_data_for_analysis(self.table_widget_CSET.item(row_index, 2).text(),
-                                                  self.table_widget_CSET.item(row_index, 3).text(),
-                                                  self.table_widget_CSET.item(row_index, 1).text(),
-                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[0],
-                                                  self.table_widget_CSET.item(row_index, 4).text().split('-')[1])
+            data_new = self.get_data(self.table_widget_CSET.item(row_index, 2).text(),
+                                     self.table_widget_CSET.item(row_index, 3).text(),
+                                     self.table_widget_CSET.item(row_index, 1).text(),
+                                     self.table_widget_CSET.item(row_index, 4).text().split('-')[0],
+                                     self.table_widget_CSET.item(row_index, 4).text().split('-')[1])
         else:
-            data_new = self.get_data_for_analysis(self.table_widget_TSTD.item(row_index, 2).text(),
-                                                  self.table_widget_TSTD.item(row_index, 3).text(),
-                                                  self.table_widget_TSTD.item(row_index, 1).text(),
-                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[0],
-                                                  self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
+            data_new = self.get_data(self.table_widget_TSTD.item(row_index, 2).text(),
+                                     self.table_widget_TSTD.item(row_index, 3).text(),
+                                     self.table_widget_TSTD.item(row_index, 1).text(),
+                                     self.table_widget_TSTD.item(row_index, 4).text().split('-')[0],
+                                     self.table_widget_TSTD.item(row_index, 4).text().split('-')[1])
         return data_new
 
     def open_page_1(self):
@@ -627,10 +633,6 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.stackedWidget.setCurrentIndex(1)
         self.data_analysis()
 
-    def open_page_3(self):
-        """Открывает 3 лист программы"""
-        self.stackedWidget.setCurrentIndex(2)
-
     def update_table(self):
         """Добавляет информацию в БД и обновляет текущую таблицу"""
         self.get_excel_data()
@@ -638,6 +640,7 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.update_interface()
 
     def update_interface(self):
+        """Обновление информации в combo box"""
         self.direction_combo_box_b.blockSignals(True)
         self.direction_combo_box_b.clear()
         self.direction_combo_box_b.addItems(["Все", *self.get_directions("Бакалавриат")])
@@ -678,3 +681,26 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.year_combo_box_TSTD.clear()
         self.year_combo_box_TSTD.addItems(["Все", *self.get_years("ТТД")])
         self.year_combo_box_TSTD.blockSignals(False)
+
+    def user_settings(self):
+        """Выбор пользователем шрифта для таблиц и его установка"""
+        icon_main = QtGui.QIcon()
+        icon_main.addPixmap(QtGui.QPixmap("Изображения/free-icon-binder-4624080.png"), QtGui.QIcon.Normal,
+                            QtGui.QIcon.Off)
+        dialog = QtWidgets.QFontDialog()
+        dialog.setWindowIcon(icon_main)
+        font, ok = dialog.getFont(self.table_widget_b.font())
+        if ok:
+            self.table_widget_b.setFont(font)
+            self.table_widget_m.setFont(font)
+            self.table_widget_s.setFont(font)
+            self.table_widget_CSET.setFont(font)
+            self.table_widget_TSTD.setFont(font)
+            self.table_widget_last_month.setFont(font)
+            self.table_widget_last_year.setFont(font)
+
+    def open_dialog(self):
+        """Открытие окна пользовательского отчета"""
+        self.dialog = QtWidgets.QDialog(flags=QtCore.Qt.WindowCloseButtonHint)
+        self.window = dialog_ui.UiDialog(self.dialog)
+        self.dialog.show()
