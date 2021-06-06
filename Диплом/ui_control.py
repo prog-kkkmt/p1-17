@@ -1,5 +1,6 @@
 import PyQt5.Qt
 import dialog_ui
+import dialog_simple_ui
 import main_ui
 import excel_control
 from PyQt5 import QtWidgets, QtGui, QtCore
@@ -14,27 +15,30 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.report = self.menubar.addMenu("&Отчет")
         self.settings = self.menubar.addMenu("&Настройки")
         icon_file_bar = QtGui.QIcon()
-        icon_file_bar.addPixmap(QtGui.QPixmap("Изображения/free-icon-attached-file-4481159.png"), QtGui.QIcon.Normal,
+        icon_file_bar.addPixmap(QtGui.QPixmap("Изображения/free-icon-import-724839.png"), QtGui.QIcon.Normal,
                                 QtGui.QIcon.Off)
         icon_all_export = QtGui.QIcon()
-        icon_all_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-export-2878843"), QtGui.QIcon.Normal,
+        icon_all_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-export-724836.png"), QtGui.QIcon.Normal,
                                   QtGui.QIcon.Off)
         icon_disabled_export = QtGui.QIcon()
-        icon_disabled_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-disabled-person-2707234"),
+        icon_disabled_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-disabled-person-2707234.png"),
                                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon_target_export = QtGui.QIcon()
-        icon_target_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-target-audience-2282175"), QtGui.QIcon.Normal,
-                                     QtGui.QIcon.Off)
+        icon_target_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-target-audience-2282175.png"),
+                                     QtGui.QIcon.Normal, QtGui.QIcon.Off)
         icon_foreigners_export = QtGui.QIcon()
-        icon_foreigners_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-tourist-925642"), QtGui.QIcon.Normal,
+        icon_foreigners_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-tourist-925642.png"), QtGui.QIcon.Normal,
                                          QtGui.QIcon.Off)
+        icon_user_export = QtGui.QIcon()
+        icon_user_export.addPixmap(QtGui.QPixmap("Изображения/free-icon-check-4676065.png"), QtGui.QIcon.Normal,
+                                   QtGui.QIcon.Off)
         icon_settings = QtGui.QIcon()
-        icon_settings.addPixmap(QtGui.QPixmap("Изображения/free-icon-font-size-1634828"), QtGui.QIcon.Normal,
+        icon_settings.addPixmap(QtGui.QPixmap("Изображения/free-icon-font-size-1634828.png"), QtGui.QIcon.Normal,
                                 QtGui.QIcon.Off)
         self.open_file_action = QtWidgets.QAction(icon_file_bar, "&Загрузить данные")
-        self.customizable_report_action = QtWidgets.QAction("&Настраиваемый отчет")
+        self.customizable_report_action = QtWidgets.QAction(icon_user_export, "&Настраиваемый отчет")
         self.settings_action = QtWidgets.QAction(icon_settings, "&Шрифт")
-        self.report_all_action = QtWidgets.QAction(icon_all_export, "&Всего")
+        self.report_all_action = QtWidgets.QAction(icon_all_export, "&Полный отчет  ")
         self.report_disabled_action = QtWidgets.QAction(icon_disabled_export, "&Лица с ОВЗ, инвалиды, дети-инвалиды")
         self.report_target_action = QtWidgets.QAction(icon_target_export, "&Места в рамках квоты целевого приема")
         self.report_foreigners_action = QtWidgets.QAction(icon_foreigners_export, "&Иностранные граждане")
@@ -76,10 +80,10 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.tabWidget.currentChanged.connect(self.load_table)
         self.back_button.clicked.connect(self.open_page_1)
         self.open_file_action.triggered.connect(self.update_table)
-        self.report_all_action.triggered.connect(self.export_all)
-        self.report_disabled_action.triggered.connect(self.export_disabled)
-        self.report_target_action.triggered.connect(self.export_target)
-        self.report_foreigners_action.triggered.connect(self.export_foreigners)
+        self.report_all_action.triggered.connect(lambda: self.open_dialog_simple("Все"))
+        self.report_disabled_action.triggered.connect(lambda: self.open_dialog_simple("Инвалиды"))
+        self.report_target_action.triggered.connect(lambda: self.open_dialog_simple("Целевеки"))
+        self.report_foreigners_action.triggered.connect(lambda: self.open_dialog_simple("Иностранцы"))
         self.customizable_report_action.triggered.connect(self.open_dialog)
         self.settings_action.triggered.connect(self.user_settings)
         self.left_click = QtCore.pyqtSignal()
@@ -704,3 +708,9 @@ class UiControl(main_ui.UiWindow, excel_control.ExcelControl):
         self.dialog = QtWidgets.QDialog(flags=QtCore.Qt.WindowCloseButtonHint)
         self.window = dialog_ui.UiDialog(self.dialog)
         self.dialog.show()
+
+    def open_dialog_simple(self, trigger):
+        """Открытие окна для встроенных отчетов"""
+        self.dialog_simple = QtWidgets.QDialog(flags=QtCore.Qt.WindowCloseButtonHint)
+        self.window_simple = dialog_simple_ui.UiDialogSimple(self.dialog_simple, trigger)
+        self.dialog_simple.show()

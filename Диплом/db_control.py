@@ -32,7 +32,7 @@ class DbControl:
         """Получение данных из БД по выбранным параметрам"""
         if course == "Все":
             course = 0
-        if month == "0":
+        if month == "0" or month == "Все":
             self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
                                 "@course = ?", loe, foe, direction, year, course)
         else:
@@ -40,6 +40,51 @@ class DbControl:
                 month = "0" + month
             self.cursor.execute("EXEC [Получение данных] @loe_name = ?, @foe_name = ?, @dir_name = ?, @year = ?, "
                                 "@month = ?, @course = ?", loe, foe, direction, year, month, course)
+        data = self.cursor.fetchall()
+        return data
+
+    def get_disabled(self, loe, foe, direction, year, month, course=0):
+        """Получение данных из БД по инвалидам для отчета"""
+        if course == "Все":
+            course = 0
+        if month == "0" or month == "Все":
+            self.cursor.execute("EXEC [Получение данных об инвалидах] @loe_name = ?, @foe_name = ?, @dir_name = ?, "
+                                "@year = ?, @course = ?", loe, foe, direction, year, course)
+        else:
+            if len(month) < 2:
+                month = "0" + month
+            self.cursor.execute("EXEC [Получение данных об инвалидах] @loe_name = ?, @foe_name = ?, @dir_name = ?, "
+                                "@year = ?, @month = ?, @course = ?", loe, foe, direction, year, month, course)
+        data = self.cursor.fetchall()
+        return data
+
+    def get_target(self, loe, foe, direction, year, month, course=0):
+        """Получение данных из БД по целевикам для отчета"""
+        if course == "Все":
+            course = 0
+        if month == "0" or month == "Все":
+            self.cursor.execute("EXEC [Получение данных о целевиках] @loe_name = ?, @foe_name = ?, @dir_name = ?, "
+                                "@year = ?, @course = ?", loe, foe, direction, year, course)
+        else:
+            if len(month) < 2:
+                month = "0" + month
+            self.cursor.execute("EXEC [Получение данных о целевиках] @loe_name = ?, @foe_name = ?, @dir_name = ?, "
+                                "@year = ?, @month = ?, @course = ?", loe, foe, direction, year, month, course)
+        data = self.cursor.fetchall()
+        return data
+
+    def get_foreigners(self, loe, foe, direction, year, month, course=0):
+        """Получение данных из БД по иностранцам для отчета"""
+        if course == "Все":
+            course = 0
+        if month == "0" or month == "Все":
+            self.cursor.execute("EXEC [Получение данных об иностранцах] @loe_name = ?, @foe_name = ?, @dir_name = ?, "
+                                "@year = ?, @course = ?", loe, foe, direction, year, course)
+        else:
+            if len(month) < 2:
+                month = "0" + month
+            self.cursor.execute("EXEC [Получение данных об иностранцах] @loe_name = ?, @foe_name = ?, @dir_name = ?, "
+                                "@year = ?, @month = ?, @course = ?", loe, foe, direction, year, month, course)
         data = self.cursor.fetchall()
         return data
 

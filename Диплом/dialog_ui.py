@@ -4,6 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class UiDialog(excel_control.ExcelControl):
     def __init__(self, dialog):
+        """Конструктор класса UiDialog"""
         super(UiDialog, self).__init__()
         self.dialog = dialog
         dialog.setObjectName("Dialog")
@@ -31,18 +32,18 @@ class UiDialog(excel_control.ExcelControl):
         self.course_label_d.setAlignment(QtCore.Qt.AlignCenter)
         self.course_label_d.setObjectName("course_label_d")
         self.gridLayout.addWidget(self.course_label_d, 0, 3, 1, 1)
-        self.loe_combo_box_b = QtWidgets.QComboBox(dialog)
+        self.loe_combo_box_d = QtWidgets.QComboBox(dialog)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.loe_combo_box_b.setFont(font)
-        self.loe_combo_box_b.setObjectName("loe_combo_box_b")
-        self.loe_combo_box_b.addItem("")
-        self.loe_combo_box_b.addItem("")
-        self.loe_combo_box_b.addItem("")
-        self.loe_combo_box_b.addItem("")
-        self.loe_combo_box_b.addItem("")
-        self.loe_combo_box_b.addItem("")
-        self.gridLayout.addWidget(self.loe_combo_box_b, 1, 0, 1, 1)
+        self.loe_combo_box_d.setFont(font)
+        self.loe_combo_box_d.setObjectName("loe_combo_box_b")
+        self.loe_combo_box_d.addItem("")
+        self.loe_combo_box_d.addItem("")
+        self.loe_combo_box_d.addItem("")
+        self.loe_combo_box_d.addItem("")
+        self.loe_combo_box_d.addItem("")
+        self.loe_combo_box_d.addItem("")
+        self.gridLayout.addWidget(self.loe_combo_box_d, 1, 0, 1, 1)
         self.direction_combo_box_d = QtWidgets.QComboBox(dialog)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -401,7 +402,7 @@ class UiDialog(excel_control.ExcelControl):
 
         self.retranslate_ui(dialog)
         QtCore.QMetaObject.connectSlotsByName(dialog)
-        dialog.setTabOrder(self.loe_combo_box_b, self.direction_combo_box_d)
+        dialog.setTabOrder(self.loe_combo_box_d, self.direction_combo_box_d)
         dialog.setTabOrder(self.direction_combo_box_d, self.foe_combo_box_d)
         dialog.setTabOrder(self.foe_combo_box_d, self.course_combo_box_d)
         dialog.setTabOrder(self.course_combo_box_d, self.year_combo_box_d)
@@ -433,22 +434,23 @@ class UiDialog(excel_control.ExcelControl):
         dialog.setTabOrder(self.foreigners_dp_check_box_d, self.continue_button_d)
         dialog.setTabOrder(self.continue_button_d, self.back_button_d)
         # Триггеры для пользовательского отчета
-        self.loe_combo_box_b.currentIndexChanged.connect(self.set_combo_boxes)
+        self.loe_combo_box_d.currentIndexChanged.connect(self.set_combo_boxes)
         self.back_button_d.clicked.connect(self.close_window)
         self.continue_button_d.clicked.connect(self.get_condition)
         # Предварительная донастройка
         self.set_combo_boxes()
 
     def retranslate_ui(self, dialog):
+        """Установка всех встроенных названий"""
         _translate = QtCore.QCoreApplication.translate
         dialog.setWindowTitle(_translate("Dialog", "StudInStudOut"))
         self.course_label_d.setText(_translate("Dialog", "Курс"))
-        self.loe_combo_box_b.setItemText(0, _translate("Dialog", "Все"))
-        self.loe_combo_box_b.setItemText(1, _translate("Dialog", "Бакалавриат"))
-        self.loe_combo_box_b.setItemText(2, _translate("Dialog", "Магистратура"))
-        self.loe_combo_box_b.setItemText(3, _translate("Dialog", "Специалитет"))
-        self.loe_combo_box_b.setItemText(4, _translate("Dialog", "ККМТ"))
-        self.loe_combo_box_b.setItemText(5, _translate("Dialog", "ТТД"))
+        self.loe_combo_box_d.setItemText(0, _translate("Dialog", "Все"))
+        self.loe_combo_box_d.setItemText(1, _translate("Dialog", "Бакалавриат"))
+        self.loe_combo_box_d.setItemText(2, _translate("Dialog", "Магистратура"))
+        self.loe_combo_box_d.setItemText(3, _translate("Dialog", "Специалитет"))
+        self.loe_combo_box_d.setItemText(4, _translate("Dialog", "ККМТ"))
+        self.loe_combo_box_d.setItemText(5, _translate("Dialog", "ТТД"))
         self.direction_combo_box_d.setItemText(0, _translate("Dialog", "Все"))
         self.direction_label_d.setText(_translate("Dialog", "Название направления подготовки"))
         self.foe_combo_box_d.setItemText(0, _translate("Dialog", "Все"))
@@ -539,85 +541,164 @@ class UiDialog(excel_control.ExcelControl):
         self.back_button_d.setText(_translate("Dialog", "Назад"))
 
     def close_window(self):
+        """Закрывает окно диалога"""
         self.dialog.close()
 
     def set_combo_boxes(self):
+        """Устанавливает встроенные значения combo box"""
         self.direction_combo_box_d.blockSignals(True)
         self.direction_combo_box_d.clear()
-        self.direction_combo_box_d.addItems(["Все", *self.get_directions(self.loe_combo_box_b.currentText())])
+        self.direction_combo_box_d.addItems(["Все", *self.get_directions(self.loe_combo_box_d.currentText())])
         self.direction_combo_box_d.blockSignals(False)
         self.year_combo_box_d.blockSignals(True)
         self.year_combo_box_d.clear()
-        self.year_combo_box_d.addItems(["Все", *self.get_years(self.loe_combo_box_b.currentText())])
+        self.year_combo_box_d.addItems(["Все", *self.get_years(self.loe_combo_box_d.currentText())])
         self.year_combo_box_d.blockSignals(False)
         self.month_combo_box_d.blockSignals(True)
         self.month_combo_box_d.clear()
-        self.month_combo_box_d.addItems(["Все", *self.get_months(self.loe_combo_box_b.currentText())])
+        self.month_combo_box_d.addItems(["Все", *self.get_months(self.loe_combo_box_d.currentText())])
         self.month_combo_box_d.blockSignals(False)
 
     def get_condition(self):
-        data = self.get_data(self.loe_combo_box_b.currentText(), self.foe_combo_box_d.currentText(),
-                             self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
-                             str(self.month_combo_box_d.currentIndex()), self.course_combo_box_d.currentText())
-        book = {"Названия направления подготовки": [],
-                "Уровень обучения": [], "Форма обучения": [], "Дата записи": [], "Курс": [], "Всего зачислено": [],
-                "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)": [],
-                "Из них на места в рамках квоты целевого приема (всего зачислено)": [],
-                "Из них иностранные граждане (всего зачислено)": [], "Всего отчислено": [],
-                "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)": [],
-                "Из них на места в рамках квоты целевого приема (всего отчислено)": [],
-                "Из них иностранные граждане (всего отчислено)": [],
-                "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)": [],
-                "Из них на места в рамках квоты целевого приема (зачислено бюджет)": [],
-                "Из них иностранные граждане (зачислено бюджет)": [],
-                "Зачислено по договорам об оказании платных образовательных услуг": [],
-                "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)": [],
-                "Из них на места в рамках квоты целевого приема (зачислено платное)": [],
-                "Из них иностранные граждане (зачислено платное)": [],
-                "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)": [],
-                "Из них на места в рамках квоты целевого приема (отчислено бюджет)": [],
-                "Из них иностранные граждане (отчислено бюджет)": [],
-                "Отчислено по договорам об оказании платных образовательных услуг": [],
-                "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)": [],
-                "Из них на места в рамках квоты целевого приема (отчислено платное)": [],
-                "Из них иностранные граждане (отчислено платное)": []}
-        book_to_export = {}
-        is_needed = list()
-        is_needed.append(True)
-        is_needed.append(True)
-        is_needed.append(True)
-        is_needed.append(True)
-        is_needed.append(True)
-        is_needed.append(True if self.enrollment_all_check_box_d.isChecked() else False)
-        is_needed.append(True if self.disabled_ea_check_box_d.isChecked() else False)
-        is_needed.append(True if self.target_ea_check_box_d.isChecked() else False)
-        is_needed.append(True if self.foreigners_ea_check_box_d.isChecked() else False)
-        is_needed.append(True if self.deduct_all_check_box_d.isChecked() else False)
-        is_needed.append(True if self.disabled_da_check_box_d.isChecked() else False)
-        is_needed.append(True if self.target_da_check_box_d.isChecked() else False)
-        is_needed.append(True if self.foreigners_da_check_box_d.isChecked() else False)
-        is_needed.append(True if self.enrollment_budget_check_box_d.isChecked() else False)
-        is_needed.append(True if self.disabled_eb_check_box_d.isChecked() else False)
-        is_needed.append(True if self.target_eb_check_box_d.isChecked() else False)
-        is_needed.append(True if self.foreigners_eb_check_box_d.isChecked() else False)
-        is_needed.append(True if self.enrollment_paid_check_box_d.isChecked() else False)
-        is_needed.append(True if self.disabled_ep_check_box_d.isChecked() else False)
-        is_needed.append(True if self.target_ep_check_box_d.isChecked() else False)
-        is_needed.append(True if self.foreigners_ep_check_box_d.isChecked() else False)
-        is_needed.append(True if self.deduct_budget_check_box_d.isChecked() else False)
-        is_needed.append(True if self.disabled_db_check_box_d.isChecked() else False)
-        is_needed.append(True if self.target_db_check_box_d.isChecked() else False)
-        is_needed.append(True if self.foreigners_db_check_box_d.isChecked() else False)
-        is_needed.append(True if self.deduct_paid_check_box.isChecked() else False)
-        is_needed.append(True if self.disabled_dp_check_box_d.isChecked() else False)
-        is_needed.append(True if self.target_dp_check_box_d.isChecked() else False)
-        is_needed.append(True if self.foreigners_dp_check_box_d.isChecked() else False)
-        print(is_needed)
-        for k, chapter in enumerate(book, 1):
-            for recording in data:
-                if is_needed[k - 1]:
-                    book[chapter].append(recording[k])
-        book = {key: item for key, item in book.items() if item}
-        self.export_all(book)
+        """Получение данных необходимых для экспорта"""
+        book_1 = {"Названия направления подготовки": [],
+                  "Уровень обучения": [], "Форма обучения": [], "Дата записи": [], "Курс": [], "Всего зачислено": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)": [],
+                  "Из них на места в рамках квоты целевого приема (всего зачислено)": [],
+                  "Из них иностранные граждане (всего зачислено)": [], "Всего отчислено": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)": [],
+                  "Из них на места в рамках квоты целевого приема (всего отчислено)": [],
+                  "Из них иностранные граждане (всего отчислено)": [],
+                  "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)": [],
+                  "Из них на места в рамках квоты целевого приема (зачислено бюджет)": [],
+                  "Из них иностранные граждане (зачислено бюджет)": [],
+                  "Зачислено по договорам об оказании платных образовательных услуг": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)": [],
+                  "Из них на места в рамках квоты целевого приема (зачислено платное)": [],
+                  "Из них иностранные граждане (зачислено платное)": [],
+                  "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)": [],
+                  "Из них на места в рамках квоты целевого приема (отчислено бюджет)": [],
+                  "Из них иностранные граждане (отчислено бюджет)": [],
+                  "Отчислено по договорам об оказании платных образовательных услуг": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)": [],
+                  "Из них на места в рамках квоты целевого приема (отчислено платное)": [],
+                  "Из них иностранные граждане (отчислено платное)": []}
+        book_2 = {"Названия направления подготовки": [],
+                  "Уровень обучения": [], "Форма обучения": [], "Дата записи": [], "Курс": [], "Всего зачислено": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)": [],
+                  "Из них на места в рамках квоты целевого приема (всего зачислено)": [],
+                  "Из них иностранные граждане (всего зачислено)": [], "Всего отчислено": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)": [],
+                  "Из них на места в рамках квоты целевого приема (всего отчислено)": [],
+                  "Из них иностранные граждане (всего отчислено)": [],
+                  "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)": [],
+                  "Из них на места в рамках квоты целевого приема (зачислено бюджет)": [],
+                  "Из них иностранные граждане (зачислено бюджет)": [],
+                  "Зачислено по договорам об оказании платных образовательных услуг": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)": [],
+                  "Из них на места в рамках квоты целевого приема (зачислено платное)": [],
+                  "Из них иностранные граждане (зачислено платное)": [],
+                  "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)": [],
+                  "Из них на места в рамках квоты целевого приема (отчислено бюджет)": [],
+                  "Из них иностранные граждане (отчислено бюджет)": [],
+                  "Отчислено по договорам об оказании платных образовательных услуг": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)": [],
+                  "Из них на места в рамках квоты целевого приема (отчислено платное)": [],
+                  "Из них иностранные граждане (отчислено платное)": []}
+        book_3 = {"Названия направления подготовки": [],
+                  "Уровень обучения": [], "Форма обучения": [], "Дата записи": [], "Курс": [], "Всего зачислено": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)": [],
+                  "Из них на места в рамках квоты целевого приема (всего зачислено)": [],
+                  "Из них иностранные граждане (всего зачислено)": [], "Всего отчислено": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)": [],
+                  "Из них на места в рамках квоты целевого приема (всего отчислено)": [],
+                  "Из них иностранные граждане (всего отчислено)": [],
+                  "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)": [],
+                  "Из них на места в рамках квоты целевого приема (зачислено бюджет)": [],
+                  "Из них иностранные граждане (зачислено бюджет)": [],
+                  "Зачислено по договорам об оказании платных образовательных услуг": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)": [],
+                  "Из них на места в рамках квоты целевого приема (зачислено платное)": [],
+                  "Из них иностранные граждане (зачислено платное)": [],
+                  "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)": [],
+                  "Из них на места в рамках квоты целевого приема (отчислено бюджет)": [],
+                  "Из них иностранные граждане (отчислено бюджет)": [],
+                  "Отчислено по договорам об оказании платных образовательных услуг": [],
+                  "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)": [],
+                  "Из них на места в рамках квоты целевого приема (отчислено платное)": [],
+                  "Из них иностранные граждане (отчислено платное)": []}
+        is_needed = [True, True, True, True, True, self.enrollment_all_check_box_d.isChecked(),
+                     self.disabled_ea_check_box_d.isChecked(), self.target_ea_check_box_d.isChecked(),
+                     self.foreigners_ea_check_box_d.isChecked(), self.deduct_all_check_box_d.isChecked(),
+                     self.disabled_da_check_box_d.isChecked(), self.target_da_check_box_d.isChecked(),
+                     self.foreigners_da_check_box_d.isChecked(), self.enrollment_budget_check_box_d.isChecked(),
+                     self.disabled_eb_check_box_d.isChecked(), self.target_eb_check_box_d.isChecked(),
+                     self.foreigners_eb_check_box_d.isChecked(), self.enrollment_paid_check_box_d.isChecked(),
+                     self.disabled_ep_check_box_d.isChecked(), self.target_ep_check_box_d.isChecked(),
+                     self.foreigners_ep_check_box_d.isChecked(), self.deduct_budget_check_box_d.isChecked(),
+                     self.disabled_db_check_box_d.isChecked(), self.target_db_check_box_d.isChecked(),
+                     self.foreigners_db_check_box_d.isChecked(), self.deduct_paid_check_box.isChecked(),
+                     self.disabled_dp_check_box_d.isChecked(), self.target_dp_check_box_d.isChecked(),
+                     self.foreigners_dp_check_box_d.isChecked()]
+        if self.foe_combo_box_d.currentText() == "Все":
+            data = self.get_data(self.loe_combo_box_d.currentText(), "Очная",
+                                 self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
+                                 self.month_combo_box_d.currentText(), self.course_combo_box_d.currentText())
+            for k, chapter in enumerate(book_1, 1):
+                for recording in data:
+                    if is_needed[k - 1]:
+                        book_1[chapter].append(recording[k])
+            book_1 = {key: item for key, item in book_1.items() if item}
+            data = self.get_data(self.loe_combo_box_d.currentText(), "Очно-заочная",
+                                 self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
+                                 self.month_combo_box_d.currentText(), self.course_combo_box_d.currentText())
+            for k, chapter in enumerate(book_2, 1):
+                for recording in data:
+                    if is_needed[k - 1]:
+                        book_2[chapter].append(recording[k])
+            book_2 = {key: item for key, item in book_2.items() if item}
+            data = self.get_data(self.loe_combo_box_d.currentText(), "Заочная",
+                                 self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
+                                 self.month_combo_box_d.currentText(), self.course_combo_box_d.currentText())
+            for k, chapter in enumerate(book_3, 1):
+                for recording in data:
+                    if is_needed[k - 1]:
+                        book_3[chapter].append(recording[k])
+            book_3 = {key: item for key, item in book_3.items() if item}
+            self.export_data(book_1, self.foe_combo_box_d.currentText(), book_2, book_3)
+        elif self.foe_combo_box_d.currentText() == "Очная":
+            data = self.get_data(self.loe_combo_box_d.currentText(), "Очная",
+                                 self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
+                                 self.month_combo_box_d.currentText(), self.course_combo_box_d.currentText())
+            for k, chapter in enumerate(book_1, 1):
+                for recording in data:
+                    if is_needed[k - 1]:
+                        book_1[chapter].append(recording[k])
+            book_1 = {key: item for key, item in book_1.items() if item}
+            self.export_data(book_1, "Очная")
+        elif self.foe_combo_box_d.currentText() == "Очно-заочная":
+            data = self.get_data(self.loe_combo_box_d.currentText(), "Очно-заочная",
+                                 self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
+                                 self.month_combo_box_d.currentText(), self.course_combo_box_d.currentText())
+            for k, chapter in enumerate(book_1, 1):
+                for recording in data:
+                    if is_needed[k - 1]:
+                        book_1[chapter].append(recording[k])
+            book_1 = {key: item for key, item in book_1.items() if item}
+            self.export_data(book_1, "Очно-заочная")
+        elif self.foe_combo_box_d.currentText() == "Заочная":
+            data = self.get_data(self.loe_combo_box_d.currentText(), "Заочная",
+                                 self.direction_combo_box_d.currentText(), self.year_combo_box_d.currentText(),
+                                 self.month_combo_box_d.currentText(), self.course_combo_box_d.currentText())
+            for k, chapter in enumerate(book_1, 1):
+                for recording in data:
+                    if is_needed[k - 1]:
+                        book_1[chapter].append(recording[k])
+            book_1 = {key: item for key, item in book_1.items() if item}
+            self.export_data(book_1, "Заочная")

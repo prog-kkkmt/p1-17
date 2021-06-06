@@ -3,6 +3,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class UiWindow(object):
     def __init__(self, window):
+        """Конструктор класса UiWindow"""
         super(UiWindow, self).__init__()
         window.setObjectName("MainWindow")
         window.resize(743, 367)
@@ -612,6 +613,7 @@ class UiWindow(object):
         QtCore.QMetaObject.connectSlotsByName(window)
 
     def retranslate_ui(self, window):
+        """Установка всех встроенных названий"""
         _translate = QtCore.QCoreApplication.translate
         window.setWindowTitle(_translate("MainWindow", "StudInStudOut"))
         self.foe_label_b.setText(_translate("MainWindow", "Форма обучения"))

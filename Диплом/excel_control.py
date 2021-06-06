@@ -25,14 +25,14 @@ class ExcelControl(db_control.DbControl):
         sheets = ["Контингент (очно)", "Контингент (очно-заочно)", "Контингент (заочно)"]
         files = get_file_names()
         if files[len(files) - 1]:
-            for f in range(len(files)):  # Проход по всем файлам
+            for f in range(len(files) - 1):  # Проход по всем файлам
                 is_wrong = 0
                 for i in range(3):  # Проход по всем листам в файле
                     info = []
                     left_side = 0
                     ride_side = 0
-                    data = pd.read_excel("{0}".format(files[f]), engine="openpyxl",
-                                         sheet_name="{0}".format(sheets[i]))
+                    data = pd.read_excel('{0}'.format(''.join(files[f])), sheet_name="{0}".format(sheets[i]),
+                                         engine="openpyxl")
                     for j in range(5):  # Считывание информации для распределения
                         pars = data.iloc[[2], [j]]
                         info.append(*pars[pars.columns.tolist()[0]].tolist())
@@ -54,7 +54,7 @@ class ExcelControl(db_control.DbControl):
                                         QtGui.QIcon.Off)
                     msg.setWindowTitle("Ошибка")
                     msg.setWindowIcon(icon_main)
-                    msg.setText("Файл " + files[f] + " заполнен не правильно")
+                    msg.setText("Файл " + ''.join(files[f]) + " заполнен не правильно")
                     msg.setIcon(QtWidgets.QMessageBox.Critical)
                     msg.exec_()
 
@@ -68,76 +68,26 @@ class ExcelControl(db_control.DbControl):
             msg.setIcon(QtWidgets.QMessageBox.Information)
             msg.exec_()
 
-    def export_all(self, book):
-        """Экспорт полных данных"""
-        data = pd.DataFrame(book)
+    def export_data(self, sheet_1, foe, sheet_2=None, sheet_3=None):
         files = set_file_name()
         if files[len(files) - 1]:
-            data.to_excel("{0}{1}".format(*files), sheet_name="Контингент (очно)", index=False)
-
-    def export_disabled(self):
-        data = pd.DataFrame({"Названия направления подготовки": [],
-                             "Уровень обучения": [],
-                             "Форма обучения": [],
-                             "Дата записи": [],
-                             "Курс": [],
-                             "Всего зачислено": [],
-                             "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего зачислено)": [],
-                             "Всего отчислено": [],
-                             "Из них лица с ОВЗ, инвалиды, дети-инвалиды (всего отчислено)": [],
-                             "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                             "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено бюджет)": [],
-                             "Зачислено по договорам об оказании платных образовательных услуг": [],
-                             "Из них лица с ОВЗ, инвалиды, дети-инвалиды (зачислено платное)": [],
-                             "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                             "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено бюджет)": [],
-                             "Отчислено по договорам об оказании платных образовательных услуг": [],
-                             "Из них лица с ОВЗ, инвалиды, дети-инвалиды (отчислено платное)": []})
-        files = set_file_name()
-        if files[len(files) - 1]:
-            data.to_excel("{0}{1}".format(*files), sheet_name="Контингент (очно)", index=False)
-
-    def export_target(self):
-        data = pd.DataFrame({"Названия направления подготовки": [],
-                             "Уровень обучения": [],
-                             "Форма обучения": [],
-                             "Дата записи": [],
-                             "Курс": [],
-                             "Всего зачислено": [],
-                             "Из них на места в рамках квоты целевого приема (всего зачислено)": [],
-                             "Всего отчислено": [],
-                             "Из них на места в рамках квоты целевого приема (всего отчислено)": [],
-                             "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                             "Из них на места в рамках квоты целевого приема (зачислено бюджет)": [],
-                             "Зачислено по договорам об оказании платных образовательных услуг": [],
-                             "Из них на места в рамках квоты целевого приема (зачислено платное)": [],
-                             "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                             "Из них на места в рамках квоты целевого приема (отчислено бюджет)": [],
-                             "Отчислено по договорам об оказании платных образовательных услуг": [],
-                             "Из них на места в рамках квоты целевого приема (отчислено платное)": []})
-        files = set_file_name()
-        if files[len(files) - 1]:
-            data.to_excel("{0}{1}".format(*files), sheet_name="Контингент (очно)", index=False)
-
-    def export_foreigners(self):
-        """Экспорт полных данных"""
-        data = pd.DataFrame({"Названия направления подготовки": [],
-                             "Уровень обучения": [],
-                             "Форма обучения": [],
-                             "Дата записи": [],
-                             "Курс": [],
-                             "Всего зачислено": [],
-                             "Из них иностранные граждане (всего зачислено)": [],
-                             "Всего отчислено": [],
-                             "Из них иностранные граждане (всего отчислено)": [],
-                             "Зачислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                             "Из них иностранные граждане (зачислено бюджет)": [],
-                             "Зачислено по договорам об оказании платных образовательных услуг": [],
-                             "Из них иностранные граждане (зачислено платное)": [],
-                             "Отчислено за счет бюджетных ассигнований бюджета субъекта РФ": [],
-                             "Из них иностранные граждане (отчислено бюджет)": [],
-                             "Отчислено по договорам об оказании платных образовательных услуг": [],
-                             "Из них иностранные граждане (отчислено платное)": []})
-        files = set_file_name()
-        if files[len(files) - 1]:
-            data.to_excel("{0}{1}".format(*files), sheet_name="Контингент (очно)", index=False)
+            if foe == "Все":
+                data_1 = pd.DataFrame(sheet_1)
+                data_2 = pd.DataFrame(sheet_2)
+                data_3 = pd.DataFrame(sheet_3)
+                sheets = {"Контингент (очно)": data_1,
+                          "Контингент (очно-заочно)": data_2,
+                          "Контингент (заочно)": data_3}
+                writer = pd.ExcelWriter("{0}{1}".format(*files), engine="xlsxwriter")
+                for sheet_name in sheets.keys():
+                    sheets[sheet_name].to_excel(writer, sheet_name=sheet_name, index=False)
+                writer.save()
+            elif foe == "Очная":
+                data_1 = pd.DataFrame(sheet_1)
+                data_1.to_excel("{0}{1}".format(*files), sheet_name="Контингент (очно)", index=False)
+            elif foe == "Очно-заочная":
+                data_1 = pd.DataFrame(sheet_1)
+                data_1.to_excel("{0}{1}".format(*files), sheet_name="Контингент (очно-заочно)", index=False)
+            elif foe == "Заочная":
+                data_1 = pd.DataFrame(sheet_1)
+                data_1.to_excel("{0}{1}".format(*files), sheet_name="Контингент (заочно)", index=False)
